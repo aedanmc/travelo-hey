@@ -50,9 +50,11 @@
 1. Plans and Goals from Last Week
   - None
 2. Progress and Issues
-  -
+  - Assisted with establishment of requirements and policies
 3. Plans and Goals for Next Week
-  -
+  - Begin aggregating data
+  - Decide what is the database tool to use and research ways to use it in our project
+  - Work with backend team to establish work priorities/tasks
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
