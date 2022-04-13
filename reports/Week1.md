@@ -49,13 +49,16 @@
         - Choose design by Monday, April 18th
         - Add related tasks to GitHub project board
 
-### Alex Zuniga (they/them/she/he)
+### Alex Zuniga (they/she/he)
 1. Plans and Goals from Last Week
   - None
 2. Progress and Issues
-  -
+  - Contributed to requirements/policies discussion
+  - Completed use case for documentation
 3. Plans and Goals for Next Week
-  -
+  - Begin on UI work/discussion with Aedan 
+    - Sketches for website 
+  - Have a conversation with rest of team about UI ideas/sketches
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
