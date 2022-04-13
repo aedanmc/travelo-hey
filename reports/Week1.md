@@ -64,7 +64,7 @@
   - Assisted with establishment of requirements and policies
 3. Plans and Goals for Next Week
   - Begin aggregating data
-  - Decide what is the database tool to use and research ways to use it in our project
+  - Research cloud databases and how to apply it to our project. Share findings with the team members.
   - Work with backend team to establish work priorities/tasks
 
 ### Matt Broom (he/they)
