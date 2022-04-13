@@ -14,25 +14,25 @@
 
 ## Team Report
 1. Plans and Goals from Last Week
-  - None
+    - None
 2. Progress and Issues
-  - Developed requirements and policies
-  - Decided roles and responsibilities in a general sense
-  - Established that our team will take on an Agile variant model utilizing Scrum methodologies
-  - Issues:
-    - Difficulty finding/compiling data
-    - Knowing what to use for web hosting
-    - Working out communication styles
+    - Developed requirements and policies
+    - Decided roles and responsibilities in a general sense
+    - Established that our team will take on an Agile variant model utilizing Scrum methodologies
+    - Issues:
+      - Difficulty finding/compiling data
+      - Knowing what to use for web hosting
+      - Working out communication styles
 3. Plans and Goals for Next Week
-  - Implement twice weekly Scrum meetings
-  - Implement Github progress tracker
-  - Complete UI design
-  - Complete data collection
+    - Implement twice weekly Scrum meetings
+    - Implement Github progress tracker
+    - Complete UI design
+    - Complete data collection
 
 ## Team Member Contributions
 ### Aedan McCall (they/them)
 1. Plans and Goals from Last Week
-  - None
+    - None
 2. Progress and Issues
     - Progress
         - Contributed to writing requirements document
@@ -51,41 +51,41 @@
 
 ### Alex Zuniga (they/she/he)
 1. Plans and Goals from Last Week
-  - None
+    - None
 2. Progress and Issues
-  - Contributed to requirements/policies discussion
-  - Completed use case for documentation
+    - Contributed to requirements/policies discussion
+    - Completed use case for documentation
 3. Plans and Goals for Next Week
-  - Begin on UI work/discussion with Aedan 
-    - Sketches for website 
-  - Have a conversation with rest of team about UI ideas/sketches
+    - Begin on UI work/discussion with Aedan 
+      - Sketches for website 
+    - Have a conversation with rest of team about UI ideas/sketches
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
-  - None
+    - None
 2. Progress and Issues
-  - Assisted with establishment of requirements and policies
+    - Assisted with establishment of requirements and policies
 3. Plans and Goals for Next Week
-  - Begin aggregating data
-  - Research cloud databases and how to apply it to our project. Share findings with the team members.
-  - Work with backend team to establish work priorities/tasks
+    - Begin aggregating data
+    - Research cloud databases and how to apply it to our project. Share findings with the team members.
+    - Work with backend team to establish work priorities/tasks
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
-  - None
+    - None
 2. Progress and Issues
-  -
+    -
 3. Plans and Goals for Next Week
-  -
+    -
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
-  - None
+    - None
 2. Progress and Issues
-  - Assisted with establishment of requirements and policies
-  - Established framework for weekly status reports on repo
-  -
+    - Assisted with establishment of requirements and policies
+    - Established framework for weekly status reports on repo
+    -
 3. Plans and Goals for Next Week
-  - Begin aggregating data
-  - Work with backend team to establish work priorities
-  -
+    - Begin aggregating data
+    - Work with backend team to establish work priorities
+    -
