@@ -74,9 +74,12 @@
 1. Plans and Goals from Last Week
     - None
 2. Progress and Issues
-    -
+    - Wrote out some justifications, requirements, policies, etc. for the requirements and policies document
+    - Helped with selection of subteams and roles
 3. Plans and Goals for Next Week
-    -
+    - Gather at least 5 reliable sources to pull data from
+    - Aggregate data into one file/database
+    - Discuss backend work priorities and begin planning for further work on gathered data + discussing the best sources to use
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
