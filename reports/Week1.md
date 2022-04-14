@@ -84,8 +84,6 @@
 2. Progress and Issues
     - Assisted with establishment of requirements and policies
     - Established framework for weekly status reports on repo
-    -
 3. Plans and Goals for Next Week
     - Begin aggregating data
     - Work with backend team to establish work priorities
-    -
