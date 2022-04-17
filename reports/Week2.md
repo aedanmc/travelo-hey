@@ -6,11 +6,7 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
-1. Asking about cloud resources and licensing
-2. Asking about referencing/using outside code sources
-3. Feedback on tech stack
-4. Risks - ask for starting points
-5. Use cases - asking for feedback
+1. 
 
 ## Team Report
 1. Plans and Goals from Last Week
