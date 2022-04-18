@@ -1,7 +1,7 @@
 # Week 2 Status Report
 *Team: Travelo-Hey!*
 
-*Dates: April 20 - 28, 2022*
+*Dates: April 14 - 20, 2022*
 
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
