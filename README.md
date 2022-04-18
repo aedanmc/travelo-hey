@@ -4,6 +4,8 @@
 
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
+## Synopsis
+
 Are you, or do you know a queer person that has traveled? Ever wanted to travel somewhere with your queer friends but not sure if it was safe to do so? According to National Geographic, prior to the COVID pandemic, LGBTQ+ people in the United States traveled on average 7 times each year and they spent $63.1 billion annually on traveling.
 
 Many blogs exist that discuss single perspective information related to destination activities. So, queer travelers have to spend a lot of time researching safe things to do for travel planning.
@@ -17,3 +19,4 @@ The information stored within our databases will include user data, business dat
 
 This is a really important topic to bring equity into technology. Travelo-Hey! is a unique tool that will revolutionize the way the queer community travels. 
 
+## Implementation Description
