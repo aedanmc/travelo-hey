@@ -7,7 +7,7 @@
 ## Table of Contents
 
 - [Synopsis](#Synopsis)
-- [Repository Layout](#RepositoryLayout)
+- [Repository Layout](#Repository-Layout)
 
 ## Synopsis
 
