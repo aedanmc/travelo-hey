@@ -5,7 +5,7 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 
-- [Synopsis][#heading]
+- [Synopsis](#heading)
 
 ## Synopsis
 
