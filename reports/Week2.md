@@ -19,7 +19,7 @@
        - Completed data collection
        - UI designs mostly complete (need slight modifications)
        - Github structure created (need slight modifications)
-       - Implementation details for deployment are 95% complete, missing minor details that will come up as we come along
+       - Implementation details for deployment are 95% complete, missing minor details that will come up as we move along
     - Issues
        - Figuring out structure of scrum meetings (async Saturday, sync Tuesday): not implemented yet
        - Corporate safety data: transforming into our own equality rating with questions chosen by us
@@ -59,9 +59,21 @@
       - Sketches for website 
     - Have a conversation with rest of team about UI ideas/sketches
 2. Progress and Issues
-    - 
+    - Progress
+        - Met with Aedan to combine our respective UI low-fidelity sketches before Tuesday's team meeting
+        - Redrew combined iteration ideas
+        - Presented iterated designs and potential different format options to team
+        - Researched front-end deployment for GCP
+    - Issues
+        - Did not add tasks to Github
 3. Plans and Goals for Next Week
-    -
+    - Plans
+        - Add new UI page for business information details and reviews 
+        - Discuss/add new UI page for leaving a review 
+            - Also figure out how a user can manage/view their reviews 
+    - Goals
+        - Complete UI final designs/iterations
+        - Begin implementation for front-end with Aedan
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
