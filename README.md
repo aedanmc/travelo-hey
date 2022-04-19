@@ -28,7 +28,7 @@ This is a really important topic to bring equity into technology. Travelo-Hey! i
 
 ## Repository Layout
 
-The structure of this repository is divided into the three major components that form the overall Travelo-Hey software requiements: front-end, back-end, and data.
+The structure of this repository is divided into the three major components that form the overall Travelo-Hey software requirements: front-end, back-end, and data.
 
 * The [data folder](https://github.com/aedanmc/travelo-hey/tree/main/data) is fairly self-explanatory: it stores the data that has been collected and aggregated for use in providing recommendations to users and responding to search queries.
 * The [back-end folder](https://github.com/aedanmc/travelo-hey/tree/main/back-end) hosts files related to providing data to the front-end and performing necessary calculations (including AI implementation).
