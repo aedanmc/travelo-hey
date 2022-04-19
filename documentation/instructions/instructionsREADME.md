@@ -1,7 +1,7 @@
 # Set up Instructions
 
 ## Table of Contents
-- [Back-end Set up](#Back-end)
+- [Back-end](#Back-end)
 - [Database](#Database)
 
 ## Back-end
