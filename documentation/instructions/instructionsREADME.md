@@ -5,6 +5,11 @@
   -  [Setting up a Domain Name Service](#Setting-up-a-Domain-Name-Service)
   -  [Pre-requisites](#Pre-requisites)
   -  [Migrate Project to GCP](#Migrate-Project-to-GCP)
+  -  [Set up Build Config File (yaml)](#Set-up-Build-Config-File-(yaml))
+  -  [Use Cloud Build](#Use-Cloud-Build)
+  -  [Setup Google App Engine](#Setup-Google-App-Engine)
+  -  [Deploying Website](#Deploying-Website)
+  -  [Updating the Code](#Updating-the-Code)
 - [Database](#Database)
 
 ## Back-end
