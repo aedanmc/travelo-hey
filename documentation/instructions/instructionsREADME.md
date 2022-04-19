@@ -1,8 +1,8 @@
 # Set up Instructions
 
 ## Table of Contents
-[Back-end Set up](Back\-end)
-[Database](Database)
+- [Back-end Set up](#Back-end)
+- [Database](#Database)
 
 ## Back-end
 ### Setting up a Domain Name Service
