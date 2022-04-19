@@ -53,13 +53,13 @@ Because Cloud Build will build the repository to an App Engine application, we s
 
 ## Deploying Website
 - Using Cloud Shell:
-1. Open the Cloud Shell (look for it in the search bar)
-2. A terminal window will appear (in the bottom of the screen). Enter:
+  1. Open the Cloud Shell (look for it in the search bar)
+  2. A terminal window will appear (in the bottom of the screen). Enter:
 ```gcloud app deploy app.yaml```
-3. When it asks you "Do you want to continue?" enter: Y
+  3. When it asks you "Do you want to continue?" enter: Y
 
 - Using App Engine:
-1. Download Cloud SDK and follow instructions in the GCP page
+  1. Download Cloud SDK and follow instructions in the GCP page
 
 ## Updating the Code
 Whenever the code is updated, do the following:
