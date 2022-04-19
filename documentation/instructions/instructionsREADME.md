@@ -2,6 +2,9 @@
 
 ## Table of Contents
 - [Back-end](#Back-end)
+  -  [Setting up a Domain Name Service](#Setting-up-a-Domain-Name-Service)
+  -  [Pre-requisites](#Pre-requisites)
+  -  [Migrate Project to GCP](#Migrate-Project-to-GCP)
 - [Database](#Database)
 
 ## Back-end
@@ -76,3 +79,4 @@ Whenever the code is updated, do the following:
 
 ## Database
 
+-> Back Top ->
