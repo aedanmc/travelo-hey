@@ -7,7 +7,8 @@
 ## Table of Contents
 
 - [Synopsis](#Synopsis)
-- [Implementation Description](#Implementation Description)
+- [Repository Layout](#Repository Layout)
+- [Implementation Description](#ImplementationDescription)
 
 ## Synopsis
 
