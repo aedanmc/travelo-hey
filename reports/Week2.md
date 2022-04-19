@@ -30,9 +30,11 @@
         - Choose design by Monday, April 18th
         - Add related tasks to GitHub project board
 2. Progress and Issues
-    - 
+    - Met with Alex to plan design for UI Monday
+    - Met with Matt to flesh out GitHub structure Monday
+    - Did not get enough time to add tasks to GitHub project board
 3. Plans and Goals for Next Week
-    -
+    - Start implementing UI layout for front end with Alex
 
 ### Alex Zuniga (they/she/he)
 1. Plans and Goals from Last Week
