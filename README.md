@@ -6,8 +6,8 @@
 
 ## Table of Contents
 
-- [Synopsis](#heading)
-- [Implementation Description](#heading)
+- [Synopsis](#Synopsis)
+- [Implementation Description](#Implementation Description)
 
 ## Synopsis
 
