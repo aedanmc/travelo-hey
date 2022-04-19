@@ -7,8 +7,7 @@
 ## Table of Contents
 
 - [Synopsis](#Synopsis)
-- [Repository Layout](#Repository Layout)
-- [Implementation Description](#ImplementationDescription)
+- [Repository Layout](#RepositoryLayout)
 
 ## Synopsis
 
@@ -24,8 +23,6 @@ Welcome to Travelo-Hey!! Our solution will consist of a web application with clo
 The information stored within our databases will include user data, business data, and the reviews and ratings. The reviews and ratings will store the text and rating, along with any images and videos published.
 
 This is a really important topic to bring equity into technology. Travelo-Hey! is a unique tool that will revolutionize the way the queer community travels. 
-
-## Implementation Description
 
 ## Repository Layout
 
