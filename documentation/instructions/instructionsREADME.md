@@ -1,20 +1,23 @@
-## Table of Contents
-[Back-end Set up](Back-end-Set-up)
+#Set up Instructions
 
-# Back-end Set up
-## Setting up a Domain Name Service
+## Table of Contents
+[Back-end Set up](Backend)
+[Database](Database)
+
+## Backend
+### Setting up a Domain Name Service
 
 Usually, you will want to register a domain name for your site. You can use a public domain name registrar, such as [Google Domains](https://domains.google.com/about/), 
 to register a unique name for your site. If you want complete control of your own [domain name system (DNS)](https://wikipedia.org/wiki/Domain_Name_System), you can use [Cloud DNS](https://cloud.google.com/dns) to
 serve as your DNS provider. The Cloud DNS documentation [includes a quickstart](https://cloud.google.com/dns/quickstart) to get you going.
 
-## Pre-requisites
+### Pre-requisites
 - Create a GCP project
 - Have the project on Github
 - Enable Cloud Build API
 - Enable Cloud App Engine API
 
-## Migrate Project to GCP
+### Migrate Project to GCP
 1. Go to the search windows and enter "Repository"
 2. Click on Source Repositories.
 3. Click on **Get started** and **Create repository**.
@@ -26,10 +29,10 @@ your Google Cloud project.
 6. Click on the **Connect selected repository** button.
 A new page with your Google Cloud repository will open. It will have the code from GitHub in it.
 
-## Set up Build Config File (yaml)
+### Set up Build Config File (yaml)
 -
 
-## Use Cloud Build
+### Use Cloud Build
 1. Open your [Cloud Build Triggers page](https://console.cloud.google.com/cloud-build/triggers)
 2. Choose your project if it had not been chosen
 3. Click **+Create Trigger** button
@@ -47,7 +50,7 @@ pushed to Github will be shown in the dropdown. In this case, I choose **“^mas
 
 **Build configuration**: there should be nothing that you need to change. But to make sure, check if the input is like the following.
 
-## Setup Google App Engine
+### Setup Google App Engine
 Because Cloud Build will build the repository to an App Engine application, we should create it first.
 1. Go to [App Engine tab](https://console.cloud.google.com/appengine) in your GCP console
 2. Click Create Application button
@@ -55,7 +58,7 @@ Because Cloud Build will build the repository to an App Engine application, we s
 4. Click Create App button
 5. You will be asked the Language and Environment options which are optional. Choose “Node.js” for the Language options so you will be given Node.js documentation links for App Engine in the next page.
 
-## Deploying Website
+### Deploying Website
 - Using Cloud Shell:
   1. Open the Cloud Shell (look for it in the search bar)
   2. A terminal window will appear (in the bottom of the screen). Enter:
@@ -65,9 +68,11 @@ Because Cloud Build will build the repository to an App Engine application, we s
 - Using App Engine:
   1. Download Cloud SDK and follow instructions in the GCP page
 
-## Updating the Code
+### Updating the Code
 Whenever the code is updated, do the following:
 1. Upload the code to GitHub
 2. Deploy the code to GAE using this command: 
 ```gcloud app deploy app.yaml```
+
+## Database
 
