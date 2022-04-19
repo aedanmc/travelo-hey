@@ -1,5 +1,7 @@
-## Contents Table
+## Table of Contents
+[Back-end Set up](Back-end-Set-up)
 
+# Back-end Set up
 ## Setting up a Domain Name Service
 
 Usually, you will want to register a domain name for your site. You can use a public domain name registrar, such as [Google Domains](https://domains.google.com/about/), 
