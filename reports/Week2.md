@@ -15,9 +15,26 @@
     - Complete UI design
     - Complete data collection
 2. Progress and Issues
-    - 
+    - Progress
+       - Completed data collection
+       - UI designs mostly complete (need slight modifications)
+       - Github structure created (need slight modifications)
+       - Implementation details for deployment are 95% complete, missing minor details that will come up as we come along
+    - Issues
+       - Figuring out structure of scrum meetings (async Saturday, sync Tuesday): not implemented yet
+       - Corporate safety data: transforming into our own equality rating with questions chosen by us
+       - More details with progress tracker need to be fleshed out (issues, milestones)
+
 3. Plans and Goals for Next Week
-    - 
+    - Scrum structure (make a document to delineate)
+    - Progress Tracker
+    - Finalize UI designs (ASAP)
+    - Modify Github structure (move sketches into docs)
+    - Finalize equality rating for companies/businesses
+    - Hash out details with regards to software components
+    - Setup MySQL database
+    - Start on implementation for API agile style (with heavy communication!)
+    - Begin working on UI implementation
 
 ## Team Member Contributions
 ### Aedan McCall (they/them)
