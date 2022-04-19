@@ -4,8 +4,10 @@
 
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
+## Table of Content
 
 - [Synopsis](#heading)
+- [Implementation Description](#heading)
 
 ## Synopsis
 
