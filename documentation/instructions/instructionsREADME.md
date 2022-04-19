@@ -1,4 +1,4 @@
-## Setting up a domain name services
+## Setting up a Domain Name Service
 
 Usually, you will want to register a domain name for your site. You can use a public domain name registrar, such as [Google Domains](https://domains.google.com/about/), 
 to register a unique name for your site. If you want complete control of your own [domain name system (DNS)](https://wikipedia.org/wiki/Domain_Name_System), you can use [Cloud DNS](https://cloud.google.com/dns) to
@@ -10,7 +10,7 @@ serve as your DNS provider. The Cloud DNS documentation [includes a quickstart](
 - Enable Cloud Build API
 - Enable Cloud App Engine API
 
-## Migrate project to GCP
+## Migrate Project to GCP
 1. Go to the search windows and enter "Repository"
 2. Click on Source Repositories.
 3. Click on **Get started** and **Create repository**.
@@ -22,7 +22,7 @@ your Google Cloud project.
 6. Click on the **Connect selected repository** button.
 A new page with your Google Cloud repository will open. It will have the code from GitHub in it.
 
-## Set up build config file (yaml)
+## Set up Build Config File (yaml)
 -
 
 ## Use Cloud Build
@@ -51,7 +51,7 @@ Because Cloud Build will build the repository to an App Engine application, we s
 4. Click Create App button
 5. You will be asked the Language and Environment options which are optional. Choose “Node.js” for the Language options so you will be given Node.js documentation links for App Engine in the next page.
 
-## Deploying website
+## Deploying Website
 - Using Cloud Shell:
 1. Open the Cloud Shell (look for it in the search bar)
 2. A terminal window will appear (in the bottom of the screen). Enter:
