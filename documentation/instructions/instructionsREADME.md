@@ -65,7 +65,7 @@ Because Cloud Build will build the repository to an App Engine application, we s
 
 ## Updating the Code
 Whenever the code is updated, do the following:
-Upload the code to GitHub
-Deploy the code to GAE using this command: 
+1. Upload the code to GitHub
+2. Deploy the code to GAE using this command: 
 ```gcloud app deploy app.yaml```
 
