@@ -85,9 +85,17 @@
     - Research cloud databases and how to apply it to our project. Share findings with the team members.
     - Work with backend team to establish work priorities/tasks
 2. Progress and Issues
-    - 
+    - Progress
+        - Met with Matt and Mike to aggregate data and start the conversation about equality rating
+        - Developed the documentation for the website deployment using GCP
+        - Met with Mike to research hosting companies to present to the team
+    - Issues
+        - Cloud technology is complex, and I've been doing some research to have a better understanding of it
 3. Plans and Goals for Next Week
-    - 
+    - Work on progress tracker (add some milestones, tags and tasks)
+    - Meet with Matt and Mike to finalize equality rating for companies/businesses
+    - Setup and populate database
+    - Contribute to the architecture and design assignment
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
