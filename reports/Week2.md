@@ -107,9 +107,17 @@
     - Aggregate data into one file/database
     - Discuss backend work priorities and begin planning for further work on gathered data + discussing the best sources to use
 2. Progress and Issues
-    - 
+    - Progress
+       - Completed data collection/aggregation w/ backend subteam
+       - Discussed creation of equality rating to measure LGBTQ+-friendliness of businesses
+       - Worked with Aedan on adding file/folder structure to Github repository
+    - Issues
+       - Lacked time to flesh out project tracker w/ boards and cards, more structure, more details
 3. Plans and Goals for Next Week
-    - 
+    - Work with backend in setting up MySQL database
+    - Begin implementation of backend
+    - Finalize details of equality rating for businesses
+    - Assist in delineating specifics of Scrum meeting structure
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
