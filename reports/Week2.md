@@ -8,6 +8,8 @@
 ## Agenda
 1. Check in after previous week of work
 2. Discuss front end UI sketches/ design if needed
+3. Discuss scoping: what should be our one beta use case? 
+    - What are the concrete steps to get there?
 
 
 ## Team Report
@@ -51,7 +53,7 @@
         - Choose design by Monday, April 18th
         - Add related tasks to GitHub project board
 2. Progress and Issues
-    - Met with Alex to plan design for UI Monday
+    - Met with Alex to plan design for UI Monday & Wednesday
         - Created UI design sketches 
     - Met with Matt to flesh out GitHub structure Monday
         - Did not get enough time to add tasks to GitHub project board
