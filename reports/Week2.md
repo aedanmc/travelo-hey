@@ -6,7 +6,9 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
-1. 
+1. Check in after previous week of work
+2. Discuss front end UI sketches/ design if needed
+
 
 ## Team Report
 1. Plans and Goals from Last Week
