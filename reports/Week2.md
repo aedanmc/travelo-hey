@@ -37,6 +37,8 @@
     - Setup MySQL database
     - Start on implementation for API agile style (with heavy communication!)
     - Begin working on UI implementation
+    - Implement feedback on requirements document
+        - Add use case for login
 
 ## Team Member Contributions
 ### Aedan McCall (they/them)
