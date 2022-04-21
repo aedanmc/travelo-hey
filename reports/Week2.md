@@ -124,6 +124,20 @@
     - Begin aggregating data
     - Work with backend team to establish work priorities
 2. Progress and Issues
-    - 
+    - Progress
+        - Developed Travelo-Hey! Equality Rating and questions with backend team
+        - Assisted Camila with development of backend build instructions
+        - Setup MySQL instance on GCP
+        - Enabled Google APIs that may be used in our project
+            - Google Maps
+            - Google Places
+            - ReCAPTHCA
+            - App Engine
+            - Cloud Build
+    - Issues
+        - Did not prioritize the Github project tracker
+        - Undertanding Google cloud technology has been a bit of a learning curve
 3. Plans and Goals for Next Week
-    - 
+    - Implement database table structure in GCP
+    - Begin investing into Github project tracker tasks
+    - Work with team to complete Architecture and Design assignment
