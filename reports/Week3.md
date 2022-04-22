@@ -40,9 +40,9 @@
         - Complete UI final designs/iterations
         - Begin implementation for front-end with Aedan
 2. Progress and Issues
-    -
+
 3. Plans and Goals for Next Week
-    -
+
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
@@ -51,9 +51,9 @@
     - Setup and populate database
     - Contribute to the architecture and design assignment
 2. Progress and Issues
-    -
+
 3. Plans and Goals for Next Week
-    -
+
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
@@ -62,9 +62,9 @@
     - Finalize details of equality rating for businesses
     - Assist in delineating specifics of Scrum meeting structure
 2. Progress and Issues
-    -
+
 3. Plans and Goals for Next Week
-    -
+
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
@@ -72,6 +72,6 @@
     - Begin investing into Github project tracker tasks
     - Work with team to complete Architecture and Design assignment
 2. Progress and Issues
-    -
+
 3. Plans and Goals for Next Week
-    -
+
