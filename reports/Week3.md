@@ -26,9 +26,9 @@
     - Start implementing UI layout for front end with Alex
     - Coordinate project board tasks/ cards
 2. Progress and Issues
-    -
+    
 3. Plans and Goals for Next Week
-    -
+    
 
 ### Alex Zuniga (they/she/he)
 1. Plans and Goals from Last Week
