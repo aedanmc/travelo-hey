@@ -76,7 +76,7 @@
         - Figured out MySQL database on GCP and implemented our tables
         - Started using GH Project Tracker
         - Developed Scrum procedure documentation
-        - Figured out how to deploy project
+        - Figured out how to deploy project using App Engine API
     - Issues:
         - None at this time
 3. Plans and Goals for Next Week
