@@ -72,6 +72,13 @@
     - Begin investing into Github project tracker tasks
     - Work with team to complete Architecture and Design assignment
 2. Progress and Issues
-
+    - Progress:
+        - Figured out MySQL database on GCP and implemented our tables
+        - Started using GH Project Tracker
+        - Developed Scrum procedure documentation
+        - Figured out how to deploy project
+    - Issues:
+        - None at this time
 3. Plans and Goals for Next Week
-
+    - Integrate Google APIs into server
+    - Integrate database calls to server
