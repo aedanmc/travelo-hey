@@ -49,8 +49,8 @@ Our database is composed of a total of 4 tables with the following names: busine
 ![Countries](countries.jpg)
 
 #### Users
-![Users](users.jpg)
+![Users](user.jpg)
 
 #### Reviews
-![Reviews](reviews.jpg)
+![Reviews](review.jpg)
 
