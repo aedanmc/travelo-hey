@@ -26,8 +26,24 @@
     - Start implementing UI layout for front end with Alex
     - Coordinate project board tasks/ cards
 2. Progress and Issues
-    
+- Progress:
+        - Added milestones and issues for next deliverable to GitHub tracker
+        - Began researching front-end implementation frameworks for React
+        - Team meeting on Sunday:
+            - 
+    - Issues:
+        - Feeling overwhelmed with what we have to do next (implementation, testing, CI, documentation) 
+        given how much time we have
+        - Trying to figure out what our use case implementation will be 
+        (components, interfaces, etc)
 3. Plans and Goals for Next Week
+    - Plans:
+        - Utilize the materials and decisions made for the software architecture deliverable
+        to start writing code
+        - Collaborate with the whole team on API components asynchronously
+    - Goals:
+        - Make significant progress towards first use case on both API and UI implementation
+        - Decide on whether front end will use any testing frameworks or just visual inspection
     
 
 ### Alex Zuniga (they/she/he)
