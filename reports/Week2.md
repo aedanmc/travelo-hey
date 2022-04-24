@@ -57,6 +57,7 @@
         - Created UI design sketches 
     - Met with Matt to flesh out GitHub structure Monday
         - Did not get enough time to add tasks to GitHub project board
+    - Major scope creep on UI design/ number of pages required for MVP
 3. Plans and Goals for Next Week
     - Start implementing UI layout for front end with Alex
     - Coordinate project board tasks/ cards
