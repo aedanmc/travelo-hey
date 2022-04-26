@@ -134,16 +134,16 @@ To confirm that the database contains the data imported, access the database usi
 Our database is composed of a total of 4 tables with the following names: businesses, countries, reviews and users. Below are their schemas.
 
 ##### Businesses
-![Businesses](business.jpg)
+![Businesses](businesses.jpg)
 
 ##### Countries
 ![Countries](countries.jpg)
 
 ##### Users
-![Users](user.jpg)
+![Users](users.jpg)
 
 ##### Reviews
-![Reviews](review.jpg)
+![Reviews](reviews.jpg)
 
 
 [Back to Top](#Set-up-Instructions)
