@@ -6,18 +6,42 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
-1. 
+1. Get feedback on Architecture and Design
+2. API keys - how to store them for use?
+3. Next.js vs. React
 
 
 ## Team Report
 1. Plans and Goals from Last Week
+    - Scrum structure (make a document to delineate)
+    - Progress Tracker
+    - Finalize UI designs (ASAP)
+    - Modify Github structure (move sketches into docs)
+    - Finalize equality rating for companies/businesses
+    - Hash out details with regards to software components
+    - Setup MySQL database
+    - Start on implementation for API agile style (with heavy communication!)
+    - Begin working on UI implementation
+    - Implement feedback on requirements document
+        - Add use case for login
     
 2. Progress and Issues
     - Progress
+        -  Scrum structure
+        -  Progress Tracker
+        -  Finalize UI design
+        -  Modify Github structure 
+        -  Finalize equality rating for companies/businesses
+        -  Setup MySQL database
+        -  Implement feedback on requirements document
     - Issues
+        - Start on implementation for API agile style (with heavy communication!) 
        
 3. Plans and Goals for Next Week
-
+    - Build system ready
+    - Implementation of login page
+    - Start on implementation for API agile style
+    - Functionality for login page
 
 
 ## Team Member Contributions
