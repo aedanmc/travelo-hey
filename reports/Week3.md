@@ -42,6 +42,7 @@
     - Implementation of login page
     - Start on implementation for API agile style
     - Functionality for login page
+    - Finalize Post Beta milestones
 
 
 ## Team Member Contributions
