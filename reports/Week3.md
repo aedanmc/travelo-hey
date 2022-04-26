@@ -89,12 +89,15 @@
     - Work with team to complete Architecture and Design assignment
 2. Progress and Issues
     - Progress:
-        - Figured out MySQL database on GCP and implemented our tables
+        - Implemented MySQL database on GCP and setup our tables
         - Started using GH Project Tracker
         - Developed Scrum procedure documentation
         - Figured out how to deploy project using App Engine API
+        - Assisted team with Architecture and Design assignment
     - Issues:
-        - None at this time
+        - Lack of familiarity with best practices of API keys
 3. Plans and Goals for Next Week
+    - Setup Node.js with Express.js framework
     - Integrate Google APIs into server
     - Integrate database calls to server
+    - Work with team to complete Testing and CI assignment
