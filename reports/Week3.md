@@ -54,8 +54,9 @@
 - Progress:
         - Added milestones and issues for next deliverable to GitHub tracker
         - Began researching front-end implementation frameworks for React
-        - Team meeting on Sunday:
-            - 
+        - Research testing frameworks to build sample tests 
+        - Discussed testing strategies as a team
+        - Assigned individual pages and components for front end team to work on
     - Issues:
         - Feeling overwhelmed with what we have to do next (implementation, testing, CI, documentation) 
         given how much time we have
