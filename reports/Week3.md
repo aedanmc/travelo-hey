@@ -7,8 +7,17 @@
 
 ## Agenda
 1. Get feedback on Architecture and Design
+    - MVC is not a good option for the implementation of our project, because of the way the view changes. We should look more into the definition of MVVM.
+    - The architeture doc for the back-end is really only the Node.js file. There are no class on components. We are using Express.js and other frameworks to retrieve the data from the database.
+    - The back-end is not very flexible and it seems hard to scale. In order to add additional features it would make things hard. Easier if we think about Object Oriented Programming to make the back-end more flexible.
+    - The structure of the doc is hard to follow. We need to keep track of the changes we make. Highlight the updates in the document.
 2. API keys - how to store them for use?
+    - Follow the guide
+    - There is a difference between deployment and production and each one has its own guideline
+    - For production, some of the secret keys will be included in the package.
 3. Next.js vs. React
+4. For the build system
+    - Use Docker (not really related to build system but it was a suggestion)
 
 
 ## Team Report
