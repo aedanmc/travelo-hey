@@ -82,9 +82,25 @@
         - Complete UI final designs/iterations
         - Begin implementation for front-end with Aedan
 2. Progress and Issues
-
+    - Progress
+        - Divided UI into components with Aedan
+        - Aided in Architecture and Design discussion and assignment
+            - Added individual submission components
+            - Worked collaboratively on other sections
+        - Began looking at login page implementation
+        - Created an implementation check in plan with Aedan
+    - Issues
+        - Worried that we will not have enough time to complete everything despite a schedule
+        - Feeling overwhelmed with a clear starting direction (i.e. setting priorities for what needs to be done for beta UI implementation)
 3. Plans and Goals for Next Week
-
+    - Plans
+        - Begin on UI implementation for login page 
+        - Work on decisions made in Architecture assignment 
+        - Collaborate with Aedan for UI and the team for API
+    - Goals 
+        - Create skeleton of login page or make some sort of decent progress
+        - Keep updated on Aedan's code
+        - Work with team on any remaining issues
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
