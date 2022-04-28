@@ -103,9 +103,18 @@
     - Finalize details of equality rating for businesses
     - Assist in delineating specifics of Scrum meeting structure
 2. Progress and Issues
-
+    - Progress
+        - Started using Github project tracker
+        - Helped in completing Architecture & Design assignment
+        - Finalized details with equality rating for businesses
+    - Issues
+        - Unfamiliarity with API keys
+        - Have not started programming implementation for back-end (but do have MySQL database)
 3. Plans and Goals for Next Week
-
+    - Start API implementation (working towards first use case)
+    - Back-end functionality for login page
+    - Figure out hashing/salting for user passwords
+    - Send Identity Platform code to front-end
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
