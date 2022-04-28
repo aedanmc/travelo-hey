@@ -6,7 +6,13 @@
     "type": "git",
     "url": "git+ssh://git@github.com/aedanmc/travelo-hey.git"
   },
-  "author": "Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris",
+  "contributors": [
+    {"name": "Aedan McCall", "email":  "aedanmc@uw.edu", "url":  "https://github.com/aedanmc"},
+    {"name": "Alex Zuniga", "email":  "mzuniga@uw.edu", "url":  "https://github.com/mzuniga-1833381"},
+    {"name": "Camila Christensen", "email":  "camilyo@cs.washington.edu", "url":  "https://github.com/camilyo"},
+    {"name": "Matt Broom", "email":  "matty162@uw.edu", "url":  "https://github.com/matthewdbroom13"},
+    {"name": "Mike Harris", "email":  "micha06@uw.edu", "url":  "https://github.com/mik3ycodez"}
+  ],
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.0",
