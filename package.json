@@ -20,7 +20,7 @@
     {
       "name": "Camila Christensen",
       "email": "camilyo@cs.washington.edu",
-      "url": "https://github.com/camilyo"
+      "url": "https://github.com/c-christensen"
     },
     {
       "name": "Matt Broom",
@@ -50,9 +50,13 @@
     "posttest": "echo \"No tests implemented yet\"",
     "start": "node server.js",
     "start:dev": "node server.js 8000",
-    "lint": "jshint *.js **/*.js !node_modules/"
+    "lint": "jshint *.js **/*.js"
   },
   "devDependencies": {
-    "jshint": "^2.13.4"
+    "browserify": "^17.0.0",
+    "jshint": "^2.13.4",
+    "rimraf": "^3.0.2",
+    "uglify-js": "^2.8.29",
+    "watchify": "^4.0.0"
   }
 }
