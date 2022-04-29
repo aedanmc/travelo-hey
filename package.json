@@ -1,17 +1,37 @@
 {
   "name": "travelo-hey",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/aedanmc/travelo-hey.git"
   },
   "contributors": [
-    {"name": "Aedan McCall", "email":  "aedanmc@uw.edu", "url":  "https://github.com/aedanmc"},
-    {"name": "Alex Zuniga", "email":  "mzuniga@uw.edu", "url":  "https://github.com/mzuniga-1833381"},
-    {"name": "Camila Christensen", "email":  "camilyo@cs.washington.edu", "url":  "https://github.com/camilyo"},
-    {"name": "Matt Broom", "email":  "matty162@uw.edu", "url":  "https://github.com/matthewdbroom13"},
-    {"name": "Mike Harris", "email":  "micha06@uw.edu", "url":  "https://github.com/mik3ycodez"}
+    {
+      "name": "Aedan McCall",
+      "email": "aedanmc@uw.edu",
+      "url": "https://github.com/aedanmc"
+    },
+    {
+      "name": "Alex Zuniga",
+      "email": "mzuniga@uw.edu",
+      "url": "https://github.com/mzuniga-1833381"
+    },
+    {
+      "name": "Camila Christensen",
+      "email": "camilyo@cs.washington.edu",
+      "url": "https://github.com/camilyo"
+    },
+    {
+      "name": "Matt Broom",
+      "email": "matty162@uw.edu",
+      "url": "https://github.com/matthewdbroom13"
+    },
+    {
+      "name": "Mike Harris",
+      "email": "micha06@uw.edu",
+      "url": "https://github.com/mik3ycodez"
+    }
   ],
   "license": "ISC",
   "dependencies": {
@@ -25,6 +45,14 @@
   },
   "homepage": "https://github.com/aedanmc/travelo-hey#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "echo \"No tests implemented yet\"",
+    "posttest": "echo \"No tests implemented yet\"",
+    "start": "node server.js",
+    "start:dev": "node server.js 8000",
+    "lint": "jshint *.js **/*.js !node_modules/"
+  },
+  "devDependencies": {
+    "jshint": "^2.13.4"
   }
 }

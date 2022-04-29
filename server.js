@@ -54,7 +54,7 @@ app.use(multer().none());
 
 // simple GET end point to test for now
 app.get('/', function (req, res) {
- res.send('Hello world!');
+ res.send('Hello Camila!');
 });
 
 /*
@@ -71,8 +71,8 @@ app.get('/', function (req, res) {
  ******************
  */
 const PORT = process.env.PORT || PORT_8000;
-app.listen(PORT, () => {
- // console.log("Listening on port " + PORT + "..."); // uncomment for debugging
+ app.listen(PORT, () => {
+ console.log("Listening on port " + PORT + "..."); // uncomment for debugging
 });
 
 // need to determine how we're structuring files. Typically app.js would be one level above our
