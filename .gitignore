@@ -1,0 +1,8 @@
+.*
+.idea/misc.xml
+.idea/modules.xml
+.idea/travelo-hey.iml
+.idea/vcs.xml
+.jshintignore
+.jshintrc
+node_modules/
