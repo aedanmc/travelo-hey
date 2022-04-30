@@ -36,10 +36,10 @@
 2. Progress and Issues
     - Progress
         - Contributed to writing requirements document
-        - Selected team roles 
+        - Selected team roles
         - Negotiated plans and milestones for the rest of the quarter
     - Issues
-        - Concerns with building 
+        - Concerns with building
 3. Plans and Goals for Next Week
     - Plans
         - Working on UI design with Alex
@@ -56,8 +56,8 @@
     - Contributed to requirements/policies discussion
     - Completed use case for documentation
 3. Plans and Goals for Next Week
-    - Begin on UI work/discussion with Aedan 
-      - Sketches for website 
+    - Begin on UI work/discussion with Aedan
+      - Sketches for website
     - Have a conversation with rest of team about UI ideas/sketches
 
 ### Camila Christensen (she/they)

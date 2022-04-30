@@ -8,7 +8,7 @@
 ## Agenda
 1. Check in after previous week of work
 2. Discuss front end UI sketches/ design if needed
-3. Discuss scoping: what should be our one beta use case? 
+3. Discuss scoping: what should be our one beta use case?
     - What are the concrete steps to get there?
 
 
@@ -54,7 +54,7 @@
         - Add related tasks to GitHub project board
 2. Progress and Issues
     - Met with Alex to plan design for UI Monday & Wednesday
-        - Created UI design sketches 
+        - Created UI design sketches
     - Met with Matt to flesh out GitHub structure Monday
         - Did not get enough time to add tasks to GitHub project board
     - Major scope creep on UI design/ number of pages required for MVP
@@ -64,8 +64,8 @@
 
 ### Alex Zuniga (they/she/he)
 1. Plans and Goals from Last Week
-    - Begin on UI work/discussion with Aedan 
-      - Sketches for website 
+    - Begin on UI work/discussion with Aedan
+      - Sketches for website
     - Have a conversation with rest of team about UI ideas/sketches
 2. Progress and Issues
     - Progress
@@ -77,9 +77,9 @@
         - Did not add tasks to Github
 3. Plans and Goals for Next Week
     - Plans
-        - Add new UI page for business information details and reviews 
-        - Discuss/add new UI page for leaving a review 
-            - Also figure out how a user can manage/view their reviews 
+        - Add new UI page for business information details and reviews
+        - Discuss/add new UI page for leaving a review
+            - Also figure out how a user can manage/view their reviews
     - Goals
         - Complete UI final designs/iterations
         - Begin implementation for front-end with Aedan

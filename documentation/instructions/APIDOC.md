@@ -1,6 +1,6 @@
 # Travelo-Hey! API Documentation
 
-The Travelo-Hey! API provides an interface between the front-end portion of Travelo-Hey! and the database and Google API calls. 
+The Travelo-Hey! API provides an interface between the front-end portion of Travelo-Hey! and the database and Google API calls.
 
 ## Endpoints
 
@@ -14,7 +14,7 @@ The Travelo-Hey! API provides an interface between the front-end portion of Trav
 
 **Description:** what does this endpoint do?
 
-**Example Request:** /endpoint with any parameters or additional information? 
+**Example Request:** /endpoint with any parameters or additional information?
 
 **Example Response:**
 ```

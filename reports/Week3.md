@@ -33,19 +33,19 @@
     - Begin working on UI implementation
     - Implement feedback on requirements document
         - Add use case for login
-    
+
 2. Progress and Issues
     - Progress
         -  Scrum structure
         -  Progress Tracker
         -  Finalize UI design
-        -  Modify Github structure 
+        -  Modify Github structure
         -  Finalize equality rating for companies/businesses
         -  Setup MySQL database
         -  Implement feedback on requirements document
     - Issues
-        - Start on implementation for API agile style (with heavy communication!) 
-       
+        - Start on implementation for API agile style (with heavy communication!)
+
 3. Plans and Goals for Next Week
     - Build system ready
     - Implementation of login page
@@ -63,13 +63,13 @@
 - Progress:
         - Added milestones and issues for next deliverable to GitHub tracker
         - Began researching front-end implementation frameworks for React
-        - Research testing frameworks to build sample tests 
+        - Research testing frameworks to build sample tests
         - Discussed testing strategies as a team
         - Assigned individual pages and components for front end team to work on
     - Issues:
-        - Feeling overwhelmed with what we have to do next (implementation, testing, CI, documentation) 
+        - Feeling overwhelmed with what we have to do next (implementation, testing, CI, documentation)
         given how much time we have
-        - Trying to figure out what our use case implementation will be 
+        - Trying to figure out what our use case implementation will be
         (components, interfaces, etc)
 3. Plans and Goals for Next Week
     - Plans:
@@ -79,14 +79,14 @@
     - Goals:
         - Make significant progress towards first use case on both API and UI implementation
         - Decide on whether front end will use any testing frameworks or just visual inspection
-    
+
 
 ### Alex Zuniga (they/she/he)
 1. Plans and Goals from Last Week
     - Plans
-        - Add new UI page for business information details and reviews 
-        - Discuss/add new UI page for leaving a review 
-            - Also figure out how a user can manage/view their reviews 
+        - Add new UI page for business information details and reviews
+        - Discuss/add new UI page for leaving a review
+            - Also figure out how a user can manage/view their reviews
     - Goals
         - Complete UI final designs/iterations
         - Begin implementation for front-end with Aedan
@@ -103,10 +103,10 @@
         - Feeling overwhelmed with a clear starting direction (i.e. setting priorities for what needs to be done for beta UI implementation)
 3. Plans and Goals for Next Week
     - Plans
-        - Begin on UI implementation for login page 
-        - Work on decisions made in Architecture assignment 
+        - Begin on UI implementation for login page
+        - Work on decisions made in Architecture assignment
         - Collaborate with Aedan for UI and the team for API
-    - Goals 
+    - Goals
         - Create skeleton of login page or make some sort of decent progress
         - Keep updated on Aedan's code
         - Work with team on any remaining issues
@@ -118,7 +118,7 @@
     - Setup and populate database
     - Contribute to the architecture and design assignment
 2. Progress and Issues
-    - Progress 
+    - Progress
         - Implemented database on GCP and populated countries table
         - Inserted milestones and tasks in the GitHub Projects
         - Assisted team with Architecture and Design assignment

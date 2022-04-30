@@ -20,7 +20,7 @@
 ## Back-end
 ### Setting up a Domain Name Service
 
-Usually, you will want to register a domain name for your site. You can use a public domain name registrar, such as [Google Domains](https://domains.google.com/about/), 
+Usually, you will want to register a domain name for your site. You can use a public domain name registrar, such as [Google Domains](https://domains.google.com/about/),
 to register a unique name for your site. If you want complete control of your own [domain name system (DNS)](https://wikipedia.org/wiki/Domain_Name_System), you can use [Cloud DNS](https://cloud.google.com/dns) to
 serve as your DNS provider. The Cloud DNS documentation [includes a quickstart](https://cloud.google.com/dns/quickstart) to get you going.
 
@@ -36,8 +36,8 @@ serve as your DNS provider. The Cloud DNS documentation [includes a quickstart](
 3. Click on **Get started** and **Create repository**.
 4. Then, select **Connect external repository**.
 5. Under Git provider choose Github and click on Connect to GitHub.
-Next a dialog window will open where you'll need to log into GitHub (if you're not already) and then confirm the connection between Google 
-Cloud and GitHub. When the connection is made, a window with your GitHub repositories will appear. Choose the one you'd like to connect with 
+Next a dialog window will open where you'll need to log into GitHub (if you're not already) and then confirm the connection between Google
+Cloud and GitHub. When the connection is made, a window with your GitHub repositories will appear. Choose the one you'd like to connect with
 your Google Cloud project.
 6. Click on the **Connect selected repository** button.
 A new page with your Google Cloud repository will open. It will have the code from GitHub in it.
@@ -51,14 +51,14 @@ A new page with your Google Cloud repository will open. It will have the code fr
 3. Click **+Create Trigger** button
 4. These are the following fields that you have to fill
 
-**Name:** the name of the trigger. You can name it whatever you want, but because I am creating a trigger when I push to master, I’m naming it 
+**Name:** the name of the trigger. You can name it whatever you want, but because I am creating a trigger when I push to master, I’m naming it
 `“push-master-branch”`
 
-**Event:** there are three kinds of events that you can choose: Push to a branch, Push a new tag, and Pull request (although only for GitHub). 
+**Event:** there are three kinds of events that you can choose: Push to a branch, Push a new tag, and Pull request (although only for GitHub).
 Since I am creating a trigger when I am pushing a commit, I choose “Push to a branch”
 
-**Source:** if you have chosen “Push to a branch” in the event, it will show **Repository** and **Branch** option. Since I have added the repository, 
-I can choose it in the dropdown. Also, this is where you can choose which branch push will trigger the build. All the branches that you have 
+**Source:** if you have chosen “Push to a branch” in the event, it will show **Repository** and **Branch** option. Since I have added the repository,
+I can choose it in the dropdown. Also, this is where you can choose which branch push will trigger the build. All the branches that you have
 pushed to Github will be shown in the dropdown. In this case, I choose **“^master$”**.
 
 **Build configuration**: there should be nothing that you need to change. But to make sure, check if the input is like the following.
@@ -84,7 +84,7 @@ Because Cloud Build will build the repository to an App Engine application, we s
 ### Updating the Code
 Whenever the code is updated, do the following:
 1. Upload the code to GitHub
-2. Deploy the code to GAE using this command: 
+2. Deploy the code to GAE using this command:
 ```gcloud app deploy app.yaml```
 
 ## Database
@@ -102,7 +102,7 @@ Whenever the code is updated, do the following:
 3. Access the GCP database:
     - `gcloud sql connect <database instance> --user=root --quiet`
     - Enter password (if password was set when creating the database)
-4. Select the project’s database 
+4. Select the project’s database
     - `USE <database name>;`
 
 ### Using Files to Populate Database
@@ -113,12 +113,12 @@ Whenever the code is updated, do the following:
 
 #### Insert File Information into Database
 1. Under SQL, click on **gcp-travelo-hey**
-2. Select **IMPORT** 
+2. Select **IMPORT**
 3. Under Source, click on **BROWSE** to look for the uploaded file
 4. Select cse403-sp22-travelo-hey.appspot.com > your file
 5. Click on **SELECT**
 6. If you have uploaded a .csv or .txt file select the CSV option
-7. Choose the database 
+7. Choose the database
 8. Insert the exact name of the table you want to insert the data
 9. Click on **IMPORT**
 
