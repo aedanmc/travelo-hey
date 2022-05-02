@@ -4,7 +4,7 @@
  * Copyright ©2022 All rights reserved.
  *      - Aedan McCall          aedanmc (at) uw.edu
  *      - Alex Zúñiga           mzuniga (at) uw.edu
- *      - Camila Christensen    camilyo (at) uw.edu
+ *      - Camila Christensen    camilyo (at) cs.washington.edu
  *      - Matt Broom            matty162 (at) uw.edu
  *      - Michael Harris        micha06 (at) uw.edu
  *
