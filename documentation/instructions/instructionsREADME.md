@@ -36,8 +36,8 @@ serve as your DNS provider. The Cloud DNS documentation [includes a quickstart](
 3. Click on **Get started** and **Create repository**.
 4. Then, select **Connect external repository**.
 5. Under Git provider choose Github and click on Connect to GitHub.
-Next a dialog window will open where you'll need to log into GitHub (if you're not already) and then confirm the connection between Google
-Cloud and GitHub. When the connection is made, a window with your GitHub repositories will appear. Choose the one you'd like to connect with
+Next a dialog window will open where you'll need to log into GitHub (if you're not already) and then confirm the db_connection between Google
+Cloud and GitHub. When the db_connection is made, a window with your GitHub repositories will appear. Choose the one you'd like to connect with
 your Google Cloud project.
 6. Click on the **Connect selected repository** button.
 A new page with your Google Cloud repository will open. It will have the code from GitHub in it.
