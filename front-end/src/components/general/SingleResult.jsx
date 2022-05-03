@@ -17,13 +17,13 @@ export default function SingleResult() {
         />
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <CardContent sx={{ flex: '1 0 auto', justifyContent: 'flex-start', textAlign: 'left' }}>
-            <Typography component="div">
+            <Typography data-testid="location-title" component="div">
               Lorem Ipsum
             </Typography>
-            <Typography color="text.secondary" component="div">
+            <Typography data-testid="location-subtitle" color="text.secondary" component="div">
               Old Quebec
             </Typography>
-            <Typography color="text.secondary" component="div">
+            <Typography data-testid="location-details" color="text.secondary" component="div">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </Typography>
