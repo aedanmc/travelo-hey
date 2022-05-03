@@ -1,0 +1,12 @@
+steps:
+- name: node
+  entrypoint: npm
+  args: ['install']
+- name: node
+  entrypoint: npm
+  args: ['test']
+timeout: 600s
+queueTtl: 300s
+options:
+  dynamic_substitutions: true
+tags: ['buildtest', 'build']
