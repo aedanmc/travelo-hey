@@ -1,6 +1,16 @@
+/**
+ *
+ */
+
 "use strict";
 
-const chai = require('chai');
+const dbcon = require("../db_connection");
+
+const selectUsers = "SELECT * FROM users";
+dbcon.query(selectUsers, function (error, result, fields) {
+    if (error) throw error;
+    console.log(fields);
+});
 
 describe('my first test', function() {
     it('is running', function() {
