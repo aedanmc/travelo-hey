@@ -28,8 +28,11 @@ const STATUS_500 = 500;
 /** IMPORT MODULES **/
 const express = require("express");
 const multer = require("multer");
+const mysql = require("mysql");
 
 const app = express();
+
+const pe = process.env;
 
 // for application/x-www-form-urlencoded
 app.use(express.urlencoded({extended: true}));
@@ -82,6 +85,22 @@ function clientErrorHandler (err, req, res, next) {
 function errorHandler (err, req, res, next) {
     res.status(500)
     res.render('error', { error: err })
+}
+
+
+/** Creating db connection **/
+
+const createSocketPool = async (config) => {
+    const dbSocketPath = process.env.db_socket_path || "cloudsql"
+
+    // Establish the db connection
+    return await mysql.createPool({
+        user: pe.db_user,
+        password: pe.db_pw,
+        database: pe.db_name,
+        socketPath: `${dbSocketPath}/${pe.cloud_sql_connection_name}`
+    });
+
 }
 
 /** Allow app to be used in server.js **/
