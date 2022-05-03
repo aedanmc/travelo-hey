@@ -8,73 +8,25 @@
  *      - Matt Broom            matty162 (at) uw.edu
  *      - Michael Harris        micha06 (at) uw.edu
  *
- * Server side API for Travelo-Hey! Interfaces with frontend and database and API calls.
+ * Server side API for Travelo-Hey! Main entry to setup port for listening and begin main app.
  *
  * Requires:
+ *   - './app':  Main application handling routes
  *   - express:  Required to use the express framework
- *   - fs:       Required for read/write to data files - probably will not be needed for this project
- *   - multer:   Required for accepting multipart/form-data
  */
 
 "use strict";
 
-/*
- ****
- * MODULE GLOBAL CONSTANTS *
- ****
- */
-const STATUS_400 = 400;
-const STATUS_500 = 500;
 const PORT_8000 = 8000;
 
-/*
- ********************
- * REQUIRED MODULES *
- ********************
- */
+const app = require('./app');
 const express = require("express");
-const multer = require("multer");
-const fs = require("fs").promises;
-const app = express();
 
-// for application/x-www-form-urlencoded
-app.use(express.urlencoded({extended: true}));
+const port = parseInt(process.env.PORT || PORT_8000, 10);
+app.set('port', port);
 
-// for application/json
-app.use(express.json());
-
-// for multipart/form-data
-app.use(multer().none());
-
-/*
- *************
- * ENDPOINTS *
- *************
- */
-
-// simple GET end point to test for now
-app.get('/', function (req, res) {
- res.send('Hello Camila!');
+app.listen(port, () => {
+ console.log("Listening on port " + port + "..."); // uncomment for debugging
 });
 
-/*
- ********************
- * HELPER FUNCTIONS *
- ********************
- */
-
-
-
-/*
- ******************
- * PORT LISTENING *
- ******************
- */
-const PORT = process.env.PORT || PORT_8000;
- app.listen(PORT, () => {
- console.log("Listening on port " + PORT + "..."); // uncomment for debugging
-});
-
-// need to determine how we're structuring files. Typically app.js would be one level above our
-// public files (public facing documents)
-app.use(express.static("public"));
+app.use(express().static("../front-end/public/"));
