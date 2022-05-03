@@ -24,7 +24,7 @@ const pe = process.env;
 const db_connection = mysql.createConnection({
     host: pe.DB_HOST,
     user: pe.DB_USER,
-    password: pe.DB_PASS,
+    password: pe.DB_PASSWORD,
     database: pe.DB_NAME
 });
 
@@ -36,9 +36,9 @@ db_connection.connect(function(error) {
 const dbSocketPath = pe.db_socket_path || "cloudsql";
 const pool = mysql.createPool({
         user: pe.DB_USER,
-        password: pe.DB_PASS,
+        password: pe.DB_PASSWORD,
         database: pe.DB_NAME,
-        socketPath: `${dbSocketPath}/${pe.cloud_sql_connection_name}`
+        socketPath: `${dbSocketPath}/${pe.CLOUD_SQL_CONNECTION_NAME}`
 });
 
 module.exports = {pool};
