@@ -4,9 +4,9 @@ steps:
   args: ['install']
 - name: node
   entrypoint: npm
-  args: ['test']
+  args: ['run', 'test:watch', '--', 'front-end/__test__']
 timeout: 600s
 queueTtl: 300s
 options:
   dynamic_substitutions: true
-tags: ['pullreq']
+tags: ['front-end']
