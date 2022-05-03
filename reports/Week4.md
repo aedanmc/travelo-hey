@@ -32,8 +32,10 @@
 2. Progress and Issues
     - Progress:
         - Started writing code for front end using Material UI
+            - Draft version of first component in front-end folder (link?)
         - Decided that front end will use react-testing-library and 
-        Mocha
+        Jest
+        - Wrote first test for React components 
     - Issues:
         - Struggling with getting work done on time for beta implementation
         - Considering whether login use case is the right beta goal
