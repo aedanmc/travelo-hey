@@ -1,9 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
-import { SingleResult } from '../src/components/general/SingleResult';
-import { expect } from 'chai';
+import SingleResult from '../src/components/general/SingleResult';
 
 
 
