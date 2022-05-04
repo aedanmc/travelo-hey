@@ -16,6 +16,7 @@
   - [Using Files to Populate Database](#Using-Files-to-Populate-Database)
   - [Useful MySQL Commands](#Useful-MySQL-Commands)
   - [Database Schema](#Database-Schema)
+- [CI](#CI)
 
 ## Back-end
 ### Setting up a Domain Name Service
@@ -144,6 +145,8 @@ Our database is composed of a total of 4 tables with the following names: busine
 
 ##### Reviews
 ![Reviews](reviews.jpg)
+
+## CI
 
 
 [Back to Top](#Set-up-Instructions)
