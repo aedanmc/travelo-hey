@@ -43,6 +43,7 @@
 3. Plans and Goals for Next Week
     - Finish implementing layout for first use case
     - Finish implementing functionality for first use case
+    - Add front end tests as needed
 
 
 ### Alex Zuniga (they/she/he)
