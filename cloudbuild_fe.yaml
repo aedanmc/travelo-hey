@@ -1,0 +1,12 @@
+steps:
+- name: node
+  entrypoint: npm
+  args: ['install']
+- name: node
+  entrypoint: npm
+  args: ['run', 'test:watch', '--', 'front-end/__test__']
+timeout: 600s
+queueTtl: 300s
+options:
+  dynamic_substitutions: true
+tags: ['front-end']

@@ -1,7 +1,7 @@
 # Week 3 Status Report
 *Team: Travelo-Hey!*
 
-*Dates: April 21 - 27, 2022*
+*Dates: April 28 - May 4, 2022*
 
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
@@ -33,9 +33,9 @@
     - Progress:
         - Started writing code for front end using Material UI
             - Draft version of first component in front-end folder (link?)
-        - Decided that front end will use react-testing-library and 
+        - Decided that front end will use react-testing-library and
         Jest
-        - Wrote first test for React components 
+        - Wrote first test for React components
     - Issues:
         - Struggling with getting work done on time for beta implementation
         - Considering whether login use case is the right beta goal
@@ -121,20 +121,19 @@
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
-    - Implement database table structure in GCP
-    - Begin investing into Github project tracker tasks
-    - Work with team to complete Architecture and Design assignment
-2. Progress and Issues
-    - Progress:
-        - Implemented MySQL database on GCP and setup our tables
-        - Started using GH Project Tracker
-        - Developed Scrum procedure documentation
-        - Figured out how to deploy project using App Engine API
-        - Assisted team with Architecture and Design assignment
-    - Issues:
-        - Lack of familiarity with best practices of API keys
-3. Plans and Goals for Next Week
     - Setup Node.js with Express.js framework
     - Integrate Google APIs into server
     - Integrate database calls to server
     - Work with team to complete Testing and CI assignment
+2. Progress and Issues
+    - Progress:
+        - Updating server side package.json scripts
+        - Setup database connection
+        - Modularized back-end files
+        - Began ACID and CRUD test implementations
+    - Issues:
+        - Testing and CI assignment took more than expected, spending more time trying to figure our NPM scripts
+        - Was unable to integrate Google APIs and database calls to server
+3. Plans and Goals for Next Week
+    - Integrate Google APIs to server
+    - Integrate database calls to server
