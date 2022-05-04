@@ -6,7 +6,7 @@
   -  [Pre-requisites](#Pre-requisites)
   -  [Migrate Project to GCP](#Migrate-Project-to-GCP)
   -  [Set up Build Config File (yaml)](#Set-up-Build-Config-File-(yaml))
-  -  [Use Cloud Build](#Use-Cloud-Build)
+  -  [Use and Run Cloud Build](#Use-and-Run-Cloud-Build)
   -  [Setup Google App Engine](#Setup-Google-App-Engine)
   -  [Deploying Website](#Deploying-Website)
   -  [Updating the Code](#Updating-the-Code)
@@ -16,7 +16,6 @@
   - [Using Files to Populate Database](#Using-Files-to-Populate-Database)
   - [Useful MySQL Commands](#Useful-MySQL-Commands)
   - [Database Schema](#Database-Schema)
-- [CI](#CI)
 
 ## Back-end
 ### Setting up a Domain Name Service
@@ -46,7 +45,8 @@ A new page with your Google Cloud repository will open. It will have the code fr
 ### Set up Build Config File (yaml)
 -
 
-### Use Cloud Build
+### Use and Run Cloud Build
+#### Creating a Cloud Build Trigger
 1. Open your [Cloud Build Triggers page](https://console.cloud.google.com/cloud-build/triggers)
 2. Choose your project if it had not been chosen
 3. Click **+Create Trigger** button
@@ -63,6 +63,7 @@ I can choose it in the dropdown. Also, this is where you can choose which branch
 pushed to Github will be shown in the dropdown. In this case, I choose **“^master$”**.
 
 **Build configuration**: there should be nothing that you need to change. But to make sure, check if the input is like the following.
+#### Running Cloud Build
 
 ### Setup Google App Engine
 Because Cloud Build will build the repository to an App Engine application, we should create it first.
@@ -145,8 +146,6 @@ Our database is composed of a total of 4 tables with the following names: busine
 
 ##### Reviews
 ![Reviews](reviews.jpg)
-
-## CI
 
 
 [Back to Top](#Set-up-Instructions)
