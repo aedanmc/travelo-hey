@@ -93,14 +93,19 @@ There are 3 main actions that can trigger a Cloud Build:
 1. Pushing a new tag
 2. Merging a branch
 3. Manual incovation
+
 #### Pushing tags
-There are 4 tags used to trigger 4 different Cloud Build scenarios:
-1. **pullreq**: 
-2. **holistic**: 
-3. **backend**: 
-4. **frontend**: 
+There are 4 tags used to trigger different Cloud Build scenarios:
+1. **pullreq**: pushing this tag will trigger the Cloud Build to automatically build the entire project and run all tests. This is done for “official” builds ready for code review prior to submitting a pull request. 
+2. **holistic**: similar to **pullreq**, this tag will behave in the same way, but is pushed for "unofficial" builds not yet ready for a pull request and code review.
+3. **backend**: pushing this tag triggers only back-end tests for “unofficial” builds not yet ready for a pull request and code review. 
+4. **frontend**: pushing this tag triggers only front-end tests for “unofficial” builds not yet ready for a pull request and code review. 
+
 #### Merging
+Merging a branch into main AND resolving any merge conflicts will trigger a build as we want to ensure merge conflicts are resolved first in case issues arise. The behavior is similar to pushing a **pullreq** tag prior to creating a pull request, but occurs once the merge is complete to ensure that the build is still successful once a pull request has been approved.
+
 #### Manual invocation
+There is a manual invocation trigger to invoke all tests from GCP itself when needed instead of being automated remotely via tags and pushes
 
 ## Database
 
