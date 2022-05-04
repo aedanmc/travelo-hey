@@ -89,6 +89,18 @@ Whenever the code is updated, do the following:
 ```gcloud app deploy app.yaml```
 
 ### Run Cloud Build
+There are 3 main actions that can trigger a Cloud Build:
+1. Pushing a new tag
+2. Merging a branch
+3. Manual incovation
+#### Pushing tags
+There are 4 tags used to trigger 4 different Cloud Build scenarios:
+1. **pullreq**: 
+2. **holistic**: 
+3. **backend**: 
+4. **frontend**: 
+#### Merging
+#### Manual invocation
 
 ## Database
 
