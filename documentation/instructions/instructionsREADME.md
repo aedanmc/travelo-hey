@@ -6,10 +6,11 @@
   -  [Pre-requisites](#Pre-requisites)
   -  [Migrate Project to GCP](#Migrate-Project-to-GCP)
   -  [Set up Build Config File (yaml)](#Set-up-Build-Config-File-(yaml))
-  -  [Use and Run Cloud Build](#Use-and-Run-Cloud-Build)
+  -  [Use Cloud Build](#Use-Cloud-Build)
   -  [Setup Google App Engine](#Setup-Google-App-Engine)
   -  [Deploying Website](#Deploying-Website)
   -  [Updating the Code](#Updating-the-Code)
+  -  [Run Cloud Build](#Run-Cloud-Build)
 - [Database](#Database)
   - [Setting up our Database](#Setting-up-our-Database)
   - [Accessing our Database](#Accessing-our-Database)
@@ -45,8 +46,7 @@ A new page with your Google Cloud repository will open. It will have the code fr
 ### Set up Build Config File (yaml)
 -
 
-### Use and Run Cloud Build
-#### Creating a Cloud Build Trigger
+### Use Cloud Build
 1. Open your [Cloud Build Triggers page](https://console.cloud.google.com/cloud-build/triggers)
 2. Choose your project if it had not been chosen
 3. Click **+Create Trigger** button
@@ -63,7 +63,6 @@ I can choose it in the dropdown. Also, this is where you can choose which branch
 pushed to Github will be shown in the dropdown. In this case, I choose **“^master$”**.
 
 **Build configuration**: there should be nothing that you need to change. But to make sure, check if the input is like the following.
-#### Running Cloud Build
 
 ### Setup Google App Engine
 Because Cloud Build will build the repository to an App Engine application, we should create it first.
@@ -88,6 +87,8 @@ Whenever the code is updated, do the following:
 1. Upload the code to GitHub
 2. Deploy the code to GAE using this command:
 ```gcloud app deploy app.yaml```
+
+### Run Cloud Build
 
 ## Database
 
