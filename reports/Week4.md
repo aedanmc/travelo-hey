@@ -1,4 +1,4 @@
-# Week 3 Status Report
+# Week 4 Status Report
 *Team: Travelo-Hey!*
 
 *Dates: April 28 - May 4, 2022*
@@ -101,23 +101,25 @@
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
-    - Work with backend in setting up MySQL database
-    - Begin implementation of backend
-    - Finalize details of equality rating for businesses
-    - Assist in delineating specifics of Scrum meeting structure
-2. Progress and Issues
-    - Progress
-        - Started using Github project tracker
-        - Helped in completing Architecture & Design assignment
-        - Finalized details with equality rating for businesses
-    - Issues
-        - Unfamiliarity with API keys
-        - Have not started programming implementation for back-end (but do have MySQL database)
-3. Plans and Goals for Next Week
     - Start API implementation (working towards first use case)
     - Back-end functionality for login page
     - Figure out hashing/salting for user passwords
     - Send Identity Platform code to front-end
+2. Progress and Issues
+    - Progress
+        - Set up CI w/ Google Cloud Build (alongside Alex)
+        - Assisted in filling out CI & Testing assignment, specifically portions related to CI
+        - Created cloudbuild.yaml files for use in building w/ CI
+        - Set up my individual API keys
+        - Discussed code review process with rest of team
+    - Issues
+        - Still need to do deeper research into hashing/salting of user passwords through Identity Platform
+        - Further work required on back-end in preparation for beta (APIs & database connection)
+3. Plans and Goals for Next Week
+    - Ensure/finalize implementation of back-end for beta release
+    - Assist in integration of APIs & database queries w/ server
+    - Add to & clean up documentation in preparation for beta release
+    
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
