@@ -98,25 +98,20 @@
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
-    - Work on progress tracker (add some milestones, tags and tasks)
-    - Meet with Matt and Mike to finalize equality rating for companies/businesses
-    - Setup and populate database
-    - Contribute to the architecture and design assignment
-2. Progress and Issues
-    - Progress
-        - Implemented database on GCP and populated countries table
-        - Inserted milestones and tasks in the GitHub Projects
-        - Assisted team with Architecture and Design assignment
-        - Developed database documentation
-        - Team lead responsabilities
-    - Issues
-        - Lack of familiarity with yaml and GCP
-
-3. Plans and Goals for Next Week
     - Assist with the implementation of the server
     - Create yaml file
-    - Start implementation for the managing login/sign in page
     - Work with team to complete Testing and CI assignment
+2. Progress and Issues
+    - Progress
+        - Assist with the implementation of the server
+        - Create yaml file
+        - Work with team to complete Testing and CI assignment
+    - Issues
+        - Start implementation for the managing login/sign in page
+3. Plans and Goals for Next Week
+    - Finalize server files
+    - Create test cases for database
+    - Finalize back-end build and review front-end build
 
 
 ### Matt Broom (he/they)
