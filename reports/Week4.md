@@ -6,7 +6,7 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
-
+- Needing to simplify our use case in order to get enough complete for the beta release, especially considering that the login page is likely going to be more difficult to implement in time
 
 ## Team Report
 1. Plans and Goals from Last Week
@@ -24,9 +24,12 @@
         - Developed concrete code review process for team
     - Issues
         - Components behind schedule for beta release (for front-end and for back-end)
+            - Need to simplify and solidify new beta release use case
         - Server-side package.json build file scripts not setup properly yet - still in progress
 3. Plans and Goals for Next Week
     - Catch up on components in anticipation for beta release
+        - Implementation of login page (or another equivalent for potential new use case)
+        - Functionality for login page (or another equivalent for potential new use case)
     - Finish setup of package.json build file scripts
     - Complete beta release assignment including presentation
 
