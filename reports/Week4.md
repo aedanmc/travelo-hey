@@ -15,9 +15,20 @@
     - Start on implementation for API agile style
     - Functionality for login page
     - Finalize Post Beta milestones
-
 2. Progress and Issues
-
+    - Progress
+        - Set up CI w/ Google Cloud Build
+        - Testing framework set up
+        - Hashed out how tests and CI will be integrated together
+        - Continued development of components for front-end
+        - Developed concrete code review process for team
+    - Issues
+        - Components behind schedule for beta release (for front-end and for back-end)
+        - Server-side package.json build file scripts not setup properly yet - still in progress
+3. Plans and Goals for Next Week
+    - Catch up on components in anticipation for beta release
+    - Finish setup of package.json build file scripts
+    - Complete beta release assignment including presentation
 
 ## Team Member Contributions
 ### Aedan McCall (they/them)
@@ -78,20 +89,25 @@
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
-    - Assist with the implementation of the server
-    - Create yaml file
-    - Work with team to complete Testing and CI assignment
+    - Work on progress tracker (add some milestones, tags and tasks)
+    - Meet with Matt and Mike to finalize equality rating for companies/businesses
+    - Setup and populate database
+    - Contribute to the architecture and design assignment
 2. Progress and Issues
     - Progress
-        - Assist with the implementation of the server
-        - Create yaml file
-        - Work with team to complete Testing and CI assignment
+        - Implemented database on GCP and populated countries table
+        - Inserted milestones and tasks in the GitHub Projects
+        - Assisted team with Architecture and Design assignment
+        - Developed database documentation
+        - Team lead responsabilities
     - Issues
-        - Start implementation for the managing login/sign in page
+        - Lack of familiarity with yaml and GCP
+
 3. Plans and Goals for Next Week
-    - Finalize server files
-    - Create test cases for database
-    - Finalize back-end build and review front-end build
+    - Assist with the implementation of the server
+    - Create yaml file
+    - Start implementation for the managing login/sign in page
+    - Work with team to complete Testing and CI assignment
 
 
 ### Matt Broom (he/they)
