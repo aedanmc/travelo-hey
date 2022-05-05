@@ -79,8 +79,14 @@
         - Aided in writing up the CI portions for the CI & Testing assignment
     - Issues
         - Still a bit worried that we will not have enough time to complete everything but hoping that a new use case will fix this
-        - 
+        - Front-end/Back-end connection possibilities 
+        - Needing to restart on my end's work since we are scrapping login page 
 3. Plans and Goals for Next Week
+    - Find more resources for connection between front-end/back-end
+    - Work with Aedan to make a cohesive front-end in time for the beta release
+    - Finish beta release pages for new use case 
+        - Complete components for a business info page and the navigation header
+    - Set up skeleton/foundation for components and connections needed after beta release 
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
