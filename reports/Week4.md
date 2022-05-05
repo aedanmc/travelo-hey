@@ -32,6 +32,8 @@
         - CI build not documented as per CI assignment spec
             - Need to expand documentation and move up to the root readme file
         - CI build report information not easily visible after triggers
+            - Need to find a way to link CI build information to GitHub
+            without displaying sensitive info
 3. Plans and Goals for Next Week
     - Catch up on components in anticipation for beta release
         - Implementation of login page (or another equivalent for potential new use case)
