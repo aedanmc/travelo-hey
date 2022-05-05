@@ -6,7 +6,10 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
-- Needing to simplify our use case in order to get enough complete for the beta release, especially considering that the login page is likely going to be more difficult to implement in time
+- Need to simplify beta release use case considering that the login page is likely going to be more difficult to implement in time
+    - Aedan and Alex to present new use case of non-logged in landing page with featured places to a business page
+- Question about language requirements and expectations for front-end within the course
+- Reasonable expectations for a search page (needing filtering, etc.)
 
 ## Team Report
 1. Plans and Goals from Last Week
