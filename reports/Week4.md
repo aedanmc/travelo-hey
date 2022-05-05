@@ -63,25 +63,6 @@
 ### Alex Zuniga (they/she/he)
 1. Plans and Goals from Last Week
     - Plans
-        - Add new UI page for business information details and reviews
-        - Discuss/add new UI page for leaving a review
-            - Also figure out how a user can manage/view their reviews
-    - Goals
-        - Complete UI final designs/iterations
-        - Begin implementation for front-end with Aedan
-2. Progress and Issues
-    - Progress
-        - Divided UI into components with Aedan
-        - Aided in Architecture and Design discussion and assignment
-            - Added individual submission components
-            - Worked collaboratively on other sections
-        - Began looking at login page implementation
-        - Created an implementation check in plan with Aedan
-    - Issues
-        - Worried that we will not have enough time to complete everything despite a schedule
-        - Feeling overwhelmed with a clear starting direction (i.e. setting priorities for what needs to be done for beta UI implementation)
-3. Plans and Goals for Next Week
-    - Plans
         - Begin on UI implementation for login page
         - Work on decisions made in Architecture assignment
         - Collaborate with Aedan for UI and the team for API
@@ -89,6 +70,17 @@
         - Create skeleton of login page or make some sort of decent progress
         - Keep updated on Aedan's code
         - Work with team on any remaining issues
+2. Progress and Issues
+    - Progress
+        - Divided up the login page into potential components within MUI 
+        - Created a hand written skeleton of psuedo-code layout for the login page's components 
+        - Implemented CI between our Github repo and GCP (with Matt)
+        - Wrote triggers for various actions that start a build 
+        - Aided in writing up the CI portions for the CI & Testing assignment
+    - Issues
+        - Still a bit worried that we will not have enough time to complete everything but hoping that a new use case will fix this
+        - 
+3. Plans and Goals for Next Week
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
