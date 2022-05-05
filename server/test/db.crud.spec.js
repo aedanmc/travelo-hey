@@ -1,12 +1,19 @@
-"use strict";
+/**
+ *
+ */
 
-const chai = require('chai');
+(function() {
+    "use strict";
 
-describe('my first test', function() {
-    it('is running', function() {
-        assert.equal(true, true);
+    const expect = require('chai').expect;
+
+    describe("DB Crud Test", () => {
+        it('check that true is true', (done) => {
+            expect(true).to.equal(true);
+            done();
+        });
     });
-});
+})();
 
 /**
  db.acid.spec.js

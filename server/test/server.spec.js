@@ -1,12 +1,36 @@
-"use strict";
+/**
+ *
+ */
 
-const chai = require('chai');
+(function() {
+    "use strict";
 
-describe('my first test', function() {
-    it('is running', function() {
-        assert.equal(true, true);
+    const expect = require('chai').expect;
+    let foo = 'bar',
+        beverages = { tea: [ 'chai', 'matcha', 'oolong' ] };
+
+    describe("Server Test", () => {
+        it('check type of foo is string', (done) => {
+            expect(foo).to.be.a('string');
+            done();
+        });
+
+        it('check foo is "bar"', (done) => {
+            expect(foo).to.equal('bar');
+            done();
+        });
+
+        it('check length of foo is 3', (done) => {
+            expect(foo).to.have.lengthOf(3);
+            done();
+        });
+
+        it('check beverages contains "tea" with length of 3', (done) => {
+            expect(beverages).to.have.property('tea').with.lengthOf(3);
+            done();
+        });
     });
-});
+})();
 
 /**
  db.acid.spec.js

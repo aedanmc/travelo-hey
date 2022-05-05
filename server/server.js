@@ -15,18 +15,18 @@
  *   - express:  Required to use the express framework
  */
 
-"use strict";
+(function() {
+ "use strict";
+ const PORT_8000 = 8000;
 
-const PORT_8000 = 8000;
+ const app = require('./app');
 
-const app = require('./app');
-const express = require("express");
+ const port = parseInt(process.env.PORT || PORT_8000, 10);
+ app.set('port', port);
 
-const port = parseInt(process.env.PORT || PORT_8000, 10);
-app.set('port', port);
+ app.listen(port, () => {
+  console.log("Listening on port " + port + "..."); // uncomment for debugging
+ });
 
-app.listen(port, () => {
- console.log("Listening on port " + port + "..."); // uncomment for debugging
-});
-
-app.use(express().static("../front-end/public/"));
+ app.use(app.static("../front-end/public/"));
+})();

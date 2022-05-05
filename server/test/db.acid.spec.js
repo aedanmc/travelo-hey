@@ -2,21 +2,26 @@
  *
  */
 
-"use strict";
+(function() {
+    "use strict";
 
-const dbcon = require("../db_connection");
+    // const pool = require("../db_connection").pool;
+    //
+    // const selectUsers = "SELECT * FROM users";
+    // pool.query(selectUsers, function (error, result, fields) {
+    //     if (error) throw error;
+    //     console.log(fields);
+    // });
 
-const selectUsers = "SELECT * FROM users";
-dbcon.query(selectUsers, function (error, result, fields) {
-    if (error) throw error;
-    console.log(fields);
-});
+    const expect = require("chai").expect;
 
-describe('my first test', function() {
-    it('is running', function() {
-        assert.equal(true, true);
+    describe("DB Acid Test", () => {
+        it('check that true is true', (done) => {
+            expect(true).to.equal(true);
+            done();
+        });
     });
-});
+})();
 
 /**
  db.acid.spec.js

@@ -14,67 +14,72 @@
  *   - express:  Required to use the express framework
  *   - multer:   Required for accepting multipart/form-data
  *   - dotenv:   Required for reading in .env values
+ *
+ *   Routes:
+ *      - firstRoute
  */
 
-"use strict";
+(function () {
+    "use strict";
 
-/** IMPORT MODULES **/
-const express = require("express");
-const multer = require("multer");
-require("dotenv").config();
+    /** IMPORT MODULES **/
+    const express = require("express");
+    const multer = require("multer");
+    require("dotenv").config();
 
-/** IMPORT ROUTES **/
-const firstRouter = require("./routes/firstRoute");
+    /** IMPORT ROUTES **/
+    const firstRouter = require("./routes/firstRoute");
 
-const app = express();
-const pe = process.env;
+    const app = express();
+    const pe = process.env;
 
 // for application/x-www-form-urlencoded
-app.use(express.urlencoded({extended: true}));
+    app.use(express.urlencoded({extended: true}));
 
 // for application/json
-app.use(express.json());
+    app.use(express.json());
 
 // for multipart/form-data
-app.use(multer().none());
+    app.use(multer().none());
 
-/** USE ROUTES **/
-app.use('/', firstRouter);
+    /** USE ROUTES **/
+    app.use('/', firstRouter);
 
-/** STATUS HANDLING **/
+    /** STATUS HANDLING **/
 // catch undefined routes and respond with 400
-app.use((req, res, next) => {
-    if (res.statusCode === pe.STATUS_400) {
-        res.status(pe.STATUS_400).send("Are you supposed to be here?");
-    } else if (res.statusCode === pe.STATUS_404) {
-        res.status(pe.STATUS_404).send("Sorry can't find that!");
-    } else {
-        next(res.error());
-    }
-});
+    app.use(function (req, res, next) {
+        if (res.statusCode === pe.STATUS_400) {
+            res.status(pe.STATUS_400).send("Are you supposed to be here?");
+        } else if (res.statusCode === pe.STATUS_404) {
+            res.status(pe.STATUS_404).send("Sorry can't find that!");
+        } else {
+            next(res.error());
+        }
+    });
 
 // catch server errors and respond with 500
-app.use(logErrors);
-app.use(clientErrorHandler);
-app.use(errorHandler);
+    app.use(logErrors);
+    app.use(clientErrorHandler);
+    app.use(errorHandler);
 
-function logErrors (err, req, res, next) {
-    console.error(err.stack);
-    next(err);
-}
-
-function clientErrorHandler (err, req, res, next) {
-    if (req.xhr) {
-        res.status(pe.STATUS_500).send({ error: 'Something failed!' });
-    } else {
+    function logErrors (err, req, res, next) {
+        console.error(err.stack);
         next(err);
     }
-}
 
-function errorHandler (err, req, res, next) {
-    res.status(pe.STATUS_500);
-    res.render('error', { error: err });
-}
+    function clientErrorHandler (err, req, res, next) {
+        if (req.xhr) {
+            res.status(pe.STATUS_500).send({ error: 'Something failed!' });
+        } else {
+            next(err);
+        }
+    }
 
-/** Allow app to be used in server.js **/
-module.exports = app;
+    function errorHandler (err, req, res, next) {
+        res.status(pe.STATUS_500);
+        res.render('error', { error: err });
+    }
+
+    /** Allow app to be used in server.js **/
+    module.exports = app;
+})();

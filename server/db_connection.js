@@ -11,34 +11,34 @@
  * The db_connection.js creates a database connection to the GCP MySQL instance
  *
  * Requires:
- *   - express:  Required to use the express framework
+ *   - mysql:    Required to connect to database
  *   - dotenv:   Required for reading in .env values
  */
 
-"use strict";
+(function() {
+    "use strict";
 
-const mysql = require("mysql");
-require("dotenv").config();
+    const mysql = require("mysql");
+    require("dotenv").config();
 
-const pe = process.env;
-const db_connection = mysql.createConnection({
-    host: pe.DB_HOST,
-    user: pe.DB_USER,
-    password: pe.DB_PASSWORD,
-    database: pe.DB_NAME
-});
+    const pe = process.env;
+    const db_connection = mysql.createConnection({
+        host: pe.DB_HOST,
+        user: pe.DB_USER,
+        password: pe.DB_PASSWORD,
+        database: pe.DB_NAME
+    });
 
-db_connection.connect(function(error) {
-    if (error) throw error;
-    console.log("Connected!");
-});
+    db_connection.connect(function(error) {
+        if (error) throw error;
+        console.log("Connected!");
+    });
 
-const dbSocketPath = pe.db_socket_path || "cloudsql";
-const pool = mysql.createPool({
+    const dbSocketPath = pe.db_socket_path || "cloudsql";
+    module.exports = mysql.createPool({
         user: pe.DB_USER,
         password: pe.DB_PASSWORD,
         database: pe.DB_NAME,
-        socketPath: `${dbSocketPath}/${pe.CLOUD_SQL_CONNECTION_NAME}`
-});
-
-module.exports = {pool};
+        socketPath: "${dbSocketPath}/${pe.CLOUD_SQL_CONNECTION_NAME}"
+    });
+})();

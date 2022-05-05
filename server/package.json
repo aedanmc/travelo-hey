@@ -49,19 +49,16 @@
   },
   "homepage": "https://github.com/aedanmc/travelo-hey#readme",
   "scripts": {
-    "test": "mocha server/test/back-end -u bdd -R spec",
-    "pretest": "npm run lint",
-    "posttest": "echo \"testing completed\"",
-    "prebuild": "npm run build:clean",
-    "precompile": "echo \"precompile not implemented\"",
-    "compile": "echo \"compile not implemented\"",
-    "build:clean": "rimraf front-end/css/*, front-end/js/*",
+    "test": "mocha test -u bdd -R spec",
+      "pretest": "npm run lint",
+      "posttest": "echo \"testing completed\"",
     "build": "npm run build:bundle",
-    "build:bundle": "browserify server.js | uglifyjs -mc > server/bundle.js",
+      "prebuild": "npm run clean",
+      "build:bundle": "browserify server.js --ignore-missing | uglifyjs -mc > lib/bundle.js",
     "start": "node server.js",
-    "start:dev": "node server.js 8000",
-    "jshint": "jshint --exclude ./node_modules .",
-    "lint": "jshint *.js **/*.js"
+      "start:dev": "node server.js 8000",
+    "clean": "rimraf lib/*",
+    "lint": "jshint --exclude node_modules *.js test/*.js routes/*.js"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
