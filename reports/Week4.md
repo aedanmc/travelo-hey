@@ -29,6 +29,9 @@
         - Components behind schedule for beta release (for front-end and for back-end)
             - Need to simplify and solidify new beta release use case
         - Server-side package.json build file scripts not setup properly yet - still in progress
+        - CI build not documented as per CI assignment spec
+            - Need to expand documentation and move up to the root readme file
+        - CI build report information not easily visible after triggers
 3. Plans and Goals for Next Week
     - Catch up on components in anticipation for beta release
         - Implementation of login page (or another equivalent for potential new use case)
