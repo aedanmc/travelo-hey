@@ -4,10 +4,15 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import CardActionArea from '@mui/material/CardActionArea';
 import image from '../../quebec-church.jpg';
+
+// TODO: Add styling through useTheme and state through
+// useState
 
 export default function SingleResult() {
   return (
+    <CardActionArea>
       <Card sx={{ display: 'flex', width: '60%' }}>
         <CardMedia
           component="img"
@@ -30,5 +35,6 @@ export default function SingleResult() {
           </CardContent>
         </Box>
       </Card>
+    </CardActionArea>
   );
 }
