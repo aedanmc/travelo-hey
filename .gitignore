@@ -11,3 +11,4 @@ node_modules/
 # can this be pushed?
 cloud_sql_proxy
 gcpproxy
+.env
