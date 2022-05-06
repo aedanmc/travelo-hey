@@ -27,26 +27,23 @@
     const multer = require("multer");
     require("dotenv").config();
 
-    /** IMPORT ROUTES **/
-    const firstRouter = require("./routes/firstRoute");
-
     const app = express();
     const pe = process.env;
 
-// for application/x-www-form-urlencoded
+    // for application/x-www-form-urlencoded
     app.use(express.urlencoded({extended: true}));
 
-// for application/json
+    // for application/json
     app.use(express.json());
 
-// for multipart/form-data
+    // for multipart/form-data
     app.use(multer().none());
 
     /** USE ROUTES **/
-    app.use('/', firstRouter);
+    app.use('/', require("./routes/firstRoute"));
 
     /** STATUS HANDLING **/
-// catch undefined routes and respond with 400
+    // catch undefined routes and respond with 400
     app.use(function (req, res, next) {
         if (res.statusCode === pe.STATUS_400) {
             res.status(pe.STATUS_400).send("Are you supposed to be here?");
@@ -57,7 +54,7 @@
         }
     });
 
-// catch server errors and respond with 500
+    // catch server errors and respond with 500
     app.use(logErrors);
     app.use(clientErrorHandler);
     app.use(errorHandler);
@@ -79,7 +76,4 @@
         res.status(pe.STATUS_500);
         res.render('error', { error: err });
     }
-
-    /** Allow app to be used in server.js **/
-    module.exports = app;
 })();

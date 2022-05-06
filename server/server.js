@@ -19,14 +19,49 @@
  "use strict";
  const PORT_8000 = 8000;
 
- const app = require('./app');
+ const express = require("express");
+ const mysql = require("mysql");
+ // require("dotenv").config();
+
+ const app = express();
+ const pe = process.env;
+
+ // const db = require('./db_connection');
+ require('./app');
+
+ const createUnixSocketPool = async config => {
+  const dbSocketPath = pe.DB_SOCKET_PATH || "/cloudsql";
+  return mysql.createPool({
+   user: pe.DB_USER,
+   password: pe.DB_PASSWORD,
+   database: pe.DB_NAME,
+   socketPath: `${dbSocketPath}/${pe.CLOUD_SQL_CONNECTION_NAME}`,
+   ...config,
+  });
+ };
+
+ app.get('/', async (req, res) => {
+  const config = {};
+  const pool = await createUnixSocketPool(config);
+  pool.query('SELECT * FROM users;', function (error, results, fields) {
+   if (error) {
+    console.log(error);
+    res.status(500)
+        .send(error)
+        .end();
+   } else {
+    console.log(res);
+    res.status(200)
+        .send("Users retrieved")
+        .end();
+   }
+  });
+ });
 
  const port = parseInt(process.env.PORT || PORT_8000, 10);
- app.set('port', port);
-
  app.listen(port, () => {
   console.log("Listening on port " + port + "..."); // uncomment for debugging
  });
 
- app.use(app.static("../front-end/public/"));
+ app.use(express.static("../front-end/public/"));
 })();
