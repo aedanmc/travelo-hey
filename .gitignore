@@ -1,5 +1,5 @@
 .*
-.env
+server/.env
 .idea/misc.xml
 .idea/modules.xml
 .idea/travelo-hey.iml
@@ -7,3 +7,7 @@
 .jshintignore
 .jshintrc
 node_modules/
+
+# can this be pushed?
+cloud_sql_proxy
+gcpproxy
