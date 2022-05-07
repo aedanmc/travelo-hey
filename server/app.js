@@ -25,22 +25,49 @@
     /** IMPORT MODULES **/
     const express = require("express");
     const multer = require("multer");
-    require("dotenv").config();
 
     const app = express();
+
+    require('dotenv').config();
     const pe = process.env;
 
-    // for application/x-www-form-urlencoded
-    app.use(express.urlencoded({extended: true}));
-
-    // for application/json
-    app.use(express.json());
-
-    // for multipart/form-data
-    app.use(multer().none());
+    // // for application/x-www-form-urlencoded
+    // app.use(express.urlencoded({extended: true}));
+    //
+    // // for application/json
+    // app.use(express.json());
+    //
+    // // for multipart/form-data
+    // app.use(multer().none());
 
     /** USE ROUTES **/
-    app.use('/', require("./routes/firstRoute"));
+    // app.use('/', require("./routes/firstRoute"));
+    // insert new routes here...
+
+    const createTcpPool = require('./db_connection');
+    // let pool = createTcpPool();
+
+    // app.get('/', function routeHandler(req, res) {
+    //     res.send('ok');
+    // });
+
+    app.get('/', async (req, res) => {
+        console.log("triggered get");
+
+     createTcpPool.query(`SELECT * FROM countries`, function (error, results, fields) {
+      if (error) {
+       console.log(error);
+       res.status(500)
+           .send(error)
+           .end();
+      } else {
+       console.log(res);
+       res.status(200)
+           .send(results)
+           .end();
+      }
+     });
+    });
 
     /** STATUS HANDLING **/
     // catch undefined routes and respond with 400
@@ -76,4 +103,6 @@
         res.status(pe.STATUS_500);
         res.render('error', { error: err });
     }
+
+    module.exports = app;
 })();

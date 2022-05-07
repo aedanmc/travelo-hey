@@ -20,14 +20,17 @@
     "use strict";
 
     const express = require('express');
-    const router = express.Router();
+    const app = express.Router();
     // const router = express.Router();
     // const db = require('../db_connection');
 
     // db.pool.query()
 
+    console.log("first route");
     // simple GET end point to test for now
-    module.exports = router.get('/', (req, res) => {
+    app.get('/', (req, res) => {
         res.send('Hello Camila!');
     });
+
+    module.exports = app;
 })();

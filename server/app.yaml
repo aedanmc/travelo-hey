@@ -6,9 +6,6 @@ env: flex
 manual_scaling:
   instances: 1
 
-beta_settings:
-  cloud_sql_instances: gcp-travelo-hey
-
 resources:
   cpu: 1
   memory_gb: 0.5

@@ -15,74 +15,72 @@
  *   - dotenv:   Required for reading in .env values
  */
 
-(function() {
+// (function() {
     "use strict";
 
-    console.log("in db connection");
-
-    const express = require('express');
     const mysql = require("mysql");
-    require("dotenv").config();
-
-    const app = express();
+    require('dotenv').config();
     const pe = process.env;
-    // const db_connection = mysql.createConnection({
-    //     host: pe.DB_HOST,
-    //     user: pe.DB_USER,
-    //     password: pe.DB_PASSWORD,
-    //     database: pe.DB_NAME
-    // });
 
-    // db_connection.connect(function(error) {
-    //     if (error) throw error;
-    //     console.log("Connected!");
-    // });
-
-    const createPool = async () => {
-        const config = {
-            connectionLimit: 10,
-            connectionTimout: 10000,
-            acquireTimeout: 10000,
-            queueLimit: 0,
-        };
-        // const dbSocketPath = pe.db_socket_path || "/cloudsql/";
-        // ignore warning for now
-    };
-
-    const ensureSchema = async pool => {
-        // Wait for tables to be created (if they don't already exist).
-        await pool.query(`SELECT * FROM users;`);
-        console.log("Pulled users");
-    };
-
-    const createPoolAndEnsureSchema = async () =>
-        await createPool()
-            .then(async pool => {
-                await ensureSchema(pool);
-                return pool;
-            })
-            .catch(err => {
-                console.error(err);
-                throw err;
-            });
-
-// Set up a variable to hold our connection pool. It would be safe to
-// initialize this right away, but we defer its instantiation to ease
-// testing different configurations.
-
-    let pool;
-    app.use(async (req, res, next) => {
-        if (pool) {
-            return next();
-        }
-        try {
-            pool = await createPoolAndEnsureSchema();
-            next();
-        } catch (err) {
-            console.error(err);
-            return next(err);
-        }
+    const connection = mysql.createPool({
+        user: pe.DB_USER,
+        password: pe.DB_PASS,
+        database: pe.DB_NAME,
+        host: pe.DB_HOST,
+        port: pe.DB_PORT
     });
 
-    module.exports = createPool();
-})();
+    // connection.(error => {
+    //     if (error) {
+    //         throw error;
+    //     } else {
+    //         console.log("Sucessfully connect to the database");
+    //     }
+    // });
+
+    module.exports = connection;
+
+//     const createTcpPool = async config => {
+//         const dbConfig = {
+//             user: pe.DB_USER,
+//             password: pe.DB_PASS,
+//             database: pe.DB_NAME,
+//             host: pe.DB_HOST,
+//             port: pe.DB_PORT
+//         };
+//         return mysql.createPool(dbConfig);
+//     };
+//
+//     module.exports = createTcpPool;
+// })();
+
+
+/**
+
+ // createTcpPool initializes a TCP connection pool for a Cloud SQL
+ // instance of MySQL.
+ const createTcpPool = async config => {
+  // Note: Saving credentials in environment variables is convenient, but not
+  // secure - consider a more secure solution such as
+  // Cloud Secret Manager (https://cloud.google.com/secret-manager) to help
+  // keep secrets safe.
+  const dbConfig = {
+    host: process.env.INSTANCE_HOST, // e.g. '127.0.0.1'
+    port: process.env.DB_PORT, // e.g. '3306'
+    user: process.env.DB_USER, // e.g. 'my-db-user'
+    password: process.env.DB_PASS, // e.g. 'my-db-password'
+    database: process.env.DB_NAME, // e.g. 'my-database'
+    // ... Specify additional properties here.
+    ...config,
+  };
+  // [END cloud_sql_mysql_mysql_connect_tcp]
+
+  // [START cloud_sql_mysql_mysql_connect_tcp]
+  // Establish a connection to the database.
+  return mysql.createPool(dbConfig);
+};
+ // [END cloud_sql_mysql_mysql_connect_tcp_sslcerts]
+ // [END cloud_sql_mysql_mysql_connect_tcp]
+ module.exports = createTcpPool;
+
+ */

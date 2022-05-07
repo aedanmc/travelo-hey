@@ -20,56 +20,10 @@
  const PORT_8000 = 8000;
 
  const express = require("express");
- const mysql = require("mysql");
- // require("dotenv").config();
-
  const app = express();
- const pe = process.env;
+ require('dotenv').config();
 
- // const db = require('./db_connection');
- require('./app');
-
- var config = {
-    user: pe.DB_USER,
-    password: pe.DB_PASSWORD,
-    database: pe.DB_NAME
- }
-
- if (pe.CLOUD_SQL_CONNECTION_NAME) {
-    config.socketPath = `/cloudsql/${pe.CLOUD_SQL_CONNECTION_NAME}`
- }
-
- let connection = mysql.createConnection(config);
- connection.connect();
-
- // const createUnixSocketPool = async config => {
- //  const dbSocketPath = pe.DB_SOCKET_PATH || "/cloudsql";
- //  return mysql.createPool({
- //   user: pe.DB_USER,
- //   password: pe.DB_PASSWORD,
- //   database: pe.DB_NAME,
- //   socketPath: `${dbSocketPath}/${pe.CLOUD_SQL_CONNECTION_NAME}`,
- //   ...config,
- //  });
- // };
-
- app.get('/', async (req, res) => {
-  const config = {};
-  // const pool = await createUnixSocketPool(config);
-  connection.query('SELECT * FROM countries;', function (error, results, fields) {
-   if (error) {
-    console.log(error);
-    res.status(500)
-        .send(error)
-        .end();
-   } else {
-    console.log(res);
-    res.status(200)
-        .send(results)
-        .end();
-   }
-  });
- });
+ app.use(require('./app'));
 
  const port = parseInt(process.env.PORT || PORT_8000, 10);
  app.listen(port, () => {
@@ -78,3 +32,26 @@
 
  app.use(express.static("../front-end/public/"));
 })();
+
+
+
+
+
+
+
+
+
+// // let pool;
+// app.use(async (req, res, next) => {
+//  if (pool) {
+//   return next();
+//  }
+//  try {
+//   // const config = {};
+//   // pool = await createTCPPool(config);
+//   next();
+//  } catch (err) {
+//   console.error(err);
+//   return next(err);
+//  }
+// });
