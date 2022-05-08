@@ -15,7 +15,7 @@
  *   - dotenv:   Required for reading in .env values
  */
 
-// (function() {
+(function() {
     "use strict";
 
     const mysql = require("mysql");
@@ -52,4 +52,4 @@
 //     };
 //
 //     module.exports = createTcpPool;
-// })();
+})();
