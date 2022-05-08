@@ -66,10 +66,10 @@
 
     app.get('/business', async (req, res) => {
         try {
-            const place_id = req.query.place_id;
-            const form_addr = req.query.form_addr;
-            // const place_id = req.body.place_id;
-            // const form_addr = req.body.form_addr;
+            // const place_id = req.query.place_id;     // for testing outside of front-end
+            // const form_addr = req.query.form_addr;   // for testing outside of front-end
+            const place_id = req.body.place_id;
+            const form_addr = req.body.form_addr;
             if (place_id && form_addr) {
                 const reviews = await getReviews(place_id);
                 const country = await getCountry(form_addr);
