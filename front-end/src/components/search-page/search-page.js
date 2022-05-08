@@ -32,6 +32,7 @@ function SearchPage() {
   }, []);
 
   return (
+    <FilterSearch></FilterSearch>
     <Container>
       <Stack container spacing={2}>
         {locations.map((item) => (
