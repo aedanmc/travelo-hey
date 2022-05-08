@@ -13,8 +13,22 @@ import SearchIcon from '@mui/icons-material/Search';
 // For each <Select>, populate with <MenuItem>s using props data.
 // Each item needs a key
 
-export default function FilterSearch({ countryArray, cityArray, activityArray }) {
+export default function FilterSearch() {
   const [country, setCountry] = React.useState('');
+  const [city, setCity] = React.useState('');
+  const [activity, setActivity] = React.useState('');
+
+  const handleCountryChange = (event) => {
+    setCountry(event.target.value);
+  };
+
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+  };
+
+  const handleActivityChange = (event) => {
+    setActivity(event.target.value);
+  };
 
   return (
     <div>
