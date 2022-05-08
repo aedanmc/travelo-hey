@@ -103,5 +103,6 @@
         console.log("Listening on port " + port + "..."); // uncomment for debugging
     });
 
+    // app.use(express.static("../build/static/"));
     app.use(express.static("../front-end/public/"));
 })();
