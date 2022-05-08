@@ -25,7 +25,7 @@
     const express = require("express");
     const multer = require("multer");
     const sqlite = require("sqlite");
-    const sqlite3 = require("sqlite3");
+    const sqlite3 = require("sqlite3").verbose();
     require('dotenv').config();
     const app = express();
 
@@ -56,44 +56,43 @@
 
     app.get('/', async (req, res) => {
         try {
-            let rows = await getTopLocations();
+            const rows = await getTopLocations();
             res.type("json").send(rows);
         } catch (error) {
             res.type("text").status(500)
-                .send("An error occurred on the server. Try again later.");
+                .send(error.message);
         }
     });
 
     app.get('/business/:name', async (req, res) => {
         try {
-            let rows;
             const busName = req.params.name;
             if (busName) {
-                rows = await getBusiness(busName);
+                const rows = await getBusiness(busName);
                 res.type("json").send(rows);
             } else {
                 res.type("text").send("No name given");
             }
         } catch (error) {
             res.type("text").status(500)
-                .send("An error occurred on the server. Try again later.");
+                .send(error);
         }
     });
 
     /** HELPER FUNCTIONS **/
     async function getTopLocations() {
         const db = await getDBConnection();
-        const query = "SELECT * FROM businesses " +
-            "LIMIT 5";
-        const rows = await db.all(query);
+        const query = "SELECT * FROM businesses;";
+        const rows = await db.get(query);
         await db.close();
         return rows;
     }
 
     async function getBusiness(name) {
         const db = await getDBConnection();
-        const query = "";
-        const rows = await db.all(query);
+        const query = "SELECT * FROM businesses " +
+            "WHERE name = ?;";
+        const rows = await db.all(query, [name]);
         await db.close();
         return rows;
     }
