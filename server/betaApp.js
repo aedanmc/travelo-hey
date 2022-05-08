@@ -23,6 +23,7 @@
     const PORT_8000 = 8000;
 
     const express = require("express");
+    const fs = require("fs").promises;
     const multer = require("multer");
     const sqlite = require("sqlite");
     const sqlite3 = require("sqlite3").verbose();
@@ -56,22 +57,25 @@
 
     app.get('/', async (req, res) => {
         try {
-            const rows = await getTopLocations();
-            res.type("json").send(rows);
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error.message);
+            let data = await fs.readFile("../front-end/data/businesses.json", "utf8");
+            res.type("json").send(data);
+        } catch (err) {
+            console.error(err);
         }
     });
 
-    app.get('/business/:name', async (req, res) => {
+    app.get('/business', async (req, res) => {
         try {
-            const busName = req.params.name;
-            if (busName) {
-                const rows = await getBusiness(busName);
-                res.type("json").send(rows);
+            const place_id = req.query.place_id;
+            const form_addr = req.query.form_addr;
+            // const place_id = req.body.place_id;
+            // const form_addr = req.body.form_addr;
+            if (place_id && form_addr) {
+                const reviews = await getReviews(place_id);
+                const country = await getCountry(form_addr);
+                res.type("json").send({"reviews": reviews, "country": country});
             } else {
-                res.type("text").send("No name given");
+                res.type("text").send("Missing ID and/or address.");
             }
         } catch (error) {
             res.type("text").status(500)
@@ -80,19 +84,35 @@
     });
 
     /** HELPER FUNCTIONS **/
-    async function getTopLocations() {
+    /**
+     *
+     * @param form_addr
+     * @returns {Promise<any[]>}
+     */
+    async function getCountry(form_addr) {
+        // split form_addr
+        const addr = form_addr.split(", ");
+        const country = addr[addr.length-1];
+
         const db = await getDBConnection();
-        const query = "SELECT * FROM businesses;";
-        const rows = await db.get(query);
+        const query = "SELECT * FROM countries " +
+            "WHERE name = ?;";
+
+        const row = await db.all(query, [country]);
         await db.close();
-        return rows;
+        return row;
     }
 
-    async function getBusiness(name) {
+    /**
+     *
+     * @param places_id
+     * @returns {Promise<any[]>}
+     */
+    async function getReviews(place_id) {
         const db = await getDBConnection();
-        const query = "SELECT * FROM businesses " +
-            "WHERE name = ?;";
-        const rows = await db.all(query, [name]);
+        const query = "SELECT * FROM reviews " +
+            "WHERE placeId = ?;";
+        const rows = db.all(query, [place_id]);
         await db.close();
         return rows;
     }
