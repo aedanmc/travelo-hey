@@ -5,32 +5,29 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-import image from '../../quebec-church.jpg';
+import Link from 'react-router-dom';
 
-// TODO: Add styling through useTheme and state through
-// useState
+// TODO: Add styling through useTheme
 
-export default function SingleResult() {
+export default function SingleResult({ image, title, subtitle, body, route }) {
   return (
-    <CardActionArea>
+    <CardActionArea component={Link} to={route}>
       <Card sx={{ display: 'flex', width: '60%' }}>
         <CardMedia
           component="img"
           sx={{ width: 150 }}
           image={image}
-          alt="Old Quebec Church"
         />
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <CardContent sx={{ flex: '1 0 auto', justifyContent: 'flex-start', textAlign: 'left' }}>
             <Typography data-testid="location-title" component="div">
-              Lorem Ipsum
+              {title}
             </Typography>
             <Typography data-testid="location-subtitle" color="text.secondary" component="div">
-              Old Quebec
+              {subtitle}
             </Typography>
             <Typography data-testid="location-details" color="text.secondary" component="div">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {body}
             </Typography>
           </CardContent>
         </Box>
