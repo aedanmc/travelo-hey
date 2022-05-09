@@ -4,10 +4,18 @@
 
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
-## Table of Contents
+## Contents
 
 - [Synopsis](#Synopsis)
 - [Repository Layout](#Repository-Layout)
+- [Documentation](#Documentation)
+- [Build/Test Instruction](#Build/Test-Instruction)
+  - [Install](#Install)
+  - [Test](#Test)
+  - [Clean](#Clean)
+  - [Build](#Build)
+- [Running Locally](#Running-Locally)
+- [Operational Use Cases](#Operational-Use-Cases)
 
 ## Synopsis
 
@@ -26,24 +34,88 @@ This is a really important topic to bring equity into technology. Travelo-Hey! i
 
 ## Repository Layout
 
-The structure of this repository is divided into the three major components that form the overall Travelo-Hey software requirements: front-end, back-end, and data.
+In the structure of this repo we have:
 
-* The [data folder](https://github.com/aedanmc/travelo-hey/tree/main/data) hosts our local database. It contains business, reviews, users and countries data.
-* The [server folder](https://github.com/aedanmc/travelo-hey/tree/main/server) hosts files related to providing data to the front-end and performing necessary calculations (including AI implementation).
-
-
-In addition to the three main software components of Travelo-Hey!, there is also a folder for [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) related to using and developing the web application. Finally, there is a [reports folder](https://github.com/aedanmc/travelo-hey/tree/main/reports) for cataloging the team's process over the software development life cycle via a series of well-organized markdown files.
+- [\_\_mocks__](https://github.com/aedanmc/travelo-hey/tree/main/__mocks__) required for React components
+- [\_\_test__](https://github.com/aedanmc/travelo-hey/tree/main/__tests__) contains React test scripts
+- [data](https://github.com/aedanmc/travelo-hey/tree/main/data) local database for Beta release
+- [public](https://github.com/aedanmc/travelo-hey/tree/main/public) client facing interface files
+- [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) contains team member's progress/goals/issues
+- [server](https://github.com/aedanmc/travelo-hey/tree/main/server) back-end directory for all node server components
+- [src](https://github.com/aedanmc/travelo-hey/tree/main/src) front-end directory for React components
 
 ## Documentation
 
-*[]
+- [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
+- [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
+- [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
 
-## Test Options
+## Build/Test Instructions
+You can run each of the scripts below individually, or run them altogether with:
+
+```shell
+npm run all
+```
+
+### Install
+
+In order to run Travelo-Hey! you must perform the following:
+
+```shell
+npm install
+```
+
+You can review the dependencies being used under `package.json`
+
+### Test
 
 Before submitting, you must pass all tests by running the following command below:
 
-```sh
-  npm test
+```shell
+npm test
 ```
-* `Jest` unit testing for the React components
-* `Mocha` fast and extensble tests for Node.js
+* `Jest` unit testing for the React components 
+    - React tests located in `__test__`
+* `Mocha` unit testing for the server and database
+    - Server tests located in `server/test`
+* `ESlint` syntax and style of javascript files 
+
+### Clean
+
+To remove any previous builds:
+
+```shell
+npm run clean
+```
+
+
+### Build
+
+To create a fresh build:
+
+```shell
+npm run build
+```
+The build will be placed in `./build`
+
+## Running Locally
+
+Once you have completed the [Build/Test Instructions](#Build/Test-Instructions), you can run the project locally on port with:
+
+```shell
+npm start
+```
+
+## Operational Use Cases
+
+While we are not fully implementing any of our use cases as described in our specification, 
+we are combining the MVP of two use cases:
+
+* Finding advice about places to travel safely
+* Research information/data on LGBTQ+ friendliness of countries in Asia
+
+The first use case, we are retrieving business information for the landing page in which the user
+could select a business to check its safety information. The second use case, since we are only 
+using limited mock data, the country that we are providing information on is the United States.
+
+
