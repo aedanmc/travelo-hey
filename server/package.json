@@ -50,30 +50,22 @@
   "homepage": "https://github.com/aedanmc/travelo-hey#readme",
   "scripts": {
     "test": "mocha test -u bdd -R spec",
-      "pretest": "npm run lint",
-      "posttest": "echo \"testing completed\"",
-    "build": "npm run build:bundle",
-      "prebuild": "npm run clean",
-      "build:bundle": "browserify server.js --ignore-missing | uglifyjs -mc > lib/bundle.js",
-    "start": "node server.js",
-      "start:dev": "node server.js 8000",
-    "clean": "rimraf lib/*",
+    "pretest": "npm run lint",
+    "posttest": "echo \"testing completed\"",
+    "start": "node betaApp.js",
     "lint": "jshint --exclude node_modules *.js test/*.js routes/*.js"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.18.0",
-    "fs": "^0.0.1-security",
     "multer": "^1.4.4",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sqlite": "^4.1.1",
+    "sqlite3": "^5.0.8"
   },
   "devDependencies": {
-    "browserify": "^17.0.0",
     "chai": "^4.3.6",
     "jshint": "^2.13.4",
-    "mocha": "^10.0.0",
-    "rimraf": "^3.0.2",
-    "uglify-js": "^2.8.29",
-    "watchify": "^4.0.0"
+    "mocha": "^10.0.0"
   }
 }

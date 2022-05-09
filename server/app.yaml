@@ -5,6 +5,7 @@ env: flex
 # One instance, one CPU core, 0.5G RAM and 10G disk size
 manual_scaling:
   instances: 1
+
 resources:
   cpu: 1
   memory_gb: 0.5

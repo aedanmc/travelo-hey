@@ -19,26 +19,37 @@
     "use strict";
 
     const mysql = require("mysql");
-    require("dotenv").config();
-
+    require('dotenv').config();
     const pe = process.env;
-    const db_connection = mysql.createConnection({
-        host: pe.DB_HOST,
-        user: pe.DB_USER,
-        password: pe.DB_PASSWORD,
-        database: pe.DB_NAME
-    });
 
-    db_connection.connect(function(error) {
-        if (error) throw error;
-        console.log("Connected!");
-    });
-
-    const dbSocketPath = pe.db_socket_path || "cloudsql";
-    module.exports = mysql.createPool({
+    const connection = mysql.createPool({
         user: pe.DB_USER,
-        password: pe.DB_PASSWORD,
+        password: pe.DB_PASS,
         database: pe.DB_NAME,
-        socketPath: "${dbSocketPath}/${pe.CLOUD_SQL_CONNECTION_NAME}"
+        host: pe.DB_HOST,
+        port: pe.DB_PORT
     });
+
+    // connection.(error => {
+    //     if (error) {
+    //         throw error;
+    //     } else {
+    //         console.log("Sucessfully connect to the database");
+    //     }
+    // });
+
+    module.exports = connection;
+
+//     const createTcpPool = async config => {
+//         const dbConfig = {
+//             user: pe.DB_USER,
+//             password: pe.DB_PASS,
+//             database: pe.DB_NAME,
+//             host: pe.DB_HOST,
+//             port: pe.DB_PORT
+//         };
+//         return mysql.createPool(dbConfig);
+//     };
+//
+//     module.exports = createTcpPool;
 })();

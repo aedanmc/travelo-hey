@@ -16,20 +16,21 @@
  *   - '../db_connection':  Required to pull the socket pool
  */
 
-(function() {
+(function () {
     "use strict";
 
     const express = require('express');
-    const router = express.Router();
-    const db = require('../db_connection');
+    const app = express.Router();
+    // const router = express.Router();
+    // const db = require('../db_connection');
 
-// obtain socket from pool
-    const pool = db;
+    // db.pool.query()
 
-// simple GET end point to test for now
-    router.get('/', (req, res) => {
+    console.log("first route");
+    // simple GET end point to test for now
+    app.get('/', (req, res) => {
         res.send('Hello Camila!');
     });
 
-    module.exports = router;
+    module.exports = app;
 })();
