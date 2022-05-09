@@ -14,18 +14,17 @@ import PropTypes from 'prop-types';
 function SingleResult({ image, name, contact, address }) {
   return (
     // <CardActionArea component={Link} to={route}>
-    <CardActionArea>
-      <Card sx={{ display: 'flex', width: '60%' }}>
+    <Card sx={{ display: 'flex', width: '50%', alignItems: 'flex-start' }}>
+      <CardActionArea sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'left' }}>
         <CardMedia
           component="img"
           sx={{ width: 150 }}
           image={image}
         />
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <Box>
           <CardContent sx={{ flex: '1 0 auto', justifyContent: 'flex-start', textAlign: 'left' }}>
             <Typography data-testid="location-title" component="div">
               {name}
-
             </Typography>
             <Typography data-testid="location-subtitle" color="text.secondary" component="div">
               {contact}
@@ -35,8 +34,8 @@ function SingleResult({ image, name, contact, address }) {
             </Typography>
           </CardContent>
         </Box>
-      </Card>
-    </CardActionArea>
+      </CardActionArea>
+    </Card>
   );
 }
 
