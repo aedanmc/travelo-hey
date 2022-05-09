@@ -1,5 +1,5 @@
 .*
-server/.env
+.env
 .idea/misc.xml
 .idea/modules.xml
 .idea/travelo-hey.iml
