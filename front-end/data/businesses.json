@@ -151,7 +151,8 @@
       ],
       "user_ratings_total": 632,
       "website": "http://www.littlewatercantina.com/",
-      "equality_rating": 3.1
+      "equality_rating": 3.1,
+      "equality_ratings_total": 328
     },
     "item2": {
       "formatted_address": "300 E Pike St #1200, Seattle, WA 98122, USA",
@@ -301,7 +302,8 @@
       ],
       "user_ratings_total": 825,
       "website": "http://www.statesideseattle.com/",
-      "equality_rating": 4.7
+      "equality_rating": 4.7,
+      "equality_ratings_total": 192
     },
     "item3": {
       "formatted_address": "1118 E Pike St, Seattle, WA 98122, USA",
@@ -452,7 +454,8 @@
       ],
       "user_ratings_total": 3271,
       "website": "http://www.unicornseattle.com/",
-      "equality_rating": 1.1
+      "equality_rating": 1.1,
+      "equality_ratings_total": 1927
     },
     "item4": {
       "formatted_address": "1009 E Union St Suite C, Seattle, WA 98122, USA",
@@ -604,7 +607,8 @@
       ],
       "user_ratings_total": 72,
       "website": "https://www.unionseattle.com/",
-      "equality_rating": 5
+      "equality_rating": 5,
+      "equality_ratings_total": 22
     },
     "item5": {
       "formatted_address": "Seattle, WA 98195, USA",
@@ -753,7 +757,8 @@
       ],
       "user_ratings_total": 1499,
       "website": "http://www.washington.edu/",
-      "equality_rating": 4.2
+      "equality_rating": 4.2,
+      "equality_ratings_total": 572345
     }
   },
   "status": "OK"
