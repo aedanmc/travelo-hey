@@ -28,8 +28,22 @@ This is a really important topic to bring equity into technology. Travelo-Hey! i
 
 The structure of this repository is divided into the three major components that form the overall Travelo-Hey software requirements: front-end, back-end, and data.
 
-* The [data folder](https://github.com/aedanmc/travelo-hey/tree/main/data) is fairly self-explanatory: it stores the data that has been collected and aggregated for use in providing recommendations to users and responding to search queries.
-* The [back-end folder](https://github.com/aedanmc/travelo-hey/tree/main/back-end) hosts files related to providing data to the front-end and performing necessary calculations (including AI implementation).
-* The [front-end folder](https://github.com/aedanmc/travelo-hey/tree/main/front-end) hosts files related to getting data from the back-end and displaying it via an interactive user interface.
+* The [data folder](https://github.com/aedanmc/travelo-hey/tree/main/data) hosts our local database. It contains business, reviews, users and countries data.
+* The [server folder](https://github.com/aedanmc/travelo-hey/tree/main/server) hosts files related to providing data to the front-end and performing necessary calculations (including AI implementation).
+
 
 In addition to the three main software components of Travelo-Hey!, there is also a folder for [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) related to using and developing the web application. Finally, there is a [reports folder](https://github.com/aedanmc/travelo-hey/tree/main/reports) for cataloging the team's process over the software development life cycle via a series of well-organized markdown files.
+
+## Documentation
+
+*[]
+
+## Test Options
+
+Before submitting, you must pass all tests by running the following command below:
+
+```sh
+  npm test
+```
+* `Jest` unit testing for the React components
+* `Mocha` fast and extensble tests for Node.js
