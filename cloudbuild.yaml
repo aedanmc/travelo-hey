@@ -1,12 +1,12 @@
 steps:
 - name: node
   entrypoint: npm
-  args: ['install']
+  args: ['ci']
 - name: node
   entrypoint: npm
   args: ['test']
 timeout: 600s
-queueTtl: 300s
+queueTtl: 300s 
 options:
   dynamic_substitutions: true
 tags: ['pullreq']
