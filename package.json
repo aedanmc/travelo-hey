@@ -1,7 +1,6 @@
 {
   "name": "travelo-hey",
   "version": "1.0.0",
-  "private": true,
   "main": "server/server.js",
   "repository": {
     "type": "git",
@@ -49,27 +48,24 @@
     "url": "https://github.com/aedanmc/travelo-hey/issues"
   },
   "scripts": {
+    "all": "npm run all:back && npm run all:front && npm run dev",
+    "all:back": "npm install && npm test",
+    "all:front": "cd front-end && npm install && npm run clean && npm run build && npm run test && cd ..",
     "test": "npm run test:back && npm run test:front",
     "test:back": "mocha server/test -u bdd -R spec",
-    "test:front": "jest",
+    "test:front": "cd front-end && npm test && cd ..",
     "posttest": "echo \"testing completed\"",
-    "clean": "rimraf build/*",
-    "build": "react-scripts build",
-    "start": "node server/betaApp.js"
+    "clean": "rimraf front-end/build/*",
+    "build": "cd front-end && npm run build && cd ..",
+    "server": "nodemon server/betaApp.js",
+    "start": "node server/betaApp.js",
+    "client": "npm start --prefix front-end",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "homepage": "https://github.com/aedanmc/travelo-hey#readme",
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.6.2",
-    "@mui/material": "^5.6.3",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.30",
-    "@types/react": "^18.0.8",
-    "@types/react-dom": "^18.0.3",
+    "concurrently": "^7.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.18.0",
     "multer": "^1.4.4",
@@ -82,31 +78,11 @@
     "typescript": "^4.6.4",
     "web-vitals": "^2.1.4"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
     "chai": "^4.3.6",
     "jshint": "^2.13.4",
     "mocha": "^10.0.0",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    },
-    "testEnvironment": "jsdom"
   }
 }

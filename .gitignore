@@ -6,4 +6,5 @@
 .idea/vcs.xml
 .jshintignore
 .jshintrc
+front-end/build/*
 node_modules/
