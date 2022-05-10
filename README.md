@@ -74,11 +74,11 @@ Before submitting, you must pass all tests by running the following command belo
 ```shell
 npm test
 ```
-* `Jest` unit testing for the React components 
+* `Jest` unit testing for the React components
     - React tests located in `__test__`
 * `Mocha` unit testing for the server and database
     - Server tests located in `server/test`
-* `ESlint` syntax and style of javascript files 
+* `ESlint` syntax and style of javascript files
 
 ### Clean
 
@@ -100,22 +100,22 @@ The build will be placed in `./build`
 
 ## Running Locally
 
-Once you have completed the [Build/Test Instructions](#Build/Test-Instructions), you can run the project locally on port with:
+Once you have completed the [Build/Test Instructions](#Build/Test-Instructions), you can run the project locally on ports 3000 (react) / 8080 (node) with:
 
 ```shell
-npm start
+npm run dev
 ```
 
 ## Operational Use Cases
 
-While we are not fully implementing any of our use cases as described in our specification, 
+While we are not fully implementing any of our use cases as described in our specification,
 we are combining the MVP of two use cases:
 
 * Finding advice about places to travel safely
 * Research information/data on LGBTQ+ friendliness of countries in Asia
 
 The first use case, we are retrieving business information for the landing page in which the user
-could select a business to check its safety information. The second use case, since we are only 
+could select a business to check its safety information. The second use case, since we are only
 using limited mock data, the country that we are providing information on is the United States.
 
 
