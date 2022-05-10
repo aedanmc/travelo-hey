@@ -41,7 +41,7 @@
      */
     async function getDBConnection() {
         return await sqlite.open({
-            filename: process.env.LOCAL_DB_NAME,
+            filename: "data/travelo-hey.db",
             driver: sqlite3.Database
         });
     }
@@ -57,8 +57,9 @@
 
     app.get('/', async (req, res) => {
         try {
-            let data = await fs.readFile("../front-end/data/businesses.json", "utf8");
+            let data = await fs.readFile("data/businesses.json", "utf8");
             res.type("json").send(data);
+
         } catch (err) {
             console.error(err);
         }
