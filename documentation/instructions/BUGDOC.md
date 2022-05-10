@@ -12,7 +12,6 @@ Travelo-Hey! uses GitHub Issues to track current issues and bugs relating to dif
 
     3. If the bug or issue has been identified already and you want to provide additional information, choose the bug from the list of open issues and add a comment following the format described in [Bug Documentation Guidelines](#bug-documentation-guidelines).
 
-
     4. If the bug or issue has not yet been identified, press the button labeled "New Issue".
 
     5. After the page loads, write a short but descriptive title that explains what the bug is.
