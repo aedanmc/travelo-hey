@@ -23,6 +23,7 @@
     const PORT_8000 = 8000;
 
     const express = require("express");
+    const cors = require("cors");
     const fs = require("fs").promises;
     const multer = require("multer");
     const sqlite = require("sqlite");
@@ -55,6 +56,7 @@
      * </script>
      */
 
+    app.use(cors());
     app.get('/', async (req, res) => {
         try {
             let data = await fs.readFile("data/businesses.json", "utf8");
@@ -67,10 +69,10 @@
 
     app.get('/business', async (req, res) => {
         try {
-            // const place_id = req.query.place_id;     // for testing outside of front-end
-            // const form_addr = req.query.form_addr;   // for testing outside of front-end
-            const place_id = req.body.place_id;
-            const form_addr = req.body.form_addr;
+            const place_id = req.query.place_id;     // for testing outside of front-end
+            const form_addr = req.query.form_addr;   // for testing outside of front-end
+            // const place_id = req.body.place_id;
+            // const form_addr = req.body.form_addr;
             if (place_id && form_addr) {
                 const reviews = await getReviews(place_id);
                 const country = await getCountry(form_addr);
@@ -124,5 +126,5 @@
         console.log("Listening on port " + port + "..."); // uncomment for debugging
     });
 
-    app.use(express.static("build"));
+    app.use(express.static('../front-end/build'));
 })();
