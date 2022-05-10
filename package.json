@@ -49,6 +49,7 @@
     "url": "https://github.com/aedanmc/travelo-hey/issues"
   },
   "scripts": {
+    "all": "npm install && npm test && npm run clean && npm run build && npm start",
     "test": "npm run test:back && npm run test:front",
     "test:back": "mocha server/test -u bdd -R spec",
     "test:front": "jest",
