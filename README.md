@@ -36,13 +36,11 @@ This is a really important topic to bring equity into technology. Travelo-Hey! i
 
 In the structure of this repo we have:
 
-- [\_\_mocks__](https://github.com/aedanmc/travelo-hey/tree/main/__mocks__) required for React components
-- [\_\_test__](https://github.com/aedanmc/travelo-hey/tree/main/__tests__) contains React test scripts
 - [data](https://github.com/aedanmc/travelo-hey/tree/main/data) local database for Beta release
-- [public](https://github.com/aedanmc/travelo-hey/tree/main/public) client facing interface files
+- [domentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) contains developer and user guides
+- [front-end](https://github.com/aedanmc/travelo-hey/tree/main/front-end)  front-end directory for React components
 - [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) contains team member's progress/goals/issues
 - [server](https://github.com/aedanmc/travelo-hey/tree/main/server) back-end directory for all node server components
-- [src](https://github.com/aedanmc/travelo-hey/tree/main/src) front-end directory for React components
 
 ## Documentation
 
