@@ -1,71 +1,49 @@
-# Week 4 Status Report
+# Week 5 Status Report
 *Team: Travelo-Hey!*
 
-*Dates: April 28 - May 4, 2022*
+*Dates: May 5 - May 12, 2022*
 
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
-- Need to simplify beta release use case considering that the login page is likely going to be more difficult to implement in time
-    - Aedan and Alex to present new use case of non-logged in landing page with featured places to a business page
-- Question about language requirements and expectations for front-end within the course
-- Reasonable expectations for a search page (needing filtering, etc.)
+
 
 ## Team Report
 1. Plans and Goals from Last Week
-    - Build system ready
-    - Implementation of login page
-    - Start on implementation for API agile style
-    - Functionality for login page
-    - Finalize Post Beta milestones
-2. Progress and Issues
-    - Progress
-        - Set up CI w/ Google Cloud Build
-        - Testing framework set up
-        - Hashed out how tests and CI will be integrated together
-        - Continued development of components for front-end
-        - Developed concrete code review process for team
-    - Issues
-        - Components behind schedule for beta release (for front-end and for back-end)
-            - Need to simplify and solidify new beta release use case
-        - Server-side package.json build file scripts not setup properly yet - still in progress
-        - CI build not documented as per CI assignment spec
-            - Need to expand documentation and move up to the root readme file
-        - CI build report information not easily visible after triggers
-            - Need to find a way to link CI build information to GitHub
-            without displaying sensitive info
-3. Plans and Goals for Next Week
     - Catch up on components in anticipation for beta release
         - Implementation of login page (or another equivalent for potential new use case)
         - Functionality for login page (or another equivalent for potential new use case)
     - Finish setup of package.json build file scripts
     - Complete beta release assignment including presentation
+2. Progress and Issues
+    - Progress
+        
+    - Issues
+        
+3. Plans and Goals for Next Week
+    
 
 ## Team Member Contributions
 ### Aedan McCall (they/them)
 1. Plans and Goals from Last Week
-    - Plans:
-        - Utilize the materials and decisions made for the software architecture deliverable
-        to start writing code
-        - Collaborate with the whole team on API components asynchronously
-    - Goals:
-        - Make significant progress towards first use case on both API and UI implementation
-        - Decide on whether front end will use any testing frameworks or just visual inspection
-2. Progress and Issues
-    - Progress:
-        - Started writing code for front end using Material UI
-            - Draft version of first component in front-end folder (link?)
-        - Decided that front end will use react-testing-library and
-        Jest
-        - Wrote first test for React components
-    - Issues:
-        - Struggling with getting work done on time for beta implementation
-        - Considering whether login use case is the right beta goal
-
-3. Plans and Goals for Next Week
     - Finish implementing layout for first use case
     - Finish implementing functionality for first use case
     - Add front end tests as needed
+2. Progress and Issues
+    - Progress:
+        - Added significantly more source code to search page component
+        - Built out search result component that takes props
+        - Built out static search filter component
+        - Added data fetching to search page to pass down to search result components
+        - Modified test case for search result
+    - Issues:
+        - Struggling with getting work done on time for beta implementation
+        - Limited time to work on project in general and feeling overwhelmed
+
+3. Plans and Goals for Next Week
+    - Finish beta use case
+    - Write documentation for users on front end
+    - Add tests for new components
 
 
 ### Alex Zuniga (they/she/he)
