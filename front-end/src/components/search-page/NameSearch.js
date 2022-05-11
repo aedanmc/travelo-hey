@@ -7,15 +7,15 @@ import Input from '@mui/material/InputLabel';
 
 export default function NameSearch({placeholder, onInputChange}) {
 
-  <div>
-    <Input placeholder={placeholder}
-           onChange={onInputChange}>
+    <div>
+        <Input placeholder={placeholder}
+        onChange={onInputChange}>
+        
+        </Input>
+        <FormControl>
+            <Select>
 
-    </Input>
-    <FormControl>
-      <Select>
-
-      </Select>
-    </FormControl>
-  </div>
+            </Select>
+        </FormControl>
+    </div>
 }

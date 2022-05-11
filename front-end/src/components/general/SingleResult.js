@@ -11,9 +11,7 @@ import PropTypes from 'prop-types';
 
 // TODO: Add styling through useTheme
 
-function SingleResult({
-  image, name, contact, address,
-}) {
+function SingleResult({ image, name, contact, address }) {
   return (
     // <CardActionArea component={Link} to={route}>
     <Card sx={{ display: 'flex', width: '50%', alignItems: 'flex-start' }}>
