@@ -1,18 +1,9 @@
 steps:
 - name: node:16.14.0
   entrypoint: npm
-  args: ['run', 'install:back']
+  args: ['run', 'all:back']
 - name: node:16.14.0
   entrypoint: npm
-  args: [ 'run', 'install:front' ]
-- name: node:16.14.0
-  entrypoint: npm
-  args: ['run', 'clean']
-- name: node:16.14.0
-  entrypoint: npm
-  args: ['run', 'build']
-- name: node:16.14.0
-  entrypoint: npm
-  args: ['run', 'test']
+  args: [ 'run', 'all:front' ]
 timeout: 600s
 queueTtl: 300s
