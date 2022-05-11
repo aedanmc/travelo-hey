@@ -50,7 +50,7 @@
   "scripts": {
     "all": "npm run all:back && npm run all:front && npm run dev",
     "all:back": "npm install && npm test",
-    "all:front": "cd front-end && npm install && npm run clean && npm run build && npm run test && cd ..",
+    "all:front": "npm run clean && cd front-end && npm install && npm run build && npm run test && cd ..",
     "test": "npm run test:back && npm run test:front",
     "test:back": "mocha server/test -u bdd -R spec",
     "test:front": "cd front-end && npm test && cd ..",
@@ -70,6 +70,7 @@
     "express": "^4.18.0",
     "multer": "^1.4.4",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.16",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "^2.1.3",
