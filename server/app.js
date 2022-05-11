@@ -25,28 +25,52 @@
     /** IMPORT MODULES **/
     const express = require("express");
     const multer = require("multer");
-    require("dotenv").config();
-
-    /** IMPORT ROUTES **/
-    const firstRouter = require("./routes/firstRoute");
 
     const app = express();
+
+    require('dotenv').config();
     const pe = process.env;
 
-// for application/x-www-form-urlencoded
-    app.use(express.urlencoded({extended: true}));
-
-// for application/json
-    app.use(express.json());
-
-// for multipart/form-data
-    app.use(multer().none());
+    // // for application/x-www-form-urlencoded
+    // app.use(express.urlencoded({extended: true}));
+    //
+    // // for application/json
+    // app.use(express.json());
+    //
+    // // for multipart/form-data
+    // app.use(multer().none());
 
     /** USE ROUTES **/
-    app.use('/', firstRouter);
+    // app.use('/', require("./routes/firstRoute"));
+    // insert new routes here...
+
+    const createTcpPool = require('./db_connection');
+    // let pool = createTcpPool();
+
+    // app.get('/', function routeHandler(req, res) {
+    //     res.send('ok');
+    // });
+
+    app.get('/', async (req, res) => {
+        console.log("triggered get");
+
+     createTcpPool.query(`SELECT * FROM countries`, function (error, results, fields) {
+      if (error) {
+       console.log(error);
+       res.status(500)
+           .send(error)
+           .end();
+      } else {
+       console.log(res);
+       res.status(200)
+           .send(results)
+           .end();
+      }
+     });
+    });
 
     /** STATUS HANDLING **/
-// catch undefined routes and respond with 400
+    // catch undefined routes and respond with 400
     app.use(function (req, res, next) {
         if (res.statusCode === pe.STATUS_400) {
             res.status(pe.STATUS_400).send("Are you supposed to be here?");
@@ -57,7 +81,7 @@
         }
     });
 
-// catch server errors and respond with 500
+    // catch server errors and respond with 500
     app.use(logErrors);
     app.use(clientErrorHandler);
     app.use(errorHandler);
@@ -80,6 +104,5 @@
         res.render('error', { error: err });
     }
 
-    /** Allow app to be used in server.js **/
     module.exports = app;
 })();
