@@ -1,7 +1,10 @@
 steps:
 - name: node:16.14.0
   entrypoint: npm
-  args: ['run', 'install']
+  args: ['run', 'install:back']
+- name: node:16.14.0
+  entrypoint: npm
+  args: [ 'run', 'install:front' ]
 - name: node:16.14.0
   entrypoint: npm
   args: ['run', 'clean']
