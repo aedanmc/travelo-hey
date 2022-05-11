@@ -51,7 +51,6 @@
     "all": "npm run all:back && npm run all:front && npm run dev",
     "all:back": "npm run install:back && npm run test:back",
     "all:front": "npm run clean && npm run install:front && npm run build:front && npm run test && cd ..",
-    "install": "npm run install:back && npm run install:front && cd ..",
     "install:back": "npm install",
     "install:front": "cd front-end && npm install",
     "test": "npm run test:back && npm run test:front",
