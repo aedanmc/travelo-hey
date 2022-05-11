@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
   Link,
+  Outlet,
 } from 'react-router-dom';
 // import NameSearch from './name-search';
 import SingleResult from '../general/SingleResult';
@@ -55,7 +56,7 @@ function SearchPage() {
       <FilterSearch />
       <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
         {locations.map((item) => (
-          <Link to={`/locations/${item.place_id}`}>
+          <Link to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
             <SingleResult
               image="http://via.placeholder.com/640x360"
               name={item.name}
@@ -78,8 +79,9 @@ function SearchPage() {
         />
       </Stack>
       <Routes>
-        <Route path="/locations/:locationID" element={<LocationPage />} />
+        <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
       </Routes>
+      <Outlet />
     </Container>
   );
 }

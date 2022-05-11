@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import SearchPage from './components/search-page/SearchPage';
 import NavBar from './components/general/NavBar';
+import LocationPage from './components/locations-page/LocationPage';
 
 // TODO: set up nested routing for different top level pages
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route element={<NavBar />} />
-          <Route exact path="*" element={<SearchPage />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <NavBar />
+      <Routes>
+        <Route path="/business/?place_id=:locationID\&form_addr=:address" element={<LocationPage />} />
+        <Route path="*" element={<SearchPage />} />
+      </Routes>
+    </div>
   );
 }
 
