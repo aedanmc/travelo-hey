@@ -2,10 +2,16 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import axios from 'axios';
+import {
+  Routes,
+  Route,
+  Link,
+} from 'react-router-dom';
 // import NameSearch from './name-search';
 import SingleResult from '../general/SingleResult';
 import image from '../../quebec-church.jpg';
 import FilterSearch from './FilterSearch';
+import LocationPage from '../locations-page/LocationPage';
 
 function SearchPage() {
   const [locations, setLocations] = React.useState([]);
@@ -49,13 +55,14 @@ function SearchPage() {
       <FilterSearch />
       <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
         {locations.map((item) => (
-          <SingleResult
-            key={item.place_id}
-            image="http://via.placeholder.com/640x360"
-            name={item.name}
-            contact={item.formatted_phone_number}
-            address={item.formatted_address}
-          />
+          <Link to={`/locations/${item.place_id}`}>
+            <SingleResult
+              image="http://via.placeholder.com/640x360"
+              name={item.name}
+              contact={item.formatted_phone_number}
+              address={item.formatted_address}
+            />
+          </Link>
         ))}
         {/* Map a list of <SingleResult/>s
                 with fetched API data here */}
@@ -70,6 +77,9 @@ function SearchPage() {
           address="Lorem Ipsum"
         />
       </Stack>
+      <Routes>
+        <Route path="/locations/:locationID" element={<LocationPage />} />
+      </Routes>
     </Container>
   );
 }
