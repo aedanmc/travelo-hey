@@ -58,21 +58,16 @@
         - Work with team on any remaining issues
 2. Progress and Issues
     - Progress
-        - Divided up the login page into potential components within MUI 
-        - Created a hand written skeleton of psuedo-code layout for the login page's components 
-        - Implemented CI between our Github repo and GCP (with Matt)
-        - Wrote triggers for various actions that start a build 
-        - Aided in writing up the CI portions for the CI & Testing assignment
+        - Developed front-end components for navigation bar and a single location page
+        - Set up some extremely basic routing between pages for beta release
     - Issues
-        - Still a bit worried that we will not have enough time to complete everything but hoping that a new use case will fix this
-        - Front-end/Back-end connection possibilities 
-        - Needing to restart on my end's work since we are scrapping login page 
+        - Routing only works in some instances but not without affecting other aspects
+        - Styling was not able to be implemented in time for beta release
+        - Feeling overwhelmed with how far behind we are and the amount of work up ahead
 3. Plans and Goals for Next Week
-    - Find more resources for connection between front-end/back-end
-    - Work with Aedan to make a cohesive front-end in time for the beta release
-    - Finish beta release pages for new use case 
-        - Complete components for a business info page and the navigation header
-    - Set up skeleton/foundation for components and connections needed after beta release 
+    - Fix routing issues between pages 
+    - Tweak data parsing for single location page
+    - Reevaluate plan for final project 
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
