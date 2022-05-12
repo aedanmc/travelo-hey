@@ -99,24 +99,22 @@
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
-    - Start API implementation (working towards first use case)
-    - Back-end functionality for login page
-    - Figure out hashing/salting for user passwords
-    - Send Identity Platform code to front-end
-2. Progress and Issues
-    - Progress
-        - Set up CI w/ Google Cloud Build (alongside Alex)
-        - Assisted in filling out CI & Testing assignment, specifically portions related to CI
-        - Created cloudbuild.yaml files for use in building w/ CI
-        - Set up my individual API keys
-        - Discussed code review process with rest of team
-    - Issues
-        - Still need to do deeper research into hashing/salting of user passwords through Identity Platform
-        - Further work required on back-end in preparation for beta (APIs & database connection)
-3. Plans and Goals for Next Week
     - Ensure/finalize implementation of back-end for beta release
     - Assist in integration of APIs & database queries w/ server
     - Add to & clean up documentation in preparation for beta release
+2. Progress and Issues
+    - Progress
+        - Developed front-end components related to individual business/location pages
+        - Ensured testing and building works with front-end components for beta release
+    - Issues
+        - Could not get routing to work properly with individual business/location pages for beta
+        - Some adjustment was needed with switching from back-end subteam to front-end subteam
+        - Front-end components need significant work with regards to styling
+3. Plans and Goals for Next Week
+    - Fix routing issues with business pages
+    - Improve styling of front-end components
+    - Discuss and begin implementation of additional front-end components for beyond beta
+    
     
 
 ### Mike Harris (they/them)
