@@ -49,7 +49,7 @@
   },
   "scripts": {
     "all": "npm run all:back && npm run all:front && npm run dev",
-    "all:back": "npm install && npm test",
+    "all:back": "npm install && npm run test:back",
     "all:front": "npm run clean && cd front-end && npm install && npm run build && npm run test && cd ..",
     "test": "npm run test:back && npm run test:front",
     "test:back": "mocha server/test -u bdd -R spec",
