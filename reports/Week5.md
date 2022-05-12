@@ -6,6 +6,9 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
+1. Discuss team process reflection thread
+2. Discuss questions Aedan posed to the team regarding MVP
+    - Chart a course for the rest of the quarter
 
 
 ## Team Report
@@ -17,10 +20,18 @@
     - Complete beta release assignment including presentation
 2. Progress and Issues
     - Progress
-        
+        - Successfully implemented an MVP beta release
+        - Wrote documentation for beta release deliverable
     - Issues
+        - Team process has somewhat fallen apart
+        - Testing needed for most new beta functionality
+        - Bugs documented on GitHub
+        - Figuring out page state maintenance
         
 3. Plans and Goals for Next Week
+    - Solidify documentation
+    - Refine/ rehash team process
+    - Develop beta test suite
     
 
 ## Team Member Contributions
