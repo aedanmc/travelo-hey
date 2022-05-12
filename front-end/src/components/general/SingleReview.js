@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
-import { Link, Route } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // TODO: ensure styling is correct
@@ -38,13 +38,15 @@ export default function SingleReview({ name, pic, link, rating, relativeTime, te
           </Typography>
         </CardContent>
       </Card>
-      <Route
-        path={link}
-        component={() => {
-          window.location.replace({ link });
-          return null;
-        }}
-      />
+      <Routes>
+        <Route
+          path={link}
+          component={() => {
+            window.location.replace({ link });
+            return null;
+          }}
+        />
+      </Routes>
     </div>
   );
 }

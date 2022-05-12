@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/business/?place_id=:locationID\&form_addr=:address" element={<LocationPage />} />
-        <Route path="*" element={<SearchPage />} />
+        <Route path="/business/*" element={<LocationPage />} />
+        <Route path="/*" element={<SearchPage />} />
       </Routes>
     </div>
   );
