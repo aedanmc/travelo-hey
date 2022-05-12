@@ -69,60 +69,58 @@
         - Work with team on any remaining issues
 2. Progress and Issues
     - Progress
-        - Divided up the login page into potential components within MUI 
-        - Created a hand written skeleton of psuedo-code layout for the login page's components 
-        - Implemented CI between our Github repo and GCP (with Matt)
-        - Wrote triggers for various actions that start a build 
-        - Aided in writing up the CI portions for the CI & Testing assignment
+        - Developed front-end components for navigation bar and a single location page
+        - Set up some extremely basic routing between pages for beta release
     - Issues
-        - Still a bit worried that we will not have enough time to complete everything but hoping that a new use case will fix this
-        - Front-end/Back-end connection possibilities 
-        - Needing to restart on my end's work since we are scrapping login page 
+        - Routing only works in some instances but not without affecting other aspects
+        - Styling was not able to be implemented in time for beta release
+        - Feeling overwhelmed with how far behind we are and the amount of work up ahead
 3. Plans and Goals for Next Week
-    - Find more resources for connection between front-end/back-end
-    - Work with Aedan to make a cohesive front-end in time for the beta release
-    - Finish beta release pages for new use case 
-        - Complete components for a business info page and the navigation header
-    - Set up skeleton/foundation for components and connections needed after beta release 
+    - Fix routing issues between pages 
+    - Tweak data parsing for single location page
+    - Reevaluate plan for final project 
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
-    - Assist with the implementation of the server
-    - Create yaml file
-    - Work with team to complete Testing and CI assignment
-2. Progress and Issues
-    - Progress
-        - Assist with the implementation of the server
-        - Create yaml file
-        - Work with team to complete Testing and CI assignment
-    - Issues
-        - Start implementation for the managing login/sign in page
-3. Plans and Goals for Next Week
     - Finalize server files
     - Create test cases for database
     - Finalize back-end build and review front-end build
+    - Assist with fixing the CI
+2. Progress and Issues
+    - Progress
+       - Finalize server files
+       - Create test cases for database
+       - Finalize back-end build and review front-end build
+       - Assist with fixing the CI
+       - Create local database for beta release
+    - Issues
+        - Call to cloud database not working, implemented local db instead
+        - Restructuring repo (delayed implementation)
+        - Create tests for database
+3. Plans and Goals for Next Week
+    - Assist with integration of Google Business API
+    - Create test cases for database and server
+    - Develop user and developer guides
 
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
-    - Start API implementation (working towards first use case)
-    - Back-end functionality for login page
-    - Figure out hashing/salting for user passwords
-    - Send Identity Platform code to front-end
-2. Progress and Issues
-    - Progress
-        - Set up CI w/ Google Cloud Build (alongside Alex)
-        - Assisted in filling out CI & Testing assignment, specifically portions related to CI
-        - Created cloudbuild.yaml files for use in building w/ CI
-        - Set up my individual API keys
-        - Discussed code review process with rest of team
-    - Issues
-        - Still need to do deeper research into hashing/salting of user passwords through Identity Platform
-        - Further work required on back-end in preparation for beta (APIs & database connection)
-3. Plans and Goals for Next Week
     - Ensure/finalize implementation of back-end for beta release
     - Assist in integration of APIs & database queries w/ server
     - Add to & clean up documentation in preparation for beta release
+2. Progress and Issues
+    - Progress
+        - Developed front-end components related to individual business/location pages
+        - Ensured testing and building works with front-end components for beta release
+    - Issues
+        - Could not get routing to work properly with individual business/location pages for beta
+        - Some adjustment was needed with switching from back-end subteam to front-end subteam
+        - Front-end components need significant work with regards to styling
+3. Plans and Goals for Next Week
+    - Fix routing issues with business pages
+    - Improve styling of front-end components
+    - Discuss and begin implementation of additional front-end components for beyond beta
+    
     
 
 ### Mike Harris (they/them)
