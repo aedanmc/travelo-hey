@@ -9,6 +9,7 @@
 - [Synopsis](#Synopsis)
 - [Repository Layout](#Repository-Layout)
 - [Documentation](#Documentation)
+- [Prerequisites](#Prerequisites)
 - [Build/Test Instruction](#Build/Test-Instruction)
   - [Install](#Install)
   - [Test](#Test)
@@ -49,7 +50,16 @@ In the structure of this repo we have:
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
 - [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 
+
+## Prerequisites
+
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v8.5.5+)
+
+Require the most recent version of Chrome/Firefox
+
 ## Build/Test Instructions
+
 You can run each of the scripts below individually, or run them altogether with:
 
 ```shell
