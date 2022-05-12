@@ -9,6 +9,7 @@
 - [Synopsis](#Synopsis)
 - [Repository Layout](#Repository-Layout)
 - [Documentation](#Documentation)
+- [Prerequisites](#Prerequisites)
 - [Build/Test Instruction](#Build/Test-Instruction)
   - [Install](#Install)
   - [Test](#Test)
@@ -48,7 +49,14 @@ In the structure of this repo we have:
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
 
+
+## Prerequisites
+
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v8.5.5+)
+
 ## Build/Test Instructions
+
 You can run each of the scripts below individually, or run them altogether with:
 
 ```shell
