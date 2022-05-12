@@ -76,20 +76,25 @@
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
-    - Assist with the implementation of the server
-    - Create yaml file
-    - Work with team to complete Testing and CI assignment
-2. Progress and Issues
-    - Progress
-        - Assist with the implementation of the server
-        - Create yaml file
-        - Work with team to complete Testing and CI assignment
-    - Issues
-        - Start implementation for the managing login/sign in page
-3. Plans and Goals for Next Week
     - Finalize server files
     - Create test cases for database
     - Finalize back-end build and review front-end build
+    - Assist with fixing the CI
+2. Progress and Issues
+    - Progress
+       - Finalize server files
+       - Create test cases for database
+       - Finalize back-end build and review front-end build
+       - Assist with fixing the CI
+       - Create local database for beta release
+    - Issues
+        - Call to cloud database not working, implemented local db instead
+        - Restructuring repo (delayed implementation)
+        - Create tests for database
+3. Plans and Goals for Next Week
+    - Assist with integration of Google Business API
+    - Create test cases for database and server
+    - Develop user and developer guides
 
 
 ### Matt Broom (he/they)
