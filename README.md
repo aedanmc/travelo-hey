@@ -37,7 +37,7 @@ This is a really important topic to bring equity into technology. Travelo-Hey! i
 In the structure of this repo we have:
 
 - [data](https://github.com/aedanmc/travelo-hey/tree/main/data) local database for Beta release
-- [domentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) contains developer and user guides
+- [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) contains developer and user guides
 - [front-end](https://github.com/aedanmc/travelo-hey/tree/main/front-end)  front-end directory for React components
 - [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) contains team member's progress/goals/issues
 - [server](https://github.com/aedanmc/travelo-hey/tree/main/server) back-end directory for all node server components
@@ -47,6 +47,7 @@ In the structure of this repo we have:
 - [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
+- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 
 ## Build/Test Instructions
 You can run each of the scripts below individually, or run them altogether with:
