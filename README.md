@@ -55,6 +55,8 @@ In the structure of this repo we have:
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v8.5.5+)
 
+Require the most recent version of Chrome/Firefox
+
 ## Build/Test Instructions
 
 You can run each of the scripts below individually, or run them altogether with:
