@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 
 export default function LocationDetails({
-  image, name, address, phone, link, equalityScore, numReviews, googleRating, numRatings }) {
+  image, name, address, phone, link, equalityScore, numReviews,
+  googleRating, numRatings, country, countrySafety }) {
   return (
     <div>
       <Grid container spacing={2}>
@@ -28,6 +29,8 @@ export default function LocationDetails({
         <Grid item xs={6}>
           <Typography variant="h4" component="div">{googleRating}</Typography>
           <Typography color="text.secondary" component="div">{numRatings}</Typography>
+          <Typography color="text.secondary" component="div">{country}</Typography>
+          <Typography color="text.secondary" component="div">{countrySafety}</Typography>
         </Grid>
       </Grid>
     </div>
@@ -44,4 +47,6 @@ LocationDetails.propTypes = {
   numReviews: PropTypes.string.isRequired,
   googleRating: PropTypes.string.isRequired,
   numRatings: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  countrySafety: PropTypes.string.isRequired,
 };

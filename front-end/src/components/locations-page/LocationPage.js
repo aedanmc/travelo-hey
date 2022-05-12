@@ -150,6 +150,8 @@ function LocationPage() {
         numReviews="328"
         googleRating="4"
         numRatings="632"
+        country="Country: United States of America"
+        countrySafety="Safety Score: B+"
       />
       {hardCodedReviews.map((review) => (
         <SingleReview
