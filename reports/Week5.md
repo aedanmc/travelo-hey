@@ -1,7 +1,7 @@
 # Week 5 Status Report
 *Team: Travelo-Hey!*
 
-*Dates: May 5 - May 12, 2022*
+*Dates: May 5 - May 11, 2022*
 
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
@@ -27,12 +27,12 @@
         - Testing needed for most new beta functionality
         - Bugs documented on GitHub
         - Figuring out page state maintenance
-        
+
 3. Plans and Goals for Next Week
     - Solidify documentation
     - Refine/ rehash team process
     - Develop beta test suite
-    
+
 
 ## Team Member Contributions
 ### Aedan McCall (they/them)
@@ -76,9 +76,10 @@
         - Styling was not able to be implemented in time for beta release
         - Feeling overwhelmed with how far behind we are and the amount of work up ahead
 3. Plans and Goals for Next Week
-    - Fix routing issues between pages 
+    - Fix routing issues between pages
     - Tweak data parsing for single location page
-    - Reevaluate plan for final project 
+    - Reevaluate plan for final project
+
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
@@ -120,24 +121,26 @@
     - Fix routing issues with business pages
     - Improve styling of front-end components
     - Discuss and begin implementation of additional front-end components for beyond beta
-    
-    
+
 
 ### Mike Harris (they/them)
 1. Plans and Goals from Last Week
-    - Setup Node.js with Express.js framework
-    - Integrate Google APIs into server
-    - Integrate database calls to server
-    - Work with team to complete Testing and CI assignment
+   - Integrate Google APIs to server
+   - Integrate database calls to server
 2. Progress and Issues
-    - Progress:
-        - Updating server side package.json scripts
-        - Setup database connection
-        - Modularized back-end files
-        - Began ACID and CRUD test implementations
-    - Issues:
-        - Testing and CI assignment took more than expected, spending more time trying to figure our NPM scripts
-        - Was unable to integrate Google APIs and database calls to server
+   - Progress:
+       - Assist with back-end local data storage setup
+       - Modify Cloud Build CI setup
+       - Setup package.json scripts
+       - Updated top-level documentation
+       - Assembled Beta Release video
+   - Issues:
+       - Struggling to implement Cloud SQL
+       - Lack of test cases of back-end, but infrastructure is in place
+       - Attempt to combine front/back-end package.json files caused serious disruption
+       - Lack of developer documentation caused last minute debugging issues delaying beta release
 3. Plans and Goals for Next Week
-    - Integrate Google APIs to server
-    - Integrate database calls to server
+   - Review current documentation and update
+   - Review developer guide requirements
+   - Provide a test case for back-end
+   - Integrate Google APIs
