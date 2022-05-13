@@ -20,7 +20,8 @@
 
 (function() {
     "use strict";
-    const PORT_8000 = 8000;
+    const PORT_8000 = "8000";
+    const PORT_8080 = "8080";
 
     const express = require("express");
     const cors = require("cors");
@@ -121,7 +122,7 @@
     }
 
     /** SERVER SETUP **/
-    const port = parseInt(process.env.PORT || PORT_8000, 10);
+    const port = parseInt(PORT_8080 || PORT_8000, 10);
     app.listen(port, () => {
         console.log("Listening on port " + port + "..."); // uncomment for debugging
     });
