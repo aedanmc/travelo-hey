@@ -40,6 +40,7 @@ const db = require('../db_connection');
     describe("DB Test", () => {
         it('check database connection', (done) => {
             let connection = false;
+
             if (response) {
                 connection = true
             };
@@ -58,10 +59,9 @@ const db = require('../db_connection');
                 // extract value of object inside the array returned by response
                 var countries_count = Object.values(row[0])[0];
                 expect(countries).to.equal(countries_count);
-
-                await response.close();
             }
-            countries_test().then(() => done());
+            done();
+            countries_test().then();
         });
 
         it('insert new user', (done) => {
@@ -72,8 +72,6 @@ const db = require('../db_connection');
 
             async function insert_test () {
                 const row = await response.all(qry_insert, []);
-
-                await response.close();
             }
             done();
             insert_test().then();
@@ -81,15 +79,13 @@ const db = require('../db_connection');
 
         it('retrieve new user', (done) => {
             async function retrieve_test () {
-                const qry_retrieve = "SELECT * FROM users\n WHERE name == \"Test\"";
+                const qry_retrieve = `SELECT * FROM users\n WHERE name == \"Test\"`;
 
                 const row = await response.all(qry_retrieve, []);
 
                 // extract value of object inside the array returned by response
                 var retrieved_user = Object.values(row[0])[1];
                 expect(new_user).to.equal(retrieved_user);
-
-                await response.close();
             }
             done();
             retrieve_test().then();
@@ -97,11 +93,9 @@ const db = require('../db_connection');
 
         it('delete user', (done) => {
             async function retrieve_test () {
-                const qry_delete = "DELETE FROM users WHERE name == \"Test\"";
+                const qry_delete = `DELETE FROM users WHERE name == \"Test\"`;
 
                 let row = await response.all(qry_delete, []);
-
-                await response.close();
             }
             done();
             retrieve_test().then();
@@ -109,13 +103,11 @@ const db = require('../db_connection');
 
         it('retrieve deleted user', (done) => {
             async function retrieve_test () {
-                const qry_retrieve = "SELECT * FROM users\n WHERE name == \"Test\"";
+                const qry_retrieve = `SELECT * FROM users\n WHERE name == \"Test\"`;
 
                 const row = await response.all(qry_retrieve, []);
 
                 expect("[]").to.equal(row);
-
-                await response.close();
             }
             done();
             retrieve_test().then();
@@ -125,4 +117,5 @@ const db = require('../db_connection');
             done();
         });
     });
+    await response.close();
 })();
