@@ -33,11 +33,14 @@ const db = require('../db_connection');
 
     const expect = await require("chai").expect;
 
+    // get database connection
+    const response = await db.getDBConnection();
+
 
     describe("DB Test", () => {
         it('check database connection', (done) => {
             let connection = false;
-            if (db) {
+            if (response) {
                 connection = true
             };
 
@@ -50,7 +53,6 @@ const db = require('../db_connection');
             const qry = "SELECT COUNT(name) FROM countries";
 
             async function countries_test () {
-                const response = await db.getDBConnection();
                 const row = await response.all(qry, []);
 
                 // extract value of object inside the array returned by response
@@ -69,7 +71,6 @@ const db = require('../db_connection');
                                ALUES ('Test', 1234, 'test@user-test.com', '205-744-0000')`;
 
             async function insert_test () {
-                const response = await db.getDBConnection();
                 const row = await response.all(qry_insert, []);
 
                 await response.close();
@@ -82,7 +83,6 @@ const db = require('../db_connection');
             async function retrieve_test () {
                 const qry_retrieve = "SELECT * FROM users\n WHERE name == \"Test\"";
 
-                const response = await db.getDBConnection();
                 const row = await response.all(qry_retrieve, []);
 
                 // extract value of object inside the array returned by response
@@ -99,7 +99,6 @@ const db = require('../db_connection');
             async function retrieve_test () {
                 const qry_delete = "DELETE FROM users WHERE name == \"Test\"";
 
-                const response = await db.getDBConnection();
                 let row = await response.all(qry_delete, []);
 
                 await response.close();
@@ -112,7 +111,6 @@ const db = require('../db_connection');
             async function retrieve_test () {
                 const qry_retrieve = "SELECT * FROM users\n WHERE name == \"Test\"";
 
-                const response = await db.getDBConnection();
                 const row = await response.all(qry_retrieve, []);
 
                 expect("[]").to.equal(row);
