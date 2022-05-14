@@ -10,7 +10,6 @@ import {
 } from 'react-router-dom';
 // import NameSearch from './name-search';
 import SingleResult from '../general/SingleResult';
-import image from '../../quebec-church.jpg';
 import FilterSearch from './FilterSearch';
 import LocationPage from '../locations-page/LocationPage';
 
@@ -27,7 +26,7 @@ function SearchPage() {
   // how do we prevent race conditions with data fetching in useEffect?
 
   /**
-   * Retrieves the data required to display featured posts exactly ones
+   * Retrieves the data required to display featured posts exactly once.
    */
   React.useEffect(() => {
     const getLocations = async () => {
@@ -65,18 +64,6 @@ function SearchPage() {
             />
           </Link>
         ))}
-        {/* Map a list of <SingleResult/>s
-                with fetched API data here */}
-        {/* They should have their onClick set to navigate
-                to a router <Link /> in react-router-dom
-                that points to a page that uses the location
-                id as a URL parameter */}
-        <SingleResult
-          image={image}
-          name="Lorem Ipsum"
-          contact="Lorem Ipsum"
-          address="Lorem Ipsum"
-        />
       </Stack>
       <Routes>
         <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
