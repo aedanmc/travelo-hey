@@ -123,6 +123,8 @@ const db = require('../db_connection');
             retrieve_test().then();
         });
 
-
+        it('transaction test', (done) => {
+            done();
+        });
     });
 })();
