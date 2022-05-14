@@ -6,47 +6,34 @@
     "use strict";
 
     const expect = require('chai').expect;
-    let foo = 'bar',
-        beverages = { tea: [ 'chai', 'matcha', 'oolong' ] };
+    const http = require('http');
+    const url = "http://localhost:8080";
 
-    describe("Server Test", () => {
-        it('check type of foo is string', (done) => {
-            expect(foo).to.be.a('string');
+    http.get(url + '/', res => {
+        describe("Server Tests:")
+    })
+
+
+    describe("Server Tests:", () => {
+        it('checks / endpoint for success status', (done) => {
+            http.get(url + "/", res => {
+                expect(res.statusCode).to.equal(200);
+            }).on('error', err => {
+                console.log(err.message);
+                console.log("alskdjfaldskjf");
+            })
             done();
         });
 
-        it('check foo is "bar"', (done) => {
-            expect(foo).to.equal('bar');
-            done();
-        });
-
-        it('check length of foo is 3', (done) => {
-            expect(foo).to.have.lengthOf(3);
-            done();
-        });
-
-        it('check beverages contains "tea" with length of 3', (done) => {
-            expect(beverages).to.have.property('tea').with.lengthOf(3);
+        it('checks / endpoint for success status', (done) => {
+            http.get(url + "/business", res => {
+                expect(res.statusCode).to.equal(200);
+            })
             done();
         });
     });
-})();
 
-/**
- db.acid.spec.js
-    - ACID Testing
-        - Atomicity - transaction fails or passes (implicit in CRUD)
-        - Consistency - transaction always result in a valid state
-        - Isolation - if multiple translations are executed at once, result state of db should be the same
-        - Durability - when transaction is done and committed - power loss and crash shouldn't change it
- db.crud.spec.js
-    - CRUD Testing
-        - Create
-        - Retrieve
-        - Update
-        - Delete
- server.spec.js (!! HOLD - how does this work since we're using GCP Components !!)
-    - check port is available
-    - coverage testing (c8)
-    - traffic - load balancing (unsure - via App Engine)
- */
+    function statusCheck(res) {
+        console.log(res);
+        if (!res.ok) throw new Error("status not 200"); }
+})();
