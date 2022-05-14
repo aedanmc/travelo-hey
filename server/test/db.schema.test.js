@@ -1,35 +1,39 @@
 /**
  *
- */
+ * The db.schema.test.js test the schema of the local sqlite database.
+ *
+ * Requires:
+ *      - db_connection.js:    Connection to the database
+ *      - chai:                Required assertion library for testing
+ /*
 
-(function() {
+/**
+ * Establishes a database connection to the travelo-hey database and returns the database object.
+ * @returns {Object} - The database object for the connection.
+ */
+const db = require('../db_connection');
+
+const tables = [ {name: 'users'}, {name: 'countries'}, {name: 'reviews' } ];
+
+(async function() {
     "use strict";
 
     const expect = require('chai').expect;
 
-    describe("DB Crud Test", () => {
-        it('check that true is true', (done) => {
-            expect(true).to.equal(true);
+    describe("DB Schema Test", () => {
+        it('check tables in database', (done) => {
+
+            const qry = `SELECT name FROM sqlite_schema
+                         WHERE type IN ('table','view')
+                           AND name NOT LIKE 'sqlite_%'
+                         `;
+            async function tables_test () {
+                const response = await db.getDBConnection();
+                const row  = await response.all(qry, []);
+                expect(tables).to.equal(row);
+            }
             done();
+            tables_test().then();
         });
     });
 })();
-
-/**
- db.acid.spec.js
-    - ACID Testing
-        - Atomicity - transaction fails or passes (implicit in CRUD)
-        - Consistency - transaction always result in a valid state
-        - Isolation - if multiple translations are executed at once, result state of db should be the same
-        - Durability - when transaction is done and committed - power loss and crash shouldn't change it
- db.crud.spec.js
-    - CRUD Testing
-        - Create
-        - Retrieve
-        - Update
-        - Delete
- server.spec.js (!! HOLD - how does this work since we're using GCP Components !!)
-    - check port is available
-    - coverage testing (c8)
-    - traffic - load balancing (unsure - via App Engine)
- */

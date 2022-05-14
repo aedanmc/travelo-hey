@@ -6,7 +6,7 @@
  * Requires:
  *      - db_connection.js:    Connection to the database
  *      - chai:                Required assertion library for testing
- * /*
+ /*
 
 
 /**
@@ -56,6 +56,8 @@ const db = require('../db_connection');
                 // extract value of object inside the array returned by response
                 var countries_count = Object.values(row[0])[0];
                 expect(countries).to.equal(countries_count);
+
+                await response.close();
             }
             countries_test().then(() => done());
         });
@@ -63,12 +65,14 @@ const db = require('../db_connection');
         it('insert new user', (done) => {
 
             const qry_insert = `INSERT INTO 
-                                users(userID, name, password, email, phonenumber)
-                               ALUES (4, 'Test', 1234, 'test@user-test.com', '205-744-0000')`;
+                                users(name, password, email, phonenumber)
+                               ALUES ('Test', 1234, 'test@user-test.com', '205-744-0000')`;
 
             async function insert_test () {
                 const response = await db.getDBConnection();
                 const row = await response.all(qry_insert, []);
+
+                await response.close();
             }
             done();
             insert_test().then();
@@ -84,6 +88,8 @@ const db = require('../db_connection');
                 // extract value of object inside the array returned by response
                 var retrieved_user = Object.values(row[0])[1];
                 expect(new_user).to.equal(retrieved_user);
+
+                await response.close();
             }
             done();
             retrieve_test().then();
@@ -96,6 +102,7 @@ const db = require('../db_connection');
                 const response = await db.getDBConnection();
                 let row = await response.all(qry_delete, []);
 
+                await response.close();
             }
             done();
             retrieve_test().then();
@@ -109,10 +116,13 @@ const db = require('../db_connection');
                 const row = await response.all(qry_retrieve, []);
 
                 expect("[]").to.equal(row);
+
+                await response.close();
             }
             done();
             retrieve_test().then();
         });
-    });
 
+
+    });
 })();
