@@ -28,6 +28,11 @@ function SearchPage() {
   /**
    * Retrieves the data required to display featured posts exactly once.
    */
+  // TODO: refactoring the useEffect code:
+  // 1. Move the original getLocations functions out of the useEffect hook
+  // 2. Set up some simpler static data to immediately pass in for testing
+  // 3. Add a debug flag prop for SearchPage
+  // 4. Use a conditional to check what rendering to use.
   React.useEffect(() => {
     const getLocations = async () => {
       try {
@@ -40,6 +45,7 @@ function SearchPage() {
         });
         setLocations(items);
       } catch (err) {
+        // TODO: come up with another way to handle errors
         alert(err);
       }
     };
