@@ -1,17 +1,13 @@
 # Travelo-Hey! User Guide
 
-Many blogs exist that discuss single perspective information related to destination activities. So, queer travelers have to spend a lot of time researching safe things to do for travel planning.
-Also, big competitors like TripAdvisor are too broad and the main focus is quality, not safety. Take for example a trip to Dubai, currently the United Arab Emirates has laws against homosexual activity thus does not represent a safe place for queer travelers.
+Welcome to Travelo-Hey!! Our solution consists of a web application that allows users to search for and review different locations around the world. 
 
-We recognize the need for a solution where users can receive a good insight into businesses and LGBTQ+ hot spots that will make them feel comfortable and welcomed.
-
-Welcome to Travelo-Hey!! Our solution consists of a web application that allows users to search for and review different locations around the world. Our primary goals for this web app are to help LGBTQ+ travelers do the following things:
+Our primary goals for this web app are to help LGBTQ+ travelers do the following things:
 - Find safe places to visit while traveling, and 
 - Get an overall sense of how safe it is to travel in a given country given differing countries' level of openness towards LGBTQ+ people.
 
-The information stored within our databases include user data, business data, and the reviews and ratings. The reviews and ratings will store the text and rating.
+We support these goals by giving users an equality rating for each location we include in our app that we generate based on several metrics relating to how open a location (business, country, etc) is to LGBTQ+ individuals, especially those who are from abroad. 
 
-This is a really important topic to bring equity into technology. Travelo-Hey! is a unique tool that will revolutionize the way the queer community travels.
 
 # Installation and Running Travelo-Hey!
 
@@ -21,10 +17,10 @@ As Travelo-Hey! is a web app, all that is required is JavaScript on either Chrom
 
 ## Contents
 - [How do I get started?](#how-do-i-get-started)
-- [How do I search for a location?]()
-- [How do I post a review?]()
-- [How do I view a location's equality rating?]()
-- [How do I see a country's overall safety rating?]()
+- [How do I search for a location?](#searching-for-a-location)
+- [How do I post a review?](#)
+- [How do I view a location's equality rating?](#viewing-a-locations-equality-rating)
+- [How do I see a country's overall safety rating?](#viewing-a-countrys-overall-safety-rating)
 
 ### Getting started
 
