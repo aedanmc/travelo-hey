@@ -9,7 +9,7 @@
 - [Database Schema](#Database-Schema)
     
 
-For this project, we are utiliing a local sqlite database that contains three tables:
+For this project, we are utilizing a local sqlite database that contains three tables:
 - **users** - contains user login information
 - **countries** - contains Asher and Lyric Country Ranks
 - **reviews** - contains the business review created by a user
@@ -31,7 +31,7 @@ To instantiate a call to the database:
 
 
 ### Retrieve Data from Table
-In order to check the contents of a datable inside the travelo-hey.db, use the following:
+In order to check the contents of a database inside the travelo-hey.db, use the following:
 
 ```js
     const query = `<add query here>`;
