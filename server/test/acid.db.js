@@ -26,22 +26,18 @@ const new_user = "Test";
  * @returns {Object} - The database object for the connection.
  */
 
-const db = require('../db_connection');
+const db = require('../db_connection').getDBConnection();
 
 (async function () {
     "use strict";
 
     const expect = await require("chai").expect;
 
-    // get database connection
-    const response = await db.getDBConnection();
-
-
     describe("DB Test", () => {
         it('check database connection', (done) => {
             let connection = false;
 
-            if (response) {
+            if (db) {
                 connection = true
             };
 
@@ -54,9 +50,9 @@ const db = require('../db_connection');
             const qry = "SELECT COUNT(name) FROM countries";
 
             async function countries_test () {
-                const row = await response.all(qry, []);
+                const row = await db.all(qry, []);
 
-                // extract value of object inside the array returned by response
+                // extract value of object inside the array returned by db.all
                 var countries_count = Object.values(row[0])[0];
                 expect(countries).to.equal(countries_count);
             }
@@ -71,7 +67,7 @@ const db = require('../db_connection');
                                ALUES ('Test', 1234, 'test@user-test.com', '205-744-0000')`;
 
             async function insert_test () {
-                const row = await response.all(qry_insert, []);
+                const row = await db.all(qry_insert, []);
             }
             done();
             insert_test().then();
@@ -81,9 +77,9 @@ const db = require('../db_connection');
             async function retrieve_test () {
                 const qry_retrieve = `SELECT * FROM users\n WHERE name == \"Test\"`;
 
-                const row = await response.all(qry_retrieve, []);
+                const row = await db.all(qry_retrieve, []);
 
-                // extract value of object inside the array returned by response
+                // extract value of object inside the array returned by db.all
                 var retrieved_user = Object.values(row[0])[1];
                 expect(new_user).to.equal(retrieved_user);
             }
@@ -95,7 +91,7 @@ const db = require('../db_connection');
             async function retrieve_test () {
                 const qry_delete = `DELETE FROM users WHERE name == \"Test\"`;
 
-                let row = await response.all(qry_delete, []);
+                let row = await db.all(qry_delete, []);
             }
             done();
             retrieve_test().then();
@@ -105,7 +101,7 @@ const db = require('../db_connection');
             async function retrieve_test () {
                 const qry_retrieve = `SELECT * FROM users\n WHERE name == \"Test\"`;
 
-                const row = await response.all(qry_retrieve, []);
+                const row = await db.all(qry_retrieve, []);
 
                 expect("[]").to.equal(row);
             }
@@ -117,5 +113,5 @@ const db = require('../db_connection');
             done();
         });
     });
-    await response.close();
+    await db.close();
 })();
