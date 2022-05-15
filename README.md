@@ -44,14 +44,12 @@ In the structure of this repo we have:
 
 ## Documentation
 - [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
-- [Back-end Testing]()
+- [Back-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BETESTINGDOC.md)
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
-- [Front-end Testing]()
+- [Front-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/FETESTINGDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
 
-
 ## Prerequisites
-
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v8.5.5+)
 
@@ -65,11 +63,52 @@ To download the repository, run the following command:
 git clone https://github.com/aedanmc/travelo-hey.git
 ```
 
-In the `travelo-hey` directory, you can build and test all system components with:
+In the `travelo-hey` directory, you can build and test all system by running the scripts altogether with:
 
 ```shell
 npm run all
 ```
+
+Or, by following the steps below:
+
+### Install
+
+Install all required dependencies with:
+
+```shell
+npm install
+```
+
+You can review the dependencies being used under `package.json` for back-end dependencies, and 
+`front-end/package.json` for front-end dependencies.
+
+### Test
+
+Before submitting, you must pass all tests by running the following command:
+
+```shell
+npm test
+```
+* `Jest` unit testing for the React components
+  - React tests located in `__test__`
+* `Mocha` unit testing for the server and database
+  - Server tests located in `server/test`
+
+### Clean
+
+To remove any previous builds:
+
+```shell
+npm run clean
+```
+
+### Build
+To create a fresh build:
+
+```shell
+npm run build
+```
+The build will be placed in `./front-end/build`
 
 ## Running Locally
 
