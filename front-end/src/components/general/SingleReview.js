@@ -38,7 +38,7 @@ export default function SingleReview({ name, pic, link, rating, relativeTime, te
           </Typography>
         </CardContent>
       </Card>
-      <Routes>
+      {/* <Routes>
         <Route
           path={link}
           component={() => {
@@ -46,7 +46,7 @@ export default function SingleReview({ name, pic, link, rating, relativeTime, te
             return null;
           }}
         />
-      </Routes>
+        </Routes> */}
     </div>
   );
 }
