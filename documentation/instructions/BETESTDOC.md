@@ -1,6 +1,6 @@
 # Back-end Testing
 
-`Mocha` and `Chai` are being used to test the server and database. 
+`Mocha` and `Chai` are being used to test the server and database.
 
 The back-end testing can be found at `./server/test`, with the following files:
 
@@ -20,7 +20,7 @@ Any additional back-end tests should be added to this folder.
         - [Component Specific Requirements](#Component-Specific-Requirements)
         - [Adding the Test Description](#Adding-the-Test-Description)
     - [Adding a Test Case](#Adding-a-Test-Case)
-    
+
 
 
 ## Running the Tests
@@ -40,7 +40,7 @@ For any new file added to the `./server/test` folder, use the following conventi
 
 `<descriptive-name>.<component>.js`
 
-**Descriptive-name**: A concise description of what the test performs. If the descriptive 
+**Descriptive-name**: A concise description of what the test performs. If the descriptive
 name contains more than one word, use `-` to separate them,
 eg. `what-my-test-does.test.js`.
 
@@ -55,10 +55,14 @@ Use the following template to set up your test file.
  * TODO: Describe test(s)
  */
 (async function() {
-    const expect = require('chai').expect;
-    
+    "use strict";
+
+    // TODO: You will need to require the chai module you prefer to use (eg. should, expect, assert)
+    const chai = require('chai');
+    const db = require('../db_connection').getDBConnection();
+
     // TODO: add component specific require statements, see Component Specific Requirements
-    
+
     // TODO: Insert describe(), see Adding the Test Description
     // TODO: add your test cases to describe(), see Adding a Test Case
 
@@ -66,22 +70,14 @@ Use the following template to set up your test file.
 });
 ```
 
-
 #### Component Specific Requirements
-
-* DB Component Tests
-
-```JavaScript
-const db = await require('../db_connection').getDBConnection();
-```
 
 * Server Component Tests
 
 ```JavaScript
-const db = await require('../db_connection').getTestConnection();
-const myApp = require('../server');
+const chaiHttp = require('chai-http');    // necessary for starting a server during test phase
+const app = require('../server');         // call app.close() to stop server running via chaiHttp
 ```
-
 
 #### Adding the Test Description
 
@@ -92,7 +88,6 @@ describe('<Descriptive Group Name>', () => {
     // TODO: add test cases here, see Adding a Test Case
 });
 ```
-
 
 ### Adding a Test Case
 
