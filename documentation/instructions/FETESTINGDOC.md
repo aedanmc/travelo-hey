@@ -43,9 +43,11 @@ Travelo-Hey utilizes routing for many of its components and pages. Trying to ren
 `import { MemoryRouter } from 'react-router-dom';`
 
 * Wrap custom render function with MemoryRouter:
-`const customRender = (ui) => {`
-`    return render(ui, { wrapper: MemoryRouter });`
-`}`
+```
+const customRender = (ui) => {
+    return render(ui, { wrapper: MemoryRouter });
+}
+```
 
 Some components have a debug version allowing for rendering components for testing purposes without fetching data from the back-end server. SearchPage, for example, accepts a prop `debug` which, when given a truthy value, will bypass data fetching entirely when rendering the component. Alternatively, giving a falsey value for `debug` will fetch the data as normal. When writing test cases, utilize the debug version of the component(s) you are testing.
 
