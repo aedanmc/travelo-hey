@@ -8,6 +8,8 @@ Our primary goals for this web app are to help LGBTQ+ travelers do the following
 
 We support these goals by giving users an equality rating for each location we include in our app that we generate based on several metrics relating to how open a location (business, country, etc) is to LGBTQ+ individuals, especially those who are from abroad. 
 
+Given that this web app is intended for a group of users who are often targeted on account of their identity, please review our guidelines for using the app (add link to community guidelines).
+
 
 # Installation and Running Travelo-Hey!
 
