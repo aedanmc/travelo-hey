@@ -30,17 +30,23 @@ New test files that are specific to front-end can be added to the front-end test
 Front-end tests utilize Jest as a test-runner, as well as the React Testing Library.
 
 * Import the react testing library:
-`import '@testing-library/react';`
+```
+import '@testing-library/react';
+```
 
 * Import Jest:
-`import '@testing-library/jest-dom';`
+```
+import '@testing-library/jest-dom';
+```
 
 When writing tests, each test case can be individually specified by wrapping all of the test code in a `test()` function. One test case can include multiple different assertions, each of which is defined inside of an `expect()` function. If any of the `expect()` assertions fail, the entire test case will fail. The console will show which `expect()` assertion failed first.
 
 Travelo-Hey utilizes routing for many of its components and pages. Trying to render these components will result in compiler warnings, and the components will not render properly. To get around this, a custom rendering function using a MemoryRouter as a wrapper is required. Instead of calling `render(<Component>)`, calling `customRender(<Component>)` will properly render the given component without running into problems with routing.
 
 * Import MemoryRouter:
-`import { MemoryRouter } from 'react-router-dom';`
+```
+import { MemoryRouter } from 'react-router-dom';
+```
 
 * Wrap custom render function with MemoryRouter:
 ```
