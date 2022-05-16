@@ -163,7 +163,7 @@ Additional Tags: TODO: alpha, beta, pre-release, release
 - Maintainer will update the version naming system.
 
 
-### Sanity Checks after Building Release
+### Safety Checks after Building Release
 - Ensuring documentation is up-to-date
 - Notify user of changes (for major changes)
 - Notify team of changes (for major and minor changes)
