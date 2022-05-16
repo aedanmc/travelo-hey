@@ -24,12 +24,12 @@ test('renders correctly', () => {
     />
     );
 
-    const { text } = getByTestId('review-text');
-    // const { rating } = getByTestId('rating');
+    const text = getByTestId('review-text');
+    const rating = getByTestId('rating');
 
     expect(text).toBeInTheDocument();
     expect(text).toHaveTextContent('This place was perfectly average. The food tasted exactly like fictional food would in a review written to test front-end component rendering');
 
-    // expect(rating).toBeInTheDocument();
-    // expect(rating).toHaveTextContent('3');
+    expect(rating).toBeInTheDocument();
+    expect(rating).toHaveTextContent('3');
 });
