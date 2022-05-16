@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MemoryRouter as Router } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
 import SingleReview from '../src/components/general/SingleReview';
@@ -9,8 +9,11 @@ import SingleReview from '../src/components/general/SingleReview';
 test('renders correctly', () => {
   const history = createMemoryHistory();
 
-  const { getByTestId } = render(
-    // <Router location={history.location} navigator={history}>
+  const customRender = (ui) => {
+    return render(ui, { wrapper: MemoryRouter });
+  }
+
+  const { getByTestId } = customRender(
     <SingleReview
       name="John Smith"
       pic="http://via.placeholder.com/640x360"
@@ -19,7 +22,6 @@ test('renders correctly', () => {
       relativeTime="3 weeks ago"
       text="This place was perfectly average. The food tasted exactly like fictional food would in a review written to test front-end component rendering"
     />
-    // </Router>
     );
 
     const { text } = getByTestId('review-text');
@@ -30,4 +32,4 @@ test('renders correctly', () => {
 
     // expect(rating).toBeInTheDocument();
     // expect(rating).toHaveTextContent('3');
-})
+});
