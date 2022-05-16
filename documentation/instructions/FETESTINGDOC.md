@@ -5,6 +5,8 @@ The testing framework `Jest` is being used to test the React components. The fro
 ## Contents
 - [Running the tests](#Running-the-tests)
 - [How to Add New Tests](#How-to-Add-New-Tests)
+   - [Where to add new test files](#Where-to-add-new-test-files)
+   - [How to write tests](#How-to-write-tests)
 
 
 ## Running the tests
