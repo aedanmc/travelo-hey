@@ -11,7 +11,6 @@
 - [Prerequisites](#Prerequisites)
 - [Getting Started](#Getting-Started)
 - [Running Locally](#Running-Locally)
-- [User Guide](#User-Guide)
 - [Versioning Process](#Versioning-Process)
     - [Overview](#Overview)
     - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
@@ -39,10 +38,10 @@ In the structure of this repo we have:
 ## Documentation
 - [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
 - [Back-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BETESTINGDOC.md)
+- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
 - [Front-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/FETESTINGDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
-- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 - [User Guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
 
 
@@ -114,10 +113,6 @@ Once you have completed the [Getting Started](#Getting-Started), you can run the
 ```shell
 npm run dev
 ```
-
-## User Guide
-- [FAQ and Walkthrough](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
-- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 
 
 ## Versioning Process
