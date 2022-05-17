@@ -33,7 +33,7 @@ Searching for a location starts on the landing page using Travelo-Hey!'s filter 
 
 ### Posting a review
 
-To post a review, start by accessing a location's specific page and scroll down below the information to the reviews section. Below the equality rating is a button labeled "Write a review". Clicking on this button will take you to a form fillout page where you can leave your review and add to the equality rating. Once filled out, click the "Submit" button on the bottom and your review will be posted on that location's page. 
+To post a review, start by accessing a location's specific page and scroll down below the information to the reviews section. To the left of the equality rating is a button labeled "Write a review". Clicking on this button will take you to a form fillout page where you can leave your review and add to the equality rating. Once filled out, click the "Submit" button on the bottom and your review will be posted on that location's page. 
 
 
 ### Viewing a location's equality rating
