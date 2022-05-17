@@ -17,7 +17,7 @@
     - [Overview](#Overview)
     - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
     - [Responsibilities of Maintainer](#Responsibilities-of-Maintainer)
-    - [Safety Checks after Building Release](#Sanity-Checks-after-Building-Release)
+    - [Safety Checks after Building Release](#Safety-Checks-after-Building-Release)
 - [Deployment](#Deployment)
 - [Operational Use Cases](#Operational-Use-Cases)
 

@@ -27,7 +27,7 @@ As Travelo-Hey! is a web app, all that is required is JavaScript on either Chrom
 # Using Travelo-Hey!
 
 ## Contents
-- [How do I get started?](#how-do-i-get-started)
+- [How do I get started?](#getting-started)
 - [How do I search for a location?](#searching-for-a-location)
 - [How do I post a review?](#posting-a-review)
 - [How do I view a location's equality rating?](#viewing-a-locations-equality-rating)
