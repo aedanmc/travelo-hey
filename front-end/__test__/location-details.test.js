@@ -1,10 +1,17 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { createMemoryHistory } from 'history'
+import { MemoryRouter } from 'react-router-dom';
 import LocationDetails from '../src/components/locations-page/LocationDetails';
 
-test('renders the correct content', () => {
-  const { getByTestId } = render(
+test('renders correctly', () => {
+  const history = createMemoryHistory();
+
+  const customRender = (ui) => {
+    return render(ui, { wrapper: MemoryRouter });
+  }
+  const { getByTestId } = customRender(
     <LocationDetails
       image="http://via.placeholder.com/640x360"
       name="Little Water Cantina"
@@ -17,11 +24,15 @@ test('renders the correct content', () => {
       numRatings="632"
       country="Country: United States of America"
       countrySafety="Safety Score: B+"
-    />,
+    />
   );
   
-    const title = getByTestId('location-title');
+  const title = getByTestId('location-title');
+  const equality = getByTestId('location-equality-score')
   
-    expect(title).toBeInTheDocument();
-    expect(title).toHaveTextContent('Little Water Cantina');
-  });
+  expect(title).toBeInTheDocument();
+  expect(title).toHaveTextContent('Little Water Cantina');
+
+  expect(equality).toBeInTheDocument();
+  expect(equality).toHaveTextContent('3.1');
+});
