@@ -77,7 +77,7 @@ Install all required dependencies with:
 npm install
 ```
 
-You can review the dependencies being used under `package.json` for back-end dependencies, and 
+You can review the dependencies being used under `package.json` for back-end dependencies, and
 `front-end/package.json` for front-end dependencies.
 
 ### Test
@@ -117,7 +117,7 @@ npm run dev
 ```
 
 ## User Guide
-- [FAQ and Walkthrough](https://github.com/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
+- [FAQ and Walkthrough](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
 - [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 
 
@@ -152,7 +152,7 @@ Additional Tags: TODO: alpha, beta, pre-release, release
 
 
 ### Responsibilities of Maintainer
-- Reviewers must make sure PR contributor has indicated version update in PR. 
+- Reviewers must make sure PR contributor has indicated version update in PR.
 - Maintainer will update the version naming system.
 
 
