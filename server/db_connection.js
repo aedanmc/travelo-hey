@@ -17,11 +17,11 @@
 const sqlite = require("sqlite");
 const sqlite3 = require("sqlite3").verbose();
 
-module.exports.getDBConnection = getDBConnection;
-
 async function getDBConnection() {
     return await sqlite.open({
         filename: "data/travelo-hey.db",
         driver: sqlite3.Database
     });
 }
+
+module.exports.getDBConnection = getDBConnection;
