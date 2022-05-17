@@ -1,5 +1,14 @@
 # Travelo-Hey! User Guide
 
+Are you, or do you know a queer person that has traveled? Ever wanted to travel somewhere with your queer friends but not sure if it was safe to do so? According to National Geographic, prior to the COVID pandemic, LGBTQ+ people in the United States traveled on average 7 times each year and they spent $63.1 billion annually on traveling.
+
+Many blogs exist that discuss single perspective information related to destination activities. So, queer travelers have to spend a lot of time researching safe things to do for travel planning.
+Also, big competitors like TripAdvisor are too broad and the main focus is quality, not safety. Take for example a trip to Dubai, currently the United Arab Emirates has laws against homosexual activity thus does not represent a safe place for queer travelers.
+
+We recognize the need for a solution where users can receive a good insight into businesses and LGBTQ+ hot spots that will make them feel comfortable and welcomed.
+
+This is a really important topic to bring equity into technology. Travelo-Hey! is a unique tool that will revolutionize the way the queer community travels.
+
 Welcome to Travelo-Hey!! Our solution consists of a web application that allows users to search for and review different locations around the world. 
 
 Our primary goals for this web app are to help LGBTQ+ travelers do the following things:
@@ -8,12 +17,12 @@ Our primary goals for this web app are to help LGBTQ+ travelers do the following
 
 We support these goals by giving users an equality rating for each location we include in our app that we generate based on several metrics relating to how open a location (business, country, etc) is to LGBTQ+ individuals, especially those who are from abroad. 
 
-Given that this web app is intended for a group of users who are often targeted on account of their identity, please review our guidelines for using the app (add link to community guidelines).
+Given that this web app is intended for a group of users who are often targeted on account of their identity, please review our guidelines for using the app (**guidelines are still in progress**).
 
 
 # Installation and Running Travelo-Hey!
 
-As Travelo-Hey! is a web app, all that is required is JavaScript on either Chrome or Firefox. We are hosted on the Google Cloud Platform, so all you need to get started is to simply navigate to this link (**LINK TBD**)! If you want to run our development build, see our [build instructions] (link to developer guide's build and run instructions)
+As Travelo-Hey! is a web app, all that is required is JavaScript on either Chrome or Firefox. We are hosted on the Google Cloud Platform, so all you need to get started is to simply navigate to this link (**LINK TBD**)! If you want to run our development build, see our [build instructions](https://github.com/aedanmc/travelo-hey#Getting-Started).
 
 # Using Travelo-Hey!
 
