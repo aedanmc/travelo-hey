@@ -17,24 +17,13 @@
     - [Overview](#Overview)
     - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
     - [Responsibilities of Maintainer](#Responsibilities-of-Maintainer)
-    - [Sanity Checks after Building Release](#Sanity-Checks-after-Building-Release)
+    - [Safety Checks after Building Release](#Safety-Checks-after-Building-Release)
 - [Deployment](#Deployment)
 - [Operational Use Cases](#Operational-Use-Cases)
 
-## Synopsis
+## About Travelo-Hey!
 
-Are you, or do you know a queer person that has traveled? Ever wanted to travel somewhere with your queer friends but not sure if it was safe to do so? According to National Geographic, prior to the COVID pandemic, LGBTQ+ people in the United States traveled on average 7 times each year and they spent $63.1 billion annually on traveling.
-
-Many blogs exist that discuss single perspective information related to destination activities. So, queer travelers have to spend a lot of time researching safe things to do for travel planning.
-Also, big competitors like TripAdvisor are too broad and the main focus is quality, not safety. Take for example a trip to Dubai, currently the United Arab Emirates has laws against homosexual activity thus does not represent a safe place for queer travelers.
-
-We recognize the need for a solution where users can receive a good insight into businesses and LGBTQ+ hot spots that will make them feel comfortable and welcomed.
-
-Welcome to Travelo-Hey!! Our solution will consist of a web application with cloud based data storage along with artificial intelligence (AI). Our AI implementation will focus on two tasks: highlighting reviews from your friends, and friend network travel alerts so you can stay in touch.
-
-The information stored within our databases will include user data, business data, and the reviews and ratings. The reviews and ratings will store the text and rating, along with any images and videos published.
-
-This is a really important topic to bring equity into technology. Travelo-Hey! is a unique tool that will revolutionize the way the queer community travels.
+See our motivation and use cases in our [user guide](https://github.com/travelo-hey/blob/main/documentation/instructions/USERDOC.md).
 
 ## Repository Layout
 
@@ -54,6 +43,9 @@ In the structure of this repo we have:
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
 - [Front-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/FETESTINGDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
+- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
+- [User Guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
+
 
 ## Prerequisites
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
@@ -125,6 +117,7 @@ npm run dev
 ```
 
 ## User Guide
+- [FAQ and Walkthrough](https://github.com/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
 - [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 
 
