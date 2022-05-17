@@ -6,7 +6,6 @@
 
 ## Contents
 
-- [Synopsis](#Synopsis)
 - [Repository Layout](#Repository-Layout)
 - [Documentation](#Documentation)
 - [Prerequisites](#Prerequisites)
