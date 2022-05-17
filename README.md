@@ -22,7 +22,7 @@
 
 ## About Travelo-Hey!
 
-See our motivation and use cases in our [user guide](https://github.com/travelo-hey/blob/main/documentation/instructions/USERDOC.md).
+See our motivation and use cases in our [user guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md).
 
 ## Repository Layout
 
