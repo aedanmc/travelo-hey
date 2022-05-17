@@ -13,6 +13,12 @@
 - [Getting Started](#Getting-Started)
 - [Running Locally](#Running-Locally)
 - [User Guide](#User-Guide)
+- [Versioning Process](#Versioning-Process)
+    - [Overview](#Overview)
+    - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
+    - [Responsibilities of Maintainer](#Responsibilities-of-Maintainer)
+    - [Safety Checks after Building Release](#Sanity-Checks-after-Building-Release)
+- [Deployment](#Deployment)
 - [Operational Use Cases](#Operational-Use-Cases)
 
 ## About Travelo-Hey!
@@ -23,13 +29,13 @@ See our motivation and use cases in our [user guide](https://github.com/travelo-
 
 In the structure of this repo we have:
 
-- [data](https://github.com/aedanmc/travelo-hey/tree/main/data) local database for Beta release
-- [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) contains developer and user guides
+- [data](https://github.com/aedanmc/travelo-hey/tree/main/data) production and test database instances
+- [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) miscellaneous instructions and walkthroughs
 - [front-end](https://github.com/aedanmc/travelo-hey/tree/main/front-end)  front-end directory for React components
-    - [\_test\_](https://github.com/aedanmc/travelo-hey/tree/main/front-end/__test__) contains the front-end tests
-- [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) contains team member's progress/goals/issues
+    - [\_test\_](https://github.com/aedanmc/travelo-hey/tree/main/front-end/__test__) front-end tests
+- [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) team member's progress/goals/issues
 - [server](https://github.com/aedanmc/travelo-hey/tree/main/server) back-end directory for all node server components
-    - [test](https://github.com/aedanmc/travelo-hey/tree/main/server/test) contains the database and server tests
+    - [test](https://github.com/aedanmc/travelo-hey/tree/main/server/test) database and server tests
 
 ## Documentation
 - [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
@@ -49,7 +55,7 @@ Require the most recent version of Chrome/Firefox
 
 ## Getting Started
 
-To download the repository, run the following command:
+To clone the repository, run the following command:
 
 ```shell
 git clone https://github.com/aedanmc/travelo-hey.git
@@ -113,6 +119,52 @@ npm run dev
 ## User Guide
 - [FAQ and Walkthrough](https://github.com/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
 - [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
+
+
+## Versioning Process
+
+
+### Overview
+All releases will target main.
+
+- **Major release**: Forward/client facing changes
+- **Minor release**: Back-end implementation changes
+- **Patch release**: Bug fixes and minor code refactorings without new features
+
+For example, if current package version is `1.0.0`:<br>
+**Major release** version would be `2.0.0` <br>
+**Minor release** version would be `1.1.0` <br>
+**Patch release** version would be `1.0.1`
+
+
+### Responsibilities of Contributor
+- Updating the version number should be expressed by the person creating a pull request (PR).
+- Use the following template in the PR to describe the changes necessary.
+
+```text
+TODO: Your Note
+
+Type of Version Update: TODO: Major/Minor/Bug
+Current Version Number: TODO: v##.##.##
+New Version Number: TODO: v##.##.##
+Additional Tags: TODO: alpha, beta, pre-release, release
+```
+
+
+### Responsibilities of Maintainer
+- Reviewers must make sure PR contributor has indicated version update in PR. 
+- Maintainer will update the version naming system.
+
+
+### Safety Checks after Building Release
+- Ensuring documentation is up-to-date
+- Notify user of changes (for major changes)
+- Notify team of changes (for major and minor changes)
+- Document any lingering issues to be addressed in the next iteration
+
+
+## Deployment
+**Under Construction**
 
 
 ## Operational Use Cases

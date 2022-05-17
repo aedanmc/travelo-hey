@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
@@ -12,7 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/business/*" element={<LocationPage />} />
-        <Route path="/*" element={<SearchPage />} />
+        <Route path="/*" element={<SearchPage debug={true} />} />
       </Routes>
     </div>
   );
