@@ -77,6 +77,17 @@
    - Integrate Google APIs
 2. Progress and Issues
    - Progress:
+       - Acted as team lead for the week
+       - Set up endpoint tests using chai-http
+       - Set up new endpoints: countries and reviews/new
+       - Updated Developer Guide documentation
+       - Updated Back-end Testing documentation
+       - Updated Living Doc
+       - Assisted with organizing Github milestones
+       - Assisted with updating issues and PRs with no:milestone and no:label
    - Issues:
 3. Plans and Goals for Next Week
-
+   - Develop plan with Camila on completing back-end features by Thursday meeting
+   - Set up endpoint for search results
+   - Integrate Google Places API
+   - Assist with Peer Review assignment
