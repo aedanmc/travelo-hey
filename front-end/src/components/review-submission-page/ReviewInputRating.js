@@ -12,5 +12,5 @@ export default function ReviewInputRating({ name, control, label }) {
         <Rating onChange={onChange} value={value} name="half-rating" defaultValue={2.5} precision={0.5} />
       )}
     />
-  )
+  );
 }
