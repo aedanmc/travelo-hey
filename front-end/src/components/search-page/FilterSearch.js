@@ -66,6 +66,7 @@ export default function FilterSearch() {
           {/* TODO: add <MenuItem/>s here to populate activities */}
         </Select>
       </FormControl>
+
       <Button variant="outlined" startIcon={<SearchIcon />}>
         Search
       </Button>

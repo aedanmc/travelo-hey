@@ -62,6 +62,52 @@
         }
     });
 
+    app.get('/search', async (req, res) => {
+        try {
+            const countries = await getCountriesName();
+
+            res.type("json").send({"countries": countries});
+        } catch (error) {
+            res.type("text").status(500)
+                .send(error);
+        }
+    });
+
+    app.post('/search_state_per_country', async (req, res) => {
+        try {
+            const country = req.body.country;
+            const state = await getStates(country);
+
+            res.type("json").send({"state": state});
+        } catch (error) {
+            res.type("text").status(500)
+                .send(error);
+        }
+    });
+
+    app.post('/search_city_per_state', async (req, res) => {
+        try {
+            const state = req.body.state;
+            const cities = await getCities(state);
+
+            res.type("json").send({"cities": cities});
+        } catch (error) {
+            res.type("text").status(500)
+                .send(error);
+        }
+    });
+
+    app.get('/search_activity', async (req, res) => {
+        try {
+            let activities = await fs.readFile("data/activities.json", "utf8");
+
+            res.type("json").send({"activities": activities});
+        } catch (error) {
+            res.type("text").status(500)
+                .send(error);
+        }
+    });
+
     app.get('/business', async (req, res) => {
         try {
             // const place_id = req.query.place_id;     // for testing outside of front-end
@@ -117,6 +163,45 @@
               .send(error);
         }
     });
+
+    /**
+     *
+     * @returns {Promise<any[]>}
+     */
+    async function getStates(country) {
+        const db = await instance.getDBConnection();
+        const query = "SELECT name FROM states WHERE country_name = ? ORDER BY name ASC";
+
+        const row = await db.all(query, [country]);
+        await db.close();
+        return row;
+    }
+
+    /**
+     *
+     * @returns {Promise<any[]>}
+     */
+    async function getCities(state) {
+        const db = await instance.getDBConnection();
+        const query = "SELECT name FROM cities WHERE state_name = ? ORDER BY name ASC";
+
+        const row = await db.all(query, [state]);
+        await db.close();
+        return row;
+    }
+
+    /**
+     *
+     * @returns {Promise<any[]>}
+     */
+    async function getCountriesName() {
+        const db = await instance.getDBConnection();
+        const query = "SELECT name FROM countries ORDER BY name ASC";
+
+        const row = await db.all(query, []);
+        await db.close();
+        return row;
+    }
 
     /** HELPER FUNCTIONS **/
     /**

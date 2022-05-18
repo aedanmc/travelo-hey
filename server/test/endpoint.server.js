@@ -30,7 +30,7 @@
               });
         });
 
-      it('test "/business" endpoint', (done) => {
+        it('test "/business" endpoint', (done) => {
         chai.request(app)
           .get('/business')
           .send({
@@ -44,7 +44,7 @@
           });
       });
 
-      it('test "/country" endpoint', (done) => {
+        it('test "/country" endpoint', (done) => {
         chai.request(app)
           .get('/country')
           .send({
@@ -57,7 +57,7 @@
           });
       });
 
-      it('test "/reviews/new" endpoint', (done) => {
+        it('test "/reviews/new" endpoint', (done) => {
         chai.request(app)
           .post('/reviews/new')
           .send({
@@ -80,6 +80,53 @@
             done();
           });
       });
+
+        it('test "/search" endpoint', (done) => {
+            chai.request(app)
+                .get('/search')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    done();
+                });
+        });
+
+        it('test "/search_state_per_country" endpoint', (done) => {
+            chai.request(app)
+                .post('/search_state_per_country')
+                .send({
+                    'country': 'Brazil',
+                })
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    done();
+                });
+        });
+
+        it('test "/search_city_per_state" endpoint', (done) => {
+            chai.request(app)
+                .post('/search_city_per_state')
+                .send({
+                    'state': 'Rio de Janeiro',
+                })
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    done();
+                });
+        });
+
+        it('test "/search_activity" endpoint', (done) => {
+            chai.request(app)
+                .get('/search_activity')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    done();
+                });
+        });
+
     });
 
   /**
