@@ -1,4 +1,4 @@
-# Travelo-Hey!
+# Travelo-Hey! [![Build Status](https://storage.googleapis.com/automatize-ci-badges/builds/cloud-build-badge/branches/master.svg)](https://console.cloud.google.com/cloud-build/builds?project=cse403-sp22-travelo-hey)
 
 **UW Spring 22 CSE 403: Software Engineering**
 
@@ -6,77 +6,89 @@
 
 ## Contents
 
-- [Synopsis](#Synopsis)
 - [Repository Layout](#Repository-Layout)
 - [Documentation](#Documentation)
-- [Build/Test Instruction](#Build/Test-Instruction)
-  - [Install](#Install)
-  - [Test](#Test)
-  - [Clean](#Clean)
-  - [Build](#Build)
+- [Prerequisites](#Prerequisites)
+- [Getting Started](#Getting-Started)
 - [Running Locally](#Running-Locally)
+- [Versioning Process](#Versioning-Process)
+    - [Overview](#Overview)
+    - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
+    - [Responsibilities of Maintainer](#Responsibilities-of-Maintainer)
+    - [Safety Checks after Building Release](#Safety-Checks-after-Building-Release)
+- [Deployment](#Deployment)
 - [Operational Use Cases](#Operational-Use-Cases)
 
-## Synopsis
+## About Travelo-Hey!
 
-Are you, or do you know a queer person that has traveled? Ever wanted to travel somewhere with your queer friends but not sure if it was safe to do so? According to National Geographic, prior to the COVID pandemic, LGBTQ+ people in the United States traveled on average 7 times each year and they spent $63.1 billion annually on traveling.
-
-Many blogs exist that discuss single perspective information related to destination activities. So, queer travelers have to spend a lot of time researching safe things to do for travel planning.
-Also, big competitors like TripAdvisor are too broad and the main focus is quality, not safety. Take for example a trip to Dubai, currently the United Arab Emirates has laws against homosexual activity thus does not represent a safe place for queer travelers.
-
-We recognize the need for a solution where users can receive a good insight into businesses and LGBTQ+ hot spots that will make them feel comfortable and welcomed.
-
-Welcome to Travelo-Hey!! Our solution will consist of a web application with cloud based data storage along with artificial intelligence (AI). Our AI implementation will focus on two tasks: highlighting reviews from your friends, and friend network travel alerts so you can stay in touch.
-
-The information stored within our databases will include user data, business data, and the reviews and ratings. The reviews and ratings will store the text and rating, along with any images and videos published.
-
-This is a really important topic to bring equity into technology. Travelo-Hey! is a unique tool that will revolutionize the way the queer community travels.
+See our motivation and use cases in our [user guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md).
 
 ## Repository Layout
 
 In the structure of this repo we have:
 
-- [data](https://github.com/aedanmc/travelo-hey/tree/main/data) local database for Beta release
-- [domentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) contains developer and user guides
+- [data](https://github.com/aedanmc/travelo-hey/tree/main/data) production and test database instances
+- [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) miscellaneous instructions and walkthroughs
 - [front-end](https://github.com/aedanmc/travelo-hey/tree/main/front-end)  front-end directory for React components
-- [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) contains team member's progress/goals/issues
+    - [\_test\_](https://github.com/aedanmc/travelo-hey/tree/main/front-end/__test__) front-end tests
+- [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) team member's progress/goals/issues
 - [server](https://github.com/aedanmc/travelo-hey/tree/main/server) back-end directory for all node server components
+    - [test](https://github.com/aedanmc/travelo-hey/tree/main/server/test) database and server tests
 
 ## Documentation
-
 - [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
+- [Back-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BETESTINGDOC.md)
+- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
+- [Front-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/FETESTINGDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
+- [User Guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
 
-## Build/Test Instructions
-You can run each of the scripts below individually, or run them altogether with:
+
+## Prerequisites
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v8.5.5+)
+
+Require the most recent version of Chrome/Firefox
+
+## Getting Started
+
+To clone the repository, run the following command:
+
+```shell
+git clone https://github.com/aedanmc/travelo-hey.git
+```
+
+In the `travelo-hey` directory, you can build and test all system by running the scripts altogether with:
 
 ```shell
 npm run all
 ```
 
+Or, by following the steps below:
+
 ### Install
 
-In order to run Travelo-Hey! you must perform the following:
+Install all required dependencies with:
 
 ```shell
 npm install
 ```
 
-You can review the dependencies being used under `package.json`
+You can review the dependencies being used under `package.json` for back-end dependencies, and
+`front-end/package.json` for front-end dependencies.
 
 ### Test
 
-Before submitting, you must pass all tests by running the following command below:
+Before submitting, you must pass all tests by running the following command:
 
 ```shell
 npm test
 ```
 * `Jest` unit testing for the React components
-    - React tests located in `__test__`
+  - React tests located in `__test__`
 * `Mocha` unit testing for the server and database
-    - Server tests located in `server/test`
-* `ESlint` syntax and style of javascript files
+  - Server tests located in `server/test`
 
 ### Clean
 
@@ -86,23 +98,68 @@ To remove any previous builds:
 npm run clean
 ```
 
-
 ### Build
-
 To create a fresh build:
 
 ```shell
 npm run build
 ```
-The build will be placed in `./build`
+The build will be placed in `./front-end/build`
 
 ## Running Locally
 
-Once you have completed the [Build/Test Instructions](#Build/Test-Instructions), you can run the project locally on ports 3000 (react) / 8080 (node) with:
+Once you have completed the [Getting Started](#Getting-Started), you can run the project locally on ports 3000 (react) / 8080 (node) with:
 
 ```shell
 npm run dev
 ```
+
+
+## Versioning Process
+
+
+### Overview
+All releases will target main.
+
+- **Major release**: Forward/client facing changes
+- **Minor release**: Back-end implementation changes
+- **Patch release**: Bug fixes and minor code refactorings without new features
+
+For example, if current package version is `1.0.0`:<br>
+**Major release** version would be `2.0.0` <br>
+**Minor release** version would be `1.1.0` <br>
+**Patch release** version would be `1.0.1`
+
+
+### Responsibilities of Contributor
+- Updating the version number should be expressed by the person creating a pull request (PR).
+- Use the following template in the PR to describe the changes necessary.
+
+```text
+TODO: Your Note
+
+Type of Version Update: TODO: Major/Minor/Bug
+Current Version Number: TODO: v##.##.##
+New Version Number: TODO: v##.##.##
+Additional Tags: TODO: alpha, beta, pre-release, release
+```
+
+
+### Responsibilities of Maintainer
+- Reviewers must make sure PR contributor has indicated version update in PR.
+- Maintainer will update the version naming system.
+
+
+### Safety Checks after Building Release
+- Ensuring documentation is up-to-date
+- Notify user of changes (for major changes)
+- Notify team of changes (for major and minor changes)
+- Document any lingering issues to be addressed in the next iteration
+
+
+## Deployment
+**Under Construction**
+
 
 ## Operational Use Cases
 

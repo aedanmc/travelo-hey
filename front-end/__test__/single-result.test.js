@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import SingleResult from '../src/components/general/SingleResult';
 
 // TODO: update test to allow for props
-test('renders the correct content', () => {
+test('SingleResult renders the correct content', () => {
   const { getByTestId } = render(
     <SingleResult
       image="../src/quebec-church.jpg"
