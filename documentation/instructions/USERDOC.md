@@ -32,6 +32,8 @@ As Travelo-Hey! is a web app, all that is required is JavaScript on either Chrom
 - [How do I post a review?](#posting-a-review)
 - [How do I view a location's equality rating?](#viewing-a-locations-equality-rating)
 - [How do I see a country's overall safety rating?](#viewing-a-countrys-overall-safety-rating)
+- [How do I report an issue?](#reporting-a-bug)
+- [Known bugs](#known-bugs)
 
 ### Getting started
 
@@ -54,3 +56,11 @@ Either by searching (work in progress) or just from one of Travelo-Hey!'s featur
 ### Viewing a country's overall safety rating
 
 Work in progress! This feature will be part of our final release, but is not yet operational.
+
+### Reporting a bug
+
+To report a bug with Travelo-Hey, see our [bug report guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md).
+
+### Known bugs
+
+A list of known and open bugs can be found in our [GitHub issue tracker]https://github.com/aedanmc/travelo-hey/issues) by typing "is:open label:bug" into the search bar.
