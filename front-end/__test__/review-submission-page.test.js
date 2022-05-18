@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { createMemoryHistory } from 'history'
 import { MemoryRouter } from 'react-router-dom';
-import LocationDetails from '../src/components/review-submission-page/ReviewSubmissionPage';
 import ReviewSubmissionPage from '../src/components/review-submission-page/ReviewSubmissionPage';
 
 test('renders correctly', () => {
@@ -15,4 +14,12 @@ test('renders correctly', () => {
   const { getByTestId } = customRender(
     <ReviewSubmissionPage/>
   );
+
+  const input = getByTestId('review-submission-text');
+  const rating = getByTestId('review-submission-rating');
+  const submit = getByTestId('review-submission-submit');
+
+  expect(input).toBeInTheDocument();
+  expect(rating).toBeInTheDocument();
+  expect(submit).toBeInTheDocument();
 });

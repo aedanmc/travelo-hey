@@ -14,7 +14,8 @@ const defaultValues = {
 
 function ReviewSubmissionPage() {
   const methods = useForm({ defaultValues: defaultValues });
-  const { handleSubmit, control, setValue } = methods;
+  const { handleSubmit, control } = methods;
+  // TODO: need to set up sending the submitted content to the back-end
   const onSubmit = (data) => console.log(data);
 
   return (
