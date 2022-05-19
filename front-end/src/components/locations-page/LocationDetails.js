@@ -15,22 +15,22 @@ export default function LocationDetails({
           <img alt={name} src={image} />
         </Grid>
         <Grid item xs={6}>
-          <Typography color="text.secondary" component="div">{name}</Typography>
-          <Typography color="text.secondary" component="div">{address}</Typography>
-          <Typography color="text.secondary" component="div">{phone}</Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-title">{name}</Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-address">{address}</Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-phone">{phone}</Typography>
           {// TODO: Make this link a button instead
           }
-          <Link to={link} color="text.secondary" component="div">Website</Link>
+          <Link to={link} color="text.secondary" component="div" data-testid="location-link">Website</Link>
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h4" component="div">{equalityScore}</Typography>
-          <Typography color="text.secondary" component="div">{numReviews}</Typography>
+          <Typography variant="h4" component="div" data-testid="location-equality-score">{equalityScore}</Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-num-reviews">{numReviews}</Typography>
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h4" component="div">{googleRating}</Typography>
-          <Typography color="text.secondary" component="div">{numRatings}</Typography>
-          <Typography color="text.secondary" component="div">{country}</Typography>
-          <Typography color="text.secondary" component="div">{countrySafety}</Typography>
+          <Typography variant="h4" component="div" data-testid="location-google-rating">{googleRating}</Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-num-ratings">{numRatings}</Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-country">{country}</Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-country-safety">{countrySafety}</Typography>
         </Grid>
       </Grid>
     </div>

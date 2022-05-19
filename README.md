@@ -6,48 +6,44 @@
 
 ## Contents
 
-- [Synopsis](#Synopsis)
 - [Repository Layout](#Repository-Layout)
 - [Documentation](#Documentation)
 - [Prerequisites](#Prerequisites)
 - [Getting Started](#Getting-Started)
 - [Running Locally](#Running-Locally)
-- [User Guide](#User-Guide)
+- [Versioning Process](#Versioning-Process)
+    - [Overview](#Overview)
+    - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
+    - [Responsibilities of Maintainer](#Responsibilities-of-Maintainer)
+    - [Safety Checks after Building Release](#Safety-Checks-after-Building-Release)
+- [Deployment](#Deployment)
 - [Operational Use Cases](#Operational-Use-Cases)
 
-## Synopsis
+## About Travelo-Hey!
 
-Are you, or do you know a queer person that has traveled? Ever wanted to travel somewhere with your queer friends but not sure if it was safe to do so? According to National Geographic, prior to the COVID pandemic, LGBTQ+ people in the United States traveled on average 7 times each year and they spent $63.1 billion annually on traveling.
-
-Many blogs exist that discuss single perspective information related to destination activities. So, queer travelers have to spend a lot of time researching safe things to do for travel planning.
-Also, big competitors like TripAdvisor are too broad and the main focus is quality, not safety. Take for example a trip to Dubai, currently the United Arab Emirates has laws against homosexual activity thus does not represent a safe place for queer travelers.
-
-We recognize the need for a solution where users can receive a good insight into businesses and LGBTQ+ hot spots that will make them feel comfortable and welcomed.
-
-Welcome to Travelo-Hey!! Our solution will consist of a web application with cloud based data storage along with artificial intelligence (AI). Our AI implementation will focus on two tasks: highlighting reviews from your friends, and friend network travel alerts so you can stay in touch.
-
-The information stored within our databases will include user data, business data, and the reviews and ratings. The reviews and ratings will store the text and rating, along with any images and videos published.
-
-This is a really important topic to bring equity into technology. Travelo-Hey! is a unique tool that will revolutionize the way the queer community travels.
+See our motivation and use cases in our [user guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md).
 
 ## Repository Layout
 
 In the structure of this repo we have:
 
-- [data](https://github.com/aedanmc/travelo-hey/tree/main/data) local database for Beta release
-- [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) contains developer and user guides
+- [data](https://github.com/aedanmc/travelo-hey/tree/main/data) production and test database instances
+- [documentation](https://github.com/aedanmc/travelo-hey/tree/main/documentation) miscellaneous instructions and walkthroughs
 - [front-end](https://github.com/aedanmc/travelo-hey/tree/main/front-end)  front-end directory for React components
-    - [\_test\_](https://github.com/aedanmc/travelo-hey/tree/main/front-end/__test__) contains the front-end tests
-- [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) contains team member's progress/goals/issues
+    - [\_test\_](https://github.com/aedanmc/travelo-hey/tree/main/front-end/__test__) front-end tests
+- [reports](https://github.com/aedanmc/travelo-hey/tree/main/reports) team member's progress/goals/issues
 - [server](https://github.com/aedanmc/travelo-hey/tree/main/server) back-end directory for all node server components
-    - [test](https://github.com/aedanmc/travelo-hey/tree/main/server/test) contains the database and server tests
+    - [test](https://github.com/aedanmc/travelo-hey/tree/main/server/test) database and server tests
 
 ## Documentation
 - [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
 - [Back-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BETESTINGDOC.md)
+- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
 - [Front-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/FETESTINGDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
+- [User Guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
+
 
 ## Prerequisites
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
@@ -57,7 +53,7 @@ Require the most recent version of Chrome/Firefox
 
 ## Getting Started
 
-To download the repository, run the following command:
+To clone the repository, run the following command:
 
 ```shell
 git clone https://github.com/aedanmc/travelo-hey.git
@@ -79,7 +75,7 @@ Install all required dependencies with:
 npm install
 ```
 
-You can review the dependencies being used under `package.json` for back-end dependencies, and 
+You can review the dependencies being used under `package.json` for back-end dependencies, and
 `front-end/package.json` for front-end dependencies.
 
 ### Test
@@ -118,8 +114,52 @@ Once you have completed the [Getting Started](#Getting-Started), you can run the
 npm run dev
 ```
 
-## User Guide
-- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
+
+## Versioning Process
+
+
+### Overview
+All releases will target main.
+
+- **Major release**: Forward/client facing changes
+- **Minor release**: Back-end implementation changes
+- **Patch release**: Bug fixes and minor code refactorings without new features
+
+For example, if current package version is `1.0.0`:<br>
+**Major release** version would be `2.0.0` <br>
+**Minor release** version would be `1.1.0` <br>
+**Patch release** version would be `1.0.1`
+
+
+### Responsibilities of Contributor
+- Updating the version number should be expressed by the person creating a pull request (PR).
+- Use the following template in the PR to describe the changes necessary.
+
+```text
+TODO: Your Note
+
+Type of Version Update: TODO: Major/Minor/Bug
+Current Version Number: TODO: v##.##.##
+New Version Number: TODO: v##.##.##
+Additional Tags: TODO: alpha, beta, pre-release, release
+```
+
+
+### Responsibilities of Maintainer
+- Reviewers must make sure PR contributor has indicated version update in PR.
+- Maintainer will update the version naming system.
+
+
+### Safety Checks after Building Release
+- Ensuring documentation is up-to-date
+- Notify user of changes (for major changes)
+- Notify team of changes (for major and minor changes)
+- Document any lingering issues to be addressed in the next iteration
+
+
+## Deployment
+**Under Construction**
+
 
 ## Operational Use Cases
 
