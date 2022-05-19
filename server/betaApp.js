@@ -62,52 +62,6 @@
         }
     });
 
-    app.get('/search', async (req, res) => {
-        try {
-            const countries = await getCountriesName();
-
-            res.type("json").send({"countries": countries});
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error);
-        }
-    });
-
-    app.post('/search_state_per_country', async (req, res) => {
-        try {
-            const country = req.body.country;
-            const state = await getStates(country);
-
-            res.type("json").send({"state": state});
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error);
-        }
-    });
-
-    app.post('/search_city_per_state', async (req, res) => {
-        try {
-            const state = req.body.state;
-            const cities = await getCities(state);
-
-            res.type("json").send({"cities": cities});
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error);
-        }
-    });
-
-    app.get('/search_activity', async (req, res) => {
-        try {
-            let activities = await fs.readFile("data/activities.json", "utf8");
-
-            res.type("json").send({"activities": activities});
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error);
-        }
-    });
-
     app.get('/business', async (req, res) => {
         try {
             // const place_id = req.query.place_id;     // for testing outside of front-end
@@ -139,7 +93,7 @@
             }
         } catch (error) {
             res.type("text").status(500)
-              .send(error);
+                .send(error);
         }
     });
 
@@ -160,48 +114,9 @@
 
         } catch (error) {
             res.type("text").status(500)
-              .send(error);
+                .send(error);
         }
     });
-
-    /**
-     *
-     * @returns {Promise<any[]>}
-     */
-    async function getStates(country) {
-        const db = await instance.getDBConnection();
-        const query = "SELECT name FROM states WHERE country_name = ? ORDER BY name ASC";
-
-        const row = await db.all(query, [country]);
-        await db.close();
-        return row;
-    }
-
-    /**
-     *
-     * @returns {Promise<any[]>}
-     */
-    async function getCities(state) {
-        const db = await instance.getDBConnection();
-        const query = "SELECT name FROM cities WHERE state_name = ? ORDER BY name ASC";
-
-        const row = await db.all(query, [state]);
-        await db.close();
-        return row;
-    }
-
-    /**
-     *
-     * @returns {Promise<any[]>}
-     */
-    async function getCountriesName() {
-        const db = await instance.getDBConnection();
-        const query = "SELECT name FROM countries ORDER BY name ASC";
-
-        const row = await db.all(query, []);
-        await db.close();
-        return row;
-    }
 
     /** HELPER FUNCTIONS **/
     /**
@@ -248,13 +163,13 @@
     async function writeReviews(review_params) {
         const db = await instance.getDBConnection();
         const query_insert = "INSERT INTO reviews" +
-          "(userID, placeID, createdAt, inclusiveLanguages, neutralRestrooms, queerBusinessPromotion, " +
-          "accessibility, queerSignage, safety, recommendedBusiness, review) " +
-          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "(userID, placeID, createdAt, inclusiveLanguages, neutralRestrooms, queerBusinessPromotion, " +
+            "accessibility, queerSignage, safety, recommendedBusiness, review) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         await db.run(query_insert, review_params);
         const query_select = "SELECT * FROM reviews " +
-                            "WHERE placeID = ? ORDER BY createdAt ASC";
+            "WHERE placeID = ? ORDER BY createdAt ASC";
 
         const placeID = review_params[1];
         const rows = await db.all(query_select, [placeID]);
