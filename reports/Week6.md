@@ -44,17 +44,28 @@
 3. Plans and Goals for Next Week
 
 
-
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
-    - Assist with integration of Google Business API
-    - Create test cases for database and server
-    - Develop user and developer guides
+      - Assist with integration of Google Business API
+      - Create test cases for database and server
+      - Develop user and developer guides
 2. Progress and Issues
     - Progress
+       - Create test cases for database
+       - Assisted Mike with the test cases for the server
+       - Contributed to the developer guide documentation
+       - Contributed to the back-end testing documentation
+       - Updated living doc
+       - Worked with Mike to organize GitHub milestones and update PRs with no milestones
+       - Implemented endpoints and test cases for the search feature
     - Issues
+      - Trying to figure out next steps and reflecting on the work I did so far
 3. Plans and Goals for Next Week
-
+   - Create the final plan for the back-end implementation with Mike
+   - Assist with integration of Google Business API
+   - Finalize the endpoints for the search feature
+   - Help with front-end implementation (if needed)
+   - Peer review another project
 
 
 ### Matt Broom (he/they)
