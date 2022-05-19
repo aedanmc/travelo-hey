@@ -40,9 +40,19 @@
     - Reevaluate plan for final project
 2. Progress and Issues
     - Progress
+       - Updated documentation for the user guide 
+       - Created a rough sketch of a review submission page 
+       - Wrote new components for the review submission page 
+       - Wrote a new test for review submission page 
+       - Recloned and tested main repo
     - Issues
+       - Not sure how to approach routing issue, especially with new pages being added and all the previous failed attempts
+       - Worried about running into bugs/issues with connection to back end and rendering considering how the beta release went and everyone's intense schedules as we head towards the final sprint of spring quarter
 3. Plans and Goals for Next Week
-
+   - Fix routing issues between pages
+   - Finalize rendering for a review submission page 
+   - Connect to back-end to save data from a review submission page 
+   - Add styling to files
 
 
 ### Camila Christensen (she/they)
