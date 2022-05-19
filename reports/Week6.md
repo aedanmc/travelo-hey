@@ -6,7 +6,9 @@
 *Contributors: Aedan McCall, Alex Zuniga, Camila Christensen, Matt Broom, Mike Harris*
 
 ## Agenda
-1.
+1. Discuss implementation plans for each remaining feature
+2. Review changes made to team process
+3. Discuss test suites and whether they are sufficient for now
 
 
 ## Team Report
@@ -28,8 +30,19 @@
    - Add tests for new components
 2. Progress and Issues
    - Progress
+        - Wrote documentation for user guide:
+            1. The general introduction to the project (some from top-level README)
+            2. Details on how to use the service
+            3. Bug reporting
+            4. Known bugs
+    - Updated code for search page to have a debug mode
+        - Now allows for easier testing with non-async data
    - Issues
+        - Difficulty in coming up with and writing meaningful tests
 3. Plans and Goals for Next Week
+    - Make progress on country page/ feature
+    - Continue writing tests and updating documentation as needed
+    - Complete peer review early to open up more time to work on features
 
 
 
