@@ -114,7 +114,7 @@
 
         } catch (error) {
             res.type("text").status(500)
-              .send(error);
+                .send(error);
         }
     });
 
