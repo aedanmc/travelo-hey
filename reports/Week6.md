@@ -74,9 +74,16 @@
     - Discuss and begin implementation of additional front-end components for beyond beta
 2. Progress and Issues
     - Progress
+       - Wrote a new test case for front-end components
+       - Wrote developer documentation on front-end testing
+       - Met with team to ensure completion of documentation assignment deliverables
+       - Worked with team to rescope project's goals, de-emphasizing styling in favor of usability & reducing number of features
     - Issues
+       - Routing: made some progress, but have yet to fully implement suggested changes due to prioritizing documentation assignment
 3. Plans and Goals for Next Week
-
+    - Fully implement routing fixes
+    - Work on review page for "posting a review" feature
+    - Complete Peer Review assignment while acting as team lead for the week
 
 
 ### Mike Harris (they/them)
