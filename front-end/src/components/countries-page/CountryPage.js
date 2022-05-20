@@ -20,7 +20,6 @@ function CountriesPage() {
   // TODO if time: add styling
   return (
     <Container width="100%" sx={{ margin: 2 }}>
-      
     </Container>
   );
 }
