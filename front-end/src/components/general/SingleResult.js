@@ -11,9 +11,8 @@ import PropTypes from 'prop-types';
 
 // TODO: Add styling through useTheme
 
-function SingleResult({ image, name, contact, address }) {
+function SingleResult({ image, firstString, secondString, thirdString }) {
   return (
-    // <CardActionArea component={Link} to={route}>
     <Card sx={{ display: 'flex', width: '50%', alignItems: 'flex-start' }}>
       <CardActionArea sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'left' }}>
         <CardMedia
@@ -24,13 +23,13 @@ function SingleResult({ image, name, contact, address }) {
         <Box>
           <CardContent sx={{ flex: '1 0 auto', justifyContent: 'flex-start', textAlign: 'left' }}>
             <Typography data-testid="location-title" component="div">
-              {name}
+              {firstString}
             </Typography>
             <Typography data-testid="location-subtitle" color="text.secondary" component="div">
-              {contact}
+              {secondString}
             </Typography>
             <Typography data-testid="location-details" color="text.secondary" component="div">
-              {address}
+              {thirdString}
             </Typography>
           </CardContent>
         </Box>
@@ -40,9 +39,9 @@ function SingleResult({ image, name, contact, address }) {
 }
 
 SingleResult.propTypes = {
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  contact: PropTypes.string.isRequired,
+  firstString: PropTypes.string.isRequired,
+  secondString: PropTypes.string.isRequired,
+  thirdString: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
 

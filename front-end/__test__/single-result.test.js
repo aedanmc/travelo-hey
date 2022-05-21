@@ -9,9 +9,9 @@ test('SingleResult renders the correct content', () => {
   const { getByTestId } = render(
     <SingleResult
       image="../src/quebec-church.jpg"
-      name="Lorem Ipsum"
-      contact="Lorem Ipsum"
-      address="Lorem Ipsum"
+      firstString="Lorem Ipsum"
+      secondString="Lorem Ipsum"
+      thirdString="Lorem Ipsum"
     />,
   );
 

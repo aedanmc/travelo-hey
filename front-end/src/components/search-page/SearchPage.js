@@ -70,9 +70,9 @@ function SearchPage({ debug }) {
           <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
             <SingleResult
               image="http://via.placeholder.com/640x360"
-              name={item.name}
-              contact={item.formatted_phone_number}
-              address={item.formatted_address}
+              firstString={item.name}
+              secondString={item.formatted_phone_number}
+              thirdString={item.formatted_address}
             />
           </Link>
         ))}
