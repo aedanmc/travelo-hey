@@ -1,4 +1,4 @@
-const SampleCountry = {
+const sampleData = {
   countryID: 122,
   rank: 20,
   name: 'USA',
@@ -16,4 +16,4 @@ const SampleCountry = {
   propagandaMoralityLaws: 'Laws prevent the discussion of Pro-LGBTQ+ issues',
 };
 
-export default SampleCountry;
+export default sampleData;
