@@ -68,6 +68,7 @@
 
                 // query Google Places API
                 const query = "json?query=" + activity + "&location=" + latLongString + "&key=" + process.env.PLACES_KEY;
+                console.log(PLACES_TEXTSEARCH_BASE_URL + query);
                 https.request(PLACES_TEXTSEARCH_BASE_URL + query, (response) => {
                     let data = '';
                     response.on('data', (chunk) => {
@@ -95,8 +96,9 @@
     app.get('/countries', async (req, res) => {
         try {
             const countries = await getCountriesName();
+            console.log(countries)
 
-            res.type("json").send(countries);
+            res.type("json").send({"countries": countries});
         } catch (error) {
             res.type("text").status(500)
                 .send(error);
@@ -112,7 +114,7 @@
 
             if (country) {
                 const state = await getStates(country);
-                res.type("json").send({"state": state});
+                res.type("json").send({"states": state});
             }
         } catch (error) {
             res.type("text").status(500)
@@ -142,8 +144,8 @@
      */
     app.get('/activities', async (req, res) => {
         try {
-            let activities = await fs.readFile("data/activities.json", "utf8");
-            res.type("json").send({"activities": activities});
+            const activities = await fs.readFile("data/activities.json", "utf8");
+            res.type("json").send(activities);
         } catch (error) {
             res.type("text").status(500)
                 .send(error);
@@ -163,19 +165,16 @@
 
                 // obtain Google Details and reviews
                 const query = "json?place_id=" + place_id + "&key=" + process.env.PLACES_KEY;
-                const request = https.request(PLACES_DETAILS_BASE_URL + query, (response) => {
+                console.log(PLACES_DETAILS_BASE_URL + query);
+                const request = https.get(PLACES_DETAILS_BASE_URL + query, (response) => {
                     let data = '';
                     response.on('data', (chunk) => {
-                        data = data + chunk.toString();
+                        data += chunk;
                     });
-                })
-
-                request.on('error', (error) => {
+                }).on('error', (error) => {
                     res.type("text").status(500).send(error);
-                });
-                request.end()
-
-                res.type("json").send({"google": request, "travelo-hey": reviews});
+                }).end();
+                res.type("json").send(request);
             } else {
                 res.type("text").send("Missing place ID.");
             }
@@ -199,15 +198,22 @@
                 res.type("text").send("Missing country's name.");
             }
         } catch (error) {
-            res.type("text").status(500)
-              .send(error);
+            res.type("text").status(500).send(error);
+        }
+    });
+
+    app.get('/reviews', async (req, res) => {
+        try {
+
+        } catch (error) {
+            res.type("text").status(500).send(error);
         }
     });
 
     /**
      * Saves a new review in the database for the given business. Returns the review in JSON format.
      */
-    app.post('/reviews/new', async(req, res) => {
+    app.post('/reviews/new', async (req, res) => {
         try {
             const review_params = [
                 req.body.userID, req.body.placeID, new Date().toUTCString(), req.body.inclusiveLanguages,
@@ -223,8 +229,7 @@
             }
 
         } catch (error) {
-            res.type("text").status(500)
-              .send(error);
+            res.type("text").status(500).send(error);
         }
     });
 
