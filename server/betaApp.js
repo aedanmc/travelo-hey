@@ -74,7 +74,6 @@
             const place_id = req.body.place_id;
             if (place_id) {
                 const query = "json?place_id=" + place_id + "&key=" + process.env.PLACES_KEY;
-                console.log(PLACES_DETAILS_BASE_URL + query);
                 const request = https.get(PLACES_DETAILS_BASE_URL + query, (response) => {
                     let data = '';
                     response.on('data', (chunk) => {
