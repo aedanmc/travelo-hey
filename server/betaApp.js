@@ -66,7 +66,7 @@
         try {
             const countries = await getCountriesName();
 
-            res.type("json").send({"countries": countries});
+            res.type("json").send(countries);
         } catch (error) {
             res.type("text").status(500)
                 .send(error);
