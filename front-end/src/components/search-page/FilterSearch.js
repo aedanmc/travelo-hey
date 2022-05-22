@@ -120,7 +120,6 @@ export default function FilterSearch() {
           {activity.map((name) => <MenuItem key={name} value={name}>{name.name}</MenuItem>)}
         </Select>
       </FormControl>
-
       <Button variant="outlined" startIcon={<SearchIcon />}>
         Search
       </Button>

@@ -142,7 +142,9 @@
             done();
           });
       });
+
     });
+});
 
   /**
    * Helper function to remove the last review added due to testing the /reviews/new endpoint.
@@ -152,4 +154,5 @@
     await db.run(query_delete);
     await db.close();
   }
+
 })();
