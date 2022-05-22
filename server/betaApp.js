@@ -86,7 +86,7 @@
                 res.type("json").send(request);
             } else {
                 res.type("text").status(400)
-                  .send("Missing place ID");
+                  .send("Missing place_id");
             }
         } catch (error) {
             res.type("text").status(500)
@@ -139,7 +139,7 @@
                 res.type("json").send({"country": country});
             } else {
                 res.type("text").status(400)
-                  .send("Missing formatted address");
+                  .send("Missing form_addr");
             }
         } catch (error) {
             res.type("text").status(500)
@@ -159,7 +159,7 @@
                 res.type("json").send({"th_reviews": reviews});
             } else {
                 res.type("text").status(400)
-                  .send("Missing place ID.");
+                  .send("Missing place_id");
             }
         } catch (error) {
             res.type("text").status(500)
@@ -183,7 +183,7 @@
                 res.type("json").send(review);
             } else {
                 res.type("text").status(400)
-                  .send("Missing user ID or place ID");
+                  .send("Missing userID or place_id");
             }
         } catch (error) {
             res.type("text").status(500)
@@ -200,7 +200,7 @@
             const activity = req.body.activity;
             const city = req.body.city;
 
-            if (city && activity) {
+            if (activity && city) {
                 // obtain lat long
                 const latLong = await getLatLong(city);
                 const latLongString = "" + latLong[0].latitude + "," + latLong[0].longitude;
@@ -222,7 +222,7 @@
                 }).end();
             } else {
                 res.type("text").status(400)
-                  .send("Missing city or activity");
+                  .send("Missing activity and/or city");
             }
         } catch (error) {
             res.type("text").status(500)
