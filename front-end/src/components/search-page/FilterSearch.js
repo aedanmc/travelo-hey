@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from '@mui/material/Select';
 // import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -6,6 +6,10 @@ import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Container';
+import axios from 'axios';
+// import axiosConn from 'global/axiosConn';
+import MenuItem from '@mui/material/MenuItem';
+// import { MenuItem } from '@mui/material';
 
 // TODO: receive props passed down with a list of:
 // 1. Countries
@@ -15,21 +19,63 @@ import Stack from '@mui/material/Container';
 // Each item needs a key
 
 export default function FilterSearch() {
-  const [country, setCountry] = React.useState('');
-  const [city, setCity] = React.useState('');
-  const [activity, setActivity] = React.useState('');
+  const [countries, setCountry] = useState([]);
+  const [states, setStates] = React.useState([]);
+  const [cities, setCity] = React.useState([]);
+
+  const [activity, setActivity] = React.useState([]);
 
   const handleCountryChange = (event) => {
-    setCountry(event.target.value);
+    const countryName = event.target.value.name;
+
+    async function fetchData() {
+      axios.post('http://localhost:8080/search_state_per_country', { country: countryName })
+        .then((r) => {
+          setStates(r.data.state);
+        });
+    }
+    fetchData();
   };
+
+  const handleStateChange = (event) => {
+    const stateName = event.target.value.name;
+
+    async function fetchData() {
+      axios.post('http://localhost:8080/search_city_per_state', { state: stateName })
+        .then((r) => {
+          setCity(r.data.cities);
+          console.log(r.data.cities);
+        });
+    }
+    fetchData();
+  };
+
+  console.log(cities);
 
   const handleCityChange = (event) => {
-    setCity(event.target.value);
+    // setCity(event.target.value);
+    console.log(event.target.value);
   };
 
-  const handleActivityChange = (event) => {
-    setActivity(event.target.value);
+  const handleActivityChange = () => {
+    async function fetchData() {
+      axios.get('http://localhost:8080/search_activity')
+        .then((r) => {
+          setActivity(r.data.activities);
+        });
+    }
+    fetchData();
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      await axios.get('http://localhost:8080/search')
+        .then((r) => {
+          setCountry(r.data);
+        });
+    }
+    fetchData();
+  }, []);
 
   return (
     <Stack direction="row" spacing={2}>
@@ -37,22 +83,30 @@ export default function FilterSearch() {
         <InputLabel id="select-country-label">Country</InputLabel>
         <Select
           labelId="select-country-label"
-          value={country}
           label="Country"
           onChange={handleCountryChange}
         >
-          {/* TODO: add <MenuItem/>s here to populate countries */}
+          {countries.map((name) => <MenuItem key={name.name} value={name}>{name.name}</MenuItem>)}
+        </Select>
+      </FormControl>
+      <FormControl sx={{ minWidth: 120 }}>
+        <InputLabel id="select-state-label">State</InputLabel>
+        <Select
+          labelId="select-state-label"
+          label="State"
+          onChange={handleStateChange}
+        >
+          {states.map((name) => <MenuItem key={name.name} value={name}>{name.name}</MenuItem>)}
         </Select>
       </FormControl>
       <FormControl sx={{ minWidth: 120 }}>
         <InputLabel id="select-city-label">City</InputLabel>
         <Select
           labelId="select-city-label"
-          value={city}
           label="City"
           onChange={handleCityChange}
         >
-          {/* TODO: add <MenuItem/>s here to populate cities */}
+          {cities.map((name) => <MenuItem key={name} value={name}>{name.name}</MenuItem>)}
         </Select>
       </FormControl>
       <FormControl sx={{ minWidth: 120 }}>
@@ -63,7 +117,7 @@ export default function FilterSearch() {
           label="Activity"
           onChange={handleActivityChange}
         >
-          {/* TODO: add <MenuItem/>s here to populate activities */}
+          {activity.map((name) => <MenuItem key={name} value={name}>{name.name}</MenuItem>)}
         </Select>
       </FormControl>
 
