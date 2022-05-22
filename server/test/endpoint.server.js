@@ -20,12 +20,45 @@
 
     chai.use(chaiHttp);
     describe("Server Test", () => {
+      it('test "/activities" endpoint', (done) => {
+        chai.request(app)
+          .get('/activities')
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+
       it('test "/business" endpoint', (done) => {
         chai.request(app)
           .get('/business')
           .send({
             'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
           })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+
+      it('test "/cities" endpoint', (done) => {
+        chai.request(app)
+          .post('/cities')
+          .send({
+            'state': 'Rio de Janeiro',
+          })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+
+      it('test "/countries" endpoint', (done) => {
+        chai.request(app)
+          .get('/countries')
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -50,10 +83,9 @@
         chai.request(app)
           .get('/reviews')
           .send({
-            'place_ID': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
+            'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
           })
           .end((err, res) => {
-            console.log(res);
             res.should.have.status(200);
             res.body.should.be.a('object');
             done();
@@ -65,7 +97,7 @@
           .post('/reviews/new')
           .send({
             'userID': 10,
-            'placeID': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
+            'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
             'inclusiveLanguages': 1,
             'neutralRestroom': 1,
             'queerBusinessPromotion': 1,
@@ -84,9 +116,13 @@
           });
       });
 
-      it('test "/countries" endpoint', (done) => {
+      it('test "/search" endpoint', (done) => {
         chai.request(app)
-          .get('/countries')
+          .get('/search')
+          .send({
+            'city': 'Seattle',
+            'activity': 'restaurants',
+          })
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -99,43 +135,6 @@
           .post('/states')
           .send({
             'country': 'Brazil',
-          })
-          .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            done();
-          });
-      });
-
-      it('test "/cities" endpoint', (done) => {
-        chai.request(app)
-          .post('/cities')
-          .send({
-            'state': 'Rio de Janeiro',
-          })
-          .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            done();
-          });
-      });
-
-      it('test "/activities" endpoint', (done) => {
-        chai.request(app)
-          .get('/activities')
-          .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            done();
-          });
-      });
-
-      it('test "/search" endpoint', (done) => {
-        chai.request(app)
-          .get('/search')
-          .send({
-            'city': 'Seattle',
-            'activity': 'restaurants',
           })
           .end((err, res) => {
             res.should.have.status(200);

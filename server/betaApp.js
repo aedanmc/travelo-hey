@@ -74,6 +74,7 @@
             const place_id = req.body.place_id;
             if (place_id) {
                 const query = "json?place_id=" + place_id + "&key=" + process.env.PLACES_KEY;
+                console.log(PLACES_DETAILS_BASE_URL + query);
                 const request = https.get(PLACES_DETAILS_BASE_URL + query, (response) => {
                     let data = '';
                     response.on('data', (chunk) => {
@@ -84,7 +85,8 @@
                 }).end();
                 res.type("json").send(request);
             } else {
-                res.type("text").status(400).send("Missing place ID.");
+                res.type("text").status(400)
+                  .send("Missing place ID");
             }
         } catch (error) {
             res.type("text").status(500)
@@ -103,7 +105,8 @@
                 const cities = await getCities(state);
                 res.type("json").send({"cities": cities});
             } else {
-                res.type("text").status(400).send("Missing state.");
+                res.type("text").status(400)
+                  .send("Missing state");
             }
         } catch (error) {
             res.type("text").status(500)
@@ -135,10 +138,12 @@
                 const country = await getCountry(form_addr);
                 res.type("json").send({"country": country});
             } else {
-                res.type("text").status(400).send("Missing country's name.");
+                res.type("text").status(400)
+                  .send("Missing formatted address");
             }
         } catch (error) {
-            res.type("text").status(500).send(error);
+            res.type("text").status(500)
+              .send(error);
         }
     });
 
@@ -148,15 +153,17 @@
      */
     app.get('/reviews', async (req, res) => {
         try {
-            const place_id = req.body.place_ID;
+            const place_id = req.body.place_id;
             if (place_id) {
                 const reviews = await getReviews(place_id);
                 res.type("json").send({"th_reviews": reviews});
             } else {
-                res.type("text").status(400).send("Missing place ID.");
+                res.type("text").status(400)
+                  .send("Missing place ID.");
             }
         } catch (error) {
-            res.type("text").status(500).send(error);
+            res.type("text").status(500)
+              .send(error);
         }
     });
 
@@ -166,7 +173,7 @@
     app.post('/reviews/new', async (req, res) => {
         try {
             const review_params = [
-                req.body.userID, req.body.placeID, new Date().toUTCString(), req.body.inclusiveLanguages,
+                req.body.userID, req.body.place_id, new Date().toUTCString(), req.body.inclusiveLanguages,
                 req.body.neutralRestroom, req.body.queerBusinessPromotion, req.body.accessibility,
                 req.body.queerSignage, req.body.safety, req.body.recommendedBusiness, req.body.review
             ];
@@ -175,10 +182,12 @@
                 const review = await writeReviews(review_params);
                 res.type("json").send(review);
             } else {
-                res.type("text").send("Missing ...");
+                res.type("text").status(400)
+                  .send("Missing user ID or place ID");
             }
         } catch (error) {
-            res.type("text").status(500).send(error);
+            res.type("text").status(500)
+              .send(error);
         }
     });
 
@@ -188,8 +197,8 @@
      */
     app.get('/search', async (req, res) => {
         try {
-            const city = req.body.city;
             const activity = req.body.activity;
+            const city = req.body.city;
 
             if (city && activity) {
                 // obtain lat long
@@ -208,13 +217,16 @@
                         res.type("json").send(data);
                     })
                 }).on('error', (error) => {
-                    res.type("text").status(500).send(error);
+                    res.type("text").status(500)
+                      .send(error);
                 }).end();
             } else {
-                res.type("text").status(400).send("Bad city or activity.");
+                res.type("text").status(400)
+                  .send("Missing city or activity");
             }
         } catch (error) {
-            res.type("text").status(500).send(error);
+            res.type("text").status(500)
+              .send(error);
         }
     });
 
@@ -228,6 +240,9 @@
             if (country) {
                 const state = await getStates(country);
                 res.type("json").send({"states": state});
+            } else {
+                res.type("text").status(400)
+                  .send("Missing country");
             }
         } catch (error) {
             res.type("text").status(500)
