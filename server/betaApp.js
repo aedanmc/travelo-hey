@@ -22,11 +22,13 @@
     "use strict";
     const PORT_8000 = "8000";
     const PORT_8080 = "8080";
+    const PLACES_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/";
 
     const express = require("express");
     const cors = require("cors");
     const fs = require("fs").promises;
     const multer = require("multer");
+    const fetch = require("node-fetch");
     require('dotenv').config();
 
     const app = express();
@@ -51,7 +53,24 @@
      * </script>
      */
 
+    // https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters
+    // output: json or xml
+    // parameters:
+    //      required:
+    //          input={activity}&
+    //          inputtype=textquery or phonenumber
+    //          fields=
+    //          key={.env key}
+
+    // https://maps.googleapis.com/maps/api/place/textsearch/json?query={activity}&location={lat/long}&key={.env key}
+    // https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels&location=-22.92008,-43.33069&key={.env key}
+
+    // https://maps.googleapis.com/maps/api/place/details/output?parameters
+    // output: json or xml
+    // parameters: place_id=
+
     app.use(cors());
+    // TODO: pulling restaurants in seattle
     app.get('/', async (req, res) => {
         try {
             let data = await fs.readFile("data/businesses.json", "utf8");
@@ -62,6 +81,34 @@
         }
     });
 
+    app.get('/search_stuff', async (req, res) => {
+        try {
+            const city = req.body.city;
+            const activity = req.body.activity;
+
+            if (city && activity) {
+                // obtain lat long
+                const latLong = getLatLong(city);
+                const latLongString = "" + latLong["latitude"] + "," + latLong["longitude"];
+
+                // fetch api
+                const query = "json?query=" + activity + "&location=" + latLongString + "&key=" + process.env.PLACES_KEY;
+                fetch(PLACES_BASE_URL + query)
+                  .then(async googleRes => {
+                      if (!googleRes.ok) throw new Error(await googleRes.text());
+                      return googleRes;
+                  })
+                  .then(googleRes => res.type("json").send(googleRes))
+                  .catch(googleError => console.log(googleError))
+            }
+        } catch (error) {
+            res.type("text").status(500)
+              .send(error);
+        }
+    });
+
+    // search, search_state_per_country, search_city_per_state, search_activity
+    // used for populating drop down menus
     app.get('/search', async (req, res) => {
         try {
             const countries = await getCountriesName();
@@ -76,9 +123,11 @@
     app.post('/search_state_per_country', async (req, res) => {
         try {
             const country = req.body.country;
-            const state = await getStates(country);
 
-            res.type("json").send({"state": state});
+            if (country) {
+                const state = await getStates(country);
+                res.type("json").send({"state": state});
+            }
         } catch (error) {
             res.type("text").status(500)
                 .send(error);
@@ -88,9 +137,11 @@
     app.post('/search_city_per_state', async (req, res) => {
         try {
             const state = req.body.state;
-            const cities = await getCities(state);
 
-            res.type("json").send({"cities": cities});
+            if (state) {
+                const cities = await getCities(state);
+                res.type("json").send({"cities": cities});
+            }
         } catch (error) {
             res.type("text").status(500)
                 .send(error);
@@ -100,7 +151,6 @@
     app.get('/search_activity', async (req, res) => {
         try {
             let activities = await fs.readFile("data/activities.json", "utf8");
-
             res.type("json").send({"activities": activities});
         } catch (error) {
             res.type("text").status(500)
@@ -163,6 +213,16 @@
               .send(error);
         }
     });
+
+
+    async function getLatLong(city) {
+        const db = await instance.getDBConnection();
+        const query = "SELECT latitude, longitude FROM cities WHERE name = ?";
+
+        const row = await db.all(query, [city]);
+        await db.close();
+        return row;
+    }
 
     /**
      *
@@ -227,7 +287,7 @@
     /**
      * Helper function to retrieve business reviews from the database.
      *
-     * @param places_id             a unique identifier for a business
+     * @param place_id             a unique identifier for a business
      * @returns {Promise<any[]>}    the promise of results of reviews
      */
     async function getReviews(place_id) {

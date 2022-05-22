@@ -81,12 +81,26 @@
           });
       });
 
+        it('test "search_stuff" endpoint', (done) => {
+          chai.request(app)
+            .get('/search_stuff')
+            .send({
+              'city': 'Seattle',
+              'activity': 'restaurants',
+            })
+            .end((err, res) => {
+              res.should.have.status(200);
+              res.body.should.be.a('object');
+              done();
+            });
+        });
+
         it('test "/search" endpoint', (done) => {
             chai.request(app)
                 .get('/search')
                 .end((err, res) => {
                     res.should.have.status(200);
-                    res.body.should.be.a('object');
+                    res.body.should.be.a('array');
                     done();
                 });
         });
