@@ -20,22 +20,11 @@
 
     chai.use(chaiHttp);
     describe("Server Test", () => {
-        it('test "/" endpoint', (done) => {
-            chai.request(app)
-              .get('/')
-              .end((err, res) => {
-                  res.should.have.status(200);
-                  res.body.should.be.a('object');
-                  done();
-              });
-        });
-
         it('test "/business" endpoint', (done) => {
         chai.request(app)
           .get('/business')
           .send({
             'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
-            'form_addr': '2865 Eastlake Ave E, Seattle, WA 98102, USA',
           })
           .end((err, res) => {
             res.should.have.status(200);
@@ -81,20 +70,6 @@
           });
       });
 
-        it('test "search" endpoint', (done) => {
-          chai.request(app)
-            .get('/search')
-            .send({
-              'city': 'Seattle',
-              'activity': 'restaurants',
-            })
-            .end((err, res) => {
-              res.should.have.status(200);
-              res.body.should.be.a('object');
-              done();
-            });
-        });
-
         it('test "/countries" endpoint', (done) => {
             chai.request(app)
                 .get('/countries')
@@ -134,6 +109,20 @@
         it('test "/activities" endpoint', (done) => {
             chai.request(app)
                 .get('/activities')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    done();
+                });
+        });
+
+        it('test "/search" endpoint', (done) => {
+            chai.request(app)
+                .get('/search')
+                .send({
+                    'city': 'Seattle',
+                    'activity': 'restaurants',
+                })
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
