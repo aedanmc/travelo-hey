@@ -27,8 +27,8 @@
 
     const PORT_8000 = "8000";
     const PORT_8080 = "8080";
-    const PLACES_TEXTSEARCH_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/";
     const PLACES_DETAILS_BASE_URL = "https://maps.googleapis.com/maps/api/place/details/";
+    const PLACES_TEXTSEARCH_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/";
 
     /*************/
     /** IMPORTS **/
@@ -53,72 +53,42 @@
     /***************/
 
     /**
-     * Endpoint that calls Google Places API to retrieve local businesses relative to the provided
-     * activity for the provided city. Returns in JSON format.
+     * Retrieves a list of all activities. Returns in JSON format.
      */
-    app.get('/search', async (req, res) => {
+    app.get('/activities', async (req, res) => {
         try {
-            const city = req.body.city;
-            const activity = req.body.activity;
+            const activities = await fs.readFile("data/activities.json", "utf8");
+            res.type("json").send(activities);
+        } catch (error) {
+            res.type("text").status(500)
+              .send(error);
+        }
+    });
 
-            if (city && activity) {
-                // obtain lat long
-                const latLong = await getLatLong(city);
-                const latLongString = "" + latLong[0].latitude + "," + latLong[0].longitude;
-
-                // query Google Places API
-                const query = "json?query=" + activity + "&location=" + latLongString + "&key=" + process.env.PLACES_KEY;
-                console.log(PLACES_TEXTSEARCH_BASE_URL + query);
-                https.request(PLACES_TEXTSEARCH_BASE_URL + query, (response) => {
+    /**
+     * Endpoint that calls the Google Places API, retrieving more specific details for the given
+     * place_id of a business. Returns in JSON format.
+     */
+    app.get('/business', async (req, res) => {
+        try {
+            const place_id = req.body.place_id;
+            if (place_id) {
+                const query = "json?place_id=" + place_id + "&key=" + process.env.PLACES_KEY;
+                const request = https.get(PLACES_DETAILS_BASE_URL + query, (response) => {
                     let data = '';
                     response.on('data', (chunk) => {
                         data += chunk;
                     });
-
-                    response.on('end', () => {
-                        res.type("json").send(data);
-                    })
                 }).on('error', (error) => {
                     res.type("text").status(500).send(error);
                 }).end();
+                res.type("json").send(request);
             } else {
-                res.type("text").status(400).send("Bad city or activity.");
-            }
-        } catch (error) {
-            console.log("catch error")
-            res.type("text").status(500).send(error);
-        }
-    });
-
-    /**
-     * Retrieves a list of all countries in the database. Returns in JSON format.
-     */
-    app.get('/countries', async (req, res) => {
-        try {
-            const countries = await getCountriesName();
-            console.log(countries)
-
-            res.type("json").send({"countries": countries});
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error);
-        }
-    });
-
-    /**
-     * Retrieves a list of all states in the database for the given country. Returns in JSON format.
-     */
-    app.post('/states', async (req, res) => {
-        try {
-            const country = req.body.country;
-
-            if (country) {
-                const state = await getStates(country);
-                res.type("json").send({"states": state});
+                res.type("text").status(400).send("Missing place ID.");
             }
         } catch (error) {
             res.type("text").status(500)
-                .send(error);
+              .send(error);
         }
     });
 
@@ -132,55 +102,25 @@
             if (state) {
                 const cities = await getCities(state);
                 res.type("json").send({"cities": cities});
-            }
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error);
-        }
-    });
-
-    /**
-     * Retrieves a list of all activities. Returns in JSON format.
-     */
-    app.get('/activities', async (req, res) => {
-        try {
-            const activities = await fs.readFile("data/activities.json", "utf8");
-            res.type("json").send(activities);
-        } catch (error) {
-            res.type("text").status(500)
-                .send(error);
-        }
-    });
-
-    /**
-     * Endpoint that calls the Google Places API, retrieving more specific details for the given
-     * place_id of a business. Returns in JSON format.
-     */
-    app.get('/business', async (req, res) => {
-        try {
-            const place_id = req.body.place_id;
-            if (place_id) {
-                // obtain Travelo-Hey reviews
-                const reviews = await getReviews(place_id);
-
-                // obtain Google Details and reviews
-                const query = "json?place_id=" + place_id + "&key=" + process.env.PLACES_KEY;
-                console.log(PLACES_DETAILS_BASE_URL + query);
-                const request = https.get(PLACES_DETAILS_BASE_URL + query, (response) => {
-                    let data = '';
-                    response.on('data', (chunk) => {
-                        data += chunk;
-                    });
-                }).on('error', (error) => {
-                    res.type("text").status(500).send(error);
-                }).end();
-                res.type("json").send(request);
             } else {
-                res.type("text").send("Missing place ID.");
+                res.type("text").status(400).send("Missing state.");
             }
         } catch (error) {
             res.type("text").status(500)
-                .send(error);
+              .send(error);
+        }
+    });
+
+    /**
+     * Retrieves a list of all countries in the database. Returns in JSON format.
+     */
+    app.get('/countries', async (req, res) => {
+        try {
+            const countries = await getCountriesName();
+            res.type("json").send({"countries": countries});
+        } catch (error) {
+            res.type("text").status(500)
+              .send(error);
         }
     });
 
@@ -195,16 +135,26 @@
                 const country = await getCountry(form_addr);
                 res.type("json").send({"country": country});
             } else {
-                res.type("text").send("Missing country's name.");
+                res.type("text").status(400).send("Missing country's name.");
             }
         } catch (error) {
             res.type("text").status(500).send(error);
         }
     });
 
+    /**
+     * Endpoint retrieving Travelo-Hey specific reviews for the given place_id.
+     * Returns in JSON format.
+     */
     app.get('/reviews', async (req, res) => {
         try {
-
+            const place_id = req.body.place_ID;
+            if (place_id) {
+                const reviews = await getReviews(place_id);
+                res.type("json").send({"th_reviews": reviews});
+            } else {
+                res.type("text").status(400).send("Missing place ID.");
+            }
         } catch (error) {
             res.type("text").status(500).send(error);
         }
@@ -227,15 +177,116 @@
             } else {
                 res.type("text").send("Missing ...");
             }
-
         } catch (error) {
             res.type("text").status(500).send(error);
+        }
+    });
+
+    /**
+     * Endpoint that calls Google Places API to retrieve local businesses relative to the provided
+     * activity for the provided city. Returns in JSON format.
+     */
+    app.get('/search', async (req, res) => {
+        try {
+            const city = req.body.city;
+            const activity = req.body.activity;
+
+            if (city && activity) {
+                // obtain lat long
+                const latLong = await getLatLong(city);
+                const latLongString = "" + latLong[0].latitude + "," + latLong[0].longitude;
+
+                // query Google Places API
+                const query = "json?query=" + activity + "&location=" + latLongString + "&key=" + process.env.PLACES_KEY;
+                https.request(PLACES_TEXTSEARCH_BASE_URL + query, (response) => {
+                    let data = '';
+                    response.on('data', (chunk) => {
+                        data += chunk;
+                    });
+
+                    response.on('end', () => {
+                        res.type("json").send(data);
+                    })
+                }).on('error', (error) => {
+                    res.type("text").status(500).send(error);
+                }).end();
+            } else {
+                res.type("text").status(400).send("Bad city or activity.");
+            }
+        } catch (error) {
+            res.type("text").status(500).send(error);
+        }
+    });
+
+    /**
+     * Retrieves a list of all states in the database for the given country. Returns in JSON format.
+     */
+    app.post('/states', async (req, res) => {
+        try {
+            const country = req.body.country;
+
+            if (country) {
+                const state = await getStates(country);
+                res.type("json").send({"states": state});
+            }
+        } catch (error) {
+            res.type("text").status(500)
+                .send(error);
         }
     });
 
     /**********************/
     /** HELPER FUNCTIONS **/
     /**********************/
+
+    /**
+     * Helper function to retrieve the city names from the database.
+     *
+     * @param state                 state for which to query
+     * @returns {Promise<any[]>}    city object for the given state
+     */
+    async function getCities(state) {
+        const db = await instance.getDBConnection();
+        const query = "SELECT name FROM cities WHERE state_name = ? ORDER BY name";
+
+        const row = await db.all(query, [state]);
+        await db.close();
+        return row;
+    }
+
+    /**
+     * Helper function to retrieve all of the countries names from the database.
+     *
+     * @returns {Promise<any[]>}    countries object in the database
+     */
+    async function getCountriesName() {
+        const db = await instance.getDBConnection();
+        const query = "SELECT name FROM countries ORDER BY name";
+
+        const row = await db.all(query, []);
+        await db.close();
+        return row;
+    }
+
+    /**
+     * Helper function to retrieve country information from the database.
+     *
+     * @param form_addr             the address of a business
+     * @returns {Promise<any[]>}    the promise of results of countries
+     */
+    async function getCountry(form_addr) {
+        // split form_addr to get countries acronym
+        const addr = form_addr.split(", ");
+        const country = addr[addr.length-1];
+
+        const db = await instance.getDBConnection();
+        const query = "SELECT * FROM countries " +
+          "WHERE name = ?;";
+
+        const row = await db.all(query, [country]);
+        await db.close();
+        return row;
+    }
 
     /**
      * Helper function to retrieve the latitude and longitude values for a given city.
@@ -253,70 +304,6 @@
     }
 
     /**
-     * Helper function to retrieve the state names from the database.
-     * @param country                country for which to query
-     * @returns {Promise<any[]>}     state object for the given country
-     */
-    async function getStates(country) {
-        const db = await instance.getDBConnection();
-        const query = "SELECT name FROM states WHERE country_name = ? ORDER BY name ASC";
-
-        const row = await db.all(query, [country]);
-        await db.close();
-        return row;
-    }
-
-    /**
-     * Helper function to retrieve the city names from the database.
-     *
-     * @param state                 state for which to query
-     * @returns {Promise<any[]>}    city object for the given state
-     */
-    async function getCities(state) {
-        const db = await instance.getDBConnection();
-        const query = "SELECT name FROM cities WHERE state_name = ? ORDER BY name ASC";
-
-        const row = await db.all(query, [state]);
-        await db.close();
-        return row;
-    }
-
-    /**
-     * Helper function to retrieve all of the countries names from the database.
-     *
-     * @returns {Promise<any[]>}    countries object in the database
-     */
-    async function getCountriesName() {
-        const db = await instance.getDBConnection();
-        const query = "SELECT name FROM countries ORDER BY name ASC";
-
-        const row = await db.all(query, []);
-        await db.close();
-        return row;
-    }
-
-
-    /**
-     * Helper function to retrieve country information from the database.
-     *
-     * @param form_addr             the address of a business
-     * @returns {Promise<any[]>}    the promise of results of countries
-     */
-    async function getCountry(form_addr) {
-        // split form_addr to get countries acronym
-        const addr = form_addr.split(", ");
-        const country = addr[addr.length-1];
-
-        const db = await instance.getDBConnection();
-        const query = "SELECT * FROM countries " +
-            "WHERE name = ?;";
-
-        const row = await db.all(query, [country]);
-        await db.close();
-        return row;
-    }
-
-    /**
      * Helper function to retrieve business reviews from the database.
      *
      * @param place_id              a unique identifier for a business
@@ -325,10 +312,24 @@
     async function getReviews(place_id) {
         const db = await instance.getDBConnection();
         const query = "SELECT * FROM reviews " +
-            "WHERE placeId = ?;";
+          "WHERE placeId = ?;";
         const rows = db.all(query, [place_id]);
         await db.close();
         return rows;
+    }
+
+    /**
+     * Helper function to retrieve the state names from the database.
+     * @param country                country for which to query
+     * @returns {Promise<any[]>}     state object for the given country
+     */
+    async function getStates(country) {
+        const db = await instance.getDBConnection();
+        const query = "SELECT name FROM states WHERE country_name = ? ORDER BY name";
+
+        const row = await db.all(query, [country]);
+        await db.close();
+        return row;
     }
 
     /**
