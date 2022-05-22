@@ -29,7 +29,7 @@ export default function FilterSearch() {
     const countryName = event.target.value.name;
 
     async function fetchData() {
-      axios.post('http://localhost:8080/search_state_per_country', { country: countryName })
+      axios.post('http://localhost:8080/states', { country: countryName })
         .then((r) => {
           setStates(r.data.state);
         });
@@ -41,7 +41,7 @@ export default function FilterSearch() {
     const stateName = event.target.value.name;
 
     async function fetchData() {
-      axios.post('http://localhost:8080/search_city_per_state', { state: stateName })
+      axios.post('http://localhost:8080/cities', { state: stateName })
         .then((r) => {
           setCity(r.data.cities);
           console.log(r.data.cities);
@@ -59,7 +59,7 @@ export default function FilterSearch() {
 
   const handleActivityChange = () => {
     async function fetchData() {
-      axios.get('http://localhost:8080/search_activity')
+      axios.get('http://localhost:8080/activities')
         .then((r) => {
           setActivity(r.data.activities);
         });
@@ -69,7 +69,7 @@ export default function FilterSearch() {
 
   useEffect(() => {
     async function fetchData() {
-      await axios.get('http://localhost:8080/search')
+      await axios.get('http://localhost:8080/countries')
         .then((r) => {
           setCountry(r.data);
         });

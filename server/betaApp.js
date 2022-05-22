@@ -28,7 +28,7 @@
     const cors = require("cors");
     const fs = require("fs").promises;
     const multer = require("multer");
-    const fetch = require("node-fetch");
+    const https = require("https");
     require('dotenv').config();
 
     const app = express();
@@ -81,35 +81,42 @@
         }
     });
 
-    app.get('/search_stuff', async (req, res) => {
+    app.get('/search', async (req, res) => {
         try {
             const city = req.body.city;
             const activity = req.body.activity;
 
             if (city && activity) {
                 // obtain lat long
-                const latLong = getLatLong(city);
-                const latLongString = "" + latLong["latitude"] + "," + latLong["longitude"];
+                const latLong = await getLatLong(city);
+                const latLongString = "" + latLong[0].latitude + "," + latLong[0].longitude;
 
                 // fetch api
                 const query = "json?query=" + activity + "&location=" + latLongString + "&key=" + process.env.PLACES_KEY;
-                fetch(PLACES_BASE_URL + query)
-                  .then(async googleRes => {
-                      if (!googleRes.ok) throw new Error(await googleRes.text());
-                      return googleRes;
-                  })
-                  .then(googleRes => res.type("json").send(googleRes))
-                  .catch(googleError => console.log(googleError))
+                const request = https.request(PLACES_BASE_URL + query, (response) => {
+                    let data = '';
+                    response.on('data', (chunk) => {
+                        data = data + chunk.toString();
+                    });
+                })
+
+                request.on('error', (error) => {
+                    res.type("text").status(500).send(error);
+                });
+                request.end()
+
+                res.type("json").send(request);
+            } else {
+                res.type("text").status(400).send("Bad city or activity.");
             }
         } catch (error) {
-            res.type("text").status(500)
-              .send(error);
+            res.type("text").status(500).send(error);
         }
     });
 
-    // search, search_state_per_country, search_city_per_state, search_activity
+    // countries, states, cities, activities
     // used for populating drop down menus
-    app.get('/search', async (req, res) => {
+    app.get('/countries', async (req, res) => {
         try {
             const countries = await getCountriesName();
 
@@ -120,7 +127,7 @@
         }
     });
 
-    app.post('/search_state_per_country', async (req, res) => {
+    app.post('/states', async (req, res) => {
         try {
             const country = req.body.country;
 
@@ -134,7 +141,7 @@
         }
     });
 
-    app.post('/search_city_per_state', async (req, res) => {
+    app.post('/cities', async (req, res) => {
         try {
             const state = req.body.state;
 
@@ -148,7 +155,7 @@
         }
     });
 
-    app.get('/search_activity', async (req, res) => {
+    app.get('/activities', async (req, res) => {
         try {
             let activities = await fs.readFile("data/activities.json", "utf8");
             res.type("json").send({"activities": activities});
@@ -158,6 +165,7 @@
         }
     });
 
+    // TODO: incorpoating Google Places API to retrieve details based on place_id
     app.get('/business', async (req, res) => {
         try {
             // const place_id = req.query.place_id;     // for testing outside of front-end

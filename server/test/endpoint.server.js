@@ -81,9 +81,9 @@
           });
       });
 
-        it('test "search_stuff" endpoint', (done) => {
+        it('test "search" endpoint', (done) => {
           chai.request(app)
-            .get('/search_stuff')
+            .get('/search')
             .send({
               'city': 'Seattle',
               'activity': 'restaurants',
@@ -95,9 +95,9 @@
             });
         });
 
-        it('test "/search" endpoint', (done) => {
+        it('test "/countries" endpoint', (done) => {
             chai.request(app)
-                .get('/search')
+                .get('/countries')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
@@ -105,9 +105,9 @@
                 });
         });
 
-        it('test "/search_state_per_country" endpoint', (done) => {
+        it('test "/states" endpoint', (done) => {
             chai.request(app)
-                .post('/search_state_per_country')
+                .post('/states')
                 .send({
                     'country': 'Brazil',
                 })
@@ -118,9 +118,9 @@
                 });
         });
 
-        it('test "/search_city_per_state" endpoint', (done) => {
+        it('test "/cities" endpoint', (done) => {
             chai.request(app)
-                .post('/search_city_per_state')
+                .post('/cities')
                 .send({
                     'state': 'Rio de Janeiro',
                 })
@@ -131,9 +131,9 @@
                 });
         });
 
-        it('test "/search_activity" endpoint', (done) => {
+        it('test "/activities" endpoint', (done) => {
             chai.request(app)
-                .get('/search_activity')
+                .get('/activities')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
