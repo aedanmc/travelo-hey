@@ -175,6 +175,25 @@ that matches the `place_id` given.
 
 ```
 
+**Schema**
+```Javascript
+countryID: number                                  // Unique ID that identifies a country
+rank: number                                       // The country's overall rank based on the metrics below, lower values are more favorable
+name: string                                       // Name of the country  
+lgbtqSafetyIndex: number                           // The country's safety score (numerical value)
+safetyScore: string                                // The country's safety score (letter grade A-F)
+notes: string                                      // Additional information (ie. Null)
+legalizedMarriage: string                          // Country's recognition of legal same sex marriage (ie. Legal, Civil Union or Partnership, NO LGBTQ+ PROTECTION)
+workerProtections: string                          // Country's recognition of worker's protection (ie. Protection for Sexual Orientation Only, Limited Protections)
+protectionsAgainstDiscrimination: string           // Country's laws against discriminization (ie. Constitutional Protections, Broad Protections)
+criminalizationOfViolence: string                  // Types of violence the country criminalizes (ie. Hate Crimes, Incitement)
+adoptionRecognition: string                        // Types of adoption recognition for each country (ie. Joint & Second-Parent Adoption, Second-Parent Adoption Only")
+goodPlaceToLive: string                            // Percentage value for overall quality of life (ie. 76-100%, 51-75%, 26-50%, 0-25%)
+transgenderLaws: string                            // Country's recognition of transgender rights (ie. Legal to change gender without sex reassignment surgery, Legal to change gender but it requires sex reassignment surgery)
+illegalSameSexRelationship: string                 // Whether the country punishes same sex relationships or not (ie. Null, or Punishments range from jail time to the death penalty)
+propagandaMoralityLaws: string                     // Whether the country has laws against LGBTQ+ content or having morality laws (ie. Null, or Laws prevent the discussion of Pro-LGBTQ+ issues)
+```
+
 **Error Handling:**
 - 400 (invalid request)
   - Required parameter is missing: `Missing name.`
