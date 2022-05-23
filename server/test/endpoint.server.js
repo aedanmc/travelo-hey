@@ -32,7 +32,7 @@
 
       it('test "/business" endpoint', (done) => {
         chai.request(app)
-          .get('/business')
+          .post('/business')
           .send({
             'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
           })
@@ -118,7 +118,7 @@
 
       it('test "/search" endpoint', (done) => {
         chai.request(app)
-          .get('/search')
+          .post('/search')
           .send({
             'city': 'Seattle',
             'activity': 'restaurants',

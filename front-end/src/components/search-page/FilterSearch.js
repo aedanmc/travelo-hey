@@ -11,9 +11,12 @@ import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 import { Container } from '@mui/material';
 
-export default function FilterSearch({ countries, activities }) {
+export default function FilterSearch({ countries, activities, onClick }) {
   const [state, setStates] = React.useState([]);
   const [city, setCities] = React.useState([]);
+
+  const [selectedCity, setSelectedCity] = React.useState('');
+  const [selectedActivity, setSelectedActivity] = React.useState('');
 
   const handleCountryChange = (event) => {
     const countryName = event.target.value;
@@ -23,7 +26,6 @@ export default function FilterSearch({ countries, activities }) {
         await axios.post('http://localhost:8080/states', { country: countryName })
           .then((response) => {
             const { states } = response.data;
-
             const items = [];
             const keys = Object.keys(states);
             keys.forEach((key) => {
@@ -46,7 +48,6 @@ export default function FilterSearch({ countries, activities }) {
         await axios.post('http://localhost:8080/cities', { state: stateName })
           .then((response) => {
             const { cities } = response.data;
-
             const items = [];
             const keys = Object.keys(cities);
             keys.forEach((key) => {
@@ -59,6 +60,33 @@ export default function FilterSearch({ countries, activities }) {
       }
     }
     getCities();
+  };
+
+  const handleCitySelected = (event) => {
+    setSelectedCity(event.target.value);
+  };
+
+  const handleActivitySelected = (event) => {
+    setSelectedActivity(event.target.value);
+  };
+
+  const handleSearch = () => {
+    const getBusinesses = async () => {
+      try {
+        const lowerCaseActivity = selectedActivity.toLowerCase();
+        const locationResponse = await axios.post('http://localhost:8080/search', { activity: lowerCaseActivity, city: selectedCity });
+        const { results } = locationResponse.data;
+        const items = [];
+        const keys = Object.keys(results);
+        keys.forEach((key) => {
+          items.push(results[key]);
+        });
+        onClick(items);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getBusinesses();
   };
 
   return (
@@ -89,6 +117,7 @@ export default function FilterSearch({ countries, activities }) {
           <Select
             labelId="select-city-label"
             label="City"
+            onChange={handleCitySelected}
           >
             {city.map((ci) => <MenuItem key={ci.name} value={ci.name}>{ci.name}</MenuItem>)}
           </Select>
@@ -98,11 +127,12 @@ export default function FilterSearch({ countries, activities }) {
           <Select
             labelId="select-activity-label"
             label="Activity"
+            onChange={handleActivitySelected}
           >
             {activities.map((a) => <MenuItem key={a} value={a}>{a}</MenuItem>)}
           </Select>
         </FormControl>
-        <Button variant="outlined" sx={{ marginTop: 5.5 }} startIcon={<SearchIcon />}>
+        <Button variant="outlined" sx={{ marginTop: 5.5 }} startIcon={<SearchIcon />} onClick={handleSearch}>
           Search
         </Button>
       </Stack>
@@ -117,6 +147,9 @@ FilterSearch.propTypes = {
     }),
   ).isRequired,
   activities: PropTypes.arrayOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
+  onClick: PropTypes.arrayOf(
     PropTypes.string.isRequired,
   ).isRequired,
 };

@@ -16,26 +16,10 @@ import LocationPage from '../locations-page/LocationPage';
 import getStaticLocations from './TestData';
 
 function SearchPage({ debug }) {
-  const [locations, setLocations] = React.useState([]);
   const [countriesList, setCountries] = React.useState([]);
   const [activitiesList, setActivities] = React.useState([]);
 
-  const getInitialLocations = async () => {
-    try {
-      const locationResponse = await axios.get('http://localhost:8080/countries');
-      console.log(locationResponse);
-      const { result } = locationResponse.data;
-      const items = [];
-      const keys = Object.keys(result);
-      keys.forEach((key) => {
-        items.push(result[key]);
-      });
-      setLocations(items);
-    } catch (err) {
-      // TODO: come up with another way to handle errors
-      alert(err);
-    }
-  };
+  const [searchBusiness, setSearchBusiness] = React.useState([]);
 
   async function getCountries() {
     try {
@@ -72,9 +56,9 @@ function SearchPage({ debug }) {
    */
   React.useEffect(() => {
     if (debug) {
-      setLocations(getStaticLocations());
+      getStaticLocations();
     } else {
-      getInitialLocations();
+      // getInitialLocations();
     }
     getCountries();
     getActivities();
@@ -89,10 +73,11 @@ function SearchPage({ debug }) {
       <FilterSearch
         countries={countriesList}
         activities={activitiesList}
+        onClick={setSearchBusiness}
       />
       <Container maxWidth="lg" sx={{ marginTop: 3, padding: 2 }}>
-        <Stack container="true" spacing={4} alignItems="center" direction="row" sx={{ margin: 2 }}>
-          {locations.map((item) => (
+        <Stack container="true" spacing={5} alignItems="center" sx={{ margin: 5, direction: 'row', display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
+          {searchBusiness.map((item) => (
             <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
               <SingleResult
                 image="http://via.placeholder.com/640x360"
@@ -104,7 +89,7 @@ function SearchPage({ debug }) {
           ))}
         </Stack>
         <Routes>
-          <Route path="/business" element={<LocationPage />} />
+          <Route ath="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
         </Routes>
         <Outlet />
       </Container>

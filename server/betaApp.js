@@ -69,7 +69,7 @@
      * Endpoint that calls the Google Places API, retrieving more specific details for the given
      * place_id of a business. Returns in JSON format.
      */
-    app.get('/business', async (req, res) => {
+    app.post('/business', async (req, res) => {
         try {
             const place_id = req.body.place_id;
             if (place_id) {
@@ -194,7 +194,7 @@
      * Endpoint that calls Google Places API to retrieve local businesses relative to the provided
      * activity for the provided city. Returns in JSON format.
      */
-    app.get('/search', async (req, res) => {
+    app.post('/search', async (req, res) => {
         try {
             const activity = req.body.activity;
             const city = req.body.city;
