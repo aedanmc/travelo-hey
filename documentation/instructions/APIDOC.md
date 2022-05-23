@@ -41,18 +41,21 @@ ___
 **Error Handling:**
 - possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---
 
 ## Business Endpoint
 
 **Request Format:** `/business`
 
-**Request Type:** GET
+**Request Type:** POST
 
 **Returned Data Format**: JSON
 
 **Description:** Returns the country safety values for the business that matches the `place_id` given.
+
+Form Parameters
+- `place_id`: the business's Google Place ID for which to return results
 
 **Example Request:** `/business`
 
@@ -400,13 +403,13 @@ address_component: object                       // An array containing the separ
 formatted_address: string                       // A string containing the human-readable address of this place
 formatted_phone_number: string                  // Contains the place's phone number in its local format
 geometry: object                                // Contains the location and viewport for the location. (ie. longitude, latitude)
-international_phone_number: string              // Contains the place's phone number in international format. 
+international_phone_number: string              // Contains the place's phone number in international format.
 opening_hours: object                           // Contains hours of operation
 name: string                                    // Contains the human-readable name for the returned result. For establishment results, this is usually the canonicalized business name.
 place_id: string                                // A textual identifier that uniquely identifies a place
 price_level: number                             // The price level of the place, on a scale of 0 to 4
 rating: number                                  // Contains the place's rating, from 1.0 to 5.0, based on aggregated user reviews
-review: array                                   // A JSON array of up to five reviews 
+review: array                                   // A JSON array of up to five reviews
 types: array                                    // Contains an array of feature types describing the given result (ie. restaurant, club, hotel)
 user_ratings_total: number                      // The total number of reviews, with or without text, for this place
 webesite: string                                // The authoritative website for this place
@@ -417,7 +420,7 @@ webesite: string                                // The authoritative website for
   - Required parameter is missing: `Missing place_id`
 - Possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---
 
 ## Cities Endpoint
@@ -460,7 +463,7 @@ Form Parameters
   - Required parameter is missing: `Missing state`
 - Possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---
 
 ## Countries Endpoint
@@ -478,7 +481,7 @@ Form Parameters
 **Example Response:**
 ```JSON
 {"countries":
-  [ 
+  [
     {"name":"Albania"},
     {"name":"Algeria"},
     {"name":"Andorra"},
@@ -551,18 +554,21 @@ Form Parameters
 **Error Handling:**
 - Possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---  
 
 ## Country Endpoint
 
 **Request Format:** `/country`
 
-**Request Type:** GET
+**Request Type:** POST
 
 **Returned Data Format**: JSON
 
 **Description:** Returns the country details for the given country.
+
+Form Parameters
+- `form_addr`: the complete formatted address for the business with which to return results
 
 **Example Request:** `/country/?name=USA`
 
@@ -614,14 +620,14 @@ propagandaMoralityLaws: string                     // Whether the country has la
   - Required parameter is missing: `Missing form_addr`
 - Possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---
 
 ## Reviews Endpoint
 
 **Request Format:** `/reviews`
 
-**Request Type:** GET
+**Request Type:** POST
 
 **Returned Data Format**: JSON
 
@@ -650,7 +656,7 @@ Form Parameters
   - Required parameter is missing: `Missing place_id.`
 - Possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---
 
 ## Reviews/New Endpoint
@@ -712,7 +718,7 @@ inclusiveLanguages: number            // Does this business use gender inclusive
 neutralRestrooms: number              // Does this business offer gender neutral restrooms?
 queerBusinessPromotion: number        // Does this business promote or associate with other queer businesses or events?
 accessibility: number                 // Does this business make accessibility accommodations?
-queerSignage: number                  // Does this business have welcoming queer signage? 
+queerSignage: number                  // Does this business have welcoming queer signage?
 recommendedBusiness: number           // Would you recommend this business to a queer friend?
 ```
 
@@ -721,14 +727,14 @@ recommendedBusiness: number           // Would you recommend this business to a 
   - Required parameter is missing: `Missing userID or place_id.`
 - Possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---
 
 ## Search Endpoint
 
 **Request Format:** `/search`
 
-**Request Type:** GET
+**Request Type:** POST
 
 **Returned Data Format**: JSON
 
@@ -784,7 +790,7 @@ Form Parameters
 
 **Schema**
 ```Javascript
-business_status: string                // Indicates the operational status of the place, if it is a business. If no data exists, business_status is not returned. (ie. OPERATIONAL) 
+business_status: string                // Indicates the operational status of the place, if it is a business. If no data exists, business_status is not returned. (ie. OPERATIONAL)
 formatted_address: string              // A string containing the human-readable address of this place.
 geometry: object                       // Contains the location and viewport for the location. (ie. longitude, latitude)
 name: string                           // Contains the human-readable name for the returned result. For establishment results, this is usually the canonicalized business name.
@@ -799,7 +805,7 @@ user_rating_total: number              // The total number of reviews, with or w
   - Required parameter is missing: `Missing activity and/or city`
 - Possible 500 (internal server error)
   - Response error message sent in plain text
-  
+
 ---
 
 ## States Endpoint
