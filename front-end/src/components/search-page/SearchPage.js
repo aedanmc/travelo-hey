@@ -17,6 +17,9 @@ import getStaticLocations from './TestData';
 
 function SearchPage({ debug }) {
   const [locations, setLocations] = React.useState([]);
+  const [countriesList, setCountries] = React.useState([]);
+  const [statesList, setStates] = React.useState([]);
+  const [citiesList, setCities] = React.useState([]);
 
   // TODO: Set up useEffect() to render data on page load
   // TODO: In useEffect(), make a call to API using fetch/axios
@@ -28,7 +31,8 @@ function SearchPage({ debug }) {
   // how do we prevent race conditions with data fetching in useEffect?
   const getInitialLocations = async () => {
     try {
-      const locationResponse = await axios.get('http://localhost:8080');
+      const locationResponse = await axios.get('http://localhost:8080/countries');
+      console.log(locationResponse);
       const { result } = locationResponse.data;
       const items = [];
       const keys = Object.keys(result);
@@ -42,6 +46,24 @@ function SearchPage({ debug }) {
     }
   };
 
+  async function getCountries() {
+    try {
+      await axios.get('http://localhost:8080/countries')
+        .then((response) => {
+          const { countries } = response.data;
+          const items = [];
+          const keys = Object.keys(countries);
+          keys.forEach((key) => {
+            items.push(countries[key]);
+          });
+
+          setCountry(items);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   /**
    * Retrieves the data required to display featured posts exactly once.
    */
@@ -53,8 +75,10 @@ function SearchPage({ debug }) {
   React.useEffect(() => {
     if (debug) {
       setLocations(getStaticLocations());
+      getCountries();
     } else {
       getInitialLocations();
+      getCountries();
     }
   }, []);
 
@@ -64,7 +88,7 @@ function SearchPage({ debug }) {
    */
   return (
     <Container width="100%" sx={{ margin: 2 }}>
-      <FilterSearch />
+      <FilterSearch countries={countriesList} />
       <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
         {locations.map((item) => (
           <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
@@ -78,7 +102,7 @@ function SearchPage({ debug }) {
         ))}
       </Stack>
       <Routes>
-        <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
+        <Route path="/business" element={<LocationPage />} />
       </Routes>
       <Outlet />
     </Container>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import Select from '@mui/material/Select';
 // import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -6,10 +6,9 @@ import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Container';
-import axios from 'axios';
-// import axiosConn from 'global/axiosConn';
+import PropTypes from 'prop-types';
 import MenuItem from '@mui/material/MenuItem';
-// import { MenuItem } from '@mui/material';
+import axios from 'axios';
 
 // TODO: receive props passed down with a list of:
 // 1. Countries
@@ -18,64 +17,60 @@ import MenuItem from '@mui/material/MenuItem';
 // For each <Select>, populate with <MenuItem>s using props data.
 // Each item needs a key
 
-export default function FilterSearch() {
-  const [countries, setCountry] = useState([]);
-  const [states, setStates] = React.useState([]);
-  const [cities, setCity] = React.useState([]);
-
+export default function FilterSearch({ countries }) {
+  const [state, setStates] = React.useState([]);
+  const [city, setCity] = React.useState([]);
   const [activity, setActivity] = React.useState([]);
 
   const handleCountryChange = (event) => {
-    const countryName = event.target.value.name;
+    const countryName = event.target.value;
 
-    async function fetchData() {
-      axios.post('http://localhost:8080/states', { country: countryName })
-        .then((r) => {
-          setStates(r.data.state);
-        });
+    async function getStates() {
+      try {
+        await axios.post('http://localhost:8080/states', { country: countryName })
+          .then((response) => {
+            const { states } = response.data;
+
+            const items = [];
+            const keys = Object.keys(states);
+            keys.forEach((key) => {
+              items.push(states[key]);
+            });
+            setStates(items);
+          });
+      } catch (err) {
+        console.log(err);
+      }
     }
-    fetchData();
+    getStates();
   };
 
   const handleStateChange = (event) => {
-    const stateName = event.target.value.name;
+    const stateName = event.target.value;
 
-    async function fetchData() {
-      axios.post('http://localhost:8080/cities', { state: stateName })
-        .then((r) => {
-          setCity(r.data.cities);
-          console.log(r.data.cities);
-        });
+    async function getCities() {
+      try {
+        await axios.post('http://localhost:8080/cities', { state: stateName })
+          .then((response) => {
+            const { cities } = response.data;
+
+            const items = [];
+            const keys = Object.keys(cities);
+            keys.forEach((key) => {
+              items.push(cities[key]);
+            });
+            setCity(items);
+          });
+      } catch (err) {
+        console.log(err);
+      }
     }
-    fetchData();
+    getCities();
   };
 
-  console.log(cities);
-
-  const handleCityChange = (event) => {
-    // setCity(event.target.value);
-    console.log(event.target.value);
+  const handleActivityChange = (event) => {
+    setActivity(event.target.value);
   };
-
-  const handleActivityChange = () => {
-    async function fetchData() {
-      axios.get('http://localhost:8080/activities')
-        .then((r) => {
-          setActivity(r.data.activities);
-        });
-    }
-    fetchData();
-  };
-
-  useEffect(() => {
-    async function fetchData() {
-      await axios.get('http://localhost:8080/countries')
-        .then((r) => {
-          setCountry(r.data);
-        });
-    }
-    fetchData();
-  }, []);
 
   return (
     <Stack direction="row" spacing={2}>
@@ -86,7 +81,7 @@ export default function FilterSearch() {
           label="Country"
           onChange={handleCountryChange}
         >
-          {countries.map((name) => <MenuItem key={name.name} value={name}>{name.name}</MenuItem>)}
+          {countries.map((c) => <MenuItem key={c.name} value={c.name}>{c.name}</MenuItem>)}
         </Select>
       </FormControl>
       <FormControl sx={{ minWidth: 120 }}>
@@ -96,7 +91,7 @@ export default function FilterSearch() {
           label="State"
           onChange={handleStateChange}
         >
-          {states.map((name) => <MenuItem key={name.name} value={name}>{name.name}</MenuItem>)}
+          {state.map((s) => <MenuItem key={s.name} value={s.name}>{s.name}</MenuItem>)}
         </Select>
       </FormControl>
       <FormControl sx={{ minWidth: 120 }}>
@@ -104,9 +99,8 @@ export default function FilterSearch() {
         <Select
           labelId="select-city-label"
           label="City"
-          onChange={handleCityChange}
         >
-          {cities.map((name) => <MenuItem key={name} value={name}>{name.name}</MenuItem>)}
+          {city.map((ci) => <MenuItem key={ci.name} value={ci.name}>{ci.name}</MenuItem>)}
         </Select>
       </FormControl>
       <FormControl sx={{ minWidth: 120 }}>
@@ -117,7 +111,7 @@ export default function FilterSearch() {
           label="Activity"
           onChange={handleActivityChange}
         >
-          {activity.map((name) => <MenuItem key={name} value={name}>{name.name}</MenuItem>)}
+          {/* TODO: add <MenuItem/>s here to populate activities */}
         </Select>
       </FormControl>
       <Button variant="outlined" startIcon={<SearchIcon />}>
@@ -126,3 +120,11 @@ export default function FilterSearch() {
     </Stack>
   );
 }
+
+FilterSearch.propTypes = {
+  countries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
