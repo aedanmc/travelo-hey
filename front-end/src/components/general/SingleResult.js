@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 function SingleResult({ image, name, contact, address }) {
   return (
     // <CardActionArea component={Link} to={route}>
-    <Card sx={{ display: 'flex', width: '50%', alignItems: 'flex-start' }}>
+    <Card sx={{ display: 'flex', width: '100%', height: '50%', alignItems: 'flex-start' }}>
       <CardActionArea sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'left' }}>
         <CardMedia
           component="img"

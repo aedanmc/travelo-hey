@@ -9,18 +9,11 @@ import Stack from '@mui/material/Container';
 import PropTypes from 'prop-types';
 import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
+import { Container } from '@mui/material';
 
-// TODO: receive props passed down with a list of:
-// 1. Countries
-// 2. Cities
-// 3. Activities
-// For each <Select>, populate with <MenuItem>s using props data.
-// Each item needs a key
-
-export default function FilterSearch({ countries }) {
+export default function FilterSearch({ countries, activities }) {
   const [state, setStates] = React.useState([]);
-  const [city, setCity] = React.useState([]);
-  const [activity, setActivity] = React.useState([]);
+  const [city, setCities] = React.useState([]);
 
   const handleCountryChange = (event) => {
     const countryName = event.target.value;
@@ -59,7 +52,7 @@ export default function FilterSearch({ countries }) {
             keys.forEach((key) => {
               items.push(cities[key]);
             });
-            setCity(items);
+            setCities(items);
           });
       } catch (err) {
         console.log(err);
@@ -68,56 +61,52 @@ export default function FilterSearch({ countries }) {
     getCities();
   };
 
-  const handleActivityChange = (event) => {
-    setActivity(event.target.value);
-  };
-
   return (
-    <Stack direction="row" spacing={2}>
-      <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel id="select-country-label">Country</InputLabel>
-        <Select
-          labelId="select-country-label"
-          label="Country"
-          onChange={handleCountryChange}
-        >
-          {countries.map((c) => <MenuItem key={c.name} value={c.name}>{c.name}</MenuItem>)}
-        </Select>
-      </FormControl>
-      <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel id="select-state-label">State</InputLabel>
-        <Select
-          labelId="select-state-label"
-          label="State"
-          onChange={handleStateChange}
-        >
-          {state.map((s) => <MenuItem key={s.name} value={s.name}>{s.name}</MenuItem>)}
-        </Select>
-      </FormControl>
-      <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel id="select-city-label">City</InputLabel>
-        <Select
-          labelId="select-city-label"
-          label="City"
-        >
-          {city.map((ci) => <MenuItem key={ci.name} value={ci.name}>{ci.name}</MenuItem>)}
-        </Select>
-      </FormControl>
-      <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel id="select-activity-label">Activity</InputLabel>
-        <Select
-          labelId="select-activity-label"
-          value={activity}
-          label="Activity"
-          onChange={handleActivityChange}
-        >
-          {/* TODO: add <MenuItem/>s here to populate activities */}
-        </Select>
-      </FormControl>
-      <Button variant="outlined" startIcon={<SearchIcon />}>
-        Search
-      </Button>
-    </Stack>
+    <Container maxWidth="lg" sx={{ alignContent: 'space-around', marginTop: 5, padding: 6, paddingBottom: 12, borderStyle: 'solid', borderRadius: 5, borderColor: 'lightgray' }}>
+      <Stack direction="row" spacing={1}>
+        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+          <InputLabel id="select-country-label">Country</InputLabel>
+          <Select
+            labelId="select-country-label"
+            label="Country"
+            onChange={handleCountryChange}
+          >
+            {countries.map((c) => <MenuItem key={c.name} value={c.name}>{c.name}</MenuItem>)}
+          </Select>
+        </FormControl>
+        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+          <InputLabel id="select-state-label">State</InputLabel>
+          <Select
+            labelId="select-state-label"
+            label="State"
+            onChange={handleStateChange}
+          >
+            {state.map((s) => <MenuItem key={s.name} value={s.name}>{s.name}</MenuItem>)}
+          </Select>
+        </FormControl>
+        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+          <InputLabel id="select-city-label">City</InputLabel>
+          <Select
+            labelId="select-city-label"
+            label="City"
+          >
+            {city.map((ci) => <MenuItem key={ci.name} value={ci.name}>{ci.name}</MenuItem>)}
+          </Select>
+        </FormControl>
+        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+          <InputLabel id="select-activity-label">Activity</InputLabel>
+          <Select
+            labelId="select-activity-label"
+            label="Activity"
+          >
+            {activities.map((a) => <MenuItem key={a} value={a}>{a}</MenuItem>)}
+          </Select>
+        </FormControl>
+        <Button variant="outlined" sx={{ marginTop: 5.5 }} startIcon={<SearchIcon />}>
+          Search
+        </Button>
+      </Stack>
+    </Container>
   );
 }
 
@@ -126,5 +115,8 @@ FilterSearch.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
     }),
+  ).isRequired,
+  activities: PropTypes.arrayOf(
+    PropTypes.string.isRequired,
   ).isRequired,
 };

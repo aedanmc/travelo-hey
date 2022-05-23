@@ -18,17 +18,8 @@ import getStaticLocations from './TestData';
 function SearchPage({ debug }) {
   const [locations, setLocations] = React.useState([]);
   const [countriesList, setCountries] = React.useState([]);
-  const [statesList, setStates] = React.useState([]);
-  const [citiesList, setCities] = React.useState([]);
+  const [activitiesList, setActivities] = React.useState([]);
 
-  // TODO: Set up useEffect() to render data on page load
-  // TODO: In useEffect(), make a call to API using fetch/axios
-
-  // const classes = useStyles();
-
-  // TODO questions:
-  // how do we prevent errors?
-  // how do we prevent race conditions with data fetching in useEffect?
   const getInitialLocations = async () => {
     try {
       const locationResponse = await axios.get('http://localhost:8080/countries');
@@ -57,7 +48,19 @@ function SearchPage({ debug }) {
             items.push(countries[key]);
           });
 
-          setCountry(items);
+          setCountries(items);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getActivities() {
+    try {
+      await axios.get('http://localhost:8080/activities')
+        .then((response) => {
+          const { activities } = response.data;
+          setActivities(activities);
         });
     } catch (err) {
       console.log(err);
@@ -67,19 +70,14 @@ function SearchPage({ debug }) {
   /**
    * Retrieves the data required to display featured posts exactly once.
    */
-  // TODO: refactoring the useEffect code:
-  // 1. Move the original getLocations functions out of the useEffect hook
-  // 2. Set up some simpler static data to immediately pass in for testing
-  // 3. Add a debug flag prop for SearchPage
-  // 4. Use a conditional to check what rendering to use.
   React.useEffect(() => {
     if (debug) {
       setLocations(getStaticLocations());
-      getCountries();
     } else {
       getInitialLocations();
-      getCountries();
     }
+    getCountries();
+    getActivities();
   }, []);
 
   /**
@@ -87,25 +85,31 @@ function SearchPage({ debug }) {
    * from the Travelo-Hey API.
    */
   return (
-    <Container width="100%" sx={{ margin: 2 }}>
-      <FilterSearch countries={countriesList} />
-      <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
-        {locations.map((item) => (
-          <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
-            <SingleResult
-              image="http://via.placeholder.com/640x360"
-              name={item.name}
-              contact={item.formatted_phone_number}
-              address={item.formatted_address}
-            />
-          </Link>
-        ))}
-      </Stack>
-      <Routes>
-        <Route path="/business" element={<LocationPage />} />
-      </Routes>
-      <Outlet />
-    </Container>
+    <>
+      <FilterSearch
+        countries={countriesList}
+        activities={activitiesList}
+      />
+      <Container maxWidth="lg" sx={{ marginTop: 3, padding: 2 }}>
+        <Stack container="true" spacing={4} alignItems="center" direction="row" sx={{ margin: 2 }}>
+          {locations.map((item) => (
+            <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
+              <SingleResult
+                image="http://via.placeholder.com/640x360"
+                name={item.name}
+                contact={item.formatted_phone_number}
+                address={item.formatted_address}
+              />
+            </Link>
+          ))}
+        </Stack>
+        <Routes>
+          <Route path="/business" element={<LocationPage />} />
+        </Routes>
+        <Outlet />
+      </Container>
+    </>
+
   );
 }
 
