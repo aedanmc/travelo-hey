@@ -16,23 +16,28 @@ import LocationPage from '../locations-page/LocationPage';
 import getStaticLocations from './TestData';
 
 /**
- * Function for rendering a dynamic version of the initial landing and search page
+ * Functional component for rendering a dynamic version of the initial landing and search page
  * for the Travelo-Hey! web app.
  * @param { debug } debug: a testing flag for identifying
  * whether static or dynamic data fetching will be used.
  * @returns the initial landing page for Travelo-Hey!'s web app.
  */
 function SearchPage({ debug }) {
+  // Management of inital location data in a state object
   const [locations, setLocations] = React.useState([]);
-
-  // TODO: Set up useEffect() to render data on page load
-  // TODO: In useEffect(), make a call to API using fetch/axios
 
   // const classes = useStyles();
 
   // TODO questions:
   // how do we prevent errors?
   // how do we prevent race conditions with data fetching in useEffect?
+
+  /**
+   * Asynchronous function for querying the Travelo-Hey! back-end server for
+   * location data on initial page load.
+   *
+   * Intended for use as part of a useEffect() component mounting sequence.
+   */
   const getInitialLocations = async () => {
     try {
       const locationResponse = await axios.get('http://localhost:8080');
@@ -50,13 +55,9 @@ function SearchPage({ debug }) {
   };
 
   /**
-   * Retrieves the data required to display featured posts exactly once.
+   * Retrieves the data required to display featured posts exactly once and
+   * stores it in the internal locations state object.
    */
-  // TODO: refactoring the useEffect code:
-  // 1. Move the original getLocations functions out of the useEffect hook
-  // 2. Set up some simpler static data to immediately pass in for testing
-  // 3. Add a debug flag prop for SearchPage
-  // 4. Use a conditional to check what rendering to use.
   React.useEffect(() => {
     if (debug) {
       setLocations(getStaticLocations());
