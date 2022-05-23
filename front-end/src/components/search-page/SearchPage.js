@@ -15,6 +15,13 @@ import FilterSearch from './FilterSearch';
 import LocationPage from '../locations-page/LocationPage';
 import getStaticLocations from './TestData';
 
+/**
+ * Function for rendering a dynamic version of the initial landing and search page
+ * for the Travelo-Hey! web app.
+ * @param { debug } debug: a testing flag for identifying
+ * whether static or dynamic data fetching will be used.
+ * @returns the initial landing page for Travelo-Hey!'s web app.
+ */
 function SearchPage({ debug }) {
   const [locations, setLocations] = React.useState([]);
 
