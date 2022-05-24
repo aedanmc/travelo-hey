@@ -130,7 +130,7 @@
      * Returns the country safety values for the given address. Address should be the formatted
      * address provided from a previous Google Places API call. Returns in JSON format.
      */
-    app.get('/country', async (req, res) => {
+    app.post('/country', async (req, res) => {
         try {
             const form_addr = req.body.form_addr;
             if (form_addr) {
@@ -150,7 +150,7 @@
      * Endpoint retrieving Travelo-Hey specific reviews for the given place_id.
      * Returns in JSON format.
      */
-    app.get('/reviews', async (req, res) => {
+    app.post('/reviews', async (req, res) => {
         try {
             const place_id = req.body.place_id;
             if (place_id) {

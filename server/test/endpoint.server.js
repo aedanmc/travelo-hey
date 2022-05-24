@@ -68,7 +68,7 @@
 
       it('test "/country" endpoint', (done) => {
         chai.request(app)
-          .get('/country')
+          .post('/country')
           .send({
             'form_addr': '2865 Eastlake Ave E, Seattle, WA 98102, USA',
           })
@@ -81,7 +81,7 @@
 
       it('test "/reviews" endpoint', (done) => {
         chai.request(app)
-          .get('/reviews')
+          .post('/reviews')
           .send({
             'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
           })
