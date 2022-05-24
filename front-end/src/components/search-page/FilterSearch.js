@@ -81,6 +81,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
         keys.forEach((key) => {
           items.push(results[key]);
         });
+        console.log(items);
         onClick(items);
       } catch (err) {
         console.log(err);
@@ -149,7 +150,5 @@ FilterSearch.propTypes = {
   activities: PropTypes.arrayOf(
     PropTypes.string.isRequired,
   ).isRequired,
-  onClick: PropTypes.arrayOf(
-    PropTypes.string.isRequired,
-  ).isRequired,
+  onClick: PropTypes.func.isRequired,
 };

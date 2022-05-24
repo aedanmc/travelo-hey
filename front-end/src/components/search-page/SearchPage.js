@@ -21,6 +21,9 @@ function SearchPage({ debug }) {
 
   const [searchBusiness, setSearchBusiness] = React.useState([]);
 
+  // For testing purposes, we want to retrieve business from the businesses.json file
+  const [locations, setLocations] = React.useState([]);
+
   async function getCountries() {
     try {
       await axios.get('http://localhost:8080/countries')
@@ -56,10 +59,10 @@ function SearchPage({ debug }) {
    */
   React.useEffect(() => {
     if (debug) {
-      getStaticLocations();
-    } else {
-      // getInitialLocations();
+      setLocations(getStaticLocations());
+      console.log(locations);
     }
+
     getCountries();
     getActivities();
   }, []);
@@ -80,9 +83,8 @@ function SearchPage({ debug }) {
           {searchBusiness.map((item) => (
             <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
               <SingleResult
-                image="http://via.placeholder.com/640x360"
+                image={item.icon}
                 name={item.name}
-                contact={item.formatted_phone_number}
                 address={item.formatted_address}
               />
             </Link>

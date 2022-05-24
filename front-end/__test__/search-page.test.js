@@ -10,7 +10,7 @@ import '@testing-library/jest-dom';
  *  See src/components/search-page/TestData.js for the test data.
  */
 test('SearchPage renders the correct number of SingleResult cards', () => {
-  render(<SearchPage debug={false} />);
+  render(<SearchPage debug={true} />);
 
   // expect(screen.getAllByTestId('location-title')).toHaveLength(4);
 });
