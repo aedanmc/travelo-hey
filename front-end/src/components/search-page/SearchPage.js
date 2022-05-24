@@ -2,12 +2,11 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-import { Link, Routes, Route, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 // import NameSearch from './name-search';
 import PropTypes from 'prop-types';
 import SingleResult from '../general/SingleResult';
 import FilterSearch from './FilterSearch';
-import LocationPage from '../locations-page/LocationPage';
 import getStaticLocations from './TestData';
 
 function SearchPage({ debug }) {
@@ -72,9 +71,6 @@ function SearchPage({ debug }) {
           </Link>
         ))}
       </Stack>
-      <Routes>
-        <Route path="/business/:place_id" element={<LocationPage />} />
-      </Routes>
       <Outlet />
     </Container>
   );

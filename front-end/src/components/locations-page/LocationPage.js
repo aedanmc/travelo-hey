@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './LocationPage.css';
 import Typography from '@mui/material/Typography';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import LocationDetails from './LocationDetails';
 import SingleReview from '../general/SingleReview';
@@ -9,8 +9,8 @@ import SingleReview from '../general/SingleReview';
 
 function LocationPage() {
   // grab place_id aka locationID in SearchPage.js
-  const url = new URLSearchParams(window.location.search);
-  const id = url.get('place_id');
+  const params = useParams();
+  const id = params.place_id;
   console.log(id);
   // TODO: const for reviews and setReviews; extract from location
   const [location, setLocation] = React.useState([]);
