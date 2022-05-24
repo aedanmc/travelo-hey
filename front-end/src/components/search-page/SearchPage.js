@@ -2,12 +2,7 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-import {
-  Routes,
-  Route,
-  Link,
-  Outlet,
-} from 'react-router-dom';
+import { Link, Routes, Route, Outlet } from 'react-router-dom';
 // import NameSearch from './name-search';
 import PropTypes from 'prop-types';
 import SingleResult from '../general/SingleResult';
@@ -67,7 +62,7 @@ function SearchPage({ debug }) {
       <FilterSearch />
       <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
         {locations.map((item) => (
-          <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
+          <Link key={item.place_id} to={`/business/${item.place_id}`}>
             <SingleResult
               image="http://via.placeholder.com/640x360"
               name={item.name}
@@ -78,7 +73,7 @@ function SearchPage({ debug }) {
         ))}
       </Stack>
       <Routes>
-        <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
+        <Route path="/business/:place_id" element={<LocationPage />} />
       </Routes>
       <Outlet />
     </Container>

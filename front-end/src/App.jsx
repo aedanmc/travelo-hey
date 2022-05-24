@@ -4,7 +4,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import SearchPage from './components/search-page/SearchPage';
 import NavBar from './components/general/NavBar';
-import LocationPage from './components/locations-page/LocationPage';
+// import LocationPage from './components/locations-page/LocationPage';
 
 // TODO: set up nested routing for different top level pages
 function App() {
@@ -12,8 +12,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/business/*" element={<LocationPage />} />
-        <Route path="/*" element={<SearchPage debug={true} />} />
+        {/* <Route path="business/:place_id" element={<LocationPage />} /> */}
+        <Route path="*" element={<SearchPage debug={false} />} />
       </Routes>
     </div>
   );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './LocationPage.css';
 import Typography from '@mui/material/Typography';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import LocationDetails from './LocationDetails';
 import SingleReview from '../general/SingleReview';
@@ -9,66 +9,12 @@ import SingleReview from '../general/SingleReview';
 
 function LocationPage() {
   // grab place_id aka locationID in SearchPage.js
-  console.log(useParams());
-  const [id] = [useParams()];
-  // const [locations, setLocations] = React.useState([]);
+  const url = new URLSearchParams(window.location.search);
+  const id = url.get('place_id');
+  console.log(id);
   // TODO: const for reviews and setReviews; extract from location
   const [location, setLocation] = React.useState([]);
-  // const [reviews, setReviews] = React.useState([]);
-
-  // FOR BETA RELEASE ONLY
-  const hardCodedReviews = [
-    [
-      'Kimberly Pham',
-      'https://www.google.com/maps/contrib/109479845758910778779/reviews',
-      'en',
-      'https://lh3.googleusercontent.com/a-/AOh14GjuC6lgfkqb46Z8huNLYs4dnyu0x05Lfco4Pw63cDM=s128-c0x00000000-cc-rp-mo-ba6',
-      '5',
-      'in the last week',
-      'Love the fact that this place has wonderful outdoor seatings with an incredible cozy family vibe. The indoor setting seems to be pretty cool and comfortable, especially by the bar. We love the food here. Everything we had is delicious and fresh. We consider this a hidden gem in the Eastlake area. No reservation is accepted but usually, plenty of tables are available. No parking garage/ only street parking.',
-      '1651442641',
-    ],
-    [
-      'Joshua Kemper',
-      'https://www.google.com/maps/contrib/104471502176307681430/reviews',
-      'en',
-      'https://lh3.googleusercontent.com/a-/AOh14GjqyhwzORT1f2437Ja7FQFMLSvE1vF9QJg1X0_QPA=s128-c0x00000000-cc-rp-mo',
-      '5',
-      'a month ago',
-      'I came here with some coworkers and I showed up early. The bartender was awesome at welcoming me and letting me know where I could go while I waited for the rest of my group. The margaritas we had were awesome and I loved the chips & guac. Definitely going back!',
-      '1647553957',
-    ],
-    [
-      'Mark Lavery',
-      'https://www.google.com/maps/contrib/104717300262470684657/reviews',
-      'en',
-      'https://lh3.googleusercontent.com/a/AATXAJwo51H0nItuzHg2MBMy2l_l7BBv9crwHy2lavOj=s128-c0x00000000-cc-rp-mo',
-      '5',
-      'a year ago',
-      'Beautiful view with great service.  Manager Dustin was terrific, courteous & professional.',
-      '1599400178',
-    ],
-    [
-      'Jennifer Stefanik',
-      'https://www.google.com/maps/contrib/116224092582494413566/reviews',
-      'en',
-      'https://lh3.googleusercontent.com/a/AATXAJzZ-0cSJziNU0gnIDmiLZw4U2u2417CWGu7XMGU=s128-c0x00000000-cc-rp-mo-ba2',
-      '5',
-      '2 months ago',
-      'This place is a staple with my fiancé and I. We have come here for years for the great drinks and amazing deck/views. Food is good too and consistent. The staff have always been friendly. They also offer outdoor dining (with see through plastic walls/heaters) during the winter, which has been nice for the pandemic.',
-      '1644298772',
-    ],
-    [
-      'Justin Siebert',
-      'https://www.google.com/maps/contrib/113415252828826523936/reviews',
-      'en',
-      'https://lh3.googleusercontent.com/a-/AOh14Gibxf5B90TCLzIKlFQ5AlEMnbJI6AzoD1hG5jaALw=s128-c0x00000000-cc-rp-mo-ba2',
-      '4',
-      '2 weeks ago',
-      'The ppl and food are ok. I go here mostly to sit outside on a nice day. I think it’s crazy that three people can each have an entree and one drink/beer a price and the bill is like $140 plus tip (of course I still tipped over 20%) for lunch, but you have to order through QR which is fine, however, you also have to get your own plates, water, and silverware. Only the best for Seattle /s',
-      '1650302788',
-    ],
-  ];
+  const [reviews, setReviews] = React.useState([]);
 
   // TODO: check that the id is a valid location.place_id
 
@@ -89,7 +35,7 @@ function LocationPage() {
           if (items[key].place_id === id) {
             // items.push(result[key]);
             setLocation(items[key]);
-            // setReviews(items[key].reviews);
+            setReviews(items[key].reviews);
           }
         });
         // setLocations(items);
@@ -113,7 +59,7 @@ function LocationPage() {
   // const { reviews } = location.reviews;
 
   return (
-    /* <div>
+    <div>
       <LocationDetails
         // image={location.photos}
         image="/broken-image.jpg"
@@ -137,9 +83,9 @@ function LocationPage() {
         />
       ))}
       ;
-    </div> */
+    </div>
     // FOR BETA RELEASE ONLY
-    <div>
+    /* <div>
       <LocationDetails
         image="http://via.placeholder.com/640x360"
         name="Little Water Cantina"
@@ -163,7 +109,7 @@ function LocationPage() {
           text={review[6]}
         />
       ))}
-    </div>
+      </div> */
   );
 }
 
