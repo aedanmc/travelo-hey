@@ -60,7 +60,7 @@ function SearchPage({ debug }) {
   React.useEffect(() => {
     if (debug) {
       setLocations(getStaticLocations());
-      console.log()
+      console.log(locations);
     } else {
       getCountries();
       getActivities();

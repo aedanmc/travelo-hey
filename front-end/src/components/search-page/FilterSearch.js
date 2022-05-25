@@ -81,7 +81,6 @@ export default function FilterSearch({ countries, activities, onClick }) {
         keys.forEach((key) => {
           items.push(results[key]);
         });
-        console.log(items);
         onClick(items);
       } catch (err) {
         console.log(err);
