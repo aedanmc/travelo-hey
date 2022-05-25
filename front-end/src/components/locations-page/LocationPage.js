@@ -9,7 +9,6 @@ function LocationPage() {
   // Grab place_id aka locationID in SearchPage.js
   const params = useParams();
   const id = params.place_id;
-  console.log(id);
   // TODO: const for reviews and setReviews; extract from location
   const [location, setLocation] = React.useState([]);
   const [reviews, setReviews] = React.useState([]);
@@ -20,15 +19,10 @@ function LocationPage() {
   React.useEffect(() => {
     const getLocations = async () => {
       try {
-        const locationResponse = await axios.get('http://localhost:8080');
+        const locationResponse = await axios.post('http://localhost:8080/business', { place_id: id });
         const [items] = [locationResponse.data.result];
-        const keys = Object.keys(items);
-        keys.forEach((key) => {
-          if (items[key].place_id === id) {
-            setLocation(items[key]);
-            setReviews(items[key].reviews);
-          }
-        });
+        setLocation(items);
+        setReviews(items.reviews);
       } catch (err) {
         alert(err);
       }
