@@ -50,7 +50,6 @@ export default function ReviewInputRating({ name, control, label }) {
     setQueerFriend(event.target.value);
   }
 
-  const 
   return (
     /* <Controller
       name={name}
