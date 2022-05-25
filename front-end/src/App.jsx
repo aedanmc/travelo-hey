@@ -13,7 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/business/*" element={<LocationPage />} />
-        <Route path="/*" element={<SearchPage debug={true} />} />
+        <Route path="/*" element={<SearchPage debug={false} />} />
       </Routes>
     </div>
   );

@@ -23,36 +23,43 @@ import getStaticLocations from './TestData';
  * @returns the initial landing page for Travelo-Hey!'s web app.
  */
 function SearchPage({ debug }) {
-  // Management of inital location data in a state object
+  const [countriesList, setCountries] = React.useState([]);
+  const [activitiesList, setActivities] = React.useState([]);
+
+  const [searchBusiness, setSearchBusiness] = React.useState([]);
+
+  // For testing purposes, we want to retrieve business from the businesses.json file
   const [locations, setLocations] = React.useState([]);
 
-  // const classes = useStyles();
-
-  // TODO questions:
-  // how do we prevent errors?
-  // how do we prevent race conditions with data fetching in useEffect?
-
-  /**
-   * Asynchronous function for querying the Travelo-Hey! back-end server for
-   * location data on initial page load.
-   *
-   * Intended for use as part of a useEffect() component mounting sequence.
-   */
-  const getInitialLocations = async () => {
+  async function getCountries() {
     try {
-      const locationResponse = await axios.get('http://localhost:8080');
-      const { result } = locationResponse.data;
-      const items = [];
-      const keys = Object.keys(result);
-      keys.forEach((key) => {
-        items.push(result[key]);
-      });
-      setLocations(items);
+      await axios.get('http://localhost:8080/countries')
+        .then((response) => {
+          const { countries } = response.data;
+          const items = [];
+          const keys = Object.keys(countries);
+          keys.forEach((key) => {
+            items.push(countries[key]);
+          });
+
+          setCountries(items);
+        });
     } catch (err) {
-      // TODO: come up with another way to handle errors
-      alert(err);
+      console.log(err);
     }
-  };
+  }
+
+  async function getActivities() {
+    try {
+      await axios.get('http://localhost:8080/activities')
+        .then((response) => {
+          const { activities } = response.data;
+          setActivities(activities);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   /**
    * Retrieves the data required to display featured posts exactly once and
@@ -61,8 +68,10 @@ function SearchPage({ debug }) {
   React.useEffect(() => {
     if (debug) {
       setLocations(getStaticLocations());
+      console.log(locations);
     } else {
-      getInitialLocations();
+      getCountries();
+      getActivities();
     }
   }, []);
 
@@ -71,25 +80,31 @@ function SearchPage({ debug }) {
    * from the Travelo-Hey API.
    */
   return (
-    <Container width="100%" sx={{ margin: 2 }}>
-      <FilterSearch />
-      <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
-        {locations.map((item) => (
-          <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
-            <SingleResult
-              image="http://via.placeholder.com/640x360"
-              name={item.name}
-              contact={item.formatted_phone_number}
-              address={item.formatted_address}
-            />
-          </Link>
-        ))}
-      </Stack>
-      <Routes>
-        <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
-      </Routes>
-      <Outlet />
-    </Container>
+    <>
+      <FilterSearch
+        countries={countriesList}
+        activities={activitiesList}
+        onClick={setSearchBusiness}
+      />
+      <Container maxWidth="lg" sx={{ marginTop: 3, padding: 2 }}>
+        <Stack container="true" spacing={5} alignItems="center" sx={{ margin: 5, direction: 'row', display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
+          {searchBusiness.map((item) => (
+            <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
+              <SingleResult
+                image={item.icon}
+                name={item.name}
+                address={item.formatted_address}
+              />
+            </Link>
+          ))}
+        </Stack>
+        <Routes>
+          <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
+        </Routes>
+        <Outlet />
+      </Container>
+    </>
+
   );
 }
 
