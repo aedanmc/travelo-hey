@@ -1,1 +1,5 @@
-[{"activity": "Restaurant"}, {"activity": "Club"}, {"activity": "Bar"}, {"activity": "Hotel"}]
+{
+  "activities": [
+    "Restaurants", "Club", "Bar", "Hotels"
+  ]
+}
