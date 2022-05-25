@@ -75,8 +75,15 @@
     - Complete Peer Review assignment while acting as team lead for the week
 2. Progress and Issues
     - Progress
+       - Routing issue fixed
+       - Implementation nearly complete for component for questions for submitting a review
+       - Beginning to set up back-end connection
     - Issues
+       - Navigating POST requests without much familiarity
 3. Plans and Goals for Next Week
+    - Finish/clean up business page implementation w/ support for equality reviews
+    - Assist in implementation of reviews page, country page, search page as floater between sub-groups
+    - Complete my assigned parts for final video
 
 
 ### Mike Harris (they/them)
