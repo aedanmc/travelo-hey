@@ -15,6 +15,13 @@ import FilterSearch from './FilterSearch';
 import LocationPage from '../locations-page/LocationPage';
 import getStaticLocations from './TestData';
 
+/**
+ * Functional component for rendering a dynamic version of the initial landing and search page
+ * for the Travelo-Hey! web app.
+ * @param { debug } debug: a testing flag for identifying
+ * whether static or dynamic data fetching will be used.
+ * @returns the initial landing page for Travelo-Hey!'s web app.
+ */
 function SearchPage({ debug }) {
   const [countriesList, setCountries] = React.useState([]);
   const [activitiesList, setActivities] = React.useState([]);
@@ -55,7 +62,8 @@ function SearchPage({ debug }) {
   }
 
   /**
-   * Retrieves the data required to display featured posts exactly once.
+   * Retrieves the data required to display featured posts exactly once and
+   * stores it in the internal locations state object.
    */
   React.useEffect(() => {
     if (debug) {
@@ -91,7 +99,7 @@ function SearchPage({ debug }) {
           ))}
         </Stack>
         <Routes>
-          <Route ath="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
+          <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
         </Routes>
         <Outlet />
       </Container>
