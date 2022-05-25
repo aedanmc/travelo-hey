@@ -43,7 +43,7 @@ In the structure of this repo we have:
 - [Front-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/FETESTINGDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
 - [User Guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
-- [Writing components](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/COMPONENTDOC.md)
+- [Writing Components](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/COMPONENTDOC.md)
 
 ## Prerequisites
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
