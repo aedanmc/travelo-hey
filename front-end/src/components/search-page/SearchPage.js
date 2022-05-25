@@ -83,7 +83,7 @@ function SearchPage({ debug }) {
       <Container maxWidth="lg" sx={{ marginTop: 3, padding: 2 }}>
         <Stack container="true" spacing={5} alignItems="center" sx={{ margin: 5, direction: 'row', display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
           {searchBusiness.map((item) => (
-            <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
+            <Link key={item.place_id} to={`/business/${item.place_id}`}>
               <SingleResult
                 image={item.icon}
                 name={item.name}

@@ -38,15 +38,6 @@ export default function SingleReview({ name, pic, link, rating, relativeTime, te
           </Typography>
         </CardContent>
       </Card>
-      <Routes>
-        <Route
-          path={link}
-          component={() => {
-            window.location.replace({ link });
-            return null;
-          }}
-        />
-      </Routes>
     </div>
   );
 }
