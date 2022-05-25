@@ -1,4 +1,4 @@
-# Week 6 Status Report
+# Week 7 Status Report
 *Team: Travelo-Hey!*
 
 *Dates: May 19 - May 25, 2022*
