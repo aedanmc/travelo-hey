@@ -1,4 +1,4 @@
-# Writing new components for Travelo-Hey!
+# Writing new React components for Travelo-Hey!
 
  Travelo-Hey!'s front-end is based on [React](https://reactjs.org/) and [React Router](https://reactrouterdotcom.fly.dev/). As these libraries are designed for flexibility, it is impossible to provide an exhaustive list of strategies for implementing components for extending or enhancing our system. However, there are a few important guidelines that the front-end team expects contributors to the repository to follow.
 
