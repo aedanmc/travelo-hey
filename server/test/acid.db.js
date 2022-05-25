@@ -64,7 +64,7 @@ const db = require('../db_connection').getDBConnection();
 
             const qry_insert = `INSERT INTO 
                                 users(name, password, email, phonenumber)
-                               ALUES ('Test', 1234, 'test@user-test.com', '205-744-0000')`;
+                               ALUES (3, 'Test', 1234, 'test@user-test.com', '205-744-0000')`;
 
             async function insert_test () {
                 const row = await db.all(qry_insert, []);
