@@ -39,8 +39,16 @@
    - Complete peer review early to open up more time to work on features
 2. Progress and Issues
    - Progress
+      - Implemented static version of country page
+      - Switched to fixing routing bug, then fixed it
+      - Currently working on dynamic version of country page
+      - Added component documentation page
+      - Added comments to Search Page source code
    - Issues
+      - Having trouble managing remaining time before final soft deadline
 3. Plans and Goals for Next Week
+      - Finish up remaining responsibilities for countries page
+      - Complete the technical challenges portion of the final video
 
 
 ### Alex Zuniga (they/she/he)
