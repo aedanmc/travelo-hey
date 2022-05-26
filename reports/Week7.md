@@ -64,9 +64,17 @@
    - Peer review another project
 2. Progress and Issues
     - Progress
+      - Create the final plan for the back-end implementation with Mike
+      - Assist with integration of Google Business API
+      - Finalize the endpoints for the search feature
+      - Help with front-end implementation (working with Mike on Search Page)
+      - Peer review another project
     - Issues
+      - Lack of comments on the search page slowed down my progress.
 3. Plans and Goals for Next Week
-
+   - Add comments to the search page
+   - Add error handling to the search page
+   - Record demo for the final release
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
