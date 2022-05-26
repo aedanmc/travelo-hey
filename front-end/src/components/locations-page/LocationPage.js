@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import LocationDetails from './LocationDetails';
 import SingleReview from '../general/SingleReview';
+import SingleReviewTravelo from '../general/SingleReviewTravelo';
 
 function LocationPage() {
   // Grab place_id aka locationID in SearchPage.js
@@ -11,18 +12,23 @@ function LocationPage() {
   const id = params.place_id;
   // TODO: const for reviews and setReviews; extract from location
   const [location, setLocation] = React.useState([]);
-  const [reviews, setReviews] = React.useState([]);
+  const [ratings, setRatings] = React.useState([]); // Google Places API ratings
+  const [reviews, setReviews] = React.useState([]); // Travelo-Hey!-specific reviews
 
   // TODO: check that the id is a valid location.place_id
 
-  // Fetch location data, store location that matches id
+  // Fetch location data and review data, store location and reviews that match id
   React.useEffect(() => {
     const getLocations = async () => {
       try {
         const locationResponse = await axios.post('http://localhost:8080/business', { place_id: id });
         const [items] = [locationResponse.data.result];
         setLocation(items);
-        setReviews(items.reviews);
+        setRatings(items.reviews);
+
+        const reviewsResponse = await axios.post('http://localhost:8080/reviews', { place_id: id });
+        const [elements] = [reviewsResponse.data.result];
+        setReviews(elements.th_reviews);
       } catch (err) {
         alert(err);
       }
@@ -46,17 +52,32 @@ function LocationPage() {
         googleRating={location.rating}
         numRatings={location.user_ratings_total}
       />
-      {reviews.map((review) => (
+      {ratings.map((rating) => (
         <SingleReview
-          name={review.author_name}
-          pic={review.profile_photo_url}
-          link={review.author_url}
-          rating={review.rating}
-          relativeTime={review.relative_time_description}
-          text={review.text}
+          name={rating.author_name}
+          pic={rating.profile_photo_url}
+          link={rating.author_url}
+          rating={rating.rating}
+          relativeTime={rating.relative_time_description}
+          text={rating.text}
         />
       ))}
       ;
+      {reviews.map((review) => (
+        <SingleReviewTravelo
+          equalityScore={
+            (parseInt(review.inclusiveLanguages, 10)
+            + parseInt(review.neutralRestrooms, 10)
+            + parseInt(review.queerBusinessPromotion, 10)
+            + parseInt(review.accessibility, 10)
+            + parseInt(review.queerSignage, 10)
+            + parseInt(review.safety, 10)
+            + parseInt(review.recommendedBusiness, 10)).toString()
+          }
+          relativeTime={review.createdAt}
+          text={review.review}
+        />
+      ))}
     </div>
   );
 }
