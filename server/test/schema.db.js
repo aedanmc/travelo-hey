@@ -31,6 +31,7 @@ const tables = [ {name: 'users'}, {name: 'countries'}, {name: 'reviews' } ];
                 const response = await db.getDBConnection();
                 const row  = await response.all(qry, []);
                 expect(tables).to.equal(row);
+                await response.close();
             }
             done();
             tables_test().then();
