@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 // import Container from '@mui/material/Container';
 // import makeStyles from '@mui/material/makeStyles';
 // import {useTheme, useMediaQuery} from '@/mui/styles';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../img/travelo-hey_logo.png';
 
 // TODO: move styles to another file
@@ -33,11 +33,11 @@ import logo from '../../img/travelo-hey_logo.png';
     },
   },
 })); */
-function changeColor(e) {
-  e.target.style.color = 'gray';
+function makeColorLightgray(e) {
+  e.target.style.color = 'lightgray';
 }
 
-function handleMouseLeaveLink(e) {
+function makeColorWhite(e) {
   e.target.style.color = 'white';
 }
 
@@ -57,37 +57,37 @@ function NavBar() {
         <nav style={{ marginLeft: 'auto', marginRight: '0' }}>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'row' }}>
             <li>
-              <a
+              <Link
                 style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}
-                onMouseOver={changeColor}
-                onFocus={changeColor}
-                onMouseLeave={handleMouseLeaveLink}
-                href="/search"
+                onMouseOver={makeColorLightgray}
+                onFocus={makeColorLightgray}
+                onMouseLeave={makeColorWhite}
+                to="/search"
               >
                 Search
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}
-                onMouseOver={changeColor}
-                onFocus={changeColor}
-                onMouseLeave={handleMouseLeaveLink}
-                href="/countries"
+                onMouseOver={makeColorLightgray}
+                onFocus={makeColorLightgray}
+                onMouseLeave={makeColorWhite}
+                to="/countries"
               >
                 Countries
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 style={{ color: 'inherit', textDecoration: 'none' }}
-                onMouseOver={changeColor}
-                onFocus={changeColor}
-                onMouseLeave={handleMouseLeaveLink}
-                href="/logout"
+                onMouseOver={makeColorLightgray}
+                onFocus={makeColorLightgray}
+                onMouseLeave={makeColorWhite}
+                to="/logout"
               >
                 Log out
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
