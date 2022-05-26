@@ -20,9 +20,14 @@
    - Peer review another group's project
 2. Progress and Issues
    - Progress
-     - 
+     - Fixed routing issue
+     - Implemented Search Page
+     - Progress on Reviews Page
+     - Progress on Countries Page
+     - Assigned deadlines and tasks for Final Release deliverable
+     - Have goals in place for team to have a final release product
    - Issues
-     - 
+     -
 3. Plans and Goals for Next Week
    - Finalize country page
    - Finalize review page
@@ -110,5 +115,18 @@
    - Assist with Peer Review assignment
 2. Progress and Issues
    - Progress
+      - Create the final plan for the back-end implementation with Camila
+      - Assist with integration of Google Business API
+      - Updated API Documentation (with assistance from Camila)
+      - Finalize the endpoints for the search feature
+      - Help with front-end implementation (working with Camila on Search Page)
+      - Updated styling of Search Page
+      - Peer review a project
    - Issues
+      - None
 3. Plans and Goals for Next Week
+   - Assist with adding documentation to Search Page
+   - Assist with any finalizing that may be necessary for the final release
+   - Explore deployment possibilities for a live hosted service
+   - Complete slides for Roles and Responsibilities, Testing and Tooling by EOD Sunday
+   - Record Roles and Responsibilities, Testing and Tooling by EOD Monday
