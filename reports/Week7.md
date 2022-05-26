@@ -64,9 +64,16 @@
    - Add styling to files
 2. Progress and Issues
     - Progress
+       - Worked on back-end connection with review submission page
+       - Researched about back-end connection 
+       - Met with Aedan and Matt to fix and squash routing bug
     - Issues
+      - Review page is only POST request and I have little knowledge with GET/POST
 3. Plans and Goals for Next Week
-
+   - Connect to back-end to save data from a review submission page
+   - Add styling to files
+   - Finish review submission page
+   - Slides and final project presentation
 
 ### Camila Christensen (she/they)
 1. Plans and Goals from Last Week
