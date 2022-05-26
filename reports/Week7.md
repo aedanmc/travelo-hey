@@ -76,7 +76,6 @@
    - Add error handling to the search page
    - Record demo for the final release
 
-
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
     - Fully implement routing fixes

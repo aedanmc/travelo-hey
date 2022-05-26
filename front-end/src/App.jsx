@@ -12,8 +12,9 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/business/*" element={<LocationPage />} />
-        <Route path="/*" element={<SearchPage debug={true} />} />
+        <Route path="/" element={<SearchPage debug={false} />} />
+        <Route path="/business/:place_id" element={<LocationPage />} />
+        <Route path="*" element={<main><p>There&apos;s nothing here!</p></main>} />
       </Routes>
     </div>
   );
