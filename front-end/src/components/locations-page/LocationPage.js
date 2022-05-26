@@ -10,7 +10,7 @@ function LocationPage() {
   // Grab place_id aka locationID in SearchPage.js
   const params = useParams();
   const id = params.place_id;
-  // TODO: const for reviews and setReviews; extract from location
+  
   const [location, setLocation] = React.useState([]);
   const [ratings, setRatings] = React.useState([]); // Google Places API ratings
   const [reviews, setReviews] = React.useState([]); // Travelo-Hey!-specific reviews
