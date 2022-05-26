@@ -64,6 +64,9 @@ function LocationPage() {
       ))}
       ;
       {reviews.map((review) => (
+        // Is this a good name to use for component?
+        // TODO: look into more elegant solution to calculating equality score
+        // TODO: create some TH-specific reviews to test that they appear properly
         <SingleReviewTravelo
           equalityScore={
             (parseInt(review.inclusiveLanguages, 10)
