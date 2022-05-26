@@ -56,24 +56,6 @@ function SearchPage({ debug }) {
     }
   }
 
-  // function updateFormAddrData(address) {
-  //   const addressParts = address.split(',');
-  //   let result = '';
-  //   let part;
-  //   for (let i = 0; i < addressParts.length; i += 1) {
-  //     part = addressParts[i];
-  //     if (i === addressParts.length - 2) {
-  //       // this is to help put the last two parts of an
-  //       // address together on the same line (state, country)
-  //       result += `${part}`;
-  //     } else {
-  //       result += `${part}\n`;
-  //     }
-  //   }
-  //   console.log(result);
-  //   return result;
-  // }
-
   /**
    * Retrieves the data required to display featured posts exactly once and
    * stores it in the internal locations state object.
