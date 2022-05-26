@@ -7,6 +7,9 @@ import Toolbar from '@mui/material/Toolbar';
 // import Container from '@mui/material/Container';
 // import makeStyles from '@mui/material/makeStyles';
 // import {useTheme, useMediaQuery} from '@/mui/styles';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import { Link } from 'react-router-dom';
 import logo from '../../img/travelo-hey_logo.png';
 
@@ -52,22 +55,27 @@ function NavBar() {
       <CssBaseline />
       <Toolbar>
         <div style={{ display: 'block', marginLeft: '0', marginRight: 'auto' }}>
-          <img src={logo} alt="Travelo-Hey!" width="200" height="114" />
+          <Link
+            style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}
+            to="/"
+          >
+            <img src={logo} alt="Travelo-Hey!" width="200" height="114" />
+          </Link>
         </div>
         <nav style={{ marginLeft: 'auto', marginRight: '0' }}>
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'row' }}>
-            <li>
+          <List style={{ listStyle: 'none', display: 'flex', flexDirection: 'row' }}>
+            <ListItem>
               <Link
                 style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}
                 onMouseOver={makeColorLightgray}
                 onFocus={makeColorLightgray}
                 onMouseLeave={makeColorWhite}
-                to="/search"
+                to="/"
               >
-                Search
+                <ListItemText>Home</ListItemText>
               </Link>
-            </li>
-            <li>
+            </ListItem>
+            <ListItem>
               <Link
                 style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}
                 onMouseOver={makeColorLightgray}
@@ -75,10 +83,10 @@ function NavBar() {
                 onMouseLeave={makeColorWhite}
                 to="/countries"
               >
-                Countries
+                <ListItemText>Countries</ListItemText>
               </Link>
-            </li>
-            <li>
+            </ListItem>
+            <ListItem>
               <Link
                 style={{ color: 'inherit', textDecoration: 'none' }}
                 onMouseOver={makeColorLightgray}
@@ -86,10 +94,10 @@ function NavBar() {
                 onMouseLeave={makeColorWhite}
                 to="/logout"
               >
-                Log out
+                <ListItemText>Log out</ListItemText>
               </Link>
-            </li>
-          </ul>
+            </ListItem>
+          </List>
         </nav>
       </Toolbar>
     </AppBar>

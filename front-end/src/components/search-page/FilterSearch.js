@@ -28,7 +28,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
             const { states } = response.data;
             const items = [];
             const keys = Object.keys(states);
-            keys.forEach((key) => {
+            keys?.forEach((key) => {
               items.push(states[key]);
             });
             setStates(items);
@@ -50,7 +50,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
             const { cities } = response.data;
             const items = [];
             const keys = Object.keys(cities);
-            keys.forEach((key) => {
+            keys?.forEach((key) => {
               items.push(cities[key]);
             });
             setCities(items);
@@ -78,7 +78,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
         const { results } = locationResponse.data;
         const items = [];
         const keys = Object.keys(results);
-        keys.forEach((key) => {
+        keys?.forEach((key) => {
           items.push(results[key]);
         });
         onClick(items);
@@ -98,8 +98,9 @@ export default function FilterSearch({ countries, activities, onClick }) {
             labelId="select-country-label"
             label="Country"
             onChange={handleCountryChange}
+            defaultValue=""
           >
-            {countries.map((c) => <MenuItem key={c.name} value={c.name}>{c.name}</MenuItem>)}
+            {countries?.map((c) => <MenuItem key={c.name} value={c.name}>{c.name}</MenuItem>)}
           </Select>
         </FormControl>
         <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
@@ -108,8 +109,9 @@ export default function FilterSearch({ countries, activities, onClick }) {
             labelId="select-state-label"
             label="State"
             onChange={handleStateChange}
+            defaultValue=""
           >
-            {state.map((s) => <MenuItem key={s.name} value={s.name}>{s.name}</MenuItem>)}
+            {state?.map((s) => <MenuItem key={s.name} value={s.name}>{s.name}</MenuItem>)}
           </Select>
         </FormControl>
         <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
@@ -118,8 +120,9 @@ export default function FilterSearch({ countries, activities, onClick }) {
             labelId="select-city-label"
             label="City"
             onChange={handleCitySelected}
+            defaultValue=""
           >
-            {city.map((ci) => <MenuItem key={ci.name} value={ci.name}>{ci.name}</MenuItem>)}
+            {city?.map((ci) => <MenuItem key={ci.name} value={ci.name}>{ci.name}</MenuItem>)}
           </Select>
         </FormControl>
         <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
@@ -128,8 +131,9 @@ export default function FilterSearch({ countries, activities, onClick }) {
             labelId="select-activity-label"
             label="Activity"
             onChange={handleActivitySelected}
+            defaultValue=""
           >
-            {activities.map((a) => <MenuItem key={a} value={a}>{a}</MenuItem>)}
+            {activities?.map((a) => <MenuItem key={a} value={a}>{a}</MenuItem>)}
           </Select>
         </FormControl>
         <Button variant="outlined" sx={{ marginTop: 5.5 }} startIcon={<SearchIcon />} onClick={handleSearch}>
