@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import axios from 'axios';
 import { Link, Outlet } from 'react-router-dom';
@@ -55,6 +56,24 @@ function SearchPage({ debug }) {
     }
   }
 
+  // function updateFormAddrData(address) {
+  //   const addressParts = address.split(',');
+  //   let result = '';
+  //   let part;
+  //   for (let i = 0; i < addressParts.length; i += 1) {
+  //     part = addressParts[i];
+  //     if (i === addressParts.length - 2) {
+  //       // this is to help put the last two parts of an
+  //       // address together on the same line (state, country)
+  //       result += `${part}`;
+  //     } else {
+  //       result += `${part}\n`;
+  //     }
+  //   }
+  //   console.log(result);
+  //   return result;
+  // }
+
   /**
    * Retrieves the data required to display featured posts exactly once and
    * stores it in the internal locations state object.
@@ -80,18 +99,20 @@ function SearchPage({ debug }) {
         activities={activitiesList}
         onClick={setSearchBusiness}
       />
-      <Container maxWidth="lg" sx={{ marginTop: 3, padding: 2 }}>
-        <Stack container="true" spacing={5} alignItems="center" sx={{ margin: 5, direction: 'row', display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
+      <Container sx={{ marginTop: 3, padding: 2, width: '100%' }}>
+        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {searchBusiness.map((item) => (
-            <Link key={item.place_id} to={`/business/${item.place_id}`}>
-              <SingleResult
-                image={item.icon}
-                name={item.name}
-                address={item.formatted_address}
-              />
-            </Link>
+            <Grid item xs={6}>
+              <Link key={item.place_id} to={`/business/${item.place_id}`}>
+                <SingleResult
+                  image={item.icon}
+                  name={item.name}
+                  address={item.formatted_address}
+                />
+              </Link>
+            </Grid>
           ))}
-        </Stack>
+        </Grid>
         <Outlet />
       </Container>
     </>
