@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Select from '@mui/material/Select';
-// import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
@@ -12,6 +11,7 @@ import axios from 'axios';
 import { Container } from '@mui/material';
 
 export default function FilterSearch({ countries, activities, onClick }) {
+  const [country, setCountry] = React.useState('');
   const [state, setStates] = React.useState([]);
   const [city, setCities] = React.useState([]);
 
@@ -20,6 +20,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
 
   const handleCountryChange = (event) => {
     const countryName = event.target.value;
+    setCountry(event.target.value);
 
     async function getStates() {
       try {
@@ -74,7 +75,10 @@ export default function FilterSearch({ countries, activities, onClick }) {
     const getBusinesses = async () => {
       try {
         const lowerCaseActivity = selectedActivity.toLowerCase();
-        const locationResponse = await axios.post('http://localhost:8080/search', { activity: lowerCaseActivity, city: selectedCity });
+        const locationResponse = await axios.post('http://localhost:8080/search', {
+          activity: lowerCaseActivity,
+          city: selectedCity,
+        });
         const { results } = locationResponse.data;
         const items = [];
         const keys = Object.keys(results);
@@ -92,13 +96,15 @@ export default function FilterSearch({ countries, activities, onClick }) {
   return (
     <Container maxWidth="lg" sx={{ alignContent: 'space-around', marginTop: 5, padding: 6, paddingBottom: 12, borderStyle: 'solid', borderRadius: 5, borderColor: 'lightgray' }}>
       <Stack direction="row" spacing={1}>
-        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+        <FormControl required sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
           <InputLabel id="select-country-label">Country</InputLabel>
           <Select
             labelId="select-country-label"
             label="Country"
+            value={country}
+            defaultValue="United States"
             onChange={handleCountryChange}
-            defaultValue=""
+            required
           >
             {countries?.map((c) => <MenuItem key={c.name} value={c.name}>{c.name}</MenuItem>)}
           </Select>
@@ -110,6 +116,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
             label="State"
             onChange={handleStateChange}
             defaultValue=""
+            required
           >
             {state?.map((s) => <MenuItem key={s.name} value={s.name}>{s.name}</MenuItem>)}
           </Select>
