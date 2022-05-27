@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './LocationPage.css';
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import LocationDetails from './LocationDetails';
 import SingleReview from '../general/SingleReview';
@@ -57,6 +57,7 @@ function LocationPage() {
         />
       ))}
       ;
+      <Outlet />
     </div>
   );
 }

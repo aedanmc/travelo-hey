@@ -1,6 +1,7 @@
 import TextField from '@mui/material/TextField';
-import React from "react";
-import { Controller } from "react-hook-form";
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
 
 export default function ReviewInputText({ name, control, label }) {
   return (
@@ -13,3 +14,9 @@ export default function ReviewInputText({ name, control, label }) {
     />
   );
 }
+
+ReviewInputText.propTypes = {
+  name: PropTypes.string.isRequired,
+  control: PropTypes.objectOf(useForm).isRequired,
+  label: PropTypes.string.isRequired,
+};

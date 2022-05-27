@@ -6,8 +6,11 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ReviewInputText from './ReviewInputText';
 import ReviewInputRating from './ReviewInputRating';
+// import { useParams } from 'react-router-dom';
 
 export default function ReviewSubmissionPage() {
+  // const params = useParams();
+  // const id = params.place_id;
   const defaultValues = {
     textValue: '',
     ratingValue: 0,
@@ -21,7 +24,7 @@ export default function ReviewSubmissionPage() {
     <Paper>
       <Typography variant="h6" data-testid="review-submission-title"> Write Your Review </Typography>
       <ReviewInputText name="textValue" control={control} label="Write details about your experience" data-testid="review-submission-text" />
-      <ReviewInputRating name="ratingValue" control={control} label="Rating Input" data-testid="review-submission-rating" />
+      <ReviewInputRating name="ratingValue" control={control} data-testid="review-submission-rating" />
       <Button onClick={handleSubmit(onSubmit)} variant="contained" data-testid="review-submission-submit">
         Submit
       </Button>
