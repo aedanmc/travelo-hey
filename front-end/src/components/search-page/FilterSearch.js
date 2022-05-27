@@ -10,17 +10,34 @@ import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 import { Container } from '@mui/material';
 
+/**
+ * Functional component for filtering required fields to display businesses data
+ * in the landing and search page for the Travelo-Hey! web app
+ *
+ * @param countries         a list that contains names of all countries
+ * @param activities        a list of possible activities
+ * @param onClick           a action to retrieve city and activity to send it back to parent
+ * @returns {JSX.Element}   a dependent dropdown menu
+ */
 export default function FilterSearch({ countries, activities, onClick }) {
-  const [country, setCountry] = React.useState('');
+  // A list of states and cities
   const [state, setStates] = React.useState([]);
   const [city, setCities] = React.useState([]);
 
-  const [selectedCity, setSelectedCity] = React.useState('');
+  // The country, state and city selected by the user
+  const [selectedCountry, setSelectedCountry] = React.useState('');
   const [selectedActivity, setSelectedActivity] = React.useState('');
+  const [selectedCity, setSelectedCity] = React.useState('');
 
+  /**
+   * Retrieves a list of states located in the country selected by the user,
+   * and stores it in the internal state object
+   *
+   * @param event onClick
+   */
   const handleCountryChange = (event) => {
     const countryName = event.target.value;
-    setCountry(event.target.value);
+    setSelectedCountry(event.target.value);
 
     async function getStates() {
       try {
@@ -41,6 +58,12 @@ export default function FilterSearch({ countries, activities, onClick }) {
     getStates();
   };
 
+  /**
+   * Retrieves a list of cities located in the state selected by the user,
+   * and stores it in the internal city object
+   *
+   * @param event onClick
+   */
   const handleStateChange = (event) => {
     const stateName = event.target.value;
 
@@ -63,14 +86,30 @@ export default function FilterSearch({ countries, activities, onClick }) {
     getCities();
   };
 
+  /**
+   * Get the city selected by the user
+   *
+   * @param event onChange
+   */
   const handleCitySelected = (event) => {
     setSelectedCity(event.target.value);
   };
 
+  /**
+   * get the activity selected by the user
+   *
+   * @param event onChange
+   */
   const handleActivitySelected = (event) => {
     setSelectedActivity(event.target.value);
   };
 
+  /**
+   * Retrieves a list of businesses located at a particular city, with a particular
+   * activity type chosen by the user and send list back to parent using the
+   * onClick action parameter
+   *
+   */
   const handleSearch = () => {
     const getBusinesses = async () => {
       try {
@@ -97,19 +136,19 @@ export default function FilterSearch({ countries, activities, onClick }) {
     <Container maxWidth="lg" sx={{ alignContent: 'space-around', marginTop: 5, padding: 6, paddingBottom: 12, borderStyle: 'solid', borderRadius: 5, borderColor: 'lightgray' }}>
       <Stack direction="row" spacing={1}>
         <FormControl required sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
-          <InputLabel id="select-country-label">Country</InputLabel>
+          <InputLabel required id="select-country-label">Country</InputLabel>
           <Select
             labelId="select-country-label"
             label="Country"
-            value={country}
-            defaultValue="United States"
+            value={selectedCountry}
             onChange={handleCountryChange}
+            defaultValue=""
             required
           >
             {countries?.map((c) => <MenuItem key={c.name} value={c.name}>{c.name}</MenuItem>)}
           </Select>
         </FormControl>
-        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+        <FormControl required sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
           <InputLabel id="select-state-label">State</InputLabel>
           <Select
             labelId="select-state-label"
@@ -121,24 +160,28 @@ export default function FilterSearch({ countries, activities, onClick }) {
             {state?.map((s) => <MenuItem key={s.name} value={s.name}>{s.name}</MenuItem>)}
           </Select>
         </FormControl>
-        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+        <FormControl required sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
           <InputLabel id="select-city-label">City</InputLabel>
           <Select
             labelId="select-city-label"
             label="City"
+            value={selectedCity}
             onChange={handleCitySelected}
             defaultValue=""
+            required
           >
             {city?.map((ci) => <MenuItem key={ci.name} value={ci.name}>{ci.name}</MenuItem>)}
           </Select>
         </FormControl>
-        <FormControl sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
+        <FormControl required sx={{ minWidth: '20%', marginTop: '3%', marginLeft: '1%', marginRight: '1%' }}>
           <InputLabel id="select-activity-label">Activity</InputLabel>
           <Select
             labelId="select-activity-label"
             label="Activity"
+            value={selectedActivity}
             onChange={handleActivitySelected}
             defaultValue=""
+            required
           >
             {activities?.map((a) => <MenuItem key={a} value={a}>{a}</MenuItem>)}
           </Select>
@@ -151,6 +194,9 @@ export default function FilterSearch({ countries, activities, onClick }) {
   );
 }
 
+/**
+ * List of required parameters passed to this function
+ */
 FilterSearch.propTypes = {
   countries: PropTypes.arrayOf(
     PropTypes.shape({
