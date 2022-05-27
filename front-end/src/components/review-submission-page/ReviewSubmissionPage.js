@@ -10,18 +10,6 @@ import ReviewInputText from './ReviewInputText';
 import ReviewInputRating from './ReviewInputRating';
 
 export default function ReviewSubmissionPage() {
-  const params = useParams();
-  const id = params.place_id;
-
-  const [languages, setInclusiveLanguages] = React.useState('');
-  const [restrooms, setNeutralRestrooms] = React.useState('');
-  const [promotion, setQueerBusinessPromotion] = React.useState('');
-  const [access, setAccessibility] = React.useState('');
-  const [signage, setQueerSignage] = React.useState('');
-  const [safeness, setSafety] = React.useState('');
-  const [recommend, setRecommendedBusiness] = React.useState('');
-  const [text, setReview] = React.useState('');
-
   const defaultValues = {
     userID: 1,
     placeID: 'test_place_id_2',
@@ -48,6 +36,22 @@ export default function ReviewSubmissionPage() {
     safe: 4,
     verySafe: 5,
   };
+
+  const params = useParams();
+  const id = params.place_id;
+
+  const [languages, setInclusiveLanguages] = React.useState(defaultValues.inclusiveLanguages);
+  const [restrooms, setNeutralRestrooms] = React.useState(
+    defaultValues.neutralRestrooms,
+  );
+  const [promotion, setQueerBusinessPromotion] = React.useState(
+    defaultValues.queerBusinessPromotion,
+  );
+  const [access, setAccessibility] = React.useState(defaultValues.accessibility);
+  const [signage, setQueerSignage] = React.useState(defaultValues.queerSignage);
+  const [safeness, setSafety] = React.useState(defaultValues.safety);
+  const [recommend, setRecommendedBusiness] = React.useState(defaultValues.recommendedBusiness);
+  const [text, setReview] = React.useState(defaultValues.review);
 
   const methods = useForm({ defaultValues });
   const { handleSubmit, control } = methods;
