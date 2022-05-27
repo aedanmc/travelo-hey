@@ -20,23 +20,45 @@
 
     chai.use(chaiHttp);
     describe("Server Test", () => {
-        it('test "/" endpoint', (done) => {
-            chai.request(app)
-              .get('/')
-              .end((err, res) => {
-                  res.should.have.status(200);
-                  res.body.should.be.a('object');
-                  done();
-              });
-        });
+      it('test "/activities" endpoint', (done) => {
+        chai.request(app)
+          .get('/activities')
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
 
       it('test "/business" endpoint', (done) => {
         chai.request(app)
-          .get('/business')
+          .post('/business')
           .send({
             'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
-            'form_addr': '2865 Eastlake Ave E, Seattle, WA 98102, USA',
           })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+
+      it('test "/cities" endpoint', (done) => {
+        chai.request(app)
+          .post('/cities')
+          .send({
+            'state': 'Rio de Janeiro',
+          })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+
+      it('test "/countries" endpoint', (done) => {
+        chai.request(app)
+          .get('/countries')
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -46,7 +68,7 @@
 
       it('test "/country" endpoint', (done) => {
         chai.request(app)
-          .get('/country')
+          .post('/country')
           .send({
             'form_addr': '2865 Eastlake Ave E, Seattle, WA 98102, USA',
           })
@@ -57,12 +79,25 @@
           });
       });
 
+      it('test "/reviews" endpoint', (done) => {
+        chai.request(app)
+          .post('/reviews')
+          .send({
+            'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
+          })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      })
+
       it('test "/reviews/new" endpoint', (done) => {
         chai.request(app)
           .post('/reviews/new')
           .send({
             'userID': 10,
-            'placeID': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
+            'place_id': 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
             'inclusiveLanguages': 1,
             'neutralRestroom': 1,
             'queerBusinessPromotion': 1,
@@ -80,14 +115,42 @@
             done();
           });
       });
-    });
+
+      it('test "/search" endpoint', (done) => {
+        chai.request(app)
+          .post('/search')
+          .send({
+            'city': 'Seattle',
+            'activity': 'restaurants',
+          })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+
+      it('test "/states" endpoint', (done) => {
+        chai.request(app)
+          .post('/states')
+          .send({
+            'country': 'Brazil',
+          })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+});
 
   /**
    * Helper function to remove the last review added due to testing the /reviews/new endpoint.
    */
   async function cleanTest() {
-      const query_delete = "DELETE FROM reviews WHERE reviewsID = (SELECT MAX(reviewsID) FROM reviews)";
-      await db.run(query_delete);
-      await db.close();
-    }
+    const query_delete = "DELETE FROM reviews WHERE reviewsID = (SELECT MAX(reviewsID) FROM reviews)";
+    await db.run(query_delete);
+    await db.close();
+  }
+
 })();
