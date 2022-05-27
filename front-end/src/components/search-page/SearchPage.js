@@ -2,17 +2,11 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-import {
-  Routes,
-  Route,
-  Link,
-  Outlet,
-} from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 // import NameSearch from './name-search';
 import PropTypes from 'prop-types';
 import SingleResult from '../general/SingleResult';
 import FilterSearch from './FilterSearch';
-import LocationPage from '../locations-page/LocationPage';
 import getStaticLocations from './TestData';
 
 /**
@@ -89,7 +83,7 @@ function SearchPage({ debug }) {
       <Container maxWidth="lg" sx={{ marginTop: 3, padding: 2 }}>
         <Stack container="true" spacing={5} alignItems="center" sx={{ margin: 5, direction: 'row', display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
           {searchBusiness.map((item) => (
-            <Link key={item.place_id} to={`/business/?place_id=${item.place_id}&form_addr=${item.formatted_address}`}>
+            <Link key={item.place_id} to={`/business/${item.place_id}`}>
               <SingleResult
                 image={item.icon}
                 name={item.name}
@@ -98,9 +92,6 @@ function SearchPage({ debug }) {
             </Link>
           ))}
         </Stack>
-        <Routes>
-          <Route path="/business/?place_id=:locationID&form_addr=:address" element={<LocationPage />} />
-        </Routes>
         <Outlet />
       </Container>
     </>

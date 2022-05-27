@@ -74,15 +74,18 @@
             const place_id = req.body.place_id;
             if (place_id) {
                 const query = "json?place_id=" + place_id + "&key=" + process.env.PLACES_KEY;
-                const request = https.get(PLACES_DETAILS_BASE_URL + query, (response) => {
+                https.request(PLACES_DETAILS_BASE_URL + query, (response) => {
                     let data = '';
                     response.on('data', (chunk) => {
                         data += chunk;
                     });
+
+                    response.on('end', () => {
+                        res.type("json").send(data);
+                    })
                 }).on('error', (error) => {
                     res.type("text").status(500).send(error);
                 }).end();
-                res.type("json").send(request);
             } else {
                 res.type("text").status(400)
                   .send("Missing place_id");
