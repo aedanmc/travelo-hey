@@ -1,74 +1,94 @@
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import Rating from '@mui/material/Rating';
-// import FormControl from '@mui/material/FormControl';
-// import FormLabel from '@mui/material/FormLabel';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Select from '@mui/material/Select';
-// import MenuItem from '@mui/material/MenuItem';
-// import { Radio, RadioGroup } from '@mui/material';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { Radio, RadioGroup } from '@mui/material';
 import PropTypes from 'prop-types';
 
-// const defaultValues = {
-//   ratingValue: 0,
-// };
+export default function ReviewInputRating({ name, control, options, id, question, setRating }) {
+  const generateRadioOptions = () => {
+    options.map((singleOption) => (
+      <FormControlLabel
+        value={singleOption.value}
+        label={singleOption.label}
+        control={<Radio />}
+      />
+    ));
+  };
 
-export function ReviewAnswers() {
-
-}
-
-export default function ReviewInputRating({ name, control }) {
-  // const methods = useForm({ defaultValues });
-  // const { controlDefault } = methods;
-  // Control.defaultProps = {
-  //   control: controlDefault,
-  // };
-  // const [inclusiveLanguage, setInclusiveLanguage] = React.useState('1');
-  // const [genderNeutral, setGenderNeutral] = React.useState('1');
-  // const [queerPromotion, setQueerPromotion] = React.useState('1');
-  // const [accessibility, setAccessibility] = React.useState('1');
-  // const [signage, setSignage] = React.useState('1');
-  // const [safety, setSafety] = React.useState('1');
-  // const [queerFriend, setQueerFriend] = React.useState('1');
-
-  // const handleInclusiveLanguageChange = (event) => {
-  //   setInclusiveLanguage(event.target.value);
-  // };
-
-  // const handleGenderNeutralChange = (event) => {
-  //   setGenderNeutral(event.target.value);
-  // };
-
-  // const handleQueerPromotionChange = (event) => {
-  //   setQueerPromotion(event.target.value);
-  // };
-
-  // const handleAccessibilityChange = (event) => {
-  //   setAccessibility(event.target.value);
-  // };
-
-  // const handleSignageChange = (event) => {
-  //   setSignage(event.target.value);
-  // };
-
-  // const handleSafetyChange = (event) => {
-  //   setSafety(event.target.value);
-  // };
-
-  // const handleQueerFriendChange = (event) => {
-  //   setQueerFriend(event.target.value);
-  // };
+  const handleRating = (event) => {
+    setRating(event.target.value);
+  };
 
   return (
     <Controller
       name={name}
       control={control}
-      render={({ field: { onChange, value } }) => (
-        // TODO: double check that this is sufficient for a <Rating> component
-        <Rating onChange={onChange} value={value} name="half-rating" defaultValue={2.5} precision={0.5} />
+      render={({ field: { value } }) => (
+        <FormControl>
+          <FormLabel id={id}>{question}</FormLabel>
+          <RadioGroup value={value} onChange={handleRating}>
+            {generateRadioOptions()}
+          </RadioGroup>
+        </FormControl>
       )}
     />
-    /* <div>
+  );
+}
+
+ReviewInputRating.propTypes = {
+  name: PropTypes.string.isRequired,
+  control: PropTypes.objectOf(useForm.control).isRequired,
+  options: [].isRequired,
+  id: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired,
+  setRating: PropTypes.func.isRequired,
+};
+
+// const methods = useForm({ defaultValues });
+// const { controlDefault } = methods;
+// Control.defaultProps = {
+//   control: controlDefault,
+// };
+
+// const [inclusiveLanguage, setInclusiveLanguage] = React.useState('1');
+// const [genderNeutral, setGenderNeutral] = React.useState('1');
+// const [queerPromotion, setQueerPromotion] = React.useState('1');
+// const [accessibility, setAccessibility] = React.useState('1');
+// const [signage, setSignage] = React.useState('1');
+// const [safety, setSafety] = React.useState('1');
+// const [queerFriend, setQueerFriend] = React.useState('1');
+
+// const handleInclusiveLanguageChange = (event) => {
+//   setInclusiveLanguage(event.target.value);
+// };
+
+// const handleGenderNeutralChange = (event) => {
+//   setGenderNeutral(event.target.value);
+// };
+
+// const handleQueerPromotionChange = (event) => {
+//   setQueerPromotion(event.target.value);
+// };
+
+// const handleAccessibilityChange = (event) => {
+//   setAccessibility(event.target.value);
+// };
+
+// const handleSignageChange = (event) => {
+//   setSignage(event.target.value);
+// };
+
+// const handleSafetyChange = (event) => {
+//   setSafety(event.target.value);
+// };
+
+// const handleQueerFriendChange = (event) => {
+//   setQueerFriend(event.target.value);
+// };
+
+/* <div>
       <FormControl>
         <FormLabel id="inclusive-language">Do they use gender-inclusive language?</FormLabel>
         <RadioGroup
@@ -165,9 +185,3 @@ export default function ReviewInputRating({ name, control }) {
         </RadioGroup>
       </FormControl>
     </div> */
-  );
-}
-ReviewInputRating.propTypes = {
-  name: PropTypes.string.isRequired,
-  control: PropTypes.objectOf(useForm).isRequired,
-};
