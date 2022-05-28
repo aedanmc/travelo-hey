@@ -11,7 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 import { Container } from '@mui/material';
 
-export default function FilterSearch({ countries, activities, onClick }) {
+export default function BusinessFilterSearch({ countries, activities, onClick }) {
   const [state, setStates] = React.useState([]);
   const [city, setCities] = React.useState([]);
 
@@ -140,7 +140,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
   );
 }
 
-FilterSearch.propTypes = {
+BusinessFilterSearch.propTypes = {
   countries: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

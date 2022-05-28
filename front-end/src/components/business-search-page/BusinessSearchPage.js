@@ -6,7 +6,7 @@ import { Link, Outlet } from 'react-router-dom';
 // import NameSearch from './name-search';
 import PropTypes from 'prop-types';
 import SingleResult from '../general/SingleResult';
-import FilterSearch from './FilterSearch';
+import FilterSearch from './BusinessFilterSearch';
 import getStaticLocations from './TestData';
 
 /**
@@ -16,7 +16,7 @@ import getStaticLocations from './TestData';
  * whether static or dynamic data fetching will be used.
  * @returns the initial landing page for Travelo-Hey!'s web app.
  */
-function SearchPage({ debug }) {
+function BusinessSearchPage({ debug }) {
   const [countriesList, setCountries] = React.useState([]);
   const [activitiesList, setActivities] = React.useState([]);
 
@@ -99,8 +99,8 @@ function SearchPage({ debug }) {
   );
 }
 
-SearchPage.propTypes = {
+BusinessSearchPage.propTypes = {
   debug: PropTypes.bool.isRequired,
 };
 
-export default SearchPage;
+export default BusinessSearchPage;
