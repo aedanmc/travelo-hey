@@ -133,12 +133,16 @@
     app.post('/country', async (req, res) => {
         try {
             const form_addr = req.body.form_addr;
+            const country = req.body.country;
             if (form_addr) {
-                const country = await getCountry(form_addr);
-                res.type("json").send({"country": country});
+                const results = await getCountry(form_addr);
+                res.type("json").send({"country": results});
+            } else if (country) {
+                const results = await getCountry(country);
+                res.type("json").send({"country": results});
             } else {
                 res.type("text").status(400)
-                  .send("Missing form_addr");
+                  .send("Missing formatted address or country");
             }
         } catch (error) {
             res.type("text").status(500)
