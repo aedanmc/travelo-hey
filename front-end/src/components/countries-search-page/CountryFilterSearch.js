@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable max-len */
 import * as React from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
