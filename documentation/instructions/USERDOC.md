@@ -63,4 +63,4 @@ To report a bug with Travelo-Hey, see our [bug report guide](https://github.com/
 
 ### Known bugs
 
-A list of known and open bugs can be found in our [GitHub issue tracker]https://github.com/aedanmc/travelo-hey/issues) by typing "is:open label:bug" into the search bar.
+A list of known and open bugs can be found in our [GitHub issue tracker](https://github.com/aedanmc/travelo-hey/issues) by typing "is:open label:bug" into the search bar.

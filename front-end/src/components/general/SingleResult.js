@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 // TODO: Add styling through useTheme
 
-function SingleResult({ image, firstString, secondString, thirdString }) {
+function SingleResult({ image, firstString, secondString }) {
   return (
     <Card sx={{ display: 'flex', width: '50%', alignItems: 'flex-start' }}>
       <CardActionArea sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'left' }}>
@@ -22,14 +22,11 @@ function SingleResult({ image, firstString, secondString, thirdString }) {
         />
         <Box>
           <CardContent sx={{ flex: '1 0 auto', justifyContent: 'flex-start', textAlign: 'left' }}>
-            <Typography data-testid="location-title" component="div">
+            <Typography variant="h6" component="div" color="dark-blue" sx={{ textTransform: 'capitalize' }}>
               {firstString}
             </Typography>
-            <Typography data-testid="location-subtitle" color="text.secondary" component="div">
-              {secondString}
-            </Typography>
             <Typography data-testid="location-details" color="text.secondary" component="div">
-              {thirdString}
+              {secondString}
             </Typography>
           </CardContent>
         </Box>
@@ -41,7 +38,6 @@ function SingleResult({ image, firstString, secondString, thirdString }) {
 SingleResult.propTypes = {
   firstString: PropTypes.string.isRequired,
   secondString: PropTypes.string.isRequired,
-  thirdString: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
 
