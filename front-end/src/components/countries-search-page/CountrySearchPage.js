@@ -2,19 +2,16 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-// import {
-//   Link,
-//   Outlet,
-// } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import SingleResult from '../general/SingleResult';
-import sampleData from './SampleCountry';
-import CountrySearchBar from './CountrySearchBar';
+// import sampleData from './SampleCountry';
+import CountrySearchBar from './CountryFilterSearch';
+import traveloHeyLogo from '../../img/travelo-hey_logo.png';
 
 function CountrySearchPage() {
   // TODO: Add state management with hooks
   // TODO if time: add styling
-  const [selectedCountry, countrySelected] = React.useState('');
   const [countriesList, setCountries] = React.useState([]);
   const [countryDisplay, setCountryDisplay] = React.useState([]);
 
@@ -28,7 +25,6 @@ function CountrySearchPage() {
           keys.forEach((key) => {
             items.push(countries[key]);
           });
-
           setCountries(items);
         });
     } catch (err) {
@@ -40,35 +36,22 @@ function CountrySearchPage() {
     getCountries();
   }, []);
 
-  const handleSearch = () => {
-    // TODO: add data fetching here in response to event
-    async function getMatchingCountry() {
-      try {
-        await axios.get();
-      } catch (err) {
-        console.log(err);
-      }
-      setCountryDisplay();
-    }
-    getMatchingCountry();
-  };
-
-  const country = sampleData;
   return (
     <>
-      <CountrySearchBar countries={countriesList} onClick={countrySelected} />
+      <CountrySearchBar countries={countriesList} onClick={setCountryDisplay} />
       <Container width="100%" sx={{ margin: 2 }}>
         <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
-          {countryDisplay.map((item) => (
-            <Link key={item.place_id} to={`/country/${item.place_id}`}>
+          {countryDisplay?.map((item) => (
+            <Link key={item.name} to={`/country/${item.name}`}>
               <SingleResult
-                image={item.icon}
+                image={traveloHeyLogo}
                 firstString={item.name}
-                secondString={item.formatted_address}
+                secondString={item.safetyScore}
               />
             </Link>
           ))}
         </Stack>
+        <Outlet />
       </Container>
     </>
   );
