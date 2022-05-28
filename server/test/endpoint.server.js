@@ -66,11 +66,24 @@
           });
       });
 
-      it('test "/country" endpoint', (done) => {
+      it('test "/country" endpoint with formatted address', (done) => {
         chai.request(app)
           .post('/country')
           .send({
             'form_addr': '2865 Eastlake Ave E, Seattle, WA 98102, USA',
+          })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
+
+      it('test "/country" endpoint with country name', (done) => {
+        chai.request(app)
+          .post('/country')
+          .send({
+            'country': 'Brazil',
           })
           .end((err, res) => {
             res.should.have.status(200);

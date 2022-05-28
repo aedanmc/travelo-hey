@@ -1,61 +1,52 @@
 import React from 'react';
 import './NavBar.css';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-// import makeStyles from '@mui/material/makeStyles';
-// import {useTheme, useMediaQuery} from '@/mui/styles';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import { Link } from 'react-router-dom';
+import logo from '../../img/travelo-hey_logo.png';
 
 // TODO: move styles to another file
 // TODO: modify styles
 
-/* const useStyles = makeStyles((theme) => ({
-  navlinks: {
-    marginLeft: theme.spacing(5),
-    display: "flex",
-  },
-  logo: {
-    flexGrow: "1",
-    cursor: "pointer",
-  },
-  link: {
-    textDecoration: "none",
-    color: "white",
-    fontSize: "20px",
-    marginLeft: theme.spacing(20),
-    "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
-    },
-  },
-})); */
+function makeColorLightgray(e) {
+  e.target.style.color = 'lightgray';
+}
+
+function makeColorWhite(e) {
+  e.target.style.color = 'white';
+}
 
 function NavBar() {
-  // const classes = useStyles();
-  // const theme = useTheme();
-  // const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-  // TODO: add actual navbar components (not needed for beta release)
   return (
     <AppBar position="static">
       <CssBaseline />
       <Toolbar>
-        <Link to="/">
-          <Container>
-            <img alt="Travelo-Hey!" src="/placeholder_logo.jpg" />
-            <Typography variant="h4">
-              Travelo-Hey!
-            </Typography>
-          </Container>
-        </Link>
-        <div className="nav-bar-elements">
-          <Link to="/country">
-            Search Country Safety Ratings
+        <div style={{ display: 'block', marginLeft: '0', marginRight: 'auto' }}>
+          <Link to="/" style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}>
+            <img src={logo} alt="Travelo-Hey!" width="200" height="114" />
           </Link>
         </div>
+        <List component="nav" style={{ marginLeft: 'auto', marginRight: '0', listStyle: 'none', display: 'flex', flexDirection: 'row' }}>
+          <ListItem onMouseEnter={makeColorLightgray} onMouseLeave={makeColorWhite}>
+            <Link to="/" style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}>
+              <ListItemText>Home</ListItemText>
+            </Link>
+          </ListItem>
+          <ListItem onMouseEnter={makeColorLightgray} onMouseLeave={makeColorWhite}>
+            <Link to="/countries" style={{ paddingRight: '50px', color: 'inherit', textDecoration: 'none' }}>
+              <ListItemText>Countries</ListItemText>
+            </Link>
+          </ListItem>
+          <ListItem onMouseEnter={makeColorLightgray} onMouseLeave={makeColorWhite}>
+            <Link to="/logout" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <ListItemText>Log out</ListItemText>
+            </Link>
+          </ListItem>
+        </List>
       </Toolbar>
     </AppBar>
   );

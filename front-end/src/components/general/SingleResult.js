@@ -12,9 +12,14 @@ import PropTypes from 'prop-types';
 // TODO: Add styling through useTheme
 
 function SingleResult({ image, firstString, secondString }) {
+  function updateFormAddrData(fullAddr) {
+    return fullAddr.split(',');
+  }
+
   return (
-    <Card sx={{ display: 'flex', width: '50%', alignItems: 'flex-start' }}>
-      <CardActionArea sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'left' }}>
+    // <CardActionArea component={Link} to={route}>
+    <Card sx={{ maxWidth: '100%', minWidth: '100%' }}>
+      <CardActionArea sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia
           component="img"
           sx={{ width: 150 }}
@@ -26,7 +31,9 @@ function SingleResult({ image, firstString, secondString }) {
               {firstString}
             </Typography>
             <Typography data-testid="location-details" color="text.secondary" component="div">
-              {secondString}
+              {updateFormAddrData(secondString).map((addrPart) => (
+                <p>{addrPart}</p>
+              ))}
             </Typography>
           </CardContent>
         </Box>
