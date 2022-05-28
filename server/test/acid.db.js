@@ -26,7 +26,7 @@ const new_user = "Test";
  * @returns {Object} - The database object for the connection.
  */
 
-const db = require('../db_connection').getDBConnection();
+const db = require('../db.connection').getDBConnection();
 
 (async function () {
     "use strict";

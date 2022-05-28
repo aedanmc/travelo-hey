@@ -11,7 +11,7 @@
  * Establishes a database connection to the travelo-hey database and returns the database object.
  * @returns {Object} - The database object for the connection.
  */
-const db = require('../db_connection');
+const db = require('../db.connection');
 
 const tables = [ {name: 'users'}, {name: 'countries'}, {name: 'reviews' } ];
 

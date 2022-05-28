@@ -35,12 +35,11 @@
     const router = require("express").Router();
     const cors = require("cors");
     const multer = require("multer");
-    require('dotenv').config();
 
     app.use(express.urlencoded({extended: true}));    // for application/x-www-form-urlencoded
-    app.use(express.json());                                  // for application/json
-    app.use(multer().none());                                 // for multipart/form-data
-    app.use(cors());                                          // for network authorization
+    app.use(express.json());                                // for application/json
+    app.use(multer().none());                               // for multipart/form-data
+    app.use(cors());
 
     /***************/
     /** ENDPOINTS **/
