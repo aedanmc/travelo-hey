@@ -1,30 +1,30 @@
 /* eslint-disable max-len */
+// /* eslint-disable max-len */
 // import * as React from 'react';
 // import Select from '@mui/material/Select';
-// // import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 // import FormControl from '@mui/material/FormControl';
 // import InputLabel from '@mui/material/InputLabel';
 // import Button from '@mui/material/Button';
 // import SearchIcon from '@mui/icons-material/Search';
 // import Stack from '@mui/material/Container';
 // import PropTypes from 'prop-types';
-// import MenuItem from '@mui/material/MenuItem';
+// // import MenuItem from '@mui/material/MenuItem';
 // import axios from 'axios';
 // import { Container } from '@mui/material';
 
 // export default function CountryFilterSearch({ countries, onClick }) {
-//   //const [country, setCountry] = React.useState('');
-//   // const [countriesData, setCountriesData] = React.useState([]);
+//   const [country, setSelectedCountry] = React.useState('');
 
 //   const handleCountryChange = (event) => {
-//     setCountry(event.target.value);
+//     setSelectedCountry(event.target.value);
 //   };
 
+//   // TODO: Fix this data fetching issue once API doc is updated
 //   const handleSearch = () => {
 //     const getBusinesses = async () => {
 //       try {
-//         const lowerCaseActivity = selectedActivity.toLowerCase();
-//         const locationResponse = await axios.post('http://localhost:8080/country/?', { activity: lowerCaseActivity, city: selectedCity });
+//         const locationResponse = await axios.post('http:localhost:8080/country/?', { });
 //         const { results } = locationResponse.data;
 //         const items = [];
 //         const keys = Object.keys(results);
