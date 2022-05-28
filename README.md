@@ -7,17 +7,19 @@
 ## Contents
 
 - [Repository Layout](#Repository-Layout)
-- [Documentation](#Documentation)
-- [Prerequisites](#Prerequisites)
-- [Getting Started](#Getting-Started)
-- [Running Locally](#Running-Locally)
-- [Versioning Process](#Versioning-Process)
-    - [Overview](#Overview)
-    - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
-    - [Responsibilities of Maintainer](#Responsibilities-of-Maintainer)
-    - [Safety Checks after Building Release](#Safety-Checks-after-Building-Release)
-- [Deployment](#Deployment)
-- [Operational Use Cases](#Operational-Use-Cases)
+- [User Guide](#User-Guide)
+- [Developer Guide](#Developer-Guide)
+  - [Documentation](#Documentation)
+  - [Prerequisites](#Prerequisites)
+  - [Getting Started](#Getting-Started)
+  - [Running Locally](#Running-Locally)
+  - [Versioning Process](#Versioning-Process)
+      - [Overview](#Overview)
+      - [Responsibilities of Contributor](#Responsibilities-of-Contributor)
+      - [Responsibilities of Maintainer](#Responsibilities-of-Maintainer)
+      - [Safety Checks after Building Release](#Safety-Checks-after-Building-Release)
+  - [Deployment](#Deployment)
+  - [Operational Use Cases](#Operational-Use-Cases)
 
 ## About Travelo-Hey!
 
@@ -35,23 +37,27 @@ In the structure of this repo we have:
 - [server](https://github.com/aedanmc/travelo-hey/tree/main/server) back-end directory for all node server components
     - [test](https://github.com/aedanmc/travelo-hey/tree/main/server/test) database and server tests
 
-## Documentation
+## User Guide
+- [Bug Tracker](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
+- [Documentation](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
+
+## Developer Guide
+
+### Documentation
 - [API](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/APIDOC.md)
 - [Back-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BETESTINGDOC.md)
-- [Bug Tracking](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/BUGDOC.md)
 - [Database](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/DBDOC.md)
 - [Front-end Testing](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/FETESTINGDOC.md)
 - [GCP Set Up](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/GCPDOC.md)
-- [User Guide](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/USERDOC.md)
 - [Writing components](https://github.com/aedanmc/travelo-hey/blob/main/documentation/instructions/COMPONENTDOC.md)
 
-## Prerequisites
+### Prerequisites
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v16.15.0+)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (v8.5.5+)
 
 Require the most recent version of Chrome/Firefox
 
-## Getting Started
+### Getting Started
 
 To clone the repository, run the following command:
 
@@ -67,7 +73,7 @@ npm run all
 
 Or, by following the steps below:
 
-### Install
+#### Install
 
 Install all required dependencies with:
 
@@ -78,7 +84,7 @@ npm install
 You can review the dependencies being used under `package.json` for back-end dependencies, and
 `front-end/package.json` for front-end dependencies.
 
-### Test
+#### Test
 
 Before submitting, you must pass all tests by running the following command:
 
@@ -90,7 +96,7 @@ npm test
 * `Mocha` unit testing for the server and database
   - Server tests located in `server/test`
 
-### Clean
+#### Clean
 
 To remove any previous builds:
 
@@ -98,7 +104,7 @@ To remove any previous builds:
 npm run clean
 ```
 
-### Build
+#### Build
 To create a fresh build:
 
 ```shell
@@ -106,7 +112,7 @@ npm run build
 ```
 The build will be placed in `./front-end/build`
 
-## Running Locally
+### Running Locally
 
 Once you have completed the [Getting Started](#Getting-Started), you can run the project locally on ports 3000 (react) / 8080 (node) with:
 
@@ -115,10 +121,10 @@ npm run dev
 ```
 
 
-## Versioning Process
+### Versioning Process
 
 
-### Overview
+#### Overview
 All releases will target main.
 
 - **Major release**: Forward/client facing changes
@@ -131,7 +137,7 @@ For example, if current package version is `1.0.0`:<br>
 **Patch release** version would be `1.0.1`
 
 
-### Responsibilities of Contributor
+#### Responsibilities of Contributor
 - Updating the version number should be expressed by the person creating a pull request (PR).
 - Use the following template in the PR to describe the changes necessary.
 
@@ -145,23 +151,23 @@ Additional Tags: TODO: alpha, beta, pre-release, release
 ```
 
 
-### Responsibilities of Maintainer
+#### Responsibilities of Maintainer
 - Reviewers must make sure PR contributor has indicated version update in PR.
 - Maintainer will update the version naming system.
 
 
-### Safety Checks after Building Release
+#### Safety Checks after Building Release
 - Ensuring documentation is up-to-date
 - Notify user of changes (for major changes)
 - Notify team of changes (for major and minor changes)
 - Document any lingering issues to be addressed in the next iteration
 
 
-## Deployment
+### Deployment
 **Under Construction**
 
 
-## Operational Use Cases
+### Operational Use Cases
 
 While we are not fully implementing any of our use cases as described in our specification,
 we are combining the MVP of two use cases:
@@ -172,5 +178,3 @@ we are combining the MVP of two use cases:
 The first use case, we are retrieving business information for the landing page in which the user
 could select a business to check its safety information. The second use case, since we are only
 using limited mock data, the country that we are providing information on is the United States.
-
-
