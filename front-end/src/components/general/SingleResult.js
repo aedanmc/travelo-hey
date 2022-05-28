@@ -32,7 +32,7 @@ function SingleResult({ image, firstString, secondString }) {
             </Typography>
             <Typography data-testid="location-details" color="text.secondary" component="div">
               {updateFormAddrData(secondString).map((addrPart) => (
-                <p>{addrPart}</p>
+                <p key={addrPart}>{addrPart}</p>
               ))}
             </Typography>
           </CardContent>
