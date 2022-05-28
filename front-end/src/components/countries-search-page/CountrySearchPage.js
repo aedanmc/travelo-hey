@@ -19,7 +19,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import SingleResult from '../general/SingleResult';
 import sampleData from './SampleCountry';
 
-function SearchCountry() {
+function CountrySearchPage() {
   // TODO: Add data fetching --> avoid data race with fix from https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect
   // TODO: Add state management with hooks
   // TODO: fill in static layout
@@ -75,4 +75,4 @@ function SearchCountry() {
   );
 }
 
-export default SearchCountry;
+export default CountrySearchPage;

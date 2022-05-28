@@ -52,8 +52,8 @@ function NavBar() {
           </Container>
         </Link>
         <div className="nav-bar-elements">
-          <Link to="/logOut">
-            Log out
+          <Link to="/country">
+            Search Country Safety Ratings
           </Link>
         </div>
       </Toolbar>

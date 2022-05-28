@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 
-export default function CountryPage({
+export default function SingleCountry({
   image, name,
   safetyRank, safetyScore, countryNotes,
   countryWorkers, countryDiscProtection,
@@ -39,7 +39,7 @@ export default function CountryPage({
   );
 }
 
-CountryPage.propTypes = {
+SingleCountry.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   countryWorkers: PropTypes.string.isRequired,
