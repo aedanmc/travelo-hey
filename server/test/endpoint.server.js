@@ -15,7 +15,7 @@
     const chai = require('chai');
     const should = chai.should();   // ignore warning: without this 'res.should...' calls will not work
     const chaiHttp = require('chai-http');
-    const app = require('../betaApp').betaApp;
+    const app = require('../app').app;
     const db = require('../db_connection').getDBConnection();
 
     chai.use(chaiHttp);
