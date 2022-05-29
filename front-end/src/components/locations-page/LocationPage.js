@@ -13,13 +13,13 @@ function LocationPage() {
   const id = params.place_id;
   const [location, setLocation] = React.useState([]);
   const [ratings, setRatings] = React.useState([]); // Google Places API ratings
-  // const [reviews, setReviews] = React.useState([]); // Travelo-Hey!-specific reviews
+  const [reviews, setReviews] = React.useState([]); // Travelo-Hey!-specific reviews
 
   const staticReviews = [
     ['1', '0', '1', '1', '0', '3', '1', 'March 28, 2022', 'They have some work to do, but is decently queer friendly!'],
     ['0', '0', '0', '0', '0', '1', '0', 'May 29, 2022', 'Avoid at all costs!'],
     ['1', '1', '1', '1', '1', '5', '1', 'June 30, 2021', 'The most queer-friendly place on earth!'],
-    ['1', '0', '1', '1', '1', 'null', '1', 'April 1, 2022', 'I hope answering unsure does not break this page'],
+    ['1', '0', '1', '1', '1', '', '1', 'April 1, 2022', 'I hope answering unsure does not break this page'],
     ['1', '1', '0', '1', '0', '2', '0', 'June 1 2000', 'Meh'],
   ];
 
@@ -34,15 +34,118 @@ function LocationPage() {
         setLocation(items);
         setRatings(items.reviews);
 
-        // const reviewsResponse = await axios.post('http://localhost:8080/reviews', { place_id: id });
-        // const [elements] = [reviewsResponse.data.result];
-        // setReviews(elements.th_reviews);
+        const reviewsResponse = await axios.post('http://localhost:8080/reviews', { place_id: id });
+        const [elements] = [reviewsResponse.data.result];
+        setReviews(elements.th_reviews);
       } catch (err) {
         alert(err);
       }
     };
     getLocations();
   }, []);
+
+  async function calculateEqualityScore(review) {
+    let sum = 0;
+    if (review.inclusiveLanguages !== '') {
+      sum += parseInt(review.inclusiveLanguages, 10);
+    } else {
+      sum += 0.5;
+    }
+    if (review.neutralRestrooms !== '') {
+      sum += parseInt(review.neutralRestrooms, 10);
+    } else {
+      sum += 0.5;
+    }
+    if (review.queerBusinessPromotion !== '') {
+      sum += parseInt(review.queerBusinessPromotion, 10);
+    } else {
+      sum += 0.5;
+    }
+    if (review.accessibility !== '') {
+      sum += parseInt(review.inclusiveLanguages, 10);
+    } else {
+      sum += 0.5;
+    }
+    if (review.queerSignage !== '') {
+      sum += parseInt(review.neutralRestrooms, 10);
+    } else {
+      sum += 0.5;
+    }
+    if (review.safety !== '') {
+      sum += parseInt(review.queerBusinessPromotion, 10);
+    } else {
+      sum += 2.5;
+    }
+    if (review.recommendedBusiness !== '') {
+      sum += parseInt(review.recommendedBusiness, 10);
+    } else {
+      sum += 0.5;
+    }
+    return (sum);
+  }
+
+  async function calculateEqualityScoreStatic(staticReview) {
+    let sum = 0;
+    for (let i = 0; i < 7; i += 1) {
+      if (staticReview[i] !== '') {
+        sum += parseInt(staticReview[i], 10);
+      } else if (i === 5) {
+        sum += 2.5;
+      } else {
+        sum += 0.5;
+      }
+    }
+    return sum;
+  }
+
+  /*
+  function getStaticReviews() {
+    return (
+      <Grid container item xs={6} spacing={0.5}>
+        {staticReviews.map((staticReview) => (
+          <Grid item xs={12}>
+            <SingleReviewTravelo
+              equalityScore={
+                parseInt(staticReview[0], 10)
+                + parseInt(staticReview[1], 10)
+                + parseInt(staticReview[2], 10)
+                + parseInt(staticReview[3], 10)
+                + parseInt(staticReview[4], 10)
+                + parseInt(staticReview[5], 10)
+                + parseInt(staticReview[6], 10)
+              }
+              relativeTime={staticReview[7]}
+              text={staticReview[8]}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    )
+  } */
+
+  /* function getDynamicReviews() {
+    return (
+      <Grid container item xs={6} spacing={0.5}>
+        {reviews.map((review) => (
+          <Grid item xs={12}>
+            <SingleReviewTravelo
+              equalityScore={
+                parseInt(review.inclusiveLanguages, 10)
+                + parseInt(review.neutralRestrooms, 10)
+                + parseInt(review.queerBusinessPromotion, 10)
+                + parseInt(review.accessibility, 10)
+                + parseInt(review.queerSignage, 10)
+                + parseInt(review.safety, 10)
+                + parseInt(review.recommendedBusiness, 10)
+              }
+              relativeTime={review.createdAt}
+              text={review.review}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    )
+  } */
 
   // Failsafe in case location does not exist in fetched data
   // TODO: redirect/useHistory to go back to previous page?
@@ -80,13 +183,7 @@ function LocationPage() {
             <Grid item xs={12}>
               <SingleReviewTravelo
                 equalityScore={
-                  parseInt(staticReview[0], 10)
-                  + parseInt(staticReview[1], 10)
-                  + parseInt(staticReview[2], 10)
-                  + parseInt(staticReview[3], 10)
-                  + parseInt(staticReview[4], 10)
-                  + parseInt(staticReview[5], 10)
-                  + parseInt(staticReview[6], 10)
+                  calculateEqualityScoreStatic(staticReview)
                 }
                 relativeTime={staticReview[7]}
                 text={staticReview[8]}
