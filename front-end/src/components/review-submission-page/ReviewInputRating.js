@@ -3,11 +3,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { Radio } from '@mui/material';
 import PropTypes from 'prop-types';
 
-export default function ReviewInputRating({ safety }) {
+export default function ReviewInputRating({ safety, uniqueID }) {
   const options = [
-    { child: 10, choice: 'Yes', rating: 1 },
-    { child: 20, choice: 'No', rating: 0 },
-    { child: 30, choice: 'Unsure', rating: '' },
+    { child: 5, choice: 'Yes', rating: 1 },
+    { child: 15, choice: 'No', rating: 0 },
+    { child: 25, choice: 'Unsure', rating: '' },
   ];
   const safetyOptions = [
     { child: 10, choice: 'Very unsafe', rating: 1 },
@@ -26,6 +26,7 @@ export default function ReviewInputRating({ safety }) {
             label={option.choice}
             key={option.child}
             control={<Radio />}
+            data-testid={`review-${option.child}-${uniqueID}`}
           />
         ))}
       </>
@@ -39,6 +40,7 @@ export default function ReviewInputRating({ safety }) {
           label={option.choice}
           key={option.child}
           control={<Radio />}
+          data-testid={`review-${option.child}-${uniqueID}`}
         />
       ))}
     </>
@@ -47,4 +49,5 @@ export default function ReviewInputRating({ safety }) {
 
 ReviewInputRating.propTypes = {
   safety: PropTypes.bool.isRequired,
+  uniqueID: PropTypes.string.isRequired,
 };

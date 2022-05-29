@@ -11,9 +11,12 @@ import Typography from '@mui/material/Typography';
 import { RadioGroup } from '@mui/material';
 import ReviewInputRating from './ReviewInputRating';
 
-export default function ReviewSubmissionPage() {
+export default function ReviewSubmissionPage({ debug }) {
   const params = useParams();
-  const id = params.place_id;
+  var id = params.place_id;
+  if (debug) {
+    id = 'test';
+  }
   const user = (Math.floor(Math.random() * 11) + 1);
 
   const defaultValues = {
@@ -66,6 +69,7 @@ export default function ReviewSubmissionPage() {
             multiline
             rows={10}
             label="Write details about your experience"
+            data-testid="review-review-content"
           />
         )}
       />
@@ -73,11 +77,12 @@ export default function ReviewSubmissionPage() {
         name="inclusiveLanguages"
         control={control}
         render={({ field: { onChange, value } }) => (
-          <FormControl>
+          <FormControl data-testid="review-inclusive-languages">
             <FormLabel id="inclusive-languages">Do they use gender-inclusive language?</FormLabel>
             <RadioGroup value={value} onChange={onChange}>
               <ReviewInputRating
                 safety={false}
+                uniqueID={id}
               />
             </RadioGroup>
           </FormControl>
@@ -87,11 +92,12 @@ export default function ReviewSubmissionPage() {
         name="neutralRestrooms"
         control={control}
         render={({ field: { onChange, value } }) => (
-          <FormControl>
+          <FormControl data-testid="review-neutral-restrooms">
             <FormLabel id="neutral-restrooms">Do they offer gender-neutral restrooms?</FormLabel>
             <RadioGroup value={value} onChange={onChange}>
               <ReviewInputRating
                 safety={false}
+                uniqueID={id}
               />
             </RadioGroup>
           </FormControl>
@@ -101,11 +107,12 @@ export default function ReviewSubmissionPage() {
         name="queerBusinessPromotions"
         control={control}
         render={({ field: { onChange, value } }) => (
-          <FormControl>
+          <FormControl data-testid="review-business-promotions">
             <FormLabel id="business-promotions">Do they promote or associate with other queer businesses/events?</FormLabel>
             <RadioGroup value={value} onChange={onChange}>
               <ReviewInputRating
                 safety={false}
+                uniqueID={id}
               />
             </RadioGroup>
           </FormControl>
@@ -115,11 +122,12 @@ export default function ReviewSubmissionPage() {
         name="accessibility"
         control={control}
         render={({ field: { onChange, value } }) => (
-          <FormControl>
+          <FormControl data-testid="review-accessibility">
             <FormLabel id="access">Do they offer accessibility accommodations?</FormLabel>
             <RadioGroup value={value} onChange={onChange}>
               <ReviewInputRating
                 safety={false}
+                uniqueID={id}
               />
             </RadioGroup>
           </FormControl>
@@ -129,11 +137,12 @@ export default function ReviewSubmissionPage() {
         name="queerSignage"
         control={control}
         render={({ field: { onChange, value } }) => (
-          <FormControl>
+          <FormControl data-testid="review-queer-signage">
             <FormLabel id="queer-signage">Do they have welcoming queer signage?</FormLabel>
             <RadioGroup value={value} onChange={onChange}>
               <ReviewInputRating
                 safety={false}
+                uniqueID={id}
               />
             </RadioGroup>
           </FormControl>
@@ -143,11 +152,12 @@ export default function ReviewSubmissionPage() {
         name="safety"
         control={control}
         render={({ field: { onChange, value } }) => (
-          <FormControl>
+          <FormControl data-testid="review-safety">
             <FormLabel id="safeness">As a queer person, how safe did you feel at this business?</FormLabel>
             <RadioGroup value={value} onChange={onChange}>
               <ReviewInputRating
                 safety
+                uniqueID={id}
               />
             </RadioGroup>
           </FormControl>
@@ -157,11 +167,12 @@ export default function ReviewSubmissionPage() {
         name="recommendedBusiness"
         control={control}
         render={({ field: { onChange, value } }) => (
-          <FormControl>
+          <FormControl data-testid="review-recommended-business">
             <FormLabel id="recommended-business">Would you recommend the business to a queer friend?</FormLabel>
             <RadioGroup value={value} onChange={onChange}>
               <ReviewInputRating
                 safety={false}
+                uniqueID={id}
               />
             </RadioGroup>
           </FormControl>
