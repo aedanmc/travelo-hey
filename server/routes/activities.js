@@ -1,3 +1,19 @@
+/**
+ * CSE 403 Spring 2022
+ *
+ * Copyright ©2022 All rights reserved.
+ *      - Aedan McCall          aedanmc (at) uw.edu
+ *      - Alex Zúñiga           mzuniga (at) uw.edu
+ *      - Camila Christensen    camilyo (at) cs.washington.edu
+ *      - Matt Broom            matty162 (at) uw.edu
+ *      - Michael Harris        micha06 (at) uw.edu
+ *
+ * Manages /activities endpoint
+ *
+ * Requires:
+ *   - fs:     Used to read static file
+ */
+
 const fs = require("fs").promises;
 
 /**

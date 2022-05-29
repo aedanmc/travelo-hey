@@ -1,3 +1,19 @@
+/**
+ * CSE 403 Spring 2022
+ *
+ * Copyright ©2022 All rights reserved.
+ *      - Aedan McCall          aedanmc (at) uw.edu
+ *      - Alex Zúñiga           mzuniga (at) uw.edu
+ *      - Camila Christensen    camilyo (at) cs.washington.edu
+ *      - Matt Broom            matty162 (at) uw.edu
+ *      - Michael Harris        micha06 (at) uw.edu
+ *
+ * Manages /business endpoint
+ *
+ * Requires:
+ *   - https:     Used to query Google Places API
+ */
+
 const PLACES_DETAILS_BASE_URL = "https://maps.googleapis.com/maps/api/place/details/";
 const https = require("https");
 
@@ -30,6 +46,6 @@ async function getBusiness(req, res) {
         res.type("text").status(500)
             .send(error);
     }
-};
+}
 
 module.exports.getBusiness = getBusiness;
