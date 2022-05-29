@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-boolean-value */
 import React from 'react';
-import { render, screen } from '../test-utils';
-import SearchPage from '../src/components/search-page/SearchPage';
+import { render } from '../test-utils';
+import BusinessSearchPage from '../src/components/business-search-page/BusinessSearchPage';
 import '@testing-library/jest-dom';
 
 /**
@@ -10,7 +10,7 @@ import '@testing-library/jest-dom';
  *  See src/components/search-page/TestData.js for the test data.
  */
 test('SearchPage renders the correct number of SingleResult cards', () => {
-  render(<SearchPage debug={true} />);
+  render(<BusinessSearchPage debug={true} />);
 
   // expect(screen.getAllByTestId('location-title')).toHaveLength(4);
 });

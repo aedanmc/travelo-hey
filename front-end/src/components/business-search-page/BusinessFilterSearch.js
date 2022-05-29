@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 import { Container } from '@mui/material';
 
+export default function BusinessFilterSearch({ countries, activities, onClick }) {
 /**
  * Functional component for filtering required fields to display businesses data
  * in the landing and search page for the Travelo-Hey! web app
@@ -19,7 +20,6 @@ import { Container } from '@mui/material';
  * @param onClick           a action to retrieve city and activity to send it back to parent
  * @returns {JSX.Element}   a dependent dropdown menu
  */
-export default function FilterSearch({ countries, activities, onClick }) {
   // A list of states and cities
   const [state, setStates] = React.useState([]);
   const [city, setCities] = React.useState([]);
@@ -194,10 +194,7 @@ export default function FilterSearch({ countries, activities, onClick }) {
   );
 }
 
-/**
- * List of required parameters passed to this function
- */
-FilterSearch.propTypes = {
+BusinessFilterSearch.propTypes = {
   countries: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
