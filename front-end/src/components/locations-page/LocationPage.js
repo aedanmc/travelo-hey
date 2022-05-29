@@ -36,7 +36,11 @@ function LocationPage() {
 
         const reviewsResponse = await axios.post('http://localhost:8080/reviews', { place_id: id });
         const [elements] = [reviewsResponse.data.result];
-        setReviews(elements.th_reviews);
+        if (elements === undefined) {
+          setReviews(undefined);
+        } else {
+          setReviews(elements.th_reviews);
+        }
       } catch (err) {
         alert(err);
       }
@@ -44,7 +48,7 @@ function LocationPage() {
     getLocations();
   }, []);
 
-  async function calculateEqualityScore(review) {
+  function calculateEqualityScore(review) {
     let sum = 0;
     if (review.inclusiveLanguages !== '') {
       sum += parseInt(review.inclusiveLanguages, 10);
@@ -84,7 +88,7 @@ function LocationPage() {
     return (sum);
   }
 
-  async function calculateEqualityScoreStatic(staticReview) {
+  function calculateEqualityScoreStatic(staticReview) {
     let sum = 0;
     for (let i = 0; i < 7; i += 1) {
       if (staticReview[i] !== '') {
@@ -98,7 +102,6 @@ function LocationPage() {
     return sum;
   }
 
-  /*
   function getStaticReviews() {
     return (
       <Grid container item xs={6} spacing={0.5}>
@@ -106,13 +109,7 @@ function LocationPage() {
           <Grid item xs={12}>
             <SingleReviewTravelo
               equalityScore={
-                parseInt(staticReview[0], 10)
-                + parseInt(staticReview[1], 10)
-                + parseInt(staticReview[2], 10)
-                + parseInt(staticReview[3], 10)
-                + parseInt(staticReview[4], 10)
-                + parseInt(staticReview[5], 10)
-                + parseInt(staticReview[6], 10)
+                calculateEqualityScoreStatic(staticReview)
               }
               relativeTime={staticReview[7]}
               text={staticReview[8]}
@@ -120,23 +117,17 @@ function LocationPage() {
           </Grid>
         ))}
       </Grid>
-    )
-  } */
+    );
+  }
 
-  /* function getDynamicReviews() {
+  function getDynamicReviews() {
     return (
       <Grid container item xs={6} spacing={0.5}>
         {reviews.map((review) => (
           <Grid item xs={12}>
             <SingleReviewTravelo
               equalityScore={
-                parseInt(review.inclusiveLanguages, 10)
-                + parseInt(review.neutralRestrooms, 10)
-                + parseInt(review.queerBusinessPromotion, 10)
-                + parseInt(review.accessibility, 10)
-                + parseInt(review.queerSignage, 10)
-                + parseInt(review.safety, 10)
-                + parseInt(review.recommendedBusiness, 10)
+                calculateEqualityScore(review)
               }
               relativeTime={review.createdAt}
               text={review.review}
@@ -144,8 +135,15 @@ function LocationPage() {
           </Grid>
         ))}
       </Grid>
-    )
-  } */
+    );
+  }
+
+  function getTraveloReviews() {
+    if (reviews === undefined) {
+      return getStaticReviews();
+    }
+    return getDynamicReviews();
+  }
 
   // Failsafe in case location does not exist in fetched data
   // TODO: redirect/useHistory to go back to previous page?
@@ -179,37 +177,11 @@ function LocationPage() {
           ))}
         </Grid>
         <Grid container item xs={6} spacing={0.5}>
-          {staticReviews.map((staticReview) => (
-            <Grid item xs={12}>
-              <SingleReviewTravelo
-                equalityScore={
-                  calculateEqualityScoreStatic(staticReview)
-                }
-                relativeTime={staticReview[7]}
-                text={staticReview[8]}
-              />
-            </Grid>
-          ))}
+          {
+            getTraveloReviews()
+          }
         </Grid>
       </Grid>
-      {/* {reviews.map((review) => (
-        // Is this a good name to use for component?
-        // TODO: look into more elegant solution to calculating equality score
-        // TODO: create some TH-specific reviews to test that they appear properly
-        <SingleReviewTravelo
-          equalityScore={
-            parseInt(review.inclusiveLanguages, 10)
-            + parseInt(review.neutralRestrooms, 10)
-            + parseInt(review.queerBusinessPromotion, 10)
-            + parseInt(review.accessibility, 10)
-            + parseInt(review.queerSignage, 10)
-            + parseInt(review.safety, 10)
-            + parseInt(review.recommendedBusiness, 10)
-          }
-          relativeTime={review.createdAt}
-          text={review.review}
-        />
-        ))} */}
     </div>
   );
 }
