@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SingleResult from '../general/SingleResult';
-import FilterSearch from './FilterSearch';
+import FilterSearch from './BusinessFilterSearch';
 import getStaticLocations from './TestData';
 
 /**
@@ -16,7 +16,7 @@ import getStaticLocations from './TestData';
  * whether static or dynamic data fetching will be used.
  * @returns the initial landing page for Travelo-Hey!'s web app.
  */
-function SearchPage({ debug }) {
+function BusinessSearchPage({ debug }) {
   const [countriesList, setCountries] = React.useState([]);
   const [activitiesList, setActivities] = React.useState([]);
   const [searchBusiness, setSearchBusiness] = React.useState([]);
@@ -39,7 +39,6 @@ function SearchPage({ debug }) {
           keys.forEach((key) => {
             items.push(countries[key]);
           });
-
           setCountries(items);
         });
     } catch (err) {
@@ -96,8 +95,8 @@ function SearchPage({ debug }) {
               <Link key={item.place_id} to={`/business/${item.place_id}`}>
                 <SingleResult
                   image={item.icon}
-                  name={item.name}
-                  address={item.formatted_address}
+                  firstString={item.name}
+                  secondString={item.formatted_address}
                 />
               </Link>
             </Grid>
@@ -106,17 +105,11 @@ function SearchPage({ debug }) {
         <Outlet />
       </Container>
     </>
-
   );
 }
 
-/**
- * List of required parameters passed to this function
- *
- * @type {{debug: Validator<NonNullable<boolean>>}}
- */
-SearchPage.propTypes = {
+BusinessSearchPage.propTypes = {
   debug: PropTypes.bool.isRequired,
 };
 
-export default SearchPage;
+export default BusinessSearchPage;

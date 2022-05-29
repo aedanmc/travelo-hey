@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 // TODO: Add styling through useTheme
 
-function SingleResult({ image, name, address }) {
+function SingleResult({ image, firstString, secondString }) {
   function updateFormAddrData(fullAddr) {
     return fullAddr.split(',');
   }
@@ -28,11 +28,11 @@ function SingleResult({ image, name, address }) {
         <Box>
           <CardContent sx={{ flex: '1 0 auto', justifyContent: 'flex-start', textAlign: 'left' }}>
             <Typography variant="h6" component="div" color="dark-blue" sx={{ textTransform: 'capitalize' }}>
-              {name}
+              {firstString}
             </Typography>
             <Typography data-testid="location-details" color="text.secondary" component="div">
-              {updateFormAddrData(address).map((addrPart) => (
-                <p>{addrPart}</p>
+              {updateFormAddrData(secondString).map((addrPart) => (
+                <p key={addrPart}>{addrPart}</p>
               ))}
             </Typography>
           </CardContent>
@@ -43,8 +43,8 @@ function SingleResult({ image, name, address }) {
 }
 
 SingleResult.propTypes = {
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  firstString: PropTypes.string.isRequired,
+  secondString: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
 
