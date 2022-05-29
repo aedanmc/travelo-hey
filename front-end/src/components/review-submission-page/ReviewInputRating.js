@@ -1,54 +1,50 @@
 import * as React from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { Radio, RadioGroup } from '@mui/material';
+import { Radio } from '@mui/material';
 import PropTypes from 'prop-types';
 
-export default function ReviewInputRating({ name, control, options, id, question, setRating }) {
-  // const generateRadioOptions = () => {
-  //   const keys = Object.keys(options);
-  //   keys.forEach((singleOption) => (
-  //     <FormControlLabel
-  //       value={singleOption.value}
-  //       label={singleOption.label}
-  //       control={<Radio />}
-  //     />
-  //   ));
-  // };
-  console.log(options);
+export default function ReviewInputRating({ safety }) {
+  const options = [
+    { child: 10, choice: 'Yes', rating: 1 },
+    { child: 20, choice: 'No', rating: 0 },
+    { child: 30, choice: 'Unsure', rating: '' },
+  ];
+  const safetyOptions = [
+    { child: 10, choice: 'Very unsafe', rating: 1 },
+    { child: 20, choice: 'Unsafe', rating: 2 },
+    { child: 30, choice: 'Neither', rating: 3 },
+    { child: 40, choice: 'Safe', rating: 4 },
+    { child: 50, choice: 'Very safe', rating: 5 },
+  ];
 
-  const handleRating = (event) => {
-    setRating(event.target.value);
-  };
-
+  if (safety) {
+    return (
+      <>
+        {safetyOptions.map((option) => (
+          <FormControlLabel
+            value={option.rating}
+            label={option.choice}
+            key={option.child}
+            control={<Radio />}
+          />
+        ))}
+      </>
+    );
+  }
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field: { value } }) => (
-        <FormControl>
-          <FormLabel id={id}>{question}</FormLabel>
-          <RadioGroup value={value} onChange={handleRating}>
-            <FormControlLabel
-              value="No"
-              label={0}
-              control={<Radio />}
-            />
-          </RadioGroup>
-        </FormControl>
-      )}
-    />
+    <>
+      {options.map((option) => (
+        <FormControlLabel
+          value={option.rating}
+          label={option.choice}
+          key={option.child}
+          control={<Radio />}
+        />
+      ))}
+    </>
   );
 }
 
 ReviewInputRating.propTypes = {
-  name: PropTypes.string.isRequired,
-  control: PropTypes.objectOf(useForm.control).isRequired,
-  // option type error
-  options: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
-  question: PropTypes.string.isRequired,
-  setRating: PropTypes.func.isRequired,
+  safety: PropTypes.bool.isRequired,
 };
