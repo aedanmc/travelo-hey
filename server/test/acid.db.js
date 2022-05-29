@@ -1,4 +1,12 @@
 /**
+ * CSE 403 Spring 2022
+ *
+ * Copyright ©2022 All rights reserved.
+ *      - Aedan McCall          aedanmc (at) uw.edu
+ *      - Alex Zúñiga           mzuniga (at) uw.edu
+ *      - Camila Christensen    camilyo (at) cs.washington.edu
+ *      - Matt Broom            matty162 (at) uw.edu
+ *      - Michael Harris        micha06 (at) uw.edu
  *
  * The db.test.js test the basic functionalities of the local sqlite database, including
  * checks for database connection, inserting, deleting and retrieving data.
@@ -39,7 +47,7 @@ const db = require('../db.connection').getDBConnection();
 
             if (db) {
                 connection = true
-            };
+            }
 
             expect(true).to.equal(connection);
             done();
@@ -53,7 +61,7 @@ const db = require('../db.connection').getDBConnection();
                 const row = await db.all(qry, []);
 
                 // extract value of object inside the array returned by db.all
-                var countries_count = Object.values(row[0])[0];
+                let countries_count = Object.values(row[0])[0];
                 expect(countries).to.equal(countries_count);
             }
             done();
@@ -80,7 +88,7 @@ const db = require('../db.connection').getDBConnection();
                 const row = await db.all(qry_retrieve, []);
 
                 // extract value of object inside the array returned by db.all
-                var retrieved_user = Object.values(row[0])[1];
+                let retrieved_user = Object.values(row[0])[1];
                 expect(new_user).to.equal(retrieved_user);
             }
             done();
