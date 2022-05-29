@@ -13,9 +13,9 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<ReviewSubmissionPage debug={false} />} />
+        <Route path="/" element={<SearchPage debug={false} />} />
         <Route path="/business/:place_id" element={<LocationPage />} />
-        <Route path="/business/:place_id/review" element={<SearchPage />} />
+        <Route path="/business/:place_id/review" element={<ReviewSubmissionPage />} />
         <Route path="*" element={<main><p>There&apos;s nothing here!</p></main>} />
       </Routes>
     </div>

@@ -4,22 +4,21 @@ import { Controller, useForm } from 'react-hook-form';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
-// import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { RadioGroup } from '@mui/material';
 import ReviewInputRating from './ReviewInputRating';
 
-// TODO: routing
 export default function ReviewSubmissionPage() {
-  // const params = useParams();
-  // const id = params.place_id;
+  const params = useParams();
+  const id = params.place_id;
   const user = (Math.floor(Math.random() * 11) + 1);
 
   const defaultValues = {
     userID: user,
-    place_ID: 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
+    place_ID: id,
     inclusiveLanguages: '',
     neutralRestrooms: '',
     queerBusinessPromotions: '',
@@ -32,6 +31,7 @@ export default function ReviewSubmissionPage() {
 
   const methods = useForm({ defaultValues });
   const { handleSubmit, control } = methods;
+  const navigate = useNavigate();
 
   async function postReview(data) {
     try {
@@ -47,9 +47,9 @@ export default function ReviewSubmissionPage() {
 
   const onSubmit = (data) => {
     console.log(data);
-    // TODO: back-end post
-    // TODO: redirection to home page after submit
     postReview(data);
+    // potential SnackBar/toast message upon successful post?
+    navigate('/');
   };
 
   return (
@@ -167,7 +167,11 @@ export default function ReviewSubmissionPage() {
           </FormControl>
         )}
       />
-      <Button onClick={handleSubmit(onSubmit)} variant="contained" data-testid="review-submission-submit">
+      <Button
+        onClick={handleSubmit(onSubmit)}
+        variant="contained"
+        data-testid="review-submission-submit"
+      >
         Submit
       </Button>
     </div>
