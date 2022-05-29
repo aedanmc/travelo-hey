@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './ReviewSubmissionPage.css';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -13,14 +13,14 @@ export default function ReviewSubmissionPage() {
   const defaultValues = {
     userID: 1,
     placeID: 'test_place_id_2',
-    inclusiveLanguages: null,
-    neutralRestrooms: null,
-    queerBusinessPromotion: null,
-    accessibility: null,
-    queerSignage: null,
-    safety: null,
-    recommendedBusiness: null,
-    review: null,
+    inclusiveLanguages: '',
+    neutralRestrooms: '',
+    queerBusinessPromotion: '',
+    accessibility: '',
+    queerSignage: '',
+    safety: '',
+    recommendedBusiness: '',
+    review: '',
   };
 
   const options = {
@@ -29,50 +29,54 @@ export default function ReviewSubmissionPage() {
     unsure: null,
   };
 
-  const safetyOptions = {
-    veryUnsafe: 1,
-    unsafe: 2,
-    neither: 3,
-    safe: 4,
-    verySafe: 5,
-  };
+  // const safetyOptions = {
+  //   veryUnsafe: 1,
+  //   unsafe: 2,
+  //   neither: 3,
+  //   safe: 4,
+  //   verySafe: 5,
+  // };
 
-  const params = useParams();
-  const id = params.place_id;
+  // const params = useParams();
+  // const id = params.place_id;
 
   const [languages, setInclusiveLanguages] = React.useState(defaultValues.inclusiveLanguages);
-  const [restrooms, setNeutralRestrooms] = React.useState(
-    defaultValues.neutralRestrooms,
-  );
-  const [promotion, setQueerBusinessPromotion] = React.useState(
-    defaultValues.queerBusinessPromotion,
-  );
-  const [access, setAccessibility] = React.useState(defaultValues.accessibility);
-  const [signage, setQueerSignage] = React.useState(defaultValues.queerSignage);
-  const [safeness, setSafety] = React.useState(defaultValues.safety);
-  const [recommend, setRecommendedBusiness] = React.useState(defaultValues.recommendedBusiness);
+  // const [restrooms, setNeutralRestrooms] = React.useState(
+  //   defaultValues.neutralRestrooms,
+  // );
+  // const [promotion, setQueerBusinessPromotion] = React.useState(
+  //   defaultValues.queerBusinessPromotion,
+  // );
+  // const [access, setAccessibility] = React.useState(defaultValues.accessibility);
+  // const [signage, setQueerSignage] = React.useState(defaultValues.queerSignage);
+  // const [safeness, setSafety] = React.useState(defaultValues.safety);
+  // const [recommend, setRecommendedBusiness] = React.useState(defaultValues.recommendedBusiness);
   const [text, setReview] = React.useState(defaultValues.review);
 
   const methods = useForm({ defaultValues });
   const { handleSubmit, control } = methods;
+  // const { handleSubmit } = methods;
 
   async function postReview() {
     try {
       // TODO: ask back-end about user ID since no longer having sign-in
-      await axios.post('http://localhost:8080/reviews/new', {
-        userID: 1,
-        placeID: id,
-        inclusiveLanguages: languages,
-        neutralRestrooms: restrooms,
-        queerBusinessPromotion: promotion,
-        accessibility: access,
-        queerSignage: signage,
-        safety: safeness,
-        recommendedBusiness: recommend,
-        review: text })
+      await axios.post('http://localhost:8080/reviews/new', { defaultValues,
+        // userID: 1,
+        // placeID: id,
+        // inclusiveLanguages: languages,
+        // neutralRestrooms: restrooms,
+        // queerBusinessPromotion: promotion,
+        // accessibility: access,
+        // queerSignage: signage,
+        // safety: safeness,
+        // recommendedBusiness: recommend,
+        // review: text
+      })
         .then((response) => {
           console.log(response);
           console.log(response.data);
+          console.log(text);
+          console.log(languages);
         });
     } catch (err) {
       console.log(err);
@@ -89,6 +93,28 @@ export default function ReviewSubmissionPage() {
     <Paper>
       <Typography variant="h6" data-testid="review-submission-title"> Write Your Review </Typography>
       <ReviewInputText
+        name="review"
+        control={control}
+        label="Write details about your experience"
+        setReview={setReview}
+        data-testid="review-submission-text"
+      />
+      <ReviewInputRating
+        name="inclusiveLanguages"
+        control={control}
+        options={options}
+        id="inclusive-languages"
+        question="Do they use gender-inclusive language?"
+        setRating={setInclusiveLanguages}
+        data-testid="review-submission-language"
+      />
+      <Button onClick={handleSubmit(onSubmit)} variant="contained" data-testid="review-submission-submit">
+        Submit
+      </Button>
+    </Paper>
+  );
+/*
+<ReviewInputText
         name="review"
         control={control}
         label="Write details about your experience"
@@ -158,9 +184,5 @@ export default function ReviewSubmissionPage() {
         setRating={setRecommendedBusiness}
         data-testid="review-submission-recommended"
       />
-      <Button onClick={handleSubmit(onSubmit)} variant="contained" data-testid="review-submission-submit">
-        Submit
-      </Button>
-    </Paper>
-  );
+  */
 }
