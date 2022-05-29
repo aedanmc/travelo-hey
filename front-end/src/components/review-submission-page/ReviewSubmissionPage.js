@@ -17,8 +17,11 @@ export default function ReviewSubmissionPage({ debug }) {
   if (debug) {
     id = 'test';
   }
+  // random user ID generator 
   const user = (Math.floor(Math.random() * 11) + 1);
 
+  // default form value and structure given
+  // note: passed if values have no changes
   const defaultValues = {
     userID: user,
     place_ID: id,
@@ -32,10 +35,12 @@ export default function ReviewSubmissionPage({ debug }) {
     review: '',
   };
 
+  // setting up control and navigation for form
   const methods = useForm({ defaultValues });
   const { handleSubmit, control } = methods;
   const navigate = useNavigate();
 
+  // POST request to back-end
   async function postReview(data) {
     try {
       const response = await axios.post(
@@ -53,6 +58,7 @@ export default function ReviewSubmissionPage({ debug }) {
     postReview(data);
     // potential SnackBar/toast message upon successful post?
     navigate('/');
+    // note: using <Link> to="/" did not redirect page properly
   };
 
   return (
