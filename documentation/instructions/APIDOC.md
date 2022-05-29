@@ -569,8 +569,9 @@ Form Parameters
 
 Form Parameters
 - `form_addr`: the complete formatted address for the business with which to return results
+- `country`: the name of a country to return results
 
-**Example Request:** `/country/?name=USA`
+**Example Request:** `/country`
 
 **Example Response:**
 ```JSON
@@ -617,7 +618,7 @@ propagandaMoralityLaws: string                     // Whether the country has la
 
 **Error Handling:**
 - Possible 400 (invalid request)
-  - Required parameter is missing: `Missing form_addr`
+  - Required parameter is missing: `Missing formatted address or country`
 - Possible 500 (internal server error)
   - Response error message sent in plain text
 
