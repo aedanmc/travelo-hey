@@ -5,16 +5,21 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
 // import { useParams } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { RadioGroup } from '@mui/material';
 import ReviewInputRating from './ReviewInputRating';
 
+// TODO: routing
 export default function ReviewSubmissionPage() {
+  // const params = useParams();
+  // const id = params.place_id;
+  const user = (Math.floor(Math.random() * 11) + 1);
+
   const defaultValues = {
-    userID: 1,
-    placeID: 'test_place_id_2',
+    userID: user,
+    placeID: 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
     inclusiveLanguages: '',
     neutralRestrooms: '',
     queerBusinessPromotions: '',
@@ -25,14 +30,28 @@ export default function ReviewSubmissionPage() {
     review: '',
   };
 
-  // const params = useParams();
-  // const id = params.place_id;
-
   const methods = useForm({ defaultValues });
   const { handleSubmit, control } = methods;
 
+  async function postReview({ data }) {
+    try {
+      // const userIDTest = data.userID;
+      // const place = data.placeID;
+      const response = await axios.post(
+        'http://localhost:8080/reviews/new',
+        data,
+      );
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const onSubmit = (data) => {
     console.log(data);
+    // TODO: back-end post
+    // TODO: redirection to home page after submit
+    postReview(data);
   };
 
   return (
