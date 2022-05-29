@@ -1,12 +1,21 @@
 /**
+ * CSE 403 Spring 2022
+ *
+ * Copyright ©2022 All rights reserved.
+ *      - Aedan McCall          aedanmc (at) uw.edu
+ *      - Alex Zúñiga           mzuniga (at) uw.edu
+ *      - Camila Christensen    camilyo (at) cs.washington.edu
+ *      - Matt Broom            matty162 (at) uw.edu
+ *      - Michael Harris        micha06 (at) uw.edu
+ *
  * Tests that the endpoints are producing the proper output with status code 200.
  *
  * Requires:
  *    - chai                For testing framework
  *    - chai.should         For testing framework
  *    - chai-http           For testing framework
- *    - ../betaApp          To test endpoints
- *    - ../db_connection    To connect with the database
+ *    - ../app              To test endpoints
+ *    - ../db.connection    To connect with the database
  */
 
 (async function() {
