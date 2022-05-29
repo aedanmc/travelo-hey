@@ -62,9 +62,9 @@ const db = require('../db.connection').getDBConnection();
 
         it('insert new user', (done) => {
 
-            const qry_insert = `INSERT INTO 
+            const qry_insert = `INSERT INTO
                                 users(name, password, email, phonenumber)
-                               ALUES (3, 'Test', 1234, 'test@user-test.com', '205-744-0000')`;
+                                VALUES ('Test', 1234, 'test@user-test.com', '205-744-0000')`;
 
             async function insert_test () {
                 const row = await db.all(qry_insert, []);
