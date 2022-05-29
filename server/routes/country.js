@@ -22,13 +22,18 @@ const fn = require('../helperFns/getCountryFromDB');
  */
 async function getCountry(req, res) {
     try {
+        const country = req.body.country;
         const form_addr = req.body.form_addr;
+        let results;
         if (form_addr) {
-            const country = await fn.getCountryFromDB(form_addr);
-            res.type("json").send({"country": country});
+            results = await fn.getCountryFromDB(form_addr);
+            res.type("json").send({"country": results});
+        } else if (country) {
+            results = await fn.getCountryFromDB(country);
+            res.type("json").send({"country": results});
         } else {
             res.type("text").status(400)
-                .send("Missing form_addr");
+                .send("Missing formatted address or country");
         }
     } catch (error) {
         res.type("text").status(500)
