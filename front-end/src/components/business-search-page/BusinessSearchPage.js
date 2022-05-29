@@ -39,7 +39,6 @@ function BusinessSearchPage({ debug }) {
           keys.forEach((key) => {
             items.push(countries[key]);
           });
-
           setCountries(items);
         });
     } catch (err) {
@@ -106,7 +105,6 @@ function BusinessSearchPage({ debug }) {
         <Outlet />
       </Container>
     </>
-
   );
 }
 

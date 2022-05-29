@@ -8,31 +8,34 @@ export default function CountryDetails({
   safetyRank, safetyScore, countryNotes,
   countryWorkers, countryDiscProtection,
   countryCrimViolence, countryAdoption,
-  countryGoodPlace, countryTransgender,
+  countryTransgender,
   countrySameSex, countryPropaganda,
   countryMarriage }) {
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <img alt={name} src={image} />
+          <img
+            alt={name}
+            src={image}
+            height="350px"
+          />
         </Grid>
-        <Grid item xs={6}>
-          <Typography color="text.secondary" component="div" data-testid="country-name">{name}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-safety">{`Country safety score: ${safetyScore}`}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-rank">{`Overall Safety Rank:${safetyRank}`}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-same-gender-marriage">{`Same-gender marriage: ${countryMarriage}`}</Typography>
+        <Grid item xs={6} sx={{ textAlign: 'left', justifyContent: 'space-evenly', mt: 7 }}>
+          <Typography color="dark-blue" data-testid="country-name" variant="h1" component="div" sx={{ textTransform: 'capitalize' }}>{name}</Typography>
+          <Typography color="text.secondary" component="div" variant="h3" data-testid="country-safety">{`Country safety score: ${safetyScore}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h3" data-testid="country-rank">{`Overall Safety Rank:${safetyRank}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h4" data-testid="country-same-gender-marriage">{`Same-gender marriage: ${countryMarriage}`}</Typography>
         </Grid>
-        <Grid item xs={12}>
-          <Typography color="text.secondary" component="div" data-testid="country-notes">{countryNotes}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-disc">{countryDiscProtection}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-workers">{countryWorkers}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-good">{`Percentage of residents who say ${name} is a good place to live: ${countryGoodPlace}`}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-transgender">{countryTransgender}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-propaganda">{countryPropaganda}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-same-sex-legal">{`Legality of same sex relationships: ${countrySameSex ? 'unknown' : countrySameSex}`}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-violence">{countryCrimViolence}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="country-adopt">{`Level of adoption recognition: ${countryAdoption}`}</Typography>
+        <Grid item xs={12} sx={{ justifyContent: 'flex-start', textAlign: 'left' }}>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-notes">{`General notes: ${countryNotes === null ? 'none' : countryNotes}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-disc">{`Protection against discrimination: ${countryDiscProtection}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-workers">{`Worker protections: ${countryWorkers}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-transgender">{`Transgender Rights in ${name}: ${countryTransgender}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-propaganda">{countryPropaganda}</Typography>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-same-sex-legal">{`Legality of same sex relationships: ${countrySameSex === null ? 'unknown' : countrySameSex}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-violence">{`Overall criminalization of violent crime: ${countryCrimViolence}`}</Typography>
+          <Typography color="text.secondary" component="div" variant="h5" data-testid="country-adopt">{`Level of adoption recognition: ${countryAdoption}`}</Typography>
         </Grid>
       </Grid>
     </div>
@@ -47,7 +50,6 @@ CountryDetails.propTypes = {
   countryDiscProtection: PropTypes.string.isRequired,
   countryCrimViolence: PropTypes.string.isRequired,
   countryAdoption: PropTypes.string.isRequired,
-  countryGoodPlace: PropTypes.string.isRequired,
   countryTransgender: PropTypes.string.isRequired,
   countrySameSex: PropTypes.string.isRequired,
   safetyRank: PropTypes.string.isRequired,

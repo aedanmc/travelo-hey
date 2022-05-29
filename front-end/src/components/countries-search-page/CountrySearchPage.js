@@ -1,13 +1,15 @@
+/* eslint-disable max-len */
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import axios from 'axios';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 // import PropTypes from 'prop-types';
-import SingleResult from '../general/SingleResult';
+import Grid from '@mui/material/Grid';
 // import sampleData from './SampleCountry';
 import CountrySearchBar from './CountryFilterSearch';
 import traveloHeyLogo from '../../img/travelo-hey_logo.png';
+import CountryDetails from './CountryDetails';
 
 function CountrySearchPage() {
   // TODO: Add state management with hooks
@@ -39,18 +41,50 @@ function CountrySearchPage() {
   return (
     <>
       <CountrySearchBar countries={countriesList} onClick={setCountryDisplay} />
-      <Container width="100%" sx={{ margin: 2 }}>
-        <Stack container="true" spacing={2} alignItems="center" direction="column" sx={{ margin: 2 }}>
+      <Container sx={{ marginTop: 3, padding: 2, width: '100%' }}>
+        {/* TODO: figure out how to style Stack so that it takes up the whole width of the screen */}
+        {/* <Stack container spacing={2} alignItems="center" direction="column" sx={{ margin: 2, width: '100%' }}>
           {countryDisplay?.map((item) => (
             <Link key={item.name} to={`/country/${item.name}`}>
               <SingleResult
                 image={traveloHeyLogo}
                 firstString={item.name}
-                secondString={item.safetyScore}
+                secondString={`Safety score: ${item.safetyScore}`}
               />
             </Link>
           ))}
-        </Stack>
+        </Stack> */}
+        {/* <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          {countryDisplay?.map((item) => (
+            <Grid item xs={12}>
+              <Link key={item.name} to={`/country/${item.name}`}>
+                <SingleResult
+                  image={traveloHeyLogo}
+                  firstString={item.name}
+                  secondString={`Safety score: ${item.safetyScore}`}
+                />
+              </Link>
+            </Grid>
+          ))} */}
+        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          {countryDisplay?.map((item) => (
+            <CountryDetails
+              image={traveloHeyLogo}
+              name={item.name}
+              safetyRank={item.rank}
+              safetyScore={item.safetyScore}
+              countryNotes={item.notes}
+              countryWorkers={item.workerProtections}
+              countryDiscProtection={item.protectionsAgainstDiscrimination}
+              countryCrimViolence={item.criminalizationOfViolence}
+              countryAdoption={item.adoptionRecognition}
+              countryTransgender={item.transgenderLaws}
+              countrySameSex={item.illegalSameSexRelationship}
+              countryPropaganda={item.propagandaMoralityLaws}
+              countryMarriage={item.legalizedMarriage}
+            />
+          ))}
+        </Grid>
         <Outlet />
       </Container>
     </>

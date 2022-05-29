@@ -7,7 +7,6 @@ import NavBar from './components/general/NavBar';
 import LocationPage from './components/locations-page/LocationPage';
 import CountrySearchPage from './components/countries-search-page/CountrySearchPage';
 
-
 // TODO: set up nested routing for different top level pages
 function App() {
   return (
