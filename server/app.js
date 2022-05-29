@@ -8,14 +8,14 @@
  *      - Matt Broom            matty162 (at) uw.edu
  *      - Michael Harris        micha06 (at) uw.edu
  *
- * Server side API for Travelo-Hey!
+ * Server side API for Travelo-Hey! Sets up the initial listening server and manages the
+ * endpoint route handling.
  *
  * Requires:
  *   - express:     Required to use the express framework
+ *   - router:      Required to handle routes
  *   - cors:        Required for axios front-end calls
- *   - fs:          Required to access local data file
  *   - multer:      Required for for multipart/form-data
- *   - dotenv:      Required to read .env environment variables
  */
 
 (function() {
@@ -69,7 +69,6 @@
     /******************/
     /** SERVER SETUP **/
     /******************/
-
     const port = parseInt(PORT_8080 || PORT_8000, 10);
     let server = app.listen(port, () => {
         console.log("Listening on port " + port + "..."); // uncomment for debugging
