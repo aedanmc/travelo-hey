@@ -53,8 +53,8 @@ LocationDetails.propTypes = {
   link: PropTypes.string.isRequired,
   equalityScore: PropTypes.string.isRequired,
   numReviews: PropTypes.string.isRequired,
-  googleRating: PropTypes.string.isRequired,
-  numRatings: PropTypes.string.isRequired,
+  googleRating: PropTypes.number.isRequired,
+  numRatings: PropTypes.number.isRequired,
   country: PropTypes.string.isRequired,
   countrySafety: PropTypes.string.isRequired,
 };
