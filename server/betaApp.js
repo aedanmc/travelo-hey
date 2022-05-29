@@ -178,6 +178,7 @@
      */
     app.post('/reviews/new', async (req, res) => {
         try {
+            res.json(req.body);
             const review_params = [
                 req.body.userID, req.body.place_id, new Date().toUTCString(), req.body.inclusiveLanguages,
                 req.body.neutralRestroom, req.body.queerBusinessPromotion, req.body.accessibility,

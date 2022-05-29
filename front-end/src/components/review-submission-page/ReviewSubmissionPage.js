@@ -19,7 +19,7 @@ export default function ReviewSubmissionPage() {
 
   const defaultValues = {
     userID: user,
-    placeID: 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
+    place_ID: 'ChIJu9LYj-QUkFQRxb9K4D7e9bI',
     inclusiveLanguages: '',
     neutralRestrooms: '',
     queerBusinessPromotions: '',
@@ -33,10 +33,8 @@ export default function ReviewSubmissionPage() {
   const methods = useForm({ defaultValues });
   const { handleSubmit, control } = methods;
 
-  async function postReview({ data }) {
+  async function postReview(data) {
     try {
-      // const userIDTest = data.userID;
-      // const place = data.placeID;
       const response = await axios.post(
         'http://localhost:8080/reviews/new',
         data,
