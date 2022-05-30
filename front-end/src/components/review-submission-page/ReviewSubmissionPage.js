@@ -130,7 +130,7 @@ export default function ReviewSubmissionPage({ debug }) {
             name="queerSignage"
             control={control}
             render={({ field: { onChange, value } }) => (
-              renderQuestion(onChange, value, 'queer-signage', 'queer-signage', 'Do they have welcoming queer signage?', false)
+              renderQuestion(onChange, value, 'review-queer-signage', 'queer-signage', 'Do they have welcoming queer signage?', false)
             )}
           />
         </Grid>
