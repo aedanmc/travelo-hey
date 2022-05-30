@@ -43,7 +43,7 @@ function LocationPage() {
           setReviews(undefined);
         }
       } catch (err) {
-        alert(err);
+        console.log(err);
       }
     };
     getLocations();

@@ -26,7 +26,13 @@ export default function SingleReviewTravelo({ equalityScore, relativeTime, text 
 }
 
 SingleReviewTravelo.propTypes = {
-  equalityScore: PropTypes.string.isRequired,
-  relativeTime: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  equalityScore: PropTypes.number,
+  relativeTime: PropTypes.string,
+  text: PropTypes.string,
+};
+
+SingleReviewTravelo.defaultProps = {
+  equalityScore: 0,
+  relativeTime: 'January 1, 1970',
+  text: 'Placeholder review text',
 };
