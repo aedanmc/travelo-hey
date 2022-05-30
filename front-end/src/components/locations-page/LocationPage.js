@@ -57,6 +57,7 @@ function LocationPage() {
         />
       ))}
       ;
+      <Outlet />
     </div>
   );
 }
