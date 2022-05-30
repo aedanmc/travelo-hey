@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './LocationPage.css';
-import { useParams, Link, Outlet } from 'react-router-dom';
+// import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -210,13 +211,12 @@ function LocationPage() {
         </Grid>
       </Grid>
       <Grid item xs={12} spacing={0.5}>
-        <Button variant="contained" sx={{ marginTop: 3, marginBottom: 3 }}>
-          <Link to={`../business/${location.place_id}/review`}>Post a Review</Link>
+        <Button variant="contained" href={`../business/${location.place_id}/review`} sx={{ marginTop: 3, marginBottom: 3 }}>
+          Post a Review
         </Button>
       </Grid>
       <Outlet />
     </div>
   );
 }
-
 export default LocationPage;
