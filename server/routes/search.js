@@ -18,6 +18,8 @@
 const PLACES_TEXTSEARCH_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/";
 const fn = require('../helperFns/getLatLongFromDB');
 const https = require('https');
+require('dotenv').config();
+
 
 /**
  * Endpoint that calls Google Places API to retrieve local businesses relative to the provided
