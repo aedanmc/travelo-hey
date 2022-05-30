@@ -21,7 +21,7 @@ function LocationPage() {
     ['0', '0', '0', '0', '0', '1', '0', 'May 29, 2022', '(SAMPLE) Avoid at all costs!'],
     ['1', '1', '1', '1', '1', '5', '1', 'June 30, 2021', '(SAMPLE) The most queer-friendly place on earth!'],
     ['1', '0', '1', '1', '1', '', '1', 'April 12, 2022', '(SAMPLE) Great vibe, but mostly frequented by straight folks. Not particularly a safe nor dangerous space for LGBTQ+ folx.'],
-    ['1', '1', '0', '1', '0', '2', '0', 'June 1 2000', '(SAMPLE) Feels like they tried to be queer-friendly, but ultimately are missing a lot of key features, such as queer-friendly signage.'],
+    ['1', '1', '0', '1', '0', '2', '0', 'June 1, 2000', '(SAMPLE) Feels like they tried to be queer-friendly, but ultimately are missing a lot of key features, such as queer-friendly signage.'],
   ];
 
   // TODO: check that the id is a valid location.place_id
@@ -191,7 +191,7 @@ function LocationPage() {
         </Grid>
       </Grid>
       <Grid item xs={12} spacing={0.5}>
-        <Link to={`review/new/${location.place_id}`}>Post a Review</Link>
+        <Link to={`../review/new/${location.place_id}`}>Post a Review</Link>
       </Grid>
     </div>
   );
