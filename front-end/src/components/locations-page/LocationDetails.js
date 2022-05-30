@@ -12,7 +12,7 @@ export default function LocationDetails({
     <div>
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <img alt={name} src={image} />
+          <img alt={name} src={image} width="200" height="114" />
         </Grid>
         <Grid item xs={6}>
           <Typography color="text.secondary" component="div" data-testid="location-title">{name}</Typography>

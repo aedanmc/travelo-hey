@@ -20,7 +20,7 @@ function LocationPage() {
     ['1', '0', '1', '1', '0', '3', '1', 'March 28, 2022', '(SAMPLE) They have some work to do, but is decently queer friendly!'],
     ['0', '0', '0', '0', '0', '1', '0', 'May 29, 2022', '(SAMPLE) Avoid at all costs!'],
     ['1', '1', '1', '1', '1', '5', '1', 'June 30, 2021', '(SAMPLE) The most queer-friendly place on earth!'],
-    ['1', '0', '1', '1', '1', '', '1', 'April 1, 2022', '(SAMPLE) Great vibe, but mostly frequented by straight folks. Not particularly a safe nor dangerous space for LGBTQ+ folx.'],
+    ['1', '0', '1', '1', '1', '', '1', 'April 12, 2022', '(SAMPLE) Great vibe, but mostly frequented by straight folks. Not particularly a safe nor dangerous space for LGBTQ+ folx.'],
     ['1', '1', '0', '1', '0', '2', '0', 'June 1 2000', '(SAMPLE) Feels like they tried to be queer-friendly, but ultimately are missing a lot of key features, such as queer-friendly signage.'],
   ];
 
