@@ -1,7 +1,8 @@
 import * as React from 'react';
-import './ReviewSubmissionPage.css';
+import PropTypes from 'prop-types';
 import { Controller, useForm } from 'react-hook-form';
 import FormControl from '@mui/material/FormControl';
+import Container from '@mui/material/Container';
 import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -13,18 +14,18 @@ import ReviewInputRating from './ReviewInputRating';
 
 export default function ReviewSubmissionPage({ debug }) {
   const params = useParams();
-  var id = params.place_id;
+  let id = params.place_id;
   if (debug) {
     id = 'test';
   }
-  // random user ID generator 
+  // random user ID generator
   const user = (Math.floor(Math.random() * 11) + 1);
 
   // default form value and structure given
   // note: passed if values have no changes
   const defaultValues = {
     userID: user,
-    place_ID: id,
+    place_id: id,
     inclusiveLanguages: '',
     neutralRestrooms: '',
     queerBusinessPromotions: '',
@@ -62,23 +63,8 @@ export default function ReviewSubmissionPage({ debug }) {
   };
 
   return (
-    <div>
+    <Container>
       <Typography variant="h6" data-testid="review-submission-title"> Write Your Review </Typography>
-      <Controller
-        name="review"
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <TextField
-            onChange={onChange}
-            value={value}
-            variant="filled"
-            multiline
-            rows={10}
-            label="Write details about your experience"
-            data-testid="review-review-content"
-          />
-        )}
-      />
       <Controller
         name="inclusiveLanguages"
         control={control}
@@ -184,6 +170,22 @@ export default function ReviewSubmissionPage({ debug }) {
           </FormControl>
         )}
       />
+      <Controller
+        name="review"
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <TextField
+            sx={{ width: '70%' }}
+            onChange={onChange}
+            value={value}
+            variant="filled"
+            multiline
+            rows={10}
+            label="Write details about your experience"
+            data-testid="review-review-content"
+          />
+        )}
+      />
       <Button
         onClick={handleSubmit(onSubmit)}
         variant="contained"
@@ -191,6 +193,10 @@ export default function ReviewSubmissionPage({ debug }) {
       >
         Submit
       </Button>
-    </div>
+    </Container>
   );
 }
+
+ReviewSubmissionPage.propTypes = {
+  debug: PropTypes.bool.isRequired,
+};

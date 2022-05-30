@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<BusinessSearchPage debug={false} />} />
         <Route path="/business/:place_id" element={<LocationPage />} />
-        <Route path="/business/:place_id/review" element={<ReviewSubmissionPage />} />
+        <Route path="/business/:place_id/review" element={<ReviewSubmissionPage debug={false} />} />
         <Route path="/countries" element={<CountrySearchPage />} />
         <Route path="/country/:country_id" />
         <Route path="*" element={<main><p>There&apos;s nothing here!</p></main>} />

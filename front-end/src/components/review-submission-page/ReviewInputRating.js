@@ -7,8 +7,8 @@ export default function ReviewInputRating({ safety, uniqueID }) {
   // React was unhappy that both options and safetyOptions did not have unique key identifiers
   // for each child in the list of RadioGroup
   // Each option choice for both yes/no answers and rating answers have a "child" prop
-  // that is combined with the place's id in the key prop to ensure uniqueness 
-  // and satisfy the warning 
+  // that is combined with the place's id in the key prop to ensure uniqueness
+  // and satisfy the warning
   // note: might go in and reconfigure to include what question is being asked (i.e. restrooms)
   // since there will be multiple of these radio groups on a singular review page
   const options = [
