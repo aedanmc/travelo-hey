@@ -16,6 +16,7 @@
 
 const PLACES_DETAILS_BASE_URL = "https://maps.googleapis.com/maps/api/place/details/";
 const https = require("https");
+require('dotenv').config();
 
 /**
  * Endpoint that calls the Google Places API, retrieving more specific details for the given
