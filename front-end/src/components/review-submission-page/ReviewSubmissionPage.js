@@ -63,6 +63,8 @@ export default function ReviewSubmissionPage({ debug }) {
     // note: using <Link> to="/" did not redirect page properly
   };
 
+  // creates a singular radio/multiple choice form question and label
+  // for each required rating question
   function renderQuestion(onChange, value, testID, formID, question, safety) {
     return (
       <FormControl data-testid={testID}>
@@ -96,7 +98,7 @@ export default function ReviewSubmissionPage({ debug }) {
             )}
           />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Grid item xs={12} sx={{ paddingLeft: 2, paddingRight: 2 }}>
           <Controller
             name="neutralRestrooms"
             control={control}
@@ -105,7 +107,7 @@ export default function ReviewSubmissionPage({ debug }) {
             )}
           />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Grid item xs={12} sx={{ paddingLeft: 2, paddingRight: 2 }}>
           <Controller
             name="queerBusinessPromotions"
             control={control}
@@ -114,7 +116,7 @@ export default function ReviewSubmissionPage({ debug }) {
             )}
           />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Grid item xs={12} sx={{ paddingLeft: 2, paddingRight: 2 }}>
           <Controller
             name="accessibility"
             control={control}
@@ -123,7 +125,7 @@ export default function ReviewSubmissionPage({ debug }) {
             )}
           />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Grid item xs={12} sx={{ paddingLeft: 2, paddingRight: 2 }}>
           <Controller
             name="queerSignage"
             control={control}
@@ -132,7 +134,7 @@ export default function ReviewSubmissionPage({ debug }) {
             )}
           />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Grid item xs={12} sx={{ paddingLeft: 2, paddingRight: 2 }}>
           <Controller
             name="safety"
             control={control}
@@ -141,7 +143,7 @@ export default function ReviewSubmissionPage({ debug }) {
             )}
           />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Grid item xs={12} sx={{ paddingLeft: 2, paddingRight: 2 }}>
           <Controller
             name="recommendedBusiness"
             control={control}
@@ -150,7 +152,7 @@ export default function ReviewSubmissionPage({ debug }) {
             )}
           />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Grid item xs={12} sx={{ paddingLeft: 2, paddingRight: 2 }}>
           <Controller
             name="review"
             control={control}
