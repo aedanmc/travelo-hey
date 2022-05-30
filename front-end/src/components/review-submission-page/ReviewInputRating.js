@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Radio } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -26,31 +28,43 @@ export default function ReviewInputRating({ safety, uniqueID }) {
 
   if (safety) {
     return (
-      <>
-        {safetyOptions.map((option) => (
-          <FormControlLabel
-            value={option.rating}
-            label={option.choice}
-            key={option.child}
-            control={<Radio />}
-            data-testid={`review-${option.child}-${uniqueID}`}
-          />
-        ))}
-      </>
+      <Container>
+        <Grid container>
+          {safetyOptions.map((option) => (
+            <React.Fragment key={option.child + 1}>
+              <Grid item>
+                <FormControlLabel
+                  value={option.rating}
+                  label={option.choice}
+                  key={option.child}
+                  control={<Radio />}
+                  data-testid={`review-${option.child}-${uniqueID}`}
+                />
+              </Grid>
+            </React.Fragment>
+          ))}
+        </Grid>
+      </Container>
     );
   }
   return (
-    <>
-      {options.map((option) => (
-        <FormControlLabel
-          value={option.rating}
-          label={option.choice}
-          key={option.child}
-          control={<Radio />}
-          data-testid={`review-${option.child}-${uniqueID}`}
-        />
-      ))}
-    </>
+    <Container>
+      <Grid container>
+        {options.map((option) => (
+          <React.Fragment key={option.child + 1}>
+            <Grid item>
+              <FormControlLabel
+                value={option.rating}
+                label={option.choice}
+                key={option.child}
+                control={<Radio />}
+                data-testid={`review-${option.child}-${uniqueID}`}
+              />
+            </Grid>
+          </React.Fragment>
+        ))}
+      </Grid>
+    </Container>
   );
 }
 
