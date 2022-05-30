@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './LocationPage.css';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
 import LocationDetails from './LocationDetails';
