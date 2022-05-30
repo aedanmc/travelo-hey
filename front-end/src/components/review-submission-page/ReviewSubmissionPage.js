@@ -63,46 +63,6 @@ export default function ReviewSubmissionPage({ debug }) {
     // note: using <Link> to="/" did not redirect page properly
   };
 
-  // function renderLanguages(onChange, value) {
-  //   return (
-  //     <FormControl data-testid="review-inclusive-languages">
-  //       <Grid container columnSpacing={2}>
-  //         <Grid item sx={{ marginTop: 1 }}>
-  //           <FormLabel id=inclusive-languages">Do they use gender-inclusive language?</FormLabel>
-  //         </Grid>
-  //         <Grid item>
-  //           <RadioGroup value={value} onChange={onChange}>
-  //             <ReviewInputRating
-  //               safety={false}
-  //               uniqueID={id}
-  //             />
-  //           </RadioGroup>
-  //         </Grid>
-  //       </Grid>
-  //     </FormControl>
-  //   );
-  // }
-
-  // function renderRestrooms(onChange, value) {
-  //   return (
-  //     <FormControl data-testid="review-neutral-restrooms">
-  //       <Grid container columnSpacing={2}>
-  //         <Grid item sx={{ marginTop: 1 }}>
-  //           <FormLabel id="neutral-restrooms">Do they offer gender-neutral restrooms?</FormLabel>
-  //         </Grid>
-  //         <Grid item>
-  //           <RadioGroup value={value} onChange={onChange}>
-  //             <ReviewInputRating
-  //               safety={false}
-  //               uniqueID={id}
-  //             />
-  //           </RadioGroup>
-  //         </Grid>
-  //       </Grid>
-  //     </FormControl>
-  //   );
-  // }
-
   function renderQuestion(onChange, value, testID, formID, question, safety) {
     return (
       <FormControl data-testid={testID}>
@@ -122,35 +82,6 @@ export default function ReviewSubmissionPage({ debug }) {
       </FormControl>
     );
   }
-  // function renderAccessibility(onChange, value) {
-  //   return (
-  //   );
-  // }
-  // function renderSignage(onChange, value) {
-  //   return (
-  //   );
-  // }
-  // function renderRecommended(onChange, value) {
-  //   return (
-  //   );
-  // }
-
-  // <FormControl data-testid="review-business-promotions">
-  //               <Grid container columnSpacing={2}>
-  //                 <Grid item sx={{ marginTop: 1 }}>
-  //                   <FormLabel id="business-promotions">Do they promote or associate with other
-  // queer businesses/events?</FormLabel>
-  //                 </Grid>
-  //                 <Grid item>
-  //                   <RadioGroup value={value} onChange={onChange}>
-  //                     <ReviewInputRating
-  //                       safety={false}
-  //                       uniqueID={id}
-  //                     />
-  //                   </RadioGroup>
-  //                 </Grid>
-  //               </Grid>
-  //             </FormControl>
 
   return (
     <Container>
@@ -188,21 +119,7 @@ export default function ReviewSubmissionPage({ debug }) {
             name="accessibility"
             control={control}
             render={({ field: { onChange, value } }) => (
-              <FormControl data-testid="review-accessibility">
-                <Grid container columnSpacing={2}>
-                  <Grid item sx={{ marginTop: 1 }}>
-                    <FormLabel id="access">Do they offer accessibility accommodations?</FormLabel>
-                  </Grid>
-                  <Grid item>
-                    <RadioGroup value={value} onChange={onChange}>
-                      <ReviewInputRating
-                        safety={false}
-                        uniqueID={id}
-                      />
-                    </RadioGroup>
-                  </Grid>
-                </Grid>
-              </FormControl>
+              renderQuestion(onChange, value, 'review-accessibility', 'access', 'Do they offer accessibility accommodations?', false)
             )}
           />
         </Grid>
@@ -211,21 +128,7 @@ export default function ReviewSubmissionPage({ debug }) {
             name="queerSignage"
             control={control}
             render={({ field: { onChange, value } }) => (
-              <FormControl data-testid="review-queer-signage">
-                <Grid container columnSpacing={2}>
-                  <Grid item sx={{ marginTop: 1 }}>
-                    <FormLabel id="queer-signage">Do they have welcoming queer signage?</FormLabel>
-                  </Grid>
-                  <Grid item>
-                    <RadioGroup value={value} onChange={onChange}>
-                      <ReviewInputRating
-                        safety={false}
-                        uniqueID={id}
-                      />
-                    </RadioGroup>
-                  </Grid>
-                </Grid>
-              </FormControl>
+              renderQuestion(onChange, value, 'queer-signage', 'queer-signage', 'Do they have welcoming queer signage?', false)
             )}
           />
         </Grid>
@@ -234,21 +137,7 @@ export default function ReviewSubmissionPage({ debug }) {
             name="safety"
             control={control}
             render={({ field: { onChange, value } }) => (
-              <FormControl data-testid="review-safety">
-                <Grid container columnSpacing={2}>
-                  <Grid item sx={{ marginTop: 1 }}>
-                    <FormLabel id="safeness">As a queer person, how safe did you feel at this business?</FormLabel>
-                  </Grid>
-                  <Grid item>
-                    <RadioGroup value={value} onChange={onChange}>
-                      <ReviewInputRating
-                        safety
-                        uniqueID={id}
-                      />
-                    </RadioGroup>
-                  </Grid>
-                </Grid>
-              </FormControl>
+              renderQuestion(onChange, value, 'review-safety', 'safeness', 'As a queer person, how safe did you feel at this business?', true)
             )}
           />
         </Grid>
@@ -257,21 +146,7 @@ export default function ReviewSubmissionPage({ debug }) {
             name="recommendedBusiness"
             control={control}
             render={({ field: { onChange, value } }) => (
-              <FormControl data-testid="review-recommended-business">
-                <Grid container columnSpacing={2}>
-                  <Grid item sx={{ marginTop: 1 }}>
-                    <FormLabel id="recommended-business">Would you recommend the business to a queer friend?</FormLabel>
-                  </Grid>
-                  <Grid item>
-                    <RadioGroup value={value} onChange={onChange}>
-                      <ReviewInputRating
-                        safety={false}
-                        uniqueID={id}
-                      />
-                    </RadioGroup>
-                  </Grid>
-                </Grid>
-              </FormControl>
+              renderQuestion(onChange, value, 'review-recommended-business', 'recommended-business', 'Would you recommend the business to a queer friend?', false)
             )}
           />
         </Grid>
