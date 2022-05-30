@@ -46,15 +46,29 @@ export default function LocationDetails({
 }
 
 LocationDetails.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  equalityScore: PropTypes.string.isRequired,
-  numReviews: PropTypes.string.isRequired,
-  googleRating: PropTypes.number.isRequired,
-  numRatings: PropTypes.number.isRequired,
-  country: PropTypes.string.isRequired,
-  countrySafety: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  address: PropTypes.string,
+  phone: PropTypes.string,
+  link: PropTypes.string,
+  equalityScore: PropTypes.number,
+  numReviews: PropTypes.string,
+  googleRating: PropTypes.number,
+  numRatings: PropTypes.number,
+  country: PropTypes.string,
+  countrySafety: PropTypes.string,
 };
+
+LocationDetails.defaultProps = {
+  image: '',
+  name: '',
+  address: '',
+  phone: '',
+  link: '',
+  equalityScore: 0,
+  numReviews: '',
+  googleRating: 0,
+  numRatings: '',
+  country: '',
+  countrySafety: '',
+}

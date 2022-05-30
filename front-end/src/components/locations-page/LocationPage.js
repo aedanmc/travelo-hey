@@ -47,7 +47,7 @@ function LocationPage() {
         setRatings(items.reviews);
 
         const reviewsResponse = await axios.post('http://localhost:8080/reviews', { place_id: id });
-        const [elements] = [reviewsResponse.data.result];
+        const [elements] = [reviewsResponse.data];
         if (elements) {
           setReviews(elements.th_reviews);
         } else {
@@ -65,41 +65,49 @@ function LocationPage() {
   function calculateEqualityScore(review) {
     let sum = 0;
     if (review.inclusiveLanguages !== '') {
+      console.log(parseInt(review.inclusiveLanguages, 10));
       sum += parseInt(review.inclusiveLanguages, 10);
     } else {
       sum += 0.5;
     }
     if (review.neutralRestrooms !== '') {
+      console.log(parseInt(review.inclusiveLanguages, 10));
       sum += parseInt(review.neutralRestrooms, 10);
     } else {
       sum += 0.5;
     }
-    if (review.queerBusinessPromotion !== '') {
-      sum += parseInt(review.queerBusinessPromotion, 10);
+    if (review.queerBusinessPromotions !== '') {
+      console.log(parseInt(review.inclusiveLanguages, 10));
+      sum += parseInt(review.queerBusinessPromotions, 10);
     } else {
       sum += 0.5;
     }
     if (review.accessibility !== '') {
-      sum += parseInt(review.inclusiveLanguages, 10);
+      console.log(parseInt(review.inclusiveLanguages, 10));
+      sum += parseInt(review.accessibility, 10);
     } else {
       sum += 0.5;
     }
     if (review.queerSignage !== '') {
-      sum += parseInt(review.neutralRestrooms, 10);
+      console.log(parseInt(review.inclusiveLanguages, 10));
+      sum += parseInt(review.queerSignage, 10);
     } else {
       sum += 0.5;
     }
     if (review.safety !== '') {
-      sum += parseInt(review.queerBusinessPromotion, 10);
+      console.log(parseInt(review.inclusiveLanguages, 10));
+      sum += parseInt(review.safety, 10);
     } else {
       sum += 2.5;
     }
     if (review.recommendedBusiness !== '') {
+      console.log(parseInt(review.inclusiveLanguages, 10));
       sum += parseInt(review.recommendedBusiness, 10);
     } else {
       sum += 0.5;
     }
-    return (sum);
+    console.log(sum);
+    return sum;
   }
 
   function calculateEqualityScoreStatic(staticReview) {
@@ -158,7 +166,7 @@ function LocationPage() {
   // failsafe in case chosen location has no TH-created reviews
   // populates with static reviews instead.
   function getTraveloReviews() {
-    if (reviews) {
+    if (reviews && reviews.length !== 0) {
       return getDynamicReviews();
     }
     return getStaticReviews();
