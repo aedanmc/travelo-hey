@@ -193,6 +193,7 @@ function LocationPage() {
       <Grid item xs={12} spacing={0.5}>
         <Link to={`../review/new/${location.place_id}`}>Post a Review</Link>
       </Grid>
+      <Outlet />
     </div>
   );
 }
