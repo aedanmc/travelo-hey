@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import LocationDetails from './LocationDetails';
 import SingleReview from '../general/SingleReview';
 import SingleReviewTravelo from '../general/SingleReviewTravelo';
+import logo from '../../img/travelo-hey_logo.png';
 
 function LocationPage() {
   // Grab place_id aka locationID in SearchPage.js
@@ -16,11 +17,11 @@ function LocationPage() {
   const [reviews, setReviews] = React.useState([]); // Travelo-Hey!-specific reviews
 
   const staticReviews = [
-    ['1', '0', '1', '1', '0', '3', '1', 'March 28, 2022', 'They have some work to do, but is decently queer friendly!'],
-    ['0', '0', '0', '0', '0', '1', '0', 'May 29, 2022', 'Avoid at all costs!'],
-    ['1', '1', '1', '1', '1', '5', '1', 'June 30, 2021', 'The most queer-friendly place on earth!'],
-    ['1', '0', '1', '1', '1', '', '1', 'April 1, 2022', 'I hope answering unsure does not break this page'],
-    ['1', '1', '0', '1', '0', '2', '0', 'June 1 2000', 'Meh'],
+    ['1', '0', '1', '1', '0', '3', '1', 'March 28, 2022', '(SAMPLE) They have some work to do, but is decently queer friendly!'],
+    ['0', '0', '0', '0', '0', '1', '0', 'May 29, 2022', '(SAMPLE) Avoid at all costs!'],
+    ['1', '1', '1', '1', '1', '5', '1', 'June 30, 2021', '(SAMPLE) The most queer-friendly place on earth!'],
+    ['1', '0', '1', '1', '1', '', '1', 'April 1, 2022', '(SAMPLE) Great vibe, but mostly frequented by straight folks. Not particularly a safe nor dangerous space for LGBTQ+ folx.'],
+    ['1', '1', '0', '1', '0', '2', '0', 'June 1 2000', '(SAMPLE) Feels like they tried to be queer-friendly, but ultimately are missing a lot of key features, such as queer-friendly signage.'],
   ];
 
   // TODO: check that the id is a valid location.place_id
@@ -48,6 +49,8 @@ function LocationPage() {
     getLocations();
   }, []);
 
+  // calculates the equality score for dynamic reviews. If someone has answered Unsure to a
+  // question, the score is calculated to be the mean of the possible scores
   function calculateEqualityScore(review) {
     let sum = 0;
     if (review.inclusiveLanguages !== '') {
@@ -102,6 +105,8 @@ function LocationPage() {
     return sum;
   }
 
+  // Retrieves static reviews to display equality information for locations
+  // without submitted reviews, and for testing purposes
   function getStaticReviews() {
     return (
       <Grid container item xs={6} spacing={0.5}>
@@ -120,6 +125,7 @@ function LocationPage() {
     );
   }
 
+  // Retrieves a location's TH-specific reviews submitted by other users of the web app.
   function getDynamicReviews() {
     return (
       <Grid container item xs={6} spacing={0.5}>
@@ -138,6 +144,8 @@ function LocationPage() {
     );
   }
 
+  // failsafe in case chosen location has no TH-created reviews
+  // populates with static reviews instead.
   function getTraveloReviews() {
     if (reviews === undefined) {
       return getStaticReviews();
@@ -151,7 +159,7 @@ function LocationPage() {
   return (
     <div>
       <LocationDetails
-        image="/broken-image.jpg"
+        image={logo}
         name={location.name}
         address={location.formatted_address}
         phone={location.formatted_phone_number}
@@ -181,6 +189,9 @@ function LocationPage() {
             getTraveloReviews()
           }
         </Grid>
+      </Grid>
+      <Grid item xs={12} spacing={0.5}>
+        <Link to={`review/new/${id}`}>Post a Review</Link>
       </Grid>
     </div>
   );
