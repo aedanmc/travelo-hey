@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 export default function LocationDetails({
   image, name, address, phone, link, equalityScore, numReviews,
-  googleRating, numRatings, country, countrySafety }) {
+  googleRating, numRatings }) {
   return (
     <div>
       <Grid container spacing={2}>
@@ -30,8 +30,6 @@ export default function LocationDetails({
             {googleRating}
           </Typography>
           <Typography color="text.secondary" component="div" data-testid="location-num-ratings">{numRatings}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="location-country">{country}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="location-country-safety">{countrySafety}</Typography>
         </Grid>
         <Grid item xs={6}>
           <Typography variant="h4" component="div" data-testid="location-equality-score">
@@ -55,6 +53,4 @@ LocationDetails.propTypes = {
   numReviews: PropTypes.string.isRequired,
   googleRating: PropTypes.number.isRequired,
   numRatings: PropTypes.number.isRequired,
-  country: PropTypes.string.isRequired,
-  countrySafety: PropTypes.string.isRequired,
 };

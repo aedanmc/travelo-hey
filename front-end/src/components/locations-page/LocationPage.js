@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './LocationPage.css';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
 import LocationDetails from './LocationDetails';
@@ -36,7 +36,7 @@ function LocationPage() {
         setRatings(items.reviews);
 
         const reviewsResponse = await axios.post('http://localhost:8080/reviews', { place_id: id });
-        const [elements] = [reviewsResponse.data.result];
+        const [elements] = [reviewsResponse.data];
         if (elements) {
           setReviews(elements.th_reviews);
         } else {
@@ -147,7 +147,7 @@ function LocationPage() {
   // failsafe in case chosen location has no TH-created reviews
   // populates with static reviews instead.
   function getTraveloReviews() {
-    if (reviews) {
+    if (reviews && reviews.length !== 0) {
       return getDynamicReviews();
     }
     return getStaticReviews();
@@ -190,7 +190,7 @@ function LocationPage() {
           }
         </Grid>
       </Grid>
-      <Grid item xs={12} spacing={0.5}>
+      <Grid item xs={12}>
         <Link to={`../review/new/${location.place_id}`}>Post a Review</Link>
       </Grid>
       <Outlet />
