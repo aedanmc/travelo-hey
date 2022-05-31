@@ -11,11 +11,15 @@ import PropTypes from 'prop-types';
 
 // TODO: Add styling through useTheme
 
-function SingleResult({ image, name, address }) {
+function SingleResult({ image, firstString, secondString }) {
+  function updateFormAddrData(fullAddr) {
+    return fullAddr.split(',');
+  }
+
   return (
     // <CardActionArea component={Link} to={route}>
-    <Card sx={{ display: 'flex', width: '100%', height: '100%', alignItems: 'flex-start' }}>
-      <CardActionArea sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+    <Card sx={{ maxWidth: '100%', minWidth: '100%' }}>
+      <CardActionArea sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia
           component="img"
           sx={{ width: 150 }}
@@ -24,10 +28,12 @@ function SingleResult({ image, name, address }) {
         <Box>
           <CardContent sx={{ flex: '1 0 auto', justifyContent: 'flex-start', textAlign: 'left' }}>
             <Typography variant="h6" component="div" color="dark-blue" sx={{ textTransform: 'capitalize' }}>
-              {name}
+              {firstString}
             </Typography>
             <Typography data-testid="location-details" color="text.secondary" component="div">
-              {address}
+              {updateFormAddrData(secondString).map((addrPart) => (
+                <p key={addrPart}>{addrPart}</p>
+              ))}
             </Typography>
           </CardContent>
         </Box>
@@ -37,8 +43,8 @@ function SingleResult({ image, name, address }) {
 }
 
 SingleResult.propTypes = {
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  firstString: PropTypes.string.isRequired,
+  secondString: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
 

@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 
 export default function LocationDetails({
   image, name, address, phone, link, equalityScore, numReviews,
-  googleRating, numRatings, country, countrySafety }) {
+  googleRating, numRatings }) {
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <img alt={name} src={image} />
+          <img alt={name} src={image} width="200" height="114" />
         </Grid>
         <Grid item xs={6}>
           <Typography color="text.secondary" component="div" data-testid="location-title">{name}</Typography>
@@ -22,15 +22,21 @@ export default function LocationDetails({
           }
           <Link to={link} color="text.secondary" component="div" data-testid="location-link">Website</Link>
         </Grid>
+        {// TODO: improve styling - text above reviews does not appear to be centered properly
+        }
         <Grid item xs={6}>
-          <Typography variant="h4" component="div" data-testid="location-equality-score">{equalityScore}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="location-num-reviews">{numReviews}</Typography>
+          <Typography variant="h4" component="div" data-testid="location-google-rating">
+            Google Rating:
+            {googleRating}
+          </Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-num-ratings">{numRatings}</Typography>
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h4" component="div" data-testid="location-google-rating">{googleRating}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="location-num-ratings">{numRatings}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="location-country">{country}</Typography>
-          <Typography color="text.secondary" component="div" data-testid="location-country-safety">{countrySafety}</Typography>
+          <Typography variant="h4" component="div" data-testid="location-equality-score">
+            Equality Score:
+            {equalityScore}
+          </Typography>
+          <Typography color="text.secondary" component="div" data-testid="location-num-reviews">{numReviews}</Typography>
         </Grid>
       </Grid>
     </div>
@@ -38,15 +44,25 @@ export default function LocationDetails({
 }
 
 LocationDetails.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  equalityScore: PropTypes.string.isRequired,
-  numReviews: PropTypes.string.isRequired,
-  googleRating: PropTypes.string.isRequired,
-  numRatings: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
-  countrySafety: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  address: PropTypes.string,
+  phone: PropTypes.string,
+  link: PropTypes.string,
+  equalityScore: PropTypes.number,
+  numReviews: PropTypes.string,
+  googleRating: PropTypes.number,
+  numRatings: PropTypes.number,
+};
+
+LocationDetails.defaultProps = {
+  image: '',
+  name: '',
+  address: '',
+  phone: '',
+  link: '',
+  equalityScore: 0,
+  numReviews: '',
+  googleRating: 0,
+  numRatings: 0,
 };

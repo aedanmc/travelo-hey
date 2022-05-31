@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 export default function SingleReview({ name, pic, link, rating, relativeTime, text }) {
   return (
     <div>
-      <Card sx={{ display: 'flex', width: '50%', alignItems: 'flex-start' }}>
+      <Card sx={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
         <CardHeader>
           <Link to={link}>
             avatar=
@@ -46,7 +46,7 @@ SingleReview.propTypes = {
   name: PropTypes.string.isRequired,
   pic: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   relativeTime: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
