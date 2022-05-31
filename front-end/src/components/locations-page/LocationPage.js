@@ -55,7 +55,7 @@ function LocationPage() {
           setReviews(undefined);
         }
       } catch (err) {
-        alert(err);
+        console.log(err);
       }
     };
     getLocations();
@@ -65,49 +65,49 @@ function LocationPage() {
   // question, the score is calculated to be the mean of the possible scores
   function calculateEqualityScore(review) {
     let sum = 0;
-    if (review.inclusiveLanguages !== '') {
-      console.log(parseInt(review.inclusiveLanguages, 10));
+    if (!Number.isNaN(parseInt(review.inclusiveLanguages, 10))) {
+      // console.log(parseInt(review.inclusiveLanguages, 10));
       sum += parseInt(review.inclusiveLanguages, 10);
     } else {
       sum += 0.5;
     }
-    if (review.neutralRestrooms !== '') {
-      console.log(parseInt(review.inclusiveLanguages, 10));
+    if (!Number.isNaN(parseInt(review.neutralRestrooms, 10))) {
+      // console.log(parseInt(review.neutralRestrooms, 10));
       sum += parseInt(review.neutralRestrooms, 10);
     } else {
       sum += 0.5;
     }
-    if (review.queerBusinessPromotions !== '') {
-      console.log(parseInt(review.inclusiveLanguages, 10));
+    if (!Number.isNaN(parseInt(review.queerBusinessPromotions, 10))) {
+      // console.log(parseInt(review.queerBusinessPromotions, 10));
       sum += parseInt(review.queerBusinessPromotions, 10);
     } else {
       sum += 0.5;
     }
-    if (review.accessibility !== '') {
-      console.log(parseInt(review.inclusiveLanguages, 10));
+    if (!Number.isNaN(parseInt(review.accessibility, 10))) {
+      // console.log(parseInt(review.accessibility, 10));
       sum += parseInt(review.accessibility, 10);
     } else {
       sum += 0.5;
     }
-    if (review.queerSignage !== '') {
-      console.log(parseInt(review.inclusiveLanguages, 10));
+    if (!Number.isNaN(parseInt(review.queerSignage, 10))) {
+      // console.log(parseInt(review.queerSignage, 10));
       sum += parseInt(review.queerSignage, 10);
     } else {
       sum += 0.5;
     }
-    if (review.safety !== '') {
-      console.log(parseInt(review.inclusiveLanguages, 10));
+    if (!Number.isNaN(parseInt(review.safety, 10))) {
+      // console.log(parseInt(review.safety, 10));
       sum += parseInt(review.safety, 10);
     } else {
       sum += 2.5;
     }
-    if (review.recommendedBusiness !== '') {
-      console.log(parseInt(review.inclusiveLanguages, 10));
+    if (!Number.isNaN(parseInt(review.recommendedBusiness, 10))) {
+      // console.log(parseInt(review.recommendedBusiness, 10));
       sum += parseInt(review.recommendedBusiness, 10);
     } else {
       sum += 0.5;
     }
-    console.log(sum);
+    // console.log(sum);
     return sum;
   }
 
@@ -131,15 +131,17 @@ function LocationPage() {
     return (
       <Grid container item xs={6} spacing={0.5}>
         {staticReviews.map((staticReview) => (
-          <Grid item xs={12}>
-            <SingleReviewTravelo
-              equalityScore={
-                calculateEqualityScoreStatic(staticReview)
-              }
-              relativeTime={staticReview[7]}
-              text={staticReview[8]}
-            />
-          </Grid>
+          <React.Fragment key={staticReview[8]}>
+            <Grid item xs={12}>
+              <SingleReviewTravelo
+                equalityScore={
+                  calculateEqualityScoreStatic(staticReview)
+                }
+                relativeTime={staticReview[7]}
+                text={staticReview[8]}
+              />
+            </Grid>
+          </React.Fragment>
         ))}
       </Grid>
     );
@@ -150,15 +152,17 @@ function LocationPage() {
     return (
       <Grid container item xs={6} spacing={0.5}>
         {reviews.map((review) => (
-          <Grid item xs={12}>
-            <SingleReviewTravelo
-              equalityScore={
-                calculateEqualityScore(review)
-              }
-              relativeTime={review.createdAt}
-              text={review.review}
-            />
-          </Grid>
+          <React.Fragment key={review.review}>
+            <Grid item xs={12}>
+              <SingleReviewTravelo
+                equalityScore={
+                  calculateEqualityScore(review)
+                }
+                relativeTime={review.createdAt}
+                text={review.review}
+              />
+            </Grid>
+          </React.Fragment>
         ))}
       </Grid>
     );
@@ -192,16 +196,18 @@ function LocationPage() {
       <Grid container spacing={0.5}>
         <Grid container item xs={6}>
           {ratings.map((rating) => (
-            <Grid item xs={12}>
-              <SingleReview
-                name={rating.author_name}
-                pic={rating.profile_photo_url}
-                link={rating.author_url}
-                rating={rating.rating}
-                relativeTime={rating.relative_time_description}
-                text={rating.text}
-              />
-            </Grid>
+            <React.Fragment key={rating.text}>
+              <Grid item xs={12}>
+                <SingleReview
+                  name={rating.author_name}
+                  pic={rating.profile_photo_url}
+                  link={rating.author_url}
+                  rating={rating.rating}
+                  relativeTime={rating.relative_time_description}
+                  text={rating.text}
+                />
+              </Grid>
+            </React.Fragment>
           ))}
         </Grid>
         <Grid container item xs={6} spacing={0.5}>
@@ -210,7 +216,7 @@ function LocationPage() {
           }
         </Grid>
       </Grid>
-      <Grid item xs={12} spacing={0.5}>
+      <Grid item xs={12}>
         <Button variant="contained" href={`../business/${location.place_id}/review`} sx={{ marginTop: 3, marginBottom: 3 }}>
           Post a Review
         </Button>

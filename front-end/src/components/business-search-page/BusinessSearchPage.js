@@ -91,15 +91,17 @@ function BusinessSearchPage({ debug }) {
       <Container sx={{ marginTop: 3, padding: 2, width: '100%' }}>
         <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {searchBusiness.map((item) => (
-            <Grid item xs={6}>
-              <Link key={item.place_id} to={`/business/${item.place_id}`}>
-                <SingleResult
-                  image={item.icon}
-                  firstString={item.name}
-                  secondString={item.formatted_address}
-                />
-              </Link>
-            </Grid>
+            <React.Fragment key={item.place_id}>
+              <Grid item xs={6}>
+                <Link key={item.place_id} to={`/business/${item.place_id}`}>
+                  <SingleResult
+                    image={item.icon}
+                    firstString={item.name}
+                    secondString={item.formatted_address}
+                  />
+                </Link>
+              </Grid>
+            </React.Fragment>
           ))}
         </Grid>
         <Outlet />
