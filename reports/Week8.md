@@ -66,8 +66,13 @@
     - Complete my assigned parts for final video
 2. Progress and Issues
     - Progress
+        - Completed implementation for business page with support for displaying submitted equality reviews
+        - Cleaned up business page to fix styling issues and to improve visual layout/apperance of page
+        - Assisted in development of review submissions page and in debugging errors with posting/viewing reviews
     - Issues
+        - Missed initial soft deadline for implementations - caught up over the long weekend
 3. Plans and Goals for Next Week
+    - Complete Reflection assignment to finish off project
     
 
 
