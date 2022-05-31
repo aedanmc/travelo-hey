@@ -11,13 +11,15 @@ ___
 - [Countries Endpoint](#Countries-Endpoint)
 - [Country Endpoint](#Country-Endpoint)
 - [Reviews Endpoint](#Reviews-Endpoint)
-- [Reviews/New Endpoint](#Reviews/New-Endpoint)
+- [Reviews/New Endpoint](#reviewsnew-endpoint)
 - [Search Endpoint](#Search-Endpoint)
-- [States Endpoint](#States Endpoint)
+- [States Endpoint](#states-endpoint)
 
 ---
 
 ## Activities Endpoint
+
+[Table of Contents](#contents)
 
 **Request Format:** `/activities`
 
@@ -45,6 +47,8 @@ ___
 ---
 
 ## Business Endpoint
+
+[Table of Contents](#contents)
 
 **Request Format:** `/business`
 
@@ -425,6 +429,8 @@ webesite: string                                // The authoritative website for
 
 ## Cities Endpoint
 
+[Table of Contents](#contents)
+
 **Request Format:** `/cities`
 
 **Request Type:** POST
@@ -467,6 +473,8 @@ Form Parameters
 ---
 
 ## Countries Endpoint
+
+[Table of Contents](#contents)
 
 **Request Format:** `/countries`
 
@@ -559,6 +567,8 @@ Form Parameters
 
 ## Country Endpoint
 
+[Table of Contents](#contents)
+
 **Request Format:** `/country`
 
 **Request Type:** POST
@@ -626,6 +636,8 @@ propagandaMoralityLaws: string                     // Whether the country has la
 
 ## Reviews Endpoint
 
+[Table of Contents](#contents)
+
 **Request Format:** `/reviews`
 
 **Request Type:** POST
@@ -661,6 +673,8 @@ Form Parameters
 ---
 
 ## Reviews/New Endpoint
+
+[Table of Contents](#contents)
 
 **Request Format:** `/reviews/new`
 
@@ -732,6 +746,8 @@ recommendedBusiness: number           // Would you recommend this business to a 
 ---
 
 ## Search Endpoint
+
+[Table of Contents](#contents)
 
 **Request Format:** `/search`
 
@@ -810,6 +826,8 @@ user_rating_total: number              // The total number of reviews, with or w
 ---
 
 ## States Endpoint
+
+[Table of Contents](#contents)
 
 **Request Format:** `/states`
 
