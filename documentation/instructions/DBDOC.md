@@ -55,12 +55,5 @@ After utilizing the call to database, we must close the connetion:
 |INSERT               |Insert a new entry in the table                      |
 
 ### Database Schema
+![Schema](Travelo-Hey!-Diagram.png)
 
-##### Countries
-![Countries](countries.jpg)
-
-##### Users
-![Users](users.jpg)
-
-##### Reviews
-![Reviews](reviews.jpg)
