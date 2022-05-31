@@ -7,7 +7,7 @@
 
 
 ## Agenda
-1. 
+1. Final comments/feedback for the team
 
 ## Team Report
 1. Plans and Goals from Last Week
@@ -16,12 +16,20 @@
     - Finalize landing/search page
     - Continue writing test cases for new implementations
     - Complete video/demo for final release assignment
+    - Updated documentation
+    - PR and Issue Tracker Templates
 2. Progress and Issues
     - Progress
-      - 
+       - Finalize country page
+       - Finalize review page
+       - Finalize landing/search page
+       - Complete video/demo for final release assignment
+       - Updated documentation
+       - PR and Issue Tracker Templates
     - Issues
-      - 
+       - Continue writing test cases for new implementations
 3. Plans and Goals for Next Week
+    - Complete the individual reflection
     
 
 
@@ -56,8 +64,14 @@
     - Record demo for the final release
 2. Progress and Issues
     - Progress
+       - Add comments to the search page
+       - Fix API documentation
+       - Refactor back-end
+       - Record demo for the final release
     - Issues
+       - Add error handling to the search page (lack of time)
 3. Plans and Goals for Next Week
+    - Complete the individual reflection
 
 ### Matt Broom (he/they)
 1. Plans and Goals from Last Week
