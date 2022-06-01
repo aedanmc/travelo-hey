@@ -13,6 +13,14 @@ import Typography from '@mui/material/Typography';
 import { RadioGroup } from '@mui/material';
 import ReviewInputRating from './ReviewInputRating';
 
+/**
+ * Functional component for rendering a dynamic version of the review submission page
+ * for the Travelo-Hey! web app.
+ *
+ * @param { debug } debug: a testing flag for identifying
+ * whether static or dynamic data fetching will be used.
+ * @returns the review submission page for Travelo-Hey!'s web app.
+ */
 export default function ReviewSubmissionPage({ debug }) {
   const params = useParams();
   let id = params.place_id;
@@ -20,10 +28,11 @@ export default function ReviewSubmissionPage({ debug }) {
     id = 'test';
   }
   // random user ID generator
+  // user IDs in server range from 1-11
   const user = (Math.floor(Math.random() * 11) + 1);
 
   // default form value and structure given
-  // note: passed if values have no changes
+  // note: passed if form values have no changes
   const defaultValues = {
     userID: user,
     place_id: id,
@@ -42,7 +51,11 @@ export default function ReviewSubmissionPage({ debug }) {
   const { handleSubmit, control } = methods;
   const navigate = useNavigate();
 
-  // POST request to back-end
+  /**
+  * Sends the review submission to the database
+  *
+  * @returns {Promise<void>} reviews object in the database
+  */
   async function postReview(data) {
     try {
       const response = await axios.post(
@@ -55,16 +68,21 @@ export default function ReviewSubmissionPage({ debug }) {
     }
   }
 
+  // submits review to database and redirects user to home page
   const onSubmit = (data) => {
     console.log(data);
     postReview(data);
-    // potential SnackBar/toast message upon successful post?
-    navigate('/');
     // note: using <Link> to="/" did not redirect page properly
+    navigate('/');
   };
 
   // creates a singular radio/multiple choice form question and label
   // for each required rating question
+  /**
+  * Creates a singular rating multiple choice question that contributes to the equality rating
+  *
+  * @returns the radio options and question to be answered
+  */
   function renderQuestion(onChange, value, testID, formID, question, safety) {
     return (
       <FormControl data-testid={testID}>
@@ -85,6 +103,10 @@ export default function ReviewSubmissionPage({ debug }) {
     );
   }
 
+  /**
+  * Returns the content for the review submission page, including all 7 equality rating
+  * questions and the text input field for an experience comment. 
+  */
   return (
     <Container>
       <Typography variant="h6" data-testid="review-submission-title" sx={{ marginTop: 2, marginBottom: 2 }}> Write Your Review </Typography>
