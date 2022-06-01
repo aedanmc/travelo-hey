@@ -105,7 +105,7 @@ export default function ReviewSubmissionPage({ debug }) {
 
   /**
   * Returns the content for the review submission page, including all 7 equality rating
-  * questions and the text input field for an experience comment. 
+  * questions and the text input field for an experience comment.
   */
   return (
     <Container>
