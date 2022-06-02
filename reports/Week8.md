@@ -30,7 +30,7 @@
        - Continue writing test cases for new implementations
 3. Plans and Goals for Next Week
     - Complete the individual reflection
-    
+
 
 
 ## Team Member Contributions
@@ -47,7 +47,7 @@
     - Issues
         - The testing is incomplete for front end, but there is no longer
         any time to add more tests.
-        - There are still bugs related to the front end that need fixing 
+        - There are still bugs related to the front end that need fixing
         (also no longer any time to fix those bugs)
 3. Plans and Goals for Next Week
     - Plans
@@ -109,7 +109,7 @@
         - Missed initial soft deadline for implementations - caught up over the long weekend
 3. Plans and Goals for Next Week
     - Complete Reflection assignment to finish off project
-    
+
 
 
 ### Mike Harris (they/them)
@@ -120,6 +120,13 @@
    - Complete slides for Roles and Responsibilities, Testing and Tooling
    - Record Roles and Responsibilities, Testing and Tooling
 2. Progress and Issues
-    - Progress
-    - Issues
+   - Progress
+      - Style search page
+      - Refactor back-end
+      - Add documentation to modularized back-end files
+      - Update API documentation
+      - Make contribution to final release presentation
+   - Issues
+      - None at this time
 3. Plans and Goals for Next Week
+   - Complete individual reflection
