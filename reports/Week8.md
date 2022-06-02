@@ -40,8 +40,20 @@
    - Complete the technical challenges portion of the final video
 2. Progress and Issues
     - Progress
+        - Finished countries page and got it to a working state similar
+        to that of the business search page
+        - Completed technical challenges portion of final video
+        - Updated API documentation to improve navigation
     - Issues
+        - The testing is incomplete for front end, but there is no longer
+        any time to add more tests.
+        - There are still bugs related to the front end that need fixing 
+        (also no longer any time to fix those bugs)
 3. Plans and Goals for Next Week
+    - Plans
+        - Finish individual reflection
+    - Goals
+        - Same as plans
 
 
 ### Alex Zuniga (they/she/he)
