@@ -64,8 +64,18 @@
     - Slides and final project presentation
 2. Progress and Issues
     - Progress
+        - Finished Review Submission page and components
+        - Connected back-end to save reviews to the server
+        - Added slide content and recorded video
+        - Added source code documentation
+        - Edited the living document
     - Issues
+        - Bugs and incomplete aspects that were not able to be finished prior to final released deadline
+        - Forgot to add source code documentation for ReviewInputRating component
+        - Need to clean up source code documentation for other front-end components
+        - Did not get enough time to finish dynamic styling
 3. Plans and Goals for Next Week
+    - Finish final reflection
 
 
 ### Camila Christensen (she/they)
